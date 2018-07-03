@@ -87,5 +87,15 @@ public class User {
     public void setIntroduce(String introduce) {
     	this.introduce = introduce;
     }
-   
+
+	public String getSchool()
+	    {
+	    	return school;
+	    }
+	    
+	    public void setSchool(String school) {
+	    	this.school = school;
+	    }
+	    
+    
 }
