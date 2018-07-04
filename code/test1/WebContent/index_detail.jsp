@@ -3,15 +3,15 @@
 <html>
 <head>
 <title>网站主界面</title>
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css'>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+
 
 <link href='https://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
-
+<link href="css/style.css" rel='stylesheet' type='text/css'>
 <script>
 $(document).ready(function(){
     $(".dropdown").hover(            
@@ -25,259 +25,124 @@ $(document).ready(function(){
         }
     );
 });
-
-function addNode(){
-	var id=document.all.nodeId.value;
-	/* window.location.href="AddNodeManager.jsp?id="+id; */
-	window.location.href="video.jsp";
-	
-}
-
-/* ------return top------------ */
-  $(function(){
-    $(window).scroll(function(){
-      var topDistance=$(window).scrollTop();  //获取鼠标在本窗口现有状态下移动的高度
-      if(topDistance>100){  //如果移动高度大于100px,顶部图标单单显示出，如果移动高度小于等于100，顶部图标不显示
-        $('.return_top').fadeIn(800);
-      }else{
-        $('.return_top').fadeOut(800);
-      }
-    });
-    $('.return_top').on('click',function(){
-      $('html,body').animate({scrollTop:0},800); //必须用$('html,body')选择，不然没效果
-    })
-  });
-
- 
 </script>
 
-<style>
- body,div,ul,li,a,img{margin: 0;padding: 0;}
-  ul,li{list-style: none;}
-  a{text-decoration: none;}
- 
-  #wrapper{position: relative;margin: 30px auto;width: 400px;height: 200px;}
-  #banner{position:relative;width: 400px;height: 200px;overflow: hidden;}
-  .imgList{position:relative;width:2000px;height:200px;z-index: 10;overflow: hidden;}
-  .imgList li{float:left;display: inline;}
-  #prev,
-  #next{position: absolute;top:80px;z-index: 20;cursor: pointer;opacity: 0.2;filter:alpha(opacity=20);}
-  #prev{left: 10px;}
-  #next{right: 10px;}
-  #prev:hover,
-  #next:hover{opacity: 0.5;filter:alpha(opacity=50);}
-  .bg{position: absolute;bottom: 0;width: 400px;height: 40px;z-index:20;opacity: 0.4;filter:alpha(opacity=40);background: black;}
-  .infoList{position: absolute;left: 10px;bottom: 10px;z-index: 30;}
-  .infoList li{display: none;}
-  .infoList .infoOn{display: inline;color: white;}
-  .indexList{position: absolute;right: 10px;bottom: 5px;z-index: 30;}
-  .indexList li{float: left;margin-right: 5px;padding: 2px 4px;border: 2px solid black;background: grey;cursor: pointer;}
-  .indexList .indexOn{background: red;font-weight: bold;color: white;}
-
-
-*{padding: 0;margin:0;list-style: none;text-decoration: none;font-family:Microsoft YaHei}
-.ul2{margin:30px 0 0 50px;width: 800px;height: 200px;}
-
-.ul2 li{float: left; margin-right: 20px;}
-
-nav .box2{width: 225px;height: 175px;box-shadow: 0 4px 20px #ccc;position: relative;overflow: hidden;cursor: pointer;transition: 0.5s}
-nav .ul2 .first{background: #fff;position: absolute;top:105px;}
-nav .ul2 .first .top2{width: 225px;height: 40px;text-align: center;line-height: 40px;font-size: 15px;}
-nav .ul2 .box2 .bottom2{width: 205px;height: 30px;line-height: 30px;font-size: 12px;color:#999;padding: 0 10px}
-nav .ul2 .box2 .bottom2 span{float: right;}
-nav .ul2 .last{background: #fff;position: absolute;top:105px;display: none;}
-nav .ul2 .last .top2{color: #666;font-size: 12px;text-align: center;width: 225px;height: 30px;padding: 5px 0}
-nav .ul2 .box2 img{transition: 1.5s}
-nav .ul2 .box2:hover img{transform: scale(1.3); }
-nav .ul2 .box2:hover .last{display: block;}
-nav .ul2 .box2:hover{box-shadow: 0 4px 30px #B2B2B2;}
-
-.return_top{ 
-  width: 50px; 
-  height: 50px; 
-  background: url(images/top.png) no-repeat center #FF8D16; 
-  position:fixed; 
-  right: 30px; 
-  bottom: 30px; 
-  display: none; 
-  cursor: pointer; 
-  z-index: 99;
-}
- 
-</style>
 </head>
 
 <body>
 <div class="header">
-		<div class="container">
-		    <div class="col-sm-9 logo_right">
-			<span class="menu"></span>
-			<div class="top-menu">
-				<ul>
-					<li><a href="#" class="btn btn-default btn-default_2 pull-left" data-toggle="modal" data-target="#applyModal">登录</a></li>
-					<li><a href="#" class="btn btn-default btn-default_2 pull-left" data-toggle="modal" data-target="#applyModal_1">注册</a></li>
-				</ul>
-			</div>
+	<div class="container">
+	
+		<div class="top-menu">
+			<ul>
+				<li><a href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal">登录</a></li>
+				<li><a href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1">注册</a></li>
+			</ul>
+		</div>
 		
-			<div class="clearfix"> </div>
-				<div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
-				  	<div class="modal-dialog modal-dialog_2">
-				    	<div class="modal-content">
-					      	<div class="modal-header">
-					        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-					        	<h4 class="modal-title" id="myModalLabel">
-					        		<div class="head_4">
-			                          <p>login</p>
-			                        </div>
-			                    </h4>
-					      	</div>
-	                        <div class="modal-body">
-                             <form class="register">
-                               <div class="section">
-                                <label for="username" class="field prepend-icon">
-                                    <input type="text" name="username" id="username" placeholder="Username">
-                                    <label for="username" class="field-icon">
-                                        <i class="fa fa-user"></i>
-                                    </label>
-                                </label>
-                               </div>
-                               <div class="section">
-                                <label for="password" class="field prepend-icon">
-                                    <input type="password" name="password" id="password" placeholder="Password">
-                                    <label for="password" class="field-icon">
-                                        <i class="fa fa-lock"></i>
-                                    </label>
-                                </label>
-                               </div>
-                             <div class="section">
-                                <div class="submit"><input type="submit" onclick="myFunction()" value="登录"></div>
-                             </div>
-                             <ul class="new">
-                                <li class="new"><p class="sign">没有账号 ?&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#applyModal_1">注册</a></p></li>
-						     </ul>
-                           </form>
-                        </div>
-				    </div>
-				 </div>
-				</div>
-				 <!-- Modal -->
-				<div class="modal fade" id="applyModal_1" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
-				  	<div class="modal-dialog dialog_3">
-				    	<div class="modal-content">
-					      	<div class="modal-header">
-					        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-					        	<h4 class="modal-title" id="myModalLabel"><div class="head_4">
-			                         <p>Register</p>
-			                        </div></h4>
-					      	</div>
-					      	<form name="row" method="post" class="register">
-					      		
-	                            <!-- <div class="section">
-                                  <label for="hhhhh" class="field prepend-icon">
-                                    <select path="country" id="country" class="form-control input-sm">
-				                        <option value="">学生用户</option>
-				                        <option value="">教师用户</option>
-				                    </select>
-				                  </label>
-                                </div> -->
-                                
-	                            <div class="section">
-                                  <label for="username" class="field prepend-icon">
-                                    <input type="text" name="email id" id="Email id" placeholder="Username">
-                                    <label for="email id" class="field-icon">
-                                        <i class="fa fa-user"></i>
-                                    </label>
-                                  </label>
+			
+		<div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog_1">
+				<div class="modal-content">
+							    	
+				    <div class="modal-header">
+					    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					    <h4 class="modal-title" id="myModalLabel">
+					        <div class="head_4"><p>login</p></div>
+			            </h4>
+					</div>
+					      	
+	                <div class="modal-body">
+                        <form name=row class="login" action="doLogin" method="post">
+                             
+                            <div class="section">
+                                <input type="text" name="userid" id="userid" placeholder="请输入账号">                               
+                            </div>
+                            <div class="section">
+                                <input type="password" name="password" id="password" placeholder="请输入密码">
+                            </div>
+                            <div class="section">
+                                <div class="submit">
+                                    <input type="submit" name="submit" onclick="myFunction()" value="登录">
                                 </div>
+                            </div>
                                
-                               <div class="section">
-                                 <label for="password" class="field prepend-icon">
-                                    <input type="password" name="password" id="password" placeholder="Password">
-                                    <label for="password" class="field-icon">
-                                        <i class="fa fa-lock"></i>
-                                    </label>
-                                 </label>
-                               </div>
-                               
-                               <div class="section">
-                                 <label for="password" class="field prepend-icon">
-                                    <input type="password" name="password" id="password" placeholder="Password Again">
-                                    <label for="password" class="field-icon">
-                                        <!-- <i class="fa fa-lock"></i> -->
-                                    </label>
-                                 </label>
-                               </div>
-                               
-                               
-                               <div class="section">
-                                  <label for="username" class="field prepend-icon">
-                                    <input type="text" name="mobile number" id="Mobile Number" placeholder="Your name">
-                                    <label for="mobile number" class="field-icon">
-                                        <i class="fa fa-phone"></i>
-                                    </label>
-                                  </label>
-                               </div>
-                               
-                               <div class="section">
-                                  <label for="name" class="field prepend-icon">
-                                    <select path="country" id="country" class="form-control input-sm">
-				                        <option value="">Select Country</option>
-				                        <option value="">Japan</option>
-				                        <option value="">Kenya</option>
-				                        <option value="">Dubai</option>
-				                        <option value="">Italy</option>
-				                        <option value="">Greece</option> 
-				                        <option value="">Iceland</option> 
-				                        <option value="">China</option> 
-				                        <option value="">Doha</option> 
-				                        <option value="">Irland</option> 
-				                        <option value="">Srilanka</option> 
-				                        <option value="">Russia</option> 
-				                        <option value="">Hong Kong</option> 
-				                        <option value="">Germany</option>
-				                        <option value="">Canada</option>  
-				                        <option value="">Mexico</option> 
-				                        <option value="">Nepal</option>
-				                        <option value="">Norway</option> 
-				                        <option value="">Oman</option>
-				                        <option value="">Pakistan</option>  
-				                        <option value="">Kuwait</option> 
-				                        <option value="">Indonesia</option>  
-				                        <option value="">Spain</option>
-				                        <option value="">Thailand</option>  
-				                        <option value="">Saudi Arabia</option> 
-				                        <option value="">Poland</option> 
-				                    </select>
-                                    <label for="name" class="field-icon">
-                                        <i class="fa fa-user"></i>
-                                    </label>
-                                  </label>
-                               </div>
-                               
-                               <div class="section">
-                                  <div class="submit"><input type="submit" onclick="myFunction()" value="提交"></div>
-                               </div>
-                               <div class="checkbox check_1">
-									<input id="check1" type="checkbox" name="check" value="check1">
-									<label for="check1">我同意服务条款和隐私政策</label>
-							   </div>
-						  </form>
-                     </div>
-		         </div>
+                            <ul class="new">
+                                <li class="new">
+                                    <p class="sign">没有账号 ?&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#applyModal_1">注册</a></p>
+                                </li>
+						    </ul>
+                             
+                        </form>
+                    </div>
+				</div>
+		    </div>
+		</div>
+
+		<div class="modal fade" id="applyModal_1" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog_2">
+				<div class="modal-content">
+					<div class="modal-header">
+					    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					    <h4 class="modal-title" id="myModalLabel">
+					        <div class="head_4"><p>Register</p></div>
+			            </h4>
+					</div>
+					
+					<div class="modal-body">
+					    <form name="row" class="register" action="doRegister" method="post">
+					        <div class="section">
+                                <input type="text" name="userid" id="userid" placeholder="请输入账号">
+                            </div>   
+                            <div class="section">
+                                <input type="password" name="password" id="password" placeholder="请输入密码">
+                            </div>               
+                            <div class="section">
+                                <input type="password" name="password2" id="password2" placeholder="请确认密码">
+                            </div>
+                            <div class="section">
+                                <input type="text" name="username" id="username" placeholder="请输入昵称">
+                            </div>                         
+                            <div class="section">                                  
+                                <select id="country" class="form-control input-sm">
+				                    <option value="">请选择省份</option>
+				                    <option value="">北京</option>
+				                    <option value="">上海</option>
+				                    <option value="">江苏</option>
+				                    <option value="">河南</option>
+				                    <option value="">湖北</option> 
+				                    <option value="">河北</option> 
+				                    <option value="">浙江</option> 
+				                    <option value="">吉林</option> 
+				                    <option value="">广西</option> 
+				                    <option value="">广东</option> 
+				                </select>                             
+                            </div>                              
+                            <div class="section">
+                                <div class="submit"><input type="submit" onclick="myFunction()" value="提交"></div>
+                            </div>
+                            <div class="checkbox check_1">
+							    <input id="check1" type="checkbox" name="check" value="check1">
+							    <label for="check1">我同意服务条款和隐私政策</label>
+							</div>
+						</form>      			                                       
+	                </div>     
+                 </div>
 		     </div>
-			<div class="clearfix"></div>
 		 </div>
-	   </div>
+		 
+	</div>
 </div>
 
- <div id="wrapper"><!-- 最外层部分 -->
+
+<div id="wrapper"><!-- 最外层部分 -->
     <div id="banner"><!-- 轮播部分 -->
       <ul class="imgList"><!-- 图片部分 -->
-        <li><a href="#"><img src="./img/test1.jpg" width="400px" height="200px" alt="puss in boots1"></a></li>
-      <li><a href="#"><img src="./img/test2.jpg" width="400px" height="200px" alt="puss in boots2"></a></li>
-      <li><a href="#"><img src="./img/test3.jpg" width="400px" height="200px" alt="puss in boots3"></a></li>
-      <li><a href="#"><img src="./img/test4.jpg" width="400px" height="200px" alt="puss in boots4"></a></li>
-      <li><a href="#"><img src="./img/test5.jpg" width="400px" height="200px" alt="puss in boots5"></a></li>
+      <li><a href="#"><img src="picture/2.jpg" width="1500px" height="500px" alt="puss in boots1"></a></li>
+      <li><a href="#"><img src="picture/3.jpg" width="1500px" height="500px" alt="puss in boots2"></a></li>
+      <li><a href="#"><img src="picture/4.jpg" width="1500px" height="500px" alt="puss in boots3"></a></li>
+      <li><a href="#"><img src="picture/5.jpg" width="1500px" height="500px" alt="puss in boots4"></a></li>
+      <li><a href="#"><img src="picture/6.jpg" width="1500px" height="500px" alt="puss in boots5"></a></li>
       </ul>
       <img src="./img/prev.png" width="20px" height="40px" id="prev">
       <img src="./img/next.png" width="20px" height="40px" id="next">
@@ -297,8 +162,8 @@ nav .ul2 .box2:hover{box-shadow: 0 4px 30px #B2B2B2;}
         <li>5</li>
       </ul>
     </div>
-  </div>
-  <script type="text/javascript">
+</div>
+<script type="text/javascript">
   var curIndex = 0, //当前index
       imgArr = getElementsByClassName("imgList")[0].getElementsByTagName("li"), //获取图片组
       imgLen = imgArr.length,
@@ -383,7 +248,7 @@ nav .ul2 .box2:hover{box-shadow: 0 4px 30px #B2B2B2;}
   function changeTo(num){ 
     //设置image
     var imgList = getElementsByClassName("imgList")[0];
-    goLeft(imgList,num*400); //左移一定距离
+    goLeft(imgList,num*1500); //左移一定距离
     //设置image 的 info
     var curInfo = getElementsByClassName("infoOn")[0];
     removeClass(curInfo,"infoOn");
@@ -397,7 +262,7 @@ nav .ul2 .box2:hover{box-shadow: 0 4px 30px #B2B2B2;}
  
   //图片组相对原始左移dist px距离
   function goLeft(elem,dist){ 
-    if(dist == 400){ //第一次时设置left为0px 或者直接使用内嵌法 style="left:0;"
+    if(dist == 1500){ //第一次时设置left为0px 或者直接使用内嵌法 style="left:0;"
       elem.style.left = "0px";
     }
     var toLeft; //判断图片移动方向是否为左
@@ -408,18 +273,22 @@ nav .ul2 .box2:hover{box-shadow: 0 4px 30px #B2B2B2;}
     }else{ 
       toLeft = true;
     }
-   for(var i=0;i<= dist/20;i++){ //这里设定缓慢移动，10阶每阶40px
-      (function(_i){ 
+   for(var i=0;i<=dist/20;i++)
+   {//这里设定缓慢移动，10阶每阶40px
+      (function(_i)
+    		  { 
         var pos = parseInt(elem.style.left); //获取当前left
-        setTimeout(function(){ 
+        setTimeout(function()
+        		{ 
           pos += (toLeft)? -(_i * 20) : (_i * 20); //根据toLeft值指定图片组位置改变
           //console.log(pos);
           elem.style.left = pos + "px";
         },_i * 25); //每阶间隔50毫秒
       })(i);
     }
-    
   }
+    
+  
  
   //通过class获取节点
   function getElementsByClassName(className){ 
@@ -452,116 +321,82 @@ nav .ul2 .box2:hover{box-shadow: 0 4px 30px #B2B2B2;}
          obj.className = obj.className.replace(reg,'');
     }
   }
- 
-  </script>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <nav>
-<ul class="ul2">
-<li>
-<div class="box2">
-<img src="../img/01.jpg" onClick="addNode();"/>
-<div class="first">
-<p class="top2">PHP入门篇</p>
-<p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
-</div>
-
-<div class="last">
-<p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
-<p class="bottom2">2015-08-17<span>272648人学习</span></p>
-</div>
-</div>
-</li>
-<li>
-<div class="box2">
-<img src="../img/01.jpg" onClick="addNode();"/>
-<div class="first">
-<p class="top2">PHP入门篇</p>
-<p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
-</div>
-
-<div class="last">
-<p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
-<p class="bottom2">2015-08-17<span>272648人学习</span></p>
-</div>
-</div>
-</li>
-
-<li>
-<div class="box2">
-<img src="../img/01.jpg" onClick="addNode();"/>
-<div class="first">
-<p class="top2">PHP入门篇</p>
-<p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
-</div>
-
-
-<div class="last">
-<p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
-<p class="bottom2">2015-08-17<span>272648人学习</span></p>
-</div>
-</div>
-</li>
-
-
-<li>
-<div class="box2">
-<img src="../img/01.jpg" onClick="addNode();"/>
-<div class="first">
-<p class="top2">PHP入门篇</p>
-<p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
-</div>
-
-
-<div class="last">
-<p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
-<p class="bottom2">2015-08-17<span>272648人学习</span></p>
-</div>
-</div>
-</li>
-<li>
-<div class="box2">
-<img src="../img/01.jpg" onClick="addNode();"/>
-<div class="first">
-<p class="top2">PHP入门篇</p>
-<p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
-</div>
-
-
-<div class="last">
-<p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
-<p class="bottom2">2015-08-17<span>272648人学习</span></p>
-</div>
-</div>
-</li>
-<li>
-<div class="box2">
-<img src="../img/01.jpg" onClick="addNode();"/>
-<div class="first">
-<p class="top2">PHP入门篇</p>
-<p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
-</div>
-
-
-<div class="last">
-<p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
-<p class="bottom2">2015-08-17<span>272648人学习</span></p>
-</div>
-</div>
-</li>
-
-
-</ul>
+    <ul class="ul1">
+        <li>
+            <div class="box1">
+                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                    <img src="picture/1.png"/>
+                </a>
+                <div class="first">
+                    <p class="top2">PHP入门篇</p>
+                    <p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
+                </div>
+                <div class="last">
+                    <p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
+                    <p class="bottom2">2015-08-17<span>272648人学习</span></p>
+                </div>
+            </div>
+        </li>
+  
+        <li>
+            <div class="box1">
+                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                    <img src="picture/1.png"/>
+                </a>
+                <div class="first">
+                <p class="top2">PHP入门篇</p>
+                <p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
+                </div>
+                <div class="last">
+                    <p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
+                    <p class="bottom2">2015-08-17<span>272648人学习</span></p>
+                </div>
+            </div>
+        </li>
+  
+        <li>
+            <div class="box1">
+                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                    <img src="picture/1.png";"/>
+                </a>
+                <div class="first">
+                    <p class="top2">PHP入门篇</p>
+                    <p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
+                </div>
+                <div class="last">
+                    <p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
+                    <p class="bottom2">2015-08-17<span>272648人学习</span></p>
+                </div>
+            </div>
+        </li>
+    </ul>
 </nav>
 
-<form action="doUpload.jsp" method="post" enctype="multipart/form-data">
-<!-- 类型enctype用multipart/form-data，这样可以把文件中的数据作为流式数据上传，不管是什么文件类型，均可上传。 -->
-请选择要上传的文件<input type="file" name="upfile" size="50">
-<input type="submit" value="提交">
-</form>
-
-<div class="return_top"></div>
-
 </body>
-
 </html>
