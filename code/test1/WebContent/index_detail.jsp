@@ -26,7 +26,6 @@ $(document).ready(function(){
     );
 });
 </script>
-
 </head>
 
 <body>
@@ -70,12 +69,14 @@ $(document).ready(function(){
                                         <i class="fa fa-lock"></i>
                                     </label>
                                 </label>
-                               </div>
+                             </div>
                              <div class="section">
                                 <div class="submit"><input type="submit" onclick="myFunction()" value="登录"></div>
                              </div>
                              <ul class="new">
                                 <li class="new"><p class="sign">没有账号 ?&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#applyModal_1">注册</a></p></li>
+								
+								<div class="clearfix"></div>
 						     </ul>
                            </form>
                         </div>
@@ -89,29 +90,24 @@ $(document).ready(function(){
 					      	<div class="modal-header">
 					        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 					        	<h4 class="modal-title" id="myModalLabel"><div class="head_4">
-			                         <p>Register</p>
+			                         <p>注册</p>
 			                        </div></h4>
 					      	</div>
 					      	<form name="row" method="post" class="register">
-					      		
-	                            <!-- <div class="section">
-                                  <label for="hhhhh" class="field prepend-icon">
-                                    <select path="country" id="country" class="form-control input-sm">
-				                        <option value="">学生用户</option>
-				                        <option value="">教师用户</option>
-				                    </select>
-				                  </label>
-                                </div> -->
-                                
+					      		<div class="radio radio_1">
+									<input id="leader" type="radio" value="1">
+									<label for="leader">学生用户</label>
+									<input id="company" type="radio" value="2">
+									<label for="company">教师用户</label>
+	                            </div>
 	                            <div class="section">
                                   <label for="username" class="field prepend-icon">
-                                    <input type="text" name="email id" id="Email id" placeholder="Username">
+                                    <input type="text" name="email id" id="Email id" placeholder="Email id">
                                     <label for="email id" class="field-icon">
                                         <i class="fa fa-user"></i>
                                     </label>
                                   </label>
-                                </div>
-                               
+                               </div>
                                <div class="section">
                                  <label for="password" class="field prepend-icon">
                                     <input type="password" name="password" id="password" placeholder="Password">
@@ -120,26 +116,14 @@ $(document).ready(function(){
                                     </label>
                                  </label>
                                </div>
-                               
-                               <div class="section">
-                                 <label for="password" class="field prepend-icon">
-                                    <input type="password" name="password" id="password" placeholder="Password Again">
-                                    <label for="password" class="field-icon">
-                                        <!-- <i class="fa fa-lock"></i> -->
-                                    </label>
-                                 </label>
-                               </div>
-                               
-                               
                                <div class="section">
                                   <label for="username" class="field prepend-icon">
-                                    <input type="text" name="mobile number" id="Mobile Number" placeholder="Your name">
+                                    <input type="text" name="mobile number" id="Mobile Number" placeholder="Mobile Number">
                                     <label for="mobile number" class="field-icon">
                                         <i class="fa fa-phone"></i>
                                     </label>
                                   </label>
                                </div>
-                               
                                <div class="section">
                                   <label for="name" class="field prepend-icon">
                                     <select path="country" id="country" class="form-control input-sm">
@@ -175,7 +159,6 @@ $(document).ready(function(){
                                     </label>
                                   </label>
                                </div>
-                               
                                <div class="section">
                                   <div class="submit"><input type="submit" onclick="myFunction()" value="提交"></div>
                                </div>
