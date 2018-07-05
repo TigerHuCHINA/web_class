@@ -1,14 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<% 
-String message = (String)request.getAttribute("Register");
-if(message!=null)
-{
-	System.out.println(0);
-	out.print("<script>alert(" + message + ");</script>");
-}
-%>
 
 <html>
 <head>
@@ -332,7 +324,14 @@ $(document).ready(function(){
     }
   }
 </script>
-
+<% 
+String message = (String)session.getAttribute("register");
+if(message!=null)
+{
+	out.print("<script>window.alert(\"" + message + "\");</script>");
+	session.removeAttribute("register");
+}
+%>
 
 
 

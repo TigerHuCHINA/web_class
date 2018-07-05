@@ -1,6 +1,7 @@
 package com.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,6 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 	   name = new String(name.getBytes("iso-8859-1"),"utf-8");
 	   String id = req.getParameter("userid");
 	   String pwd= req.getParameter("password");
-	   String pwd_= req.getParameter("password2");
 	   
 	   User u = new User();
 	   u.setUname(name);
@@ -46,12 +46,11 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 
 	   if(dao.testRepeat(u.getUid())!=0)
 	   {
-		   System.out.println("000");
-		   req.setAttribute("register", "用户名已存在！");
+		   session.setAttribute("register", "用户名已存在！");
 	   }
 	   else {
 		   dao.doRegister(u);
-		   req.setAttribute("register", "Hello, " + u.getUname());
+		   session.setAttribute("register", "Hello, " + u.getUname());
 	   }
 	   dao.free();
 	   resp.sendRedirect("index_detail.jsp");
