@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.pojo.User;
+
+import javafx.scene.control.Alert;
+
 import com.dao.UserDao;
 
 public class RegisterAction extends HttpServlet {
@@ -31,11 +34,14 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 	    String name = req.getParameter("username");
 	   name = new String(name.getBytes("iso-8859-1"),"utf-8");
 	   String id = req.getParameter("userid");
-	   name = new String(name.getBytes("iso-8859-1"),"utf-8");
 	   String pwd= req.getParameter("password");
 	   String pwd_= req.getParameter("password2");
 
-	   if(!pwd.equals(pwd_)) System.out.println("两次密码不同");
+	   if(!pwd.equals(pwd_))
+	   {
+		   req.setAttribute("message", "两次密码输入不同");
+		   resp.sendRedirect("index_detail.jsp");
+	   }
 	   User u = new User();
 	   u.setUname(name);
 	   u.setUpwd(pwd);

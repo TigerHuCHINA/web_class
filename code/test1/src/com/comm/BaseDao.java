@@ -8,8 +8,8 @@ import java.sql.SQLException;
 
 public class BaseDao {
 	private static String driver="com.mysql.jdbc.Driver";
-	private String url="jdbc:mysql://localhost:3306/test";
-	private String user = "root2";
+	private String url="jdbc:mysql://localhost:3306/schoolol";
+	private String user = "root";
 	private String pwd="461514832abcdefg";
 	private Connection conn;
 	private PreparedStatement ps;
