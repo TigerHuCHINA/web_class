@@ -46,11 +46,11 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 
 	   if(dao.testRepeat(u.getUid())!=0)
 	   {
-		   session.setAttribute("register", "用户名已存在！");
+		   session.setAttribute("error", "用户名已存在！");
 	   }
 	   else {
 		   dao.doRegister(u);
-		   session.setAttribute("register", "Hello, " + u.getUname());
+		   session.setAttribute("login", u.getUid());
 	   }
 	   dao.free();
 	   resp.sendRedirect("index_detail.jsp");

@@ -38,7 +38,7 @@ $(document).ready(function(){
 			<ul>
 				<li><a id="login" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal">登录</a></li>
 				<li><a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1">注册</a></li>
-			    <li><a id="istrue" href="#" class="btn btn-default btn-default_2 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=session.getAttribute("username")%>欢迎光临</a></li>
+			    <li><a id="istrue" href="#" class="btn btn-default btn-default_2 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=session.getAttribute("login")%>欢迎光临</a></li>
 			</ul>
 		</div>
 		
@@ -190,8 +190,8 @@ function checkRegister(){
 
 //判断是否登录
 function init(){
-	  var username = "<%=session.getAttribute("username")%>";
-	  if(username=="null"){
+	  var username = "<%=session.getAttribute("login")%>";
+	  if(username==null){
 		  var istrue=document.getElementById("istrue");
         istrue.style.display='none';
       }else{
@@ -426,18 +426,13 @@ function init(){
     }
   }
 </script>
-<% 
-String register = (String)session.getAttribute("register");
-if(register!=null)
+
+<% //判断登录、注册失败
+String error = (String)session.getAttribute("error");
+if(error!=null)
 {
-	out.print("<script>window.alert(\"" + register + "\");</script>");
-	session.removeAttribute("register");
-}
-String login = (String)session.getAttribute("login");
-if(login!=null)
-{
-	out.print("<script>window.alert(\"" + login + "\");</script>");
-	session.removeAttribute("login");
+	out.print("<script>alert(\"" +error + "\");</script>");
+	session.removeAttribute("error");
 }
 %>
 

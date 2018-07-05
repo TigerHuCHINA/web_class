@@ -31,16 +31,16 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
    User u = dao.dologin(id);
    if(u==null)
    {
-	   session.setAttribute("login", "用户名或密码错误！");
+	   session.setAttribute("error", "用户名或密码错误！");
    }
    else {
 	   if(!u.getUpwd().equals(pwd))
 	   {
-		   session.setAttribute("login", "用户名或密码错误！");
+		   session.setAttribute("error", "用户名或密码错误！");
 	   }
 	   else
 	   {
-		   session.setAttribute("login", "Hello, " + u.getUname());
+		   session.setAttribute("login", u.getUid());
 	   }
    }
    dao.free();
