@@ -161,7 +161,7 @@ function checkRegister(){
 	    return false;
 	}
 	if(y!=z){
-	    alert("不一致");
+	    alert("两次密码不一致");
 	    return false;
 	}
 	if(m==""){
@@ -399,6 +399,20 @@ function checkRegister(){
     }
   }
 </script>
+<% 
+String register = (String)session.getAttribute("register");
+if(register!=null)
+{
+	out.print("<script>window.alert(\"" + register + "\");</script>");
+	session.removeAttribute("register");
+}
+String login = (String)session.getAttribute("login");
+if(login!=null)
+{
+	out.print("<script>window.alert(\"" + login + "\");</script>");
+	session.removeAttribute("login");
+}
+%>
 
 
 
