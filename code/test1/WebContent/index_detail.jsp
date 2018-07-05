@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -36,8 +36,9 @@ $(document).ready(function(){
 	
 		<div class="top-menu">
 			<ul>
-				<li><a href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal">登录</a></li>
-				<li><a href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1">注册</a></li>
+				<li><a id="login" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal">登录</a></li>
+				<li><a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1">注册</a></li>
+			    <li><a id="istrue" href="#" class="btn btn-default btn-default_2 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=session.getAttribute("username")%>欢迎光临</a></li>
 			</ul>
 		</div>
 		
@@ -121,6 +122,17 @@ $(document).ready(function(){
 		 </div>
 		 
 		 
+		 <div class="section">
+			 <div class="modal fade" id="applyModal_2" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
+				 <select onchange="window.location(this.options[this.selectedIndex].value)" name="select">
+					 <option selected>选择</option>
+				 	 <option value="home.jsp">个人主页</option>
+				     <option value="index_detail.jsp">退出</option>
+			     </select>
+			 </div>
+		 </div>
+		 
+		 
 	</div>
 </div>
 
@@ -173,6 +185,21 @@ function checkRegister(){
 		return false;
 	}
 	return true;
+}
+
+
+//判断是否登录
+function init(){
+	  var username = "<%=session.getAttribute("username")%>";
+	  if(username=="null"){
+		  var istrue=document.getElementById("istrue");
+        istrue.style.display='none';
+      }else{
+      	  var register=document.getElementById("register");
+		      var login=document.getElementById("login");
+		      register.style.display='none';
+		      login.style.display='none';
+      }
 }
 </script>
 
