@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sql.rowset.spi.SyncFactoryException;
 
 import com.pojo.User;
 
@@ -31,23 +32,28 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 
 protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 		throws ServletException, IOException {
+		HttpSession session = req.getSession();
 	    String name = req.getParameter("username");
 	   name = new String(name.getBytes("iso-8859-1"),"utf-8");
 	   String id = req.getParameter("userid");
 	   String pwd= req.getParameter("password");
 	   String pwd_= req.getParameter("password2");
-
-	   if(!pwd.equals(pwd_))
-	   {
-		   req.setAttribute("message", "两次密码输入不同");
-		   resp.sendRedirect("index_detail.jsp");
-	   }
+	   
 	   User u = new User();
 	   u.setUname(name);
 	   u.setUpwd(pwd);
 	   u.setUid(id);
 
-	   dao.doRegister(u);
-	
+	   if(dao.testRepeat(u.getUid())!=0)
+	   {
+		   System.out.println("000");
+		   req.setAttribute("register", "用户名已存在！");
+	   }
+	   else {
+		   dao.doRegister(u);
+		   req.setAttribute("register", "Hello, " + u.getUname());
+	   }
+	   dao.free();
+	   resp.sendRedirect("index_detail.jsp");
 }
 }

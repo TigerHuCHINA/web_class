@@ -49,9 +49,28 @@ public class BaseDao {
 		return row;
 	}
 	
+	public ResultSet executeSelect(String sql,Object [] obs){
+		ResultSet row = null;
+		getConnection();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			if(obs!=null&&obs.length>0){
+				for(int i=0;i<obs.length;i++){
+					ps.setObject(i+1, obs[i]);
+				}
+			}
+		row= ps.executeQuery();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return row;
+	}
 	
 	
-	private void free(){
+	public void free(){
 		try {
 			if(rs!=null)
 				rs.close();
