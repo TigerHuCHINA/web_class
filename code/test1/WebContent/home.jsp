@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 </head>
 
-<body>
+<body onload = "init()">
 <div class="header">
 	<div class="container">
 	
@@ -129,7 +129,7 @@ $(document).ready(function(){
              <div class="dropdown-content">
                  <a href="homePage.jsp">个人主页</a>
                  <a href="upload.jsp">上传视频</a>
-                 <a href="#">下拉菜单项 3</a>
+                 <a href="#">退出</a>
              </div>
          </div>
 <style>
@@ -237,10 +237,10 @@ function checkRegister(){
 }
 
 
-//判断是否登录
+//判断是否登录及登录注册错误
 function init(){
 	  var username = "<%=session.getAttribute("login")%>";
-	  if(username==null){
+	  if(username=="null"){
 		  var istrue=document.getElementById("istrue");
         istrue.style.display='none';
       }else{
@@ -249,9 +249,21 @@ function init(){
 		      register.style.display='none';
 		      login.style.display='none';
       }
+	//登录注册错误
+	  var error = "<%=session.getAttribute("error")%>";
+	  if(error!="null")
+	  {
+	  	alert("\"" +error + "\"");
+	  	<%session.removeAttribute("error");%>
+	  }
+}
+
+function logout()
+{
+	<% session.removeAttribute("login");%>
+	location.reload();
 }
 </script>
-
 
 
 
@@ -265,26 +277,6 @@ function init(){
 		<button id="search" class="button" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
     </form>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -475,36 +467,6 @@ function init(){
     }
   }
 </script>
-
-<% //判断登录、注册失败
-String error = (String)session.getAttribute("error");
-if(error!=null)
-{
-	out.print("<script>alert(\"" +error + "\");</script>");
-	session.removeAttribute("error");
-}
-%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
