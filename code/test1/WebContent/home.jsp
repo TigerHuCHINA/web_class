@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 </head>
 
-<body onload = "init()">
+<body>
 <div class="header">
 	<div class="container">
 	
@@ -38,7 +38,7 @@ $(document).ready(function(){
 			<ul>
 				<li><a id="login" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal">登录</a></li>
 				<li><a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1">注册</a></li>
-		
+			    
 			</ul>
 		</div>
 		
@@ -122,25 +122,7 @@ $(document).ready(function(){
 		 </div>
 		 
 		 
-		 <div class="section">
-			 <div class="modal fade" id="applyModal_2" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
-				 <select onchange="window.location(this.options[this.selectedIndex].value)" name="select" class="form-control input-sm">
-					 <option selected>选择</option>
-				 	 <option value="home.jsp">个人主页</option>
-				     <option value="index_detail.jsp">退出</option>
-			     </select>
-			 </div>
-		 </div>
-		 
-		 
-		 
-		 
-		 
-		
-		
-		
-		
-		<div class="dropdown">
+		 <div class="dropdown">
              <button type="button" class="dropbtn">
                  <a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=session.getAttribute("username")%>欢迎光临</a>
              </button>
@@ -150,9 +132,7 @@ $(document).ready(function(){
                  <a href="#">下拉菜单项 3</a>
              </div>
          </div>
-		 
-		 
-		 <style>
+<style>
 .dropdown{
     position:relative;
     z-index:100;
@@ -201,9 +181,7 @@ $(document).ready(function(){
     background-color:#008B00;
 }
 </style>
-
-
-
+		 
 	</div>
 </div>
 
@@ -259,11 +237,10 @@ function checkRegister(){
 }
 
 
-//判断是否登录及登录注册错误
+//判断是否登录
 function init(){
-	//是否登录
 	  var username = "<%=session.getAttribute("login")%>";
-	  if(username=="null"){
+	  if(username==null){
 		  var istrue=document.getElementById("istrue");
         istrue.style.display='none';
       }else{
@@ -272,13 +249,6 @@ function init(){
 		      register.style.display='none';
 		      login.style.display='none';
       }
-	//登录注册错误
-	  var error = "<%=session.getAttribute("error")%>";
-	  if(error!="null")
-	  {
-	  	alert("\"" +error + "\"");
-	  	<%session.removeAttribute("error");%>
-	  }
 }
 </script>
 
@@ -505,6 +475,15 @@ function init(){
     }
   }
 </script>
+
+<% //判断登录、注册失败
+String error = (String)session.getAttribute("error");
+if(error!=null)
+{
+	out.print("<script>alert(\"" +error + "\");</script>");
+	session.removeAttribute("error");
+}
+%>
 
 
 
