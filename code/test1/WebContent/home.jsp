@@ -129,7 +129,11 @@ $(document).ready(function(){
              <div class="dropdown-content">
                  <a href="homePage.jsp">个人主页</a>
                  <a href="upload.jsp">上传视频</a>
+<<<<<<< HEAD
                  <a href="javascript:void(0);" onclick="loginout()">退出登录</a>
+=======
+                 <a href="#">退出</a>
+>>>>>>> 201002c4a7e992a871dfe9bff02c9db87ac4785a
              </div>
          </div>
 <style>
@@ -249,7 +253,21 @@ function init(){
 		      register.style.display='none';
 		      login.style.display='none';
       }
+	//登录注册错误
+	  var error = "<%=session.getAttribute("error")%>";
+	  if(error!="null")
+	  {
+	  	alert("\"" +error + "\"");
+	  	<%session.removeAttribute("error");%>
+	  }
 }
+
+function logout()
+{
+	<% session.removeAttribute("login");%>
+	location.reload();
+}
+
 </script>
 
 
@@ -265,6 +283,11 @@ function init(){
 		<button id="search" class="button" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
     </form>
 </div>
+
+ 
+ 
+
+
 
 
 
@@ -475,6 +498,10 @@ function init(){
     }
   }
 </script>
+
+
+
+
 
 <% //判断登录、注册失败
 String error = (String)session.getAttribute("error");

@@ -53,6 +53,6 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 		   session.setAttribute("login", u.getUid());
 	   }
 	   dao.free();
-	   resp.sendRedirect("index_detail.jsp");
+	   resp.sendRedirect("home.jsp");
 }
 }

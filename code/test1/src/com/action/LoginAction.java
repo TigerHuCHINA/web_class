@@ -44,6 +44,6 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 	   }
    }
    dao.free();
-   resp.sendRedirect("index_detail.jsp");
+   resp.sendRedirect("home.jsp");
 }
 }
