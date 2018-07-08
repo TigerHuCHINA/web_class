@@ -9,11 +9,7 @@
 <script src="//honey.mgtv.com/honey-2.0/honey.hunantv.imgo.js?"></script>
 <link rel="stylesheet" href="//css.mgtv.com/imgotv-member/page/user-new/setting-default.css?" type="text/css">
 <link rel="stylesheet" href="//honey.mgtv.com/hunantv.imgotv/css/page/webucenter/datetimepicker.css?" type="text/css" media="screen" charset="utf-8">
-	<script>
-	window.VIDEOINFO = {
-		city:'武汉',prc:'湖北'
-	}
-	</script>
+
  <script>honey.config({DEV:!1,ROOT:"//js.mgtv.com/imgotv-member/",PUBROOT:"//honey.mgtv.com/honey-2.0/"});</script>
 </head>
 <body>
@@ -24,18 +20,11 @@
 				<!-- 基本资料 -->
 				<div class="user-setting-primary">
 					<div class="user-setting-profile user-setting-module">
-	<form action="" class="m-form">
+	<form action="doEdit" class="m-form" method="post" id="edit">
 	
 		<p class="tr">
 			<span class="th">昵称</span>
-			<input class="td text nicname" node-type="set-name" type="text" value="112233">
-		</p>
-		<p class="tr" id="city_2">
-			<span class="th">地区</span>
-			<select class="td select province prov">
-			</select>
-			<select class="td select city">
-			</select>
+			<input class="td text nicname" node-type="set-name" type="text" value="112233" name="username">
 		</p>
 		<p class="tr">
 			<span class="th">性别</span>
@@ -48,12 +37,22 @@
 		</p>
 		<p class="tr">
 			<span class="th">生日</span>
-			<input class="td text birthday" type="text" id="birthday" value="">
+			<input class="td text birthday" type="text" id="birthday" value="" name = "birthday">
 		</p>
-
-		<a href="#" class="btn btn-save" action-type="set-submit">保存</a>
-	</form>
-	
+		<p class="tr">
+			<span class="th">学校</span>
+			<input class="td text school" type="text" id="school" value="" name = "school">
+		</p>
+		<p class="tr">
+			<span class="th">专业</span>
+			<input class="td text profession" type="text" id="profession" value="" name="profession">
+		</p>
+		<p class="tr">
+			<span class="th">介绍</span>
+			<input class="td text introduction" type="text" id="introduce" value="" name="introduce">
+		</p>
+			<button type="submit">提交</button>
+	</form>	
 </div>
 	</div>
 </div>	
