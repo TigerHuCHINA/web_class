@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 </head>
 
-<body>
+<body onload = "init()">
 <div class="header">
 	<div class="container">
 	
@@ -38,7 +38,6 @@ $(document).ready(function(){
 			<ul>
 				<li><a id="login" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal">登录</a></li>
 				<li><a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1">注册</a></li>
-			    
 			</ul>
 		</div>
 		
@@ -123,9 +122,8 @@ $(document).ready(function(){
 		 
 		 
 		 <div class="dropdown">
-             <button type="button" class="dropbtn">
                  <a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=session.getAttribute("username")%>欢迎光临</a>
-             </button>
+
              <div class="dropdown-content">
                  <a href="homePage.jsp">个人主页</a>
                  <a href="upload.jsp">上传视频</a>
@@ -237,18 +235,18 @@ function checkRegister(){
 }
 
 
-//判断是否登录
+//判断是否登录及错误
 function init(){
-	  var username = "<%=session.getAttribute("login")%>";
-	  if(username==null){
+	var username = "<%=session.getAttribute("username")%>";
+	  if(username=="null"){
 		  var istrue=document.getElementById("istrue");
-        istrue.style.display='none';
-      }else{
-      	  var register=document.getElementById("register");
+     	 istrue.style.display='none';
+    }else{
+    	  var register=document.getElementById("register");
 		      var login=document.getElementById("login");
 		      register.style.display='none';
 		      login.style.display='none';
-      }
+    }
 	//登录注册错误
 	  var error = "<%=session.getAttribute("error")%>";
 	  if(error!="null")
@@ -494,41 +492,6 @@ function logout()
     }
   }
 </script>
-
-
-
-
-
-<% //判断登录、注册失败
-String error = (String)session.getAttribute("error");
-if(error!=null)
-{
-	out.print("<script>alert(\"" +error + "\");</script>");
-	session.removeAttribute("error");
-}
-%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div id="videos">

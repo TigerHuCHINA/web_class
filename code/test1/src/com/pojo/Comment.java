@@ -5,7 +5,7 @@ public class Comment {
 	private String userId;
 	private String videoId;
 	private String content;
-	private Time time;
+	//private Time time;
 	
 	public String getId() {
 		return id;
@@ -31,10 +31,10 @@ public class Comment {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Time getTime() {
+	/*public Time getTime() {
 		return time;
 	}
 	public void setTime(Time time) {
 		this.time = time;
-	}
+	}*/
 }
