@@ -1,13 +1,11 @@
 package com.pojo;
 
-import java.sql.Date;
-
 public class Comment {
 	private String id;
 	private String userId;
 	private String videoId;
 	private String content;
-	private Date time;
+	private Time time;
 	
 	public String getId() {
 		return id;
@@ -33,10 +31,10 @@ public class Comment {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getTime() {
+	public Time getTime() {
 		return time;
 	}
-	public void setTime(Date time) {
+	public void setTime(Time time) {
 		this.time = time;
 	}
 }
