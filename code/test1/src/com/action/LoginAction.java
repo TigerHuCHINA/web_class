@@ -2,12 +2,13 @@ package com.action;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.pojo.User;
-
+import com.sun.glass.ui.Application;
 import com.dao.UserDao;
 
 public class LoginAction extends HttpServlet {
@@ -42,6 +43,10 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 	   {
 		   session.setAttribute("login", u.getUid());
 		   session.setAttribute("username", u.getUname());
+		   Cookie cookie1 = new Cookie("login", u.getUid());
+		   Cookie cookie2 = new Cookie("username", u.getUname());
+		   resp.addCookie(cookie1);
+		   resp.addCookie(cookie2);
 	   }
    }
    dao.free();

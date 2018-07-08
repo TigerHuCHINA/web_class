@@ -32,7 +32,7 @@ CREATE TABLE `agree` (
   KEY `User_id_idx` (`userId`),
   KEY `agree_comment_id_idx` (`commentId`),
   CONSTRAINT `agree_comment_id` FOREIGN KEY (`commentId`) REFERENCES `follow` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `agree_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `agree_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -81,7 +81,7 @@ CREATE TABLE `class` (
   `name` varchar(80) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `class_user_id_idx` (`userId`),
-  CONSTRAINT `class_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `class_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -108,7 +108,7 @@ CREATE TABLE `collection` (
   PRIMARY KEY (`id`),
   KEY `collection_user_id_idx` (`userId`),
   KEY `collection_video_id_idx` (`videoId`),
-  CONSTRAINT `collection_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `collection_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `collection_video_id` FOREIGN KEY (`videoId`) REFERENCES `video` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -139,7 +139,7 @@ CREATE TABLE `comment` (
   PRIMARY KEY (`id`),
   KEY `comment_user_id_idx` (`userId`),
   KEY `comment_video_id_idx` (`videoId`),
-  CONSTRAINT `comment_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `comment_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `comment_video_id` FOREIGN KEY (`videoId`) REFERENCES `video` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -170,8 +170,8 @@ CREATE TABLE `follow` (
   KEY `follow_followee_id_idx` (`followeeId`),
   KEY `follow_class_id_idx` (`classId`),
   CONSTRAINT `follow_class_id` FOREIGN KEY (`classId`) REFERENCES `class` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `follow_followee_id` FOREIGN KEY (`followeeId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `follow_follower_id` FOREIGN KEY (`followerId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `follow_followee_id` FOREIGN KEY (`followeeId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `follow_follower_id` FOREIGN KEY (`followerId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -200,8 +200,8 @@ CREATE TABLE `message` (
   PRIMARY KEY (`id`),
   KEY `message_pass_id_idx` (`passId`),
   KEY `message_accept_id_idx` (`acceptId`),
-  CONSTRAINT `message_accept_id` FOREIGN KEY (`acceptId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `message_pass_id` FOREIGN KEY (`passId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `message_accept_id` FOREIGN KEY (`acceptId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `message_pass_id` FOREIGN KEY (`passId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -222,7 +222,7 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `id` varchar(30) NOT NULL,
+  `idname` varchar(30) NOT NULL,
   `name` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `sex` varchar(10) DEFAULT 'unknown',
@@ -231,7 +231,7 @@ CREATE TABLE `user` (
   `school` varchar(45) DEFAULT NULL,
   `profession` varchar(45) DEFAULT NULL,
   `introduce` text,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`idname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -241,6 +241,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES ('11','11','11','unknown',NULL,NULL,NULL,NULL,NULL),('12','45345345','12','unknown',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,7 +267,7 @@ CREATE TABLE `video` (
   KEY `video_category_id_idx` (`categoryId`),
   CONSTRAINT `video_category_id` FOREIGN KEY (`categoryId`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `video_group_id` FOREIGN KEY (`groupId`) REFERENCES `videogroup` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `video_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `video_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -292,7 +293,7 @@ CREATE TABLE `videogroup` (
   `name` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `videogroup_user_id_idx` (`userId`),
-  CONSTRAINT `videogroup_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `videogroup_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -321,7 +322,7 @@ CREATE TABLE `videorecord` (
   PRIMARY KEY (`id`),
   KEY `videorecord_video_id_idx` (`videoId`),
   KEY `videorecord_user_id_idx` (`userId`),
-  CONSTRAINT `videorecord_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `videorecord_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `videorecord_video_id` FOREIGN KEY (`videoId`) REFERENCES `video` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -352,4 +353,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-03 15:58:55
+-- Dump completed on 2018-07-08 19:06:08
