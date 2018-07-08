@@ -19,7 +19,7 @@ import com.dao.UserDao;
 import com.dao.UserEditDao;
 
 public class EditHomepageAction extends HttpServlet {
-	UserDao dao = new UserDao();
+	UserEditDao dao = new UserEditDao();
 	/*protected void service(HttpServletRequest arg0, HttpServletResponse arg1)
 		throws ServletException, IOException {
 	// TODO Auto-generated method stub
