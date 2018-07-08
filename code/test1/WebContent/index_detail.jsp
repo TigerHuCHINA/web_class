@@ -124,7 +124,7 @@ $(document).ready(function(){
 		 
 		 <div class="section">
 			 <div class="modal fade" id="applyModal_2" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
-				 <select onchange="window.location(this.options[this.selectedIndex].value)" name="select">
+				 <select onchange="window.location(this.options[this.selectedIndex].value)" name="select" class="form-control input-sm">
 					 <option selected>选择</option>
 				 	 <option value="home.jsp">个人主页</option>
 				     <option value="index_detail.jsp">退出</option>
