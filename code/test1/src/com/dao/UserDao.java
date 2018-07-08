@@ -52,12 +52,4 @@ public class UserDao extends BaseDao {
 		}
 		return result;
 	}
-/*	public int doModify(User u) {
-			
-		String sql="if exists(select * from schoolol where id=idname) "
-				+ "(UPDATE schoolol.user SET name='?', password='?' sex='?' headphoto='?' birthday='?' school='?' profession='?' introduce='?' WHERE id=?)"
-				+ "else insert into user (id,name,password,sex,headphoto,birthday,profession,introduce) values(?,?,?,?,?,?,?,?)";
-		Object[] obs={u.getUname(),u.getUpwd(),u.getUsex(),u.getUheadphoto(),u.getUbirthday(),u.getUschool(),u.getUprofession(),u.getUintroduce(),u.getUid(),u.getUid(),u.getUname(),u.getUpwd(),u.getUsex(),u.getUheadphoto(),u.getUbirthday(),u.getUschool(),u.getUprofession(),u.getUintroduce()};
-		return executeUpdate(sql, obs);
-	}*/
 }
