@@ -129,11 +129,7 @@ $(document).ready(function(){
              <div class="dropdown-content">
                  <a href="homePage.jsp">个人主页</a>
                  <a href="upload.jsp">上传视频</a>
-<<<<<<< HEAD
-                 <a href="javascript:void(0);" onclick="loginout()">退出登录</a>
-=======
-                 <a href="#">退出</a>
->>>>>>> 201002c4a7e992a871dfe9bff02c9db87ac4785a
+                 <a href="javascript:void(0);" onclick="logout()">退出登录</a>
              </div>
          </div>
 <style>
