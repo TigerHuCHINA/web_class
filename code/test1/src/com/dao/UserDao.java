@@ -22,7 +22,6 @@ public class UserDao extends BaseDao {
 		try {
 			if(set.next()) {
 				user.setUid(set.getString(1));
-				System.out.println(user.getUid());
 				user.setUname(set.getString(2));
 				user.setUpwd(set.getString(3));
 			}

@@ -237,8 +237,8 @@ function checkRegister(){
 
 //判断是否登录及错误
 function init(){
-	var username = "<%=session.getAttribute("login")%>";
-	  if(username=="null"){
+	var islog = "<%=session.getAttribute("login")%>";
+	  if(islog=="null"){
 		  var istrue=document.getElementById("istrue");
      	 istrue.style.display='none';
     }else{
