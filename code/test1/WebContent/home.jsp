@@ -237,7 +237,7 @@ function checkRegister(){
 
 //判断是否登录及错误
 function init(){
-	var username = "<%=session.getAttribute("username")%>";
+	var username = "<%=session.getAttribute("login")%>";
 	  if(username=="null"){
 		  var istrue=document.getElementById("istrue");
      	 istrue.style.display='none';
@@ -248,7 +248,7 @@ function init(){
 		      login.style.display='none';
     }
 	//登录注册错误
-	  var error = "<%=session.getAttribute("error")%>";
+	var error = "<%=session.getAttribute("error")%>";
 	  if(error!="null")
 	  {
 	  	alert("\"" +error + "\"");
@@ -258,7 +258,9 @@ function init(){
 
 function logout()
 {
-	<% session.removeAttribute("login");%>
+	<% session.removeAttribute("login");
+	session.removeAttribute("username");%>
+	
 	location.reload();
 }
 

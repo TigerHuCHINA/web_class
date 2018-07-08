@@ -51,6 +51,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 	   else {
 		   dao.doRegister(u);
 		   session.setAttribute("login", u.getUid());
+		   session.setAttribute("username", u.getUname());
 	   }
 	   dao.free();
 	   resp.sendRedirect("home.jsp");
