@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 </head>
 
-<body onload = "init()">
+<body>
 <div class="header">
 	<div class="container">
 	
@@ -188,11 +188,10 @@ function checkRegister(){
 }
 
 
-//判断是否登录及登录注册错误
+//判断是否登录
 function init(){
-	  //是否登录
 	  var username = "<%=session.getAttribute("login")%>";
-	  if(username=="null"){
+	  if(username==null){
 		  var istrue=document.getElementById("istrue");
         istrue.style.display='none';
       }else{
@@ -201,13 +200,6 @@ function init(){
 		      register.style.display='none';
 		      login.style.display='none';
       }
-	  //登录注册错误
-	  var error = "<%=session.getAttribute("error")%>";
-	  if(error!="null")
-	  {
-	  	alert("\"" +error + "\"");
-	  	<%session.removeAttribute("error");%>
-	  }
 }
 </script>
 
@@ -224,6 +216,25 @@ function init(){
 		<button id="search" class="button" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
     </form>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -415,6 +426,36 @@ function init(){
     }
   }
 </script>
+
+<% //判断登录、注册失败
+String error = (String)session.getAttribute("error");
+if(error!=null)
+{
+	out.print("<script>alert(\"" +error + "\");</script>");
+	session.removeAttribute("error");
+}
+%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

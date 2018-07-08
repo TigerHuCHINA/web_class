@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.omg.CORBA.PRIVATE_MEMBER;
+
 import com.pojo.User;
+import com.pojo.UserEdit;
 import com.dao.UserDao;
+import com.dao.UserEditDao;
 
 public class EditHomepageAction extends HttpServlet {
 	UserDao dao = new UserDao();
@@ -26,19 +30,19 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 		throws ServletException, IOException {
      doPost(req, resp);
 }
+
 protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 		throws ServletException, IOException {
+		HttpSession session = req.getSession();
+	   String id = req.getParameter("userid");//id不能改!
+	   //String pwd= req.getParameter("password");
 	   String name = req.getParameter("username");
 	   name = new String(name.getBytes("iso-8859-1"),"utf-8");
-	   String id = req.getParameter("userid");
-	   id = new String(id.getBytes("iso-8859-1"),"utf-8");
-	   String pwd= req.getParameter("password");
-	   String pwd_= req.getParameter("password2");
+//	   String pwd_= req.getParameter("password2");
 	   String sex = req.getParameter("usersex");
 	   sex = new String(sex.getBytes("iso-8859-1"),"utf-8");
-	   //
+	   //输入图片地址，再另写上传方法？	   
 	   String headphoto = req.getParameter("userheadphoto");
-	   //输入图片地址，再另写上传方法？
 	   headphoto = new String(id.getBytes("iso-8859-1"),"utf-8");
 //	   String birthday = req.getParameter("userbirthday");
 //	   birthday = new String(id.getBytes("iso-8859-1"),"utf-8");
@@ -52,20 +56,26 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 	   String introduce = req.getParameter("userintroduce");
 	   introduce = new String(id.getBytes("iso-8859-1"),"utf-8");
 
-	   if(!pwd.equals(pwd_)) System.out.println("两次密码不同");
-	   if(sex!="男"&&sex!="女") System.out.println("性别有误");
-	   User u = new User();
-	   u.setUname(name);
-	   u.setUpwd(pwd);
-	   u.setUid(id);
-	   u.setUsex(sex);
+	   UserEdit u = dao.doEdit(id);
+//	   if(!pwd.equals(pwd_)) System.out.println("两次密码不同");
+//	   if(pwd!=null) {
+	//	   u.setUpwd(pwd);
+//	   }
+	   u.setUid(id);//
+	   if(name!=null) {
+		   u.setUname(name);		   
+	   }
+	   if(sex!="男"&&sex!="女"&&sex!=null) {
+		   u.setUsex(sex);
+	   }else {
+		   req.setAttribute("error", "你确定有这个性别？");
+	   };
 	   u.setUheadphoto(headphoto);
 	   u.setUbirthday(year,month,day);
 	   u.setUschool(school);
 	   u.setUprofession(profession);
 	   u.setUintroduce(introduce);
-	   
-	   dao.doRegister(u);
-	
-}
+	   dao.free();
+	   resp.sendRedirect("index_detail.jsp");
+	}
 }
