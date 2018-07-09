@@ -51,7 +51,6 @@ public class LoginAction extends HttpServlet {
 				resp.addCookie(userNameCookie);
 			}
 		}
-		dao.free();
 		resp.sendRedirect("home.jsp");
 	}
 }

@@ -73,7 +73,7 @@ public class BaseDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		free();
 		return result;
 	}
 

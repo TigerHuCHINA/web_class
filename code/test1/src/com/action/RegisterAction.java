@@ -61,7 +61,6 @@ public class RegisterAction extends HttpServlet {
 			resp.addCookie(userIdCookie);
 			resp.addCookie(userNameCookie);
 		}
-		dao.free();
 		resp.sendRedirect("home.jsp");
 	}
 }

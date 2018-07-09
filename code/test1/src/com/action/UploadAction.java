@@ -52,8 +52,6 @@ public class UploadAction extends HttpServlet {
 			request.setAttribute("result", "Ê§°Ü");
 			request.getRequestDispatcher("upload1.jsp").forward(request, response);
 		}
-		
-		
 	}
 
 }
