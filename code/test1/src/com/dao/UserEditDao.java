@@ -1,8 +1,10 @@
 package com.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import com.comm.BaseDao;
 import com.pojo.UserEdit;
-import com.pojo.Video;
 
 public class UserEditDao extends BaseDao{
 	public int doEdit(UserEdit u) {
