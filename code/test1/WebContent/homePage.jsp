@@ -1,3 +1,5 @@
+<%@page import="com.pojo.UserEdit"%>
+<%@page import="com.action.getInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -7,44 +9,47 @@
 <title>个人主页</title>	
 </head>
 <body style="background-image:url(picture/4.jpg);background-size:100%;">
-
+<%
+	getInfo get = new getInfo();
+	UserEdit u = get.getInfoById("11");
+%>
 <div class="image">
-    <img src="<%//image的地址 %>">
+    <img src="<%=u.getUheadphoto() %>">
 </div>
 
 <div class="information">
     <div id="username" class="info">
         <tr>
             <td>用户名 </td>
-            <td><%//这里放用户昵称 %></td>
+            <td><%=u.getUname() %></td>
         </tr>
     </div>
     
     <div id="userid" class="info">
         <tr>
             <td>用户账号 </td>
-            <td><%//这里放用户账号 %></td>
+            <td><%=u.getUid() %></td>
         </tr>
     </div>
     
     <div id="userlocation" class="info">
         <tr>
             <td>所在地 </td>
-            <td><%//这里放所在地 %></td>
+            <td><% %></td>
         </tr>
     </div>
     
     <div id="userdate" class="info">
         <tr>
             <td>生日 </td>
-            <td><%//这里放生日 %></td>
+            <td><%=u.getUbirthday() %></td>
         </tr>
     </div>
     
     <div id="usersex" class="info">
         <tr>
             <td>性别 </td>
-            <td><%//这里放性别 %></td>
+            <td><%=u.getUsex() %></td>
         </tr>
     </div>
 </div>

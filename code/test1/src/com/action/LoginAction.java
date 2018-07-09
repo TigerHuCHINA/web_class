@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.pojo.User;
-import com.sun.glass.ui.Application;
-import com.sun.media.sound.RealTimeSequencerProvider;
 import com.dao.UserDao;
 
 //ÅÐ¶ÏµÇÂ¼ÊÇ·ñ³É¹¦-¶ÅÓîº½

@@ -15,7 +15,6 @@ import javax.sql.rowset.spi.SyncFactoryException;
 
 import com.pojo.User;
 
-import javafx.scene.control.Alert;
 
 import com.dao.UserDao;
 
