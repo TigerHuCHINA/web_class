@@ -8,9 +8,7 @@ public class UserEdit extends User {
 	private String uschool;
 	private String uprofession;
 	private String uintroduce;
-<<<<<<< HEAD
-	
-=======
+
 	//	private Integer year;
 	//	private Integer month;
 	//	private Integer day;
@@ -20,7 +18,7 @@ public class UserEdit extends User {
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
->>>>>>> 171c55ce6ada42c1f66b77a6d7f98d5b6606970b
+
 	public String getUsex() {
 		return usex;
 	}

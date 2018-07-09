@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="//css.mgtv.com/standard/standard.css?" type="text/css" data-merge="true"><link href="//css.mgtv.com/imgotv-member/global/page/setting-index.css" type="text/css" rel="stylesheet">
 <script src="//honey.mgtv.com/honey-2.0/honey.hunantv.imgo.js?"></script>
 <link rel="stylesheet" href="//css.mgtv.com/imgotv-member/page/user-new/setting-default.css?" type="text/css">
-<link rel="stylesheet" href="//honey.mgtv.com/hunantv.imgotv/css/page/webucenter/datetimepicker.css?" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="//honey.mgtv.com/hunantv.imgotv/css/page/webucenter/datetimepicker.css?" type="text/css" media="screen" >
 
  <script>honey.config({DEV:!1,ROOT:"//js.mgtv.com/imgotv-member/",PUBROOT:"//honey.mgtv.com/honey-2.0/"});</script>
 </head>
@@ -24,11 +24,11 @@
 	
 		<p class="tr">
 			<span class="th">昵称</span>
-			<input class="td text nicname" node-type="set-name" type="text" value="112233" name="username">
+			<input class="td text nicname" type="text" value="112233" name="username">
 		</p>
 		<p class="tr">
 			<span class="th">性别</span>
-			<input class="td choose" type="radio" node-type="" id="sex-male" name="sex" value="1" >
+			<input class="td choose" type="radio" id="sex-male" name="sex" value="1" >
 			<label class="td label" for="sex-male">男</label>
 			<input class="td choose" type="radio" id="sex-female" name="sex" value="2" checked="checked">
 			<label class="td label" for="sex-female">女</label>
