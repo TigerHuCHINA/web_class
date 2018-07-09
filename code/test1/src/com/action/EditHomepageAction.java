@@ -47,7 +47,6 @@ public class EditHomepageAction extends HttpServlet {
 		u.setUintroduce(introduce);
 		dao.doEdit(u);
 			session.setAttribute("","ÐÞ¸Ä³É¹¦£¡");
-		dao.free();
 		resp.sendRedirect("homePage.jsp");
 	}
 }

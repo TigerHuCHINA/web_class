@@ -29,6 +29,7 @@ public class CommentDao extends BaseDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		free();
 		return comments;
 	}
 }
