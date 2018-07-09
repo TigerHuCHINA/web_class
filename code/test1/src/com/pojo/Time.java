@@ -1,5 +1,6 @@
 package com.pojo;
 
+// ±º‰-∂≈”Ó∫Ω
 public class Time {
 	private int year;
 	private int month;
@@ -7,7 +8,7 @@ public class Time {
 	private int hour;
 	private int minute;
 	private int second;
-	
+
 	public int getYear() {
 		return year;
 	}
@@ -44,5 +45,5 @@ public class Time {
 	public void setSecond(int second) {
 		this.second = second;
 	}
-	
+
 }

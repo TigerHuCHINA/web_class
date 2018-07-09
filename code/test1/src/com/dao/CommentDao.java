@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.comm.BaseDao;
 import com.pojo.Comment;
 
+//评论数据库操作-杜宇航
 public class CommentDao extends BaseDao{
 	public ArrayList<Comment> getByVideo(String videoId)
 	{

@@ -6,11 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//数据库基础操作-杜宇航
 public class BaseDao {
 	private static String driver="com.mysql.jdbc.Driver";
-	private String url="jdbc:mysql://localhost:3306/schoolol";
+	private String url="jdbc:mysql://120.77.155.205:3306/schoolol";
 	private String user = "root";
-	private String pwd="461514832abcdefg";
+	private String pwd="123456zxC";
 	private Connection conn;
 	private PreparedStatement ps;
 	private ResultSet rs;
@@ -28,11 +29,11 @@ public class BaseDao {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public int executeUpdate(String sql,Object [] obs){
 		int row=0;
 		getConnection();
-		
+
 		try {
 			ps = conn.prepareStatement(sql);
 			if(obs!=null&&obs.length>0){
@@ -40,19 +41,19 @@ public class BaseDao {
 					ps.setObject(i+1, obs[i]);
 				}
 			}
-		row= ps.executeUpdate();
-			
+			row= ps.executeUpdate();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return row;
 	}
-	
+
 	public ResultSet executeSelect(String sql,Object [] obs){
-		ResultSet row = null;
+		ResultSet result = null;
 		getConnection();
-		
+
 		try {
 			ps = conn.prepareStatement(sql);
 			if(obs!=null&&obs.length>0){
@@ -60,16 +61,15 @@ public class BaseDao {
 					ps.setObject(i+1, obs[i]);
 				}
 			}
-		row= ps.executeQuery();
-			
+			result= ps.executeQuery();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return row;
+
+		return result;
 	}
-	
-	
+
 	public void free(){
 		try {
 			if(rs!=null)
@@ -78,9 +78,6 @@ public class BaseDao {
 				ps.close();
 			if(conn!=null)
 				conn.close();
-			
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

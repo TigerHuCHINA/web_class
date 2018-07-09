@@ -6,14 +6,16 @@ import java.sql.SQLException;
 import com.comm.BaseDao;
 import com.pojo.User;
 
+
+//用户数据库操作
 public class UserDao extends BaseDao {
-	
+
 	public int doRegister(User u) {
-		 String sql="insert into user (idname,name,password) values(?,?,?)";
-		 Object[] obs={u.getUid(),u.getUname(),u.getUpwd()};
+		String sql="insert into user (idname,name,password) values(?,?,?)";
+		Object[] obs={u.getUid(),u.getUname(),u.getUpwd()};
 		return executeUpdate(sql, obs);
 	}
-	
+
 	public User dologin(String id) {
 		User user = new User();
 		String sql = "select * from user where idname = ?";

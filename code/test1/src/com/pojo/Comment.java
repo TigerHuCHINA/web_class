@@ -1,12 +1,13 @@
 package com.pojo;
 
+//ÆÀÂÛ-¶ÅÓîº½
 public class Comment {
 	private String id;
 	private String userId;
 	private String videoId;
 	private String content;
 	//private Time time;
-	
+
 	public String getId() {
 		return id;
 	}

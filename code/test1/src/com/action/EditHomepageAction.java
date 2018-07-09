@@ -25,42 +25,42 @@ public class EditHomepageAction extends HttpServlet {
 	// TODO Auto-generated method stub
 	super.service(arg0, arg1);
 }*/
-@Override
-protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-		throws ServletException, IOException {
-     doPost(req, resp);
-}
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		doPost(req, resp);
+	}
 
-protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-		throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		HttpSession session = req.getSession();
-	   String id = req.getParameter("userid");
-	   String name = req.getParameter("username");
-	   //name = new String(name.getBytes("iso-8859-1"),"utf-8");
-	   String sex = req.getParameter("sex");
-	   //sex = new String(sex.getBytes("iso-8859-1"),"utf-8");
-	   String birthday = req.getParameter("birthday");
-	   
-	   //birthday = new String(id.getBytes("iso-8859-1"),"utf-8");
-	   String school = req.getParameter("school");
-	   //school = new String(id.getBytes("iso-8859-1"),"utf-8");
-	   String profession = req.getParameter("profession");
-	   //profession = new String(id.getBytes("iso-8859-1"),"utf-8");
-	   String introduce = req.getParameter("introduce");
-	   //introduce = new String(id.getBytes("iso-8859-1"),"utf-8");
+		String id = req.getParameter("userid");
+		String name = req.getParameter("username");
+		//name = new String(name.getBytes("iso-8859-1"),"utf-8");
+		String sex = req.getParameter("sex");
+		//sex = new String(sex.getBytes("iso-8859-1"),"utf-8");
+		String birthday = req.getParameter("birthday");
 
-	   UserEdit u = new UserEdit();
+		//birthday = new String(id.getBytes("iso-8859-1"),"utf-8");
+		String school = req.getParameter("school");
+		//school = new String(id.getBytes("iso-8859-1"),"utf-8");
+		String profession = req.getParameter("profession");
+		//profession = new String(id.getBytes("iso-8859-1"),"utf-8");
+		String introduce = req.getParameter("introduce");
+		//introduce = new String(id.getBytes("iso-8859-1"),"utf-8");
 
-	   u.setUid(id);
-	   u.setUname(name);		   
-	   u.setUsex(sex);
-	   u.setUbirthday(birthday);
-	   u.setUschool(school);
-	   u.setUprofession(profession);
-	   u.setUintroduce(introduce);
-	   dao.doEdit(u);
-	   dao.free();
-	   System.out.println("11");
-	   resp.sendRedirect("modified.jsp");
+		UserEdit u = new UserEdit();
+
+		u.setUid(id);
+		u.setUname(name);		   
+		u.setUsex(sex);
+		u.setUbirthday(birthday);
+		u.setUschool(school);
+		u.setUprofession(profession);
+		u.setUintroduce(introduce);
+		dao.doEdit(u);
+		dao.free();
+		System.out.println("11");
+		resp.sendRedirect("modified.jsp");
 	}
 }

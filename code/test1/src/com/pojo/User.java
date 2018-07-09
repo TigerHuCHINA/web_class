@@ -1,5 +1,6 @@
 package com.pojo;
 
+//”√ªß-∂≈”Ó∫Ω
 public class User {
 	private String uid;
 	private String uname;

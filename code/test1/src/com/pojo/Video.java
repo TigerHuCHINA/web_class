@@ -2,13 +2,14 @@ package com.pojo;
 
 import java.sql.Date;
 
+// ”∆µ-∂≈”Ó∫Ω
 public class Video {
 	private String id;
 	private String userId;
 	private String title;
 	private String introduce;
 	//private Date time;
-	
+
 	public String getId() {
 		return id;
 	}

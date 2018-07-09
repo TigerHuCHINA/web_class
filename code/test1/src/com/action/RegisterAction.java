@@ -18,6 +18,8 @@ import javafx.scene.control.Alert;
 
 import com.dao.UserDao;
 
+
+//判断注册是否成功-杜宇航
 public class RegisterAction extends HttpServlet {
 	UserDao dao = new UserDao();
 	/*protected void service(HttpServletRequest arg0, HttpServletResponse arg1)
@@ -25,35 +27,35 @@ public class RegisterAction extends HttpServlet {
 	// TODO Auto-generated method stub
 	super.service(arg0, arg1);
 }*/
-@Override
-protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-		throws ServletException, IOException {
-     doPost(req, resp);
-}
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		doPost(req, resp);
+	}
 
-protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-		throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		HttpSession session = req.getSession();
-	    String name = req.getParameter("username");
-	   name = new String(name.getBytes("iso-8859-1"),"utf-8");
-	   String id = req.getParameter("userid");
-	   String pwd= req.getParameter("password");
-	   
-	   User u = new User();
-	   u.setUname(name);
-	   u.setUpwd(pwd);
-	   u.setUid(id);
+		String name = req.getParameter("username");
+		name = new String(name.getBytes("iso-8859-1"),"utf-8");
+		String id = req.getParameter("userid");
+		String pwd= req.getParameter("password");
 
-	   if(dao.testRepeat(u.getUid())!=0)
-	   {
-		   session.setAttribute("error", "用户名已存在！");
-	   }
-	   else {
-		   dao.doRegister(u);
-		   session.setAttribute("login", u.getUid());
-		   session.setAttribute("username", u.getUname());
-	   }
-	   dao.free();
-	   resp.sendRedirect("home.jsp");
-}
+		User u = new User();
+		u.setUname(name);
+		u.setUpwd(pwd);
+		u.setUid(id);
+
+		if(dao.testRepeat(u.getUid())!=0)
+		{
+			session.setAttribute("error", "用户名已存在！");
+		}
+		else {
+			dao.doRegister(u);
+			session.setAttribute("login", u.getUid());
+			session.setAttribute("username", u.getUname());
+		}
+		dao.free();
+		resp.sendRedirect("home.jsp");
+	}
 }

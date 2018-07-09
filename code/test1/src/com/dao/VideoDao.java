@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.comm.BaseDao;
 import com.pojo.Video;
 
+//视频数据库操作-杜宇航
 public class VideoDao extends BaseDao{
 	public ArrayList<Video> getAll() {
 		String sql = "select * from video";
