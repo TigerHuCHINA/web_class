@@ -7,9 +7,22 @@ public class UserEdit extends User {
 	private String uschool;
 	private String uprofession;
 	private String uintroduce;
+<<<<<<< HEAD
+	
+=======
 	//	private Integer year;
 	//	private Integer month;
 	//	private Integer day;
+<<<<<<< HEAD
+=======
+	public String getUid() {
+		return uid;
+	}
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+>>>>>>> 171c55ce6ada42c1f66b77a6d7f98d5b6606970b
+>>>>>>> 863b82da34a6d43586d0d3d866b77966465f004c
 	public String getUsex() {
 		return usex;
 	}
@@ -48,3 +61,4 @@ public class UserEdit extends User {
 		this.ubirthday=ubirthday;
 	}
 }
+//ºæ”Ó∫„
