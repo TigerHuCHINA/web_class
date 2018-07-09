@@ -7,7 +7,7 @@ import com.comm.BaseDao;
 import com.pojo.User;
 
 
-//用户数据库操作
+//用户数据库操作-杜宇航
 public class UserDao extends BaseDao {
 
 	public int doRegister(User u) {
