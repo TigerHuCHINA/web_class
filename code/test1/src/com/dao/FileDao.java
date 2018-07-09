@@ -9,8 +9,10 @@ public class FileDao extends BaseDao {
 		String sql="INSERT INTO `schoolol`.`video` (`userid`,`title`,`introduce`,`view`,`file`) VALUES (?,?,?,0,?)";
 		Object [] obs= {v.getUserId(),v.getTitle(),v.getIntroduce(),v.getFile()};
 		if(executeUpdate(sql, obs)>=1) {
+			free();
 			return true;
 		}else {
+			free();
 			return false;
 		}
 	}

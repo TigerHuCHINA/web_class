@@ -13,7 +13,9 @@ public class UserEditDao extends BaseDao{
 		String sql="UPDATE user SET name=?,sex=?,birthday=?,school=?,profession=?,introduce=?,province=?,city=? WHERE idname=?";
 		System.out.println("132");
 		Object[] obs={u.getUname(),u.getUsex(),u.getUbirthday(),u.getUschool(),u.getUprofession(),u.getUintroduce(),u.getUprovince(),u.getUcity(),u.getUid()};
-		return executeUpdate(sql, obs);
+		int row = executeUpdate(sql, obs);
+		free();
+		return row;
 	}
 	
 	public UserEdit getInfoById(String id)//此处需修改
@@ -32,6 +34,11 @@ public class UserEditDao extends BaseDao{
 				u.setUschool(set.getString(7));
 				u.setUprofession(set.getString(8));
 				u.setUintroduce(set.getString(9));
+				free();
+			}
+			else {
+				free();
+				return null;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
