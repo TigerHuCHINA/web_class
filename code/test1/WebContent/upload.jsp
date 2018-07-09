@@ -55,7 +55,28 @@ function textup() {
         document.getElementById("video_info").value = s.substring(0, 200);
     }
 }
-</script>    
+</script> 
+<!-- ----------------------------上传图标------------------------------   --> 
+<style type="text/css">
+    .fileInputContainer{
+        height:125px;
+        width: 113px;
+        background:url(picture/upload.png);
+        position:relative;
+        background-repeat:no-repeat;
+    }
+    .fileInput{
+        height:115px;
+        font-size: 300px;
+        position:absolute;
+        right:0;
+        top:0;
+        opacity: 0;
+        filter:alpha(opacity=0);
+        cursor:pointer;
+    }
+ 
+</style>
 </head>
 <body>
      <div id="pickfiles" class="bigBtn">
@@ -66,8 +87,8 @@ function textup() {
      </div>
   <div class="upload">
     <form method="post" action="UploadAction" onsubmit="return check();">
-        <div>  
-            <input id="file" type="file" name="file"></input> 
+        <div class="fileInputContainer">  
+            <input class="fileInput" id="file" type="file" name="file"/>
         </div>
         <div>
             <select name="subject">
@@ -86,10 +107,10 @@ function textup() {
 			
                     <div class="info_right">
                         <div class="type">
-                            <label class="label_tit">所属类别：</label>
+                            <label class="label_tit">&nbsp;&nbsp;所属类别：</label>
                             <span class="txt_num">0/20</span>
                             <input name="type" type="text" id="video_type" maxlength="20" value=""/>
-                        </div>
+                        </div></br>
                         <div class="title">
                             <label class="label_tit"><b>*</b>视频标题：</label>
                             <span class="txt_num">0/30</span>
@@ -98,7 +119,7 @@ function textup() {
                              onfocus="if(this.value=='视频标题不能为空！') {this.value='';}"
                             />
                            <!--  <span>视频标题不能为空！</span> -->
-                        </div>
+                        </div></br>
                         <div class="info">
                             <label class="label_tit"><b>*</b>视频简介：视频简介不能为空！0/200</label></br>
                             <textarea name="info" id="video_info" 
@@ -106,10 +127,10 @@ function textup() {
                                </textarea>
                            <!--  <span>0/200</span>
                             <span>视频简介不能为空！</span> -->
-                        </div>
+                        </div></br>
 
                         <div class="tag">
-                            <label class="label_tit">视频标签：</label>
+                            <label class="label_tit">&nbsp;&nbsp;视频标签：</label>
                             <div class="tag_box">
                                 <input name="label" type="text" id="video_tag" maxLength="5"/>
                                 <input name="label" type="text" id="video_tag" maxLength="5"/>
