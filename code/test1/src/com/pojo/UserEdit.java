@@ -1,23 +1,12 @@
 package com.pojo;
 
 public class UserEdit extends User {
-	private String uid;
 	private String usex;
 	private String uheadphoto;
 	private String ubirthday;
 	private String uschool;
 	private String uprofession;
 	private String uintroduce;
-
-	//	private Integer year;
-	//	private Integer month;
-	//	private Integer day;
-	public String getUid() {
-		return uid;
-	}
-	public void setUid(String uid) {
-		this.uid = uid;
-	}
 
 	public String getUsex() {
 		return usex;

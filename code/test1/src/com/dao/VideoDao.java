@@ -14,7 +14,7 @@ public class VideoDao extends BaseDao{
 		ResultSet set = executeSelect(sql, null);
 		ArrayList<Video> videos = new ArrayList<Video>();
 		try {
-			if(set.next()) {
+			while(set.next()) {
 				Video video = new Video();
 				video.setId(set.getString(1));
 				video.setUserId(set.getString(1));

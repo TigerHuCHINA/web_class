@@ -5,6 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>上传视频</title>
+<script>
+function check(form) {
+    if(form.title.value=='') {
+          alert("请输入标题!");
+          form.title.focus();
+          return false;
+     }
+	if(form.info.value==''){
+          alert("请输入简介!");
+          form.info.focus();
+          return false;
+    }
+    return true;
+}
+</script>
 </head>
 <body>
      <div id="pickfiles" class="bigBtn">
@@ -14,12 +29,12 @@
         </p>                              
      </div>
   <div class="upload">
-    <form method="post" action="UploadAction">
+    <form method="post" action="UploadAction" onsubmit="return check(this);">
         <div>  
             <input type="file" name="file"></input> 
         </div>
         <div>
-            <select>
+            <select name="subject">
 		    <option value="">选择科目</option>
 			<option value="">语文</option>
 			<option value="">数学</option>
@@ -39,31 +54,32 @@
                         <div class="type">
                             <label class="label_tit">所属类别：</label>
                             <span class="txt_num">0/20</span>
-                            <input type="text" class="video_type" maxlength="20" value=""/>
+                            <input name="type" type="text" class="video_type" maxlength="20" value=""/>
                         </div>
                         <div class="title">
                             <label class="label_tit"><b>*</b>视频标题：</label>
                             <div class="inp_txt">
                                 <span class="txt_num">0/30</span>
-                                <input type="text" class="video_title"  maxlength="30" value=""/>
+                                <input name="title" type="text" class="video_title"  maxlength="30" value=""/>
                             </div>
-                            <span class="err_tips hidden">视频标题不能为空！</span>
+                            <span>视频标题不能为空！</span>
                         </div>
                         <div class="info">
                             <label class="label_tit"><b>*</b>视频简介：</label>
-                            <textarea class="video_info" value=""></textarea>
-                            <span class="txt_num">0/200</span>
+                            <textarea name="info" class="video_info" value=""></textarea>
+                            <span>0/200</span>
+                            <span>视频简介不能为空！</span>
                         </div>
 
                         <div class="tag">
                             <label class="label_tit">视频标签：</label>
                             <div class="tag_box">
-                                <input type="text" class="video_tag" maxLength="5"/>
-                                <input type="text" class="video_tag" maxLength="5"/>
-                                <input type="text" class="video_tag" maxLength="5"/>
-                                <input type="text" class="video_tag" maxLength="5"/>
-                                <input type="text" class="video_tag" maxLength="5"/>
-                                <input type="text" class="video_tag" maxLength="5"/>
+                                <input name="label" type="text" class="video_tag" maxLength="5"/>
+                                <input name="label" type="text" class="video_tag" maxLength="5"/>
+                                <input name="label" type="text" class="video_tag" maxLength="5"/>
+                                <input name="label" type="text" class="video_tag" maxLength="5"/>
+                                <input name="label" type="text" class="video_tag" maxLength="5"/>
+                                <input name="label" type="text" class="video_tag" maxLength="5"/>
                             </div>
                             <div class="tag_tips">
                                 <div class="txt">每标签最多5个字，最多填写6个标签。标签是根据视频内容、属性所概括出的一组关键词。标签可以让别人更快速、准确的搜索到您的视频！</div>
@@ -73,22 +89,10 @@
                 </div>
          </form>
          </div>
-                <div class="suc_box">
-                    <p><i class="suc_ico"></i>视频上传完成后将自动为您发布，在此期间请勿关闭网页。</p>
-                  	<input type="button" value="提交" onclick="return check();"/>
-                </div>
-<script type="text/javascript">
-   function check(){
-	   var title=$("#title").val();
-	   if(title==null||npassword==""){
-		    alert("标题不能为空！");
-		    $("#title").focus();
-		    return false;
-	   } else{
-		   $("#form").submit();
-	   } 
-   }
- 
-</script>
+         <div class="suc_box">
+         `<p><i class="suc_ico"></i>视频上传完成后将自动为您发布，在此期间请勿关闭网页。</p>
+          <input type="submit" value="提交" onclick="window.location.href='success.jsp'"/>
+         </div>
+
 </body>
 </html>
