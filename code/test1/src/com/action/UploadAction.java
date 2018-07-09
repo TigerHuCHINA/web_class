@@ -38,13 +38,20 @@ public class UploadAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String result;
+		String uid = "11";
+		String title = request.getParameter("title");
+		title = new String(title.getBytes("iso-8859-1"),"utf-8");
+		String introduce = request.getParameter("info");
+		introduce = new String(introduce.getBytes("iso-8859-1"),"utf-8");
+		File file = new File(request.getParameter("file"));
+		
 		Video v=new Video();
+		v.setUserId(uid);
+		v.setTitle(title);
+		v.setIntroduce(request.getParameter(introduce));
+		v.setFile(file);
+		
 		FileDao bd=new FileDao();
-		v.setUserId("11");
-		v.setTitle(request.getParameter("title"));
-		v.setIntroduce(request.getParameter("info"));
-		v.setFile(new File(request.getParameter("file")));
 		if(bd.Upload(v)) {
 			request.setAttribute("result", "³É¹¦");
 			request.getRequestDispatcher("success.jsp").forward(request, response);
