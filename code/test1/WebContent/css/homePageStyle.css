@@ -175,6 +175,30 @@ body{
 	left:60px;
 } 
 
+#moschool{
+	position:absolute;
+	margin-top:320px;
+	left:60px;
+} 
+
+#moclass{
+	position:absolute;
+	margin-top:380px;
+	left:60px;
+} 
+
+#moinformation{
+	position:absolute;
+	margin-top:440px;
+	left:60px;
+} 
+
+#mosex{
+	position:absolute;
+	margin-top:500px;
+	left:60px;
+}
+
 .mo input{
 	height:40px;
 	width:300px;
@@ -185,11 +209,15 @@ body{
 	width:148px;
 }     
     
+.mo #sex{
+	height:40px;
+	width:300px;
+} 
 .save{
 	display:inline-block;
 	position:absolute;
 	left:120px;
-	top:500px;
+	top:560px;
 	width:160px;
 	height:30px;
 	text-decoration:none;

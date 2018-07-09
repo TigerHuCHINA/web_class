@@ -55,12 +55,27 @@
         </tr>
     </div>
     
+    <div id="userschool" class="info">
+        <tr>
+            <td>学校 </td>
+            <td><%//这里放学校 %></td>
+        </tr>
+    </div>
+    
+    <div id="userclass" class="info">
+        <tr>
+            <td>专业 </td>
+            <td><%//这里放专业 %></td>
+        </tr>
+    </div>
     <div id="userinformation" class="info">
         <tr>
             <td>个人简介 </td>
             <td><%//这里放个人简介 %></td>
         </tr>
     </div>
+    
+    
 </div>
 
 <div class="editinfo">
@@ -109,6 +124,22 @@
                 <select id="s_province" name="s_province"></select> 
                 <select id="s_city" name="s_city"></select> 
                 <script type="text/javascript">_init_area();</script>              
+            </div>
+            <div id="moschool" class="mo">               
+                <input type="text" name="name" placeholder="请输入新的学校"/>
+            </div>
+            <div id="moclass" class="mo">               
+                <input type="text" name="name" placeholder="请输入新的专业"/>
+            </div>
+            <div id="moinformation" class="mo">               
+                <input type="text" name="name" placeholder="请输入新的简介"/>
+            </div>
+            <div id="mosex" class="mo">               
+                <select path="country" id="sex">
+                    <option value="">性别</option>
+				    <option value="">male</option>
+				    <option value="">female</option>
+				</select>
             </div>
             <div>
                 <input type="button" value="保存" class="save" />
