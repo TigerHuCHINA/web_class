@@ -121,10 +121,9 @@ $(document).ready(function(){
 		     </div>
 		 </div>
 		 
-		 
-		 <div class="dropdown">
-                 <a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=session.getAttribute("username")%>欢迎光临</a>
-
+		<div class="dropdown">
+		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=session.getAttribute("username") %>欢迎光临</a>
+			
              <div class="dropdown-content">
                  <a href="homePage.jsp">个人主页</a>
                  <a href="upload.jsp">上传视频</a>
@@ -236,19 +235,40 @@ function checkRegister(){
 	return true;
 }
 
-
-//判断是否登录及错误
+//判断是否登录及错误-杜宇航
 function init(){
-	var islog = "<%=session.getAttribute("login")%>";
-	  if(islog=="null"){
-		  var istrue=document.getElementById("istrue");
-     	 istrue.style.display='none';
-    }else{
-    	  var register=document.getElementById("register");
-		      var login=document.getElementById("login");
-		      register.style.display='none';
-		      login.style.display='none';
-    }
+	var userid = <%=session.getAttribute("userid")%>;
+	var username = <%=session.getAttribute("username")%>;
+	if(userid!=null)
+		{
+		var register=document.getElementById("register");
+	      var login=document.getElementById("login");
+	      register.style.display='none';
+	      login.style.display='none';
+	      //istrue.style.display='inline-block';
+	      //istrue.style.visibility='visible';
+		}
+	/*else
+		{
+		var istrue=document.getElementById("istrue");
+    	 istrue.style.display='none';
+		}*/
+	else
+	{
+		var username_ = getCookie("username");
+		var userid_ = getCookie("userid");
+		if(userid_==""){
+			  var istrue=document.getElementById("istrue");
+	     	 istrue.style.display='none';
+	    }else{
+	    	  var register=document.getElementById("register");
+			      var login=document.getElementById("login");
+			      register.style.display='none';
+			      login.style.display='none';
+			      //istrue.style.display='inline-block';
+			      //istrue.style.visibility='visible';
+	    }
+	}
 	//登录注册错误
 	var error = "<%=session.getAttribute("error")%>";
 	  if(error!="null")
@@ -258,12 +278,35 @@ function init(){
 	  }
 }
 
-function logout()
-{
-	<% session.removeAttribute("login");
+function logout() {
+	<%session.removeAttribute("userid");
 	session.removeAttribute("username");%>
-	
+	delCookie("userid");
+	delCookie("username");
 	location.reload();
+}
+
+function getCookie(c_name) {
+	if (document.cookie.length > 0) {
+		c_start = document.cookie.indexOf(c_name + "=")
+		if (c_start != -1) {
+			c_start = c_start + c_name.length + 1
+			c_end = document.cookie.indexOf(";", c_start)
+			if (c_end == -1)
+				c_end = document.cookie.length
+			return unescape(document.cookie.substring(c_start, c_end))
+		}
+	}
+	return "";
+}
+
+function delCookie(name) 
+{ 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() - 1); 
+    var cval=getCookie(name); 
+    if(cval!=null) 
+        document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
 }
 
 </script>
