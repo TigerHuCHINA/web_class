@@ -281,6 +281,7 @@ function init(){
 function logout() {
 	<%session.removeAttribute("userid");
 	session.removeAttribute("username");%>
+	
 	delCookie("userid");
 	delCookie("username");
 	location.reload();
