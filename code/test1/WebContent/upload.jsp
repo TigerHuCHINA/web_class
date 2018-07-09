@@ -5,6 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>上传视频</title>
+<style>
+body {background-color:#C0C0C0;}
+#video_info {
+ width:700px;
+ height:150px;
+}
+</style> 
 <script>
 function check() {
 	var x=document.getElementById("video_title").value;
@@ -25,6 +32,30 @@ function check() {
     return true;
 }
 </script>
+<!-- ----------------------------------textarea的格式-------------------------- -->
+<script type="text/javascript">    
+function textdown(e) {
+    textevent = e;
+    if (textevent.keyCode == 8) {
+        return;
+    }
+    if (document.getElementById("video_info").value.length >= 200) {
+        alert("此处限字200")
+        if (!document.all) {
+            textevent.preventDefault();
+        } else {
+            textevent.returnValue = false;
+        }
+    }
+}
+function textup() {
+    var s = document.getElementById("video_info").value;
+    //判断ID为text的文本区域字数是否超过200个 
+    if (s.length > 200) {
+        document.getElementById("video_info").value = s.substring(0, 200);
+    }
+}
+</script>    
 </head>
 <body>
      <div id="pickfiles" class="bigBtn">
@@ -46,8 +77,6 @@ function check() {
 			<option value="">英语</option>			                         		                        
 		    </select>
         </div>
- <!--   </form> --> 
-<!-- </div> -->
       <p class="drag_tip">拖拽视频到此也可上传</p>
            <!-- 填写资料 -->
                 <div class="sub_input">
@@ -63,17 +92,20 @@ function check() {
                         </div>
                         <div class="title">
                             <label class="label_tit"><b>*</b>视频标题：</label>
-                            <div class="inp_txt">
-                                <span class="txt_num">0/30</span>
-                                <input name="title" type="text" id="video_title"  maxlength="30" value=""/>
-                            </div>
-                            <span>视频标题不能为空！</span>
+                            <span class="txt_num">0/30</span>
+                            <input name="title" type="text" id="video_title"  maxlength="30" value="视频标题不能为空！"
+                             onblur="if(this.value=='') {this.value='视频标题不能为空！'}"
+                             onfocus="if(this.value=='视频标题不能为空！') {this.value='';}"
+                            />
+                           <!--  <span>视频标题不能为空！</span> -->
                         </div>
                         <div class="info">
-                            <label class="label_tit"><b>*</b>视频简介：</label>
-                            <textarea name="info" id="video_info" value=""></textarea>
-                            <span>0/200</span>
-                            <span>视频简介不能为空！</span>
+                            <label class="label_tit"><b>*</b>视频简介：视频简介不能为空！0/200</label></br>
+                            <textarea name="info" id="video_info" 
+                              onKeyDown="textdown(event)"  onKeyUp="textup()">
+                               </textarea>
+                           <!--  <span>0/200</span>
+                            <span>视频简介不能为空！</span> -->
                         </div>
 
                         <div class="tag">

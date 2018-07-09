@@ -237,9 +237,9 @@ function checkRegister(){
 
 //判断是否登录及错误-杜宇航
 function init(){
-	var userid = <%=session.getAttribute("userid")%>;
-	var username = <%=session.getAttribute("username")%>;
-	if(userid!=null)
+	var userid = "<%=session.getAttribute("userid")%>";
+	var username = "<%=session.getAttribute("username")%>";
+	if(userid!="null")
 		{
 		var register=document.getElementById("register");
 	      var login=document.getElementById("login");
