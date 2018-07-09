@@ -7,7 +7,7 @@ import com.comm.BaseDao;
 import com.pojo.UserEdit;
 
 
-//用户数据库操作
+//用户数据库操作-季宇恒
 public class UserEditDao extends BaseDao{
 	public int doEdit(UserEdit u) {
 		String sql="UPDATE user SET name=?,sex=?,birthday=?,school=?,profession=?,introduce=?,province=?,city=? WHERE idname=?";
