@@ -48,6 +48,7 @@
 </style>	
 </head>
 <body>
+<!-- 个人信息 邓慧颖、常庭瑞 -->
  <div class="site_head_simple site_head_simple_promotion" id="head_v3">
 	<div class="head_inner">
   </div> 
@@ -95,6 +96,7 @@
 		</div>
 	</div>
 </div>
+<!-- 显示收藏视频 邓慧颖、常庭瑞 -->
 <div class="site_container">
 	<div class="site_tab">
 		<div class="tab_inner">

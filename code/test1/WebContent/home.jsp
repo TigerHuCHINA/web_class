@@ -13,6 +13,7 @@
 <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
 <link href="css/style.css" rel='stylesheet' type='text/css'>
+<!-- 实现登陆注册界面的下滑 邓慧颖、常庭瑞 -->
 <script>
 $(document).ready(function(){
     $(".dropdown").hover(            
@@ -33,7 +34,7 @@ $(document).ready(function(){
 <body onload = "init()">
 <div class="header">
 	<div class="container">
-	
+	    <!-- 登录 注册 button 邓慧颖 -->
 		<div class="top-menu">
 			<ul>
 				<li><a id="login" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal">登录</a></li>
@@ -41,7 +42,7 @@ $(document).ready(function(){
 			</ul>
 		</div>
 		
-			
+		<!-- 登录界面 邓慧颖 -->	
 		<div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog_1">
 				<div class="modal-content">
@@ -80,7 +81,7 @@ $(document).ready(function(){
 		    </div>
 		</div>
 		
-
+        <!-- 注册界面 常庭瑞 -->
 		<div class="modal fade" id="applyModal_1" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog_2">
 				<div class="modal-content">
@@ -130,6 +131,7 @@ $(document).ready(function(){
                  <a href="javascript:void(0);" onclick="logout()">退出登录</a>
              </div>
          </div>
+<!-- 个人界面下拉菜单 邓慧颖 -->         
 <style>
 .dropdown{
     position:relative;
@@ -185,7 +187,7 @@ $(document).ready(function(){
 
 
 
-
+<!-- 对登录 注册进行一些限制 常庭瑞 -->
 <script>
 function checkLogin(){
 	var x=document.getElementById("LoginUserId").value;
@@ -271,7 +273,7 @@ function logout()
 
 
 
-
+<!-- 搜索界面 常庭瑞 -->
 
 <div class="search1 dd1">
     <form class="search1">
@@ -281,32 +283,9 @@ function logout()
 </div>
 
  
- 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- 轮播 邓慧颖 -->
 <div id="wrapper"><!-- 最外层部分 -->
     <div id="banner"><!-- 轮播部分 -->
       <ul class="imgList"><!-- 图片部分 -->
@@ -495,7 +474,7 @@ function logout()
   }
 </script>
 
-
+<!-- 显示视频 常庭瑞 -->
 <div id="videos">
     <ul class="ul1">
         <li>
@@ -667,7 +646,7 @@ function logout()
 
 
 
-
+<!-- 返回顶部 邓慧颖 -->
 
 <div class="return_top"></div>
 <script>
