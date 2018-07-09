@@ -58,20 +58,20 @@
     <div id="userschool" class="info">
         <tr>
             <td>学校 </td>
-            <td><%//这里放学校 %></td>
+            <td><%=u.getUschool() %></td>
         </tr>
     </div>
     
     <div id="userclass" class="info">
         <tr>
             <td>专业 </td>
-            <td><%//这里放专业 %></td>
+            <td><%=u.getUprofession() %></td>
         </tr>
     </div>
     <div id="userinformation" class="info">
         <tr>
             <td>个人简介 </td>
-            <td><%//这里放个人简介 %></td>
+            <td><%=u.getUintroduce() %></td>
         </tr>
     </div>
     
@@ -104,7 +104,7 @@
 
 <div id="lightbox"></div>
 <div id="pop">
-    <form>
+    <form action = "doEdit" method = "post">
         <div id="modified" style="OVERFLOW-Y: auto; OVERFLOW-X:hidden;">
             <div class="close">
                 <input type="button" value="×" onclick="PopLayer()" /> 
@@ -126,13 +126,13 @@
                 <script type="text/javascript">_init_area();</script>              
             </div>
             <div id="moschool" class="mo">               
-                <input type="text" name="name" placeholder="请输入新的学校"/>
+                <input type="text" name="school" placeholder="请输入新的学校"/>
             </div>
             <div id="moclass" class="mo">               
-                <input type="text" name="name" placeholder="请输入新的专业"/>
+                <input type="text" name="profession" placeholder="请输入新的专业"/>
             </div>
             <div id="moinformation" class="mo">               
-                <input type="text" name="name" placeholder="请输入新的简介"/>
+                <input type="text" name="introduce" placeholder="请输入新的简介"/>
             </div>
             <div id="mosex" class="mo">               
                 <select path="country" id="sex">
@@ -142,7 +142,7 @@
 				</select>
             </div>
             <div>
-                <input type="button" value="保存" class="save" />
+                <input type="submit" value="保存" class="save" />
         	</div>
         </div>
     </form>
