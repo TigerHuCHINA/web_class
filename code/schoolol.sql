@@ -31,7 +31,7 @@ CREATE TABLE `agree` (
   PRIMARY KEY (`id`),
   KEY `User_id_idx` (`userId`),
   KEY `agree_comment_id_idx` (`commentId`),
-  CONSTRAINT `agree_comment_id` FOREIGN KEY (`commentId`) REFERENCES `follow` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `agree_comment_id` FOREIGN KEY (`commentId`) REFERENCES `comment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `agree_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -104,7 +104,7 @@ DROP TABLE IF EXISTS `collection`;
 CREATE TABLE `collection` (
   `id` varchar(45) NOT NULL,
   `userId` varchar(45) NOT NULL,
-  `videoId` varchar(45) NOT NULL,
+  `videoId` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `collection_user_id_idx` (`userId`),
   KEY `collection_video_id_idx` (`videoId`),
@@ -132,7 +132,7 @@ DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
   `id` varchar(45) NOT NULL,
   `userId` varchar(45) NOT NULL,
-  `videoId` varchar(45) NOT NULL,
+  `videoId` int(11) NOT NULL,
   `content` text NOT NULL,
   `time` datetime NOT NULL,
   `agree` int(11) NOT NULL DEFAULT '0',
@@ -241,7 +241,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('11','11','11','unknown',NULL,NULL,NULL,NULL,NULL),('12','45345345','12','unknown',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `user` VALUES ('11','11','11','unknown',NULL,NULL,NULL,NULL,NULL),('111','111','111','unknown',NULL,NULL,NULL,NULL,NULL),('12','45345345','12','unknown',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,22 +253,21 @@ DROP TABLE IF EXISTS `video`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `video` (
-  `id` varchar(45) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` varchar(45) NOT NULL,
-  `groupId` varchar(45) NOT NULL,
-  `categoryId` varchar(45) NOT NULL,
+  `groupId` varchar(45) DEFAULT NULL,
+  `categoryId` varchar(45) DEFAULT NULL,
   `title` varchar(80) DEFAULT NULL,
   `introduce` text,
   `view` int(11) DEFAULT '0',
-  `time` datetime NOT NULL,
+  `time` datetime DEFAULT NULL,
+  `file` longblob,
   PRIMARY KEY (`id`),
   KEY `video_user_id_idx` (`userId`),
   KEY `video_group_id_idx` (`groupId`),
   KEY `video_category_id_idx` (`categoryId`),
-  CONSTRAINT `video_category_id` FOREIGN KEY (`categoryId`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `video_group_id` FOREIGN KEY (`groupId`) REFERENCES `videogroup` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `video_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -279,6 +278,24 @@ LOCK TABLES `video` WRITE;
 /*!40000 ALTER TABLE `video` DISABLE KEYS */;
 /*!40000 ALTER TABLE `video` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `schoolol`.`video_BEFORE_INSERT` BEFORE INSERT ON `video` FOR EACH ROW
+BEGIN
+	set new.time = current_time;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `videogroup`
@@ -316,12 +333,12 @@ DROP TABLE IF EXISTS `videorecord`;
 CREATE TABLE `videorecord` (
   `id` varchar(45) NOT NULL,
   `userId` varchar(45) NOT NULL,
-  `videoId` varchar(45) NOT NULL,
+  `videoId` int(11) NOT NULL,
   `videotime` double NOT NULL,
   `daytime` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `videorecord_video_id_idx` (`videoId`),
   KEY `videorecord_user_id_idx` (`userId`),
+  KEY `videorecord_video_id_idx` (`videoId`),
   CONSTRAINT `videorecord_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`idname`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `videorecord_video_id` FOREIGN KEY (`videoId`) REFERENCES `video` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -353,4 +370,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-08 19:06:08
+-- Dump completed on 2018-07-09 10:34:28
