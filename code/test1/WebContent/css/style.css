@@ -1,4 +1,4 @@
-------整体结构-----
+------整体结构 邓慧颖、常庭瑞-----
 body{
 	padding:0;
 	margin:0;
@@ -21,7 +21,7 @@ ul{
 label{
 	margin:0;
 }
-------header-----
+------header 邓慧颖-----
 .header {
 	padding: 1em 0 0;
     background-color: #ffffff;
@@ -41,7 +41,7 @@ label{
     border-radius: 0;
 }
 
-------login-----
+------login 常庭瑞-----
 .modal-dialog_1{
     width:400px;
     margin: 30px auto;
@@ -145,7 +145,7 @@ label.field.prepend-icon {
     text-align: center;
     font-weight:100;
 }
-------register-----
+------register 邓慧颖-----
 .modal-dialog_2{
     width:450px;
     margin: 30px auto;
@@ -193,7 +193,7 @@ h4#myModalLabel {
     padding: 0 2px;
 }
 
-------select language -------
+------select language 常庭瑞-------
 ul.lang{
 	padding:0;
 	margin:0;
@@ -210,7 +210,7 @@ ul.lang li a{
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(204, 204, 204, 0);
 }
-------搜索-----
+------搜索 邓慧颖-----
 div.search1 {padding: 30px 0}
 form.search1 {
   position: relative;
@@ -238,7 +238,7 @@ form.search1 {
 	
 }
 
-------轮播-----
+------轮播 常庭瑞-----
 div,ul,li,a,img{margin: 0;padding: 0;}
 ul,li{list-style: none;}
 a{text-decoration: none;}
@@ -260,7 +260,7 @@ a{text-decoration: none;}
 .indexList li{float:left;margin-right: 5px;padding: 2px 4px;border: 2px solid black;background: grey;cursor: pointer;}
 .indexList .indexOn{background: red;font-weight: bold;color: white;}
   
-------videos-----
+------videos 邓慧颖-----
 #videos{position: relative;}
 .ul1{
 	margin:100px 100px 100px 180px;
