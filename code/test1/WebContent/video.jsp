@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- ----------------------播放视频，邓慧颖---------------------------------- -->
 <video width="320" height="240" controls="controls">
         <source src="class.mp4" type="audio/mp4">
 </video>

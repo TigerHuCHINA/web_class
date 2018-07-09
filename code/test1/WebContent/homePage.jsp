@@ -74,7 +74,7 @@
 
 
 <div id="lightbox"></div>
-<div id="pop"><form>
+<div id="pop"><form action="doEdit" method="post" onsubmit="return checkLogin();">
     <table width="100%" border="0" cellpadding="5" cellspacing="5">
         <tr><td align="center" colspan="2">修改用户</td></tr>
         <tr>
@@ -83,6 +83,8 @@
  			  </td>
   		</tr>
         <tr><td align="right">用户名：</td><td><input type="text" name="name" /></td></tr>
+        <tr><td align="right">性    别：</td><td><input type="radio" name="sex" checked value="male"/>男
+        									<input type="radio" name="sex" value="female">女</td></tr>
         <tr><td align="right">生    日：</td><td><input type="text" name="birthday" onfocus="HS_setDate(this)"/></td></tr>
         <tr><td align="right">地    址：</td>
         <td>
@@ -97,9 +99,9 @@
         <td>
         </tr>
         
-        
-        
-        
+        <tr><td align="right">学    校：</td><td><input type="text" name="school" /></td></tr>
+        <tr><td align="right">专    业：</td><td><input type="text" name="profession" /></td></tr>
+        <tr><td align="right">个人介绍：</td><td><input type="text" name="introduce" /></td></tr>
         <style type="text/css">
 body{ background:#EEEEEE;margin:0; padding:0; font-family:"微软雅黑", Arial, Helvetica, sans-serif; }
 a{ color:#006600; text-decoration:none;}
@@ -117,7 +119,7 @@ a:hover{color:#990000;}
         
         
         
-        <tr><td colspan="1" align="right"><input type="button" value="保存" />
+        <tr><td colspan="1" align="right"><input type="submit" value="保存" />
         			　<input type="button" value="关闭" onclick="PopLayer()" /> </td></tr>
     </table>
 </form>
