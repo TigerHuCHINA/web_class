@@ -13,7 +13,8 @@
 <body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 <%
 	getInfo get = new getInfo();
-	UserEdit u = get.getInfoById((String)session.getAttribute("userid"));
+	String name = (String)session.getAttribute("userid");
+	UserEdit u = get.getInfoById(name);
 %>
 <div class="image">
     <img src="<%=u.getUheadphoto() %>">

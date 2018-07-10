@@ -127,7 +127,7 @@ $(document).ready(function(){
              <div class="dropdown-content">
                  <a href="homePage.jsp">个人主页</a>
                  <a href="upload.jsp">上传视频</a>
-                 <a href="logout" onclick="logout()">退出登录</a>
+                 <a onclick="logout()">退出登录</a>
              </div>
          </div>
 <!-- 个人界面下拉菜单 邓慧颖 -->         
@@ -240,6 +240,7 @@ function init(){
 	var username = "<%=request.getSession().getAttribute("username")%>";
 	if(userid!="null")
 		{
+		alert(userid);
 		var register=document.getElementById("register");
 	      var login=document.getElementById("login");
 	      register.style.display='none';
@@ -254,12 +255,15 @@ function init(){
 		}*/
 	else
 	{
+		/*alert("1")
 		var username_ = getCookie("username");
 		var userid_ = getCookie("userid");
 		if(userid_==""){
+			alert(userid_);*/
 			  var istrue=document.getElementById("istrue");
 	     	 istrue.style.display='none';
-	    }else{
+	    /*}else{
+	    	alert(userid_);
 	    	  var register=document.getElementById("register");
 			      var login=document.getElementById("login");
 			      register.style.display='none';
@@ -267,7 +271,7 @@ function init(){
 			      //location.href="login";
 			      //istrue.style.display='inline-block';
 			      //istrue.style.visibility='visible';
-	    }
+	    }*/
 	}
 	//登录注册错误
 	var error = "<%=request.getSession().getAttribute("error")%>";
@@ -282,8 +286,9 @@ function logout() {
 	<%/*session.removeAttribute("userid");
 	session.removeAttribute("username");*/%>
 	delCookie("userid");
-	delCookie("username");
-	location.reload();
+	delCookie("username");//未能删除，等待修改
+	alert(getCookie("userid"));
+	location.href("logout");
 }
 
 function getCookie(c_name) {
@@ -304,10 +309,11 @@ function getCookie(c_name) {
 function delCookie(name)
 {
     var exp = new Date();
-    exp.setTime(exp.getTime() - 1);
+    exp.setTime(exp.getTime() - 1000);
     var cval=getCookie(name);
     if(cval!=null)
         document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+    alert(getCookie(name));
 }
 
 </script>
