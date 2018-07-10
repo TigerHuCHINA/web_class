@@ -240,7 +240,6 @@ function init(){
 	var username = "<%=request.getSession().getAttribute("username")%>";
 	if(userid!="null")
 		{
-		alert(userid);
 		var register=document.getElementById("register");
 	      var login=document.getElementById("login");
 	      register.style.display='none';

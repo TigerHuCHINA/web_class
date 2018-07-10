@@ -33,6 +33,8 @@ public class UserEditDao extends BaseDao{
 				u.setUschool(set.getString(7));
 				u.setUprofession(set.getString(8));
 				u.setUintroduce(set.getString(9));
+				u.setUprovince(set.getString(10));
+				u.setUcity(set.getString(11));
 				free();
 			}
 			else {
