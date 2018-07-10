@@ -23,6 +23,7 @@ public class UserEditDao extends BaseDao{
 		try {
 			if(set.next()) {
 				u.setUid(set.getString(1));
+<<<<<<< HEAD
 				u.setUname(set.getString(1));
 				u.setUsex(set.getString(1));
 				u.setUheadphoto(set.getString(1));
@@ -30,6 +31,22 @@ public class UserEditDao extends BaseDao{
 				u.setUschool(set.getString(1));
 				u.setUprofession(set.getString(1));
 				u.setUintroduce(set.getString(1));
+=======
+				u.setUname(set.getString(2));
+				u.setUsex(set.getString(4));
+				u.setUheadphoto(set.getString(5));
+				u.setUbirthday(set.getString(6));
+				u.setUschool(set.getString(7));
+				u.setUprofession(set.getString(8));
+				u.setUintroduce(set.getString(9));
+				u.setUprovince(set.getString(10));
+				u.setUcity(set.getString(11));
+				free();
+			}
+			else {
+				free();
+				return null;
+>>>>>>> parent of 696c366... Revert "个人主页及修改的完善"
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

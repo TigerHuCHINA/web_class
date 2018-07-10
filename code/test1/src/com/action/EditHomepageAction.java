@@ -23,6 +23,15 @@ public class EditHomepageAction extends HttpServlet {
 		String id = req.getParameter("userid");
 		String name = req.getParameter("username");
 		String sex = req.getParameter("sex");
+<<<<<<< HEAD
+=======
+		sex = new String(sex.getBytes("iso-8859-1"),"utf-8");
+		System.out.println(sex);
+		String province = req.getParameter("province");
+		province = new String(province.getBytes("iso-8859-1"),"utf-8");
+		String city = req.getParameter("city");
+		city = new String(city.getBytes("iso-8859-1"),"utf-8");
+>>>>>>> parent of 696c366... Revert "个人主页及修改的完善"
 		String birthday = req.getParameter("birthday");
 		String school = req.getParameter("school");
 		String profession = req.getParameter("profession");
