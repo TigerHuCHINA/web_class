@@ -6,7 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>上传视频</title>
 <style>
-body {background-color:#C0C0C0;}
+body {
+	background:url(picture/upload-back.png);
+  	background-color:rgba(0,0,0,0.2);
+}
 #video_info {
  width:700px;
  height:150px;
@@ -75,14 +78,18 @@ function textup() {
         filter:alpha(opacity=0);
         cursor:pointer;
     }
- 
+ /* ----------- 标题-------- */
+ .tit{
+ font-size:300%;
+ font-family:"华文楷体";
+ }
 </style>
 </head>
 <body>
      <div id="pickfiles" class="bigBtn">
-        <p>
-         <span class="tit">网页上传</span>
-         <span class="txt">仅支持FLV或MP4文件格式</span>
+        <p align="center">
+         <span class="tit"><strong>网页上传</strong></span>
+        <!--  <span class="txt">仅支持FLV或MP4文件格式</span> -->
         </p>                              
      </div>
   <div class="upload">
@@ -90,8 +97,8 @@ function textup() {
         <div class="fileInputContainer">  
             <input class="fileInput" id="file" type="file" name="file"/>
         </div>
-        <div>
-            <select name="subject">
+        <div id="subject">
+            <select name="subject" class="down">
 		    <option value="">选择科目</option>
 			<option value="">语文</option>
 			<option value="">数学</option>
