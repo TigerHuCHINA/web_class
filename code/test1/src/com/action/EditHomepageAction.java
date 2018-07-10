@@ -20,7 +20,7 @@ public class EditHomepageAction extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		HttpSession session = req.getSession();
-		String id = (String) session.getAttribute("userid");
+		String id = req.getParameter("userid");
 		String name = req.getParameter("name");
 		name = new String(name.getBytes("iso-8859-1"),"utf-8");
 		String sex = req.getParameter("sex");
@@ -36,7 +36,7 @@ public class EditHomepageAction extends HttpServlet {
 		String introduce = req.getParameter("introduce");
 		introduce = new String(introduce.getBytes("iso-8859-1"),"utf-8");
 		UserEdit u = new UserEdit();
-		u.setUid(id);
+		u.setUid("11");
 		u.setUname(name);		   
 		u.setUsex(sex);
 		u.setUprovince(province);
