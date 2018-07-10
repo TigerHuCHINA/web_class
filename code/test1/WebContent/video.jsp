@@ -63,7 +63,7 @@
 
 
 <div>
-    <a class="addvideo" href="#" onclick="function()">收藏</a>
+    <a class="addvideo" href="CollectAction" onclick="function()">收藏</a>
 </div>
 
 <div id="talk">
