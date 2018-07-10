@@ -38,6 +38,7 @@ public class CollectAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("getin");
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
 		String vid = (String) session.getAttribute("videoid");
