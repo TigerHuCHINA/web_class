@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.pojo.User;
-import com.sun.glass.ui.Application;
 import com.dao.UserDao;
 
 //ÅÐ¶ÏµÇÂ¼ÊÇ·ñ³É¹¦-¶ÅÓîº½
@@ -42,15 +41,16 @@ public class LoginAction extends HttpServlet {
 			}
 			else
 			{
-				session.setAttribute("login", u.getUid());
+				session.setAttribute("userid", u.getUid());
 				session.setAttribute("username", u.getUname());
-				Cookie cookie1 = new Cookie("login", u.getUid());
-				Cookie cookie2 = new Cookie("username", u.getUname());
-				resp.addCookie(cookie1);
-				resp.addCookie(cookie2);
+				Cookie userIdCookie = new Cookie("userid", u.getUid());
+				Cookie userNameCookie = new Cookie("username", u.getUname());
+				userIdCookie.setMaxAge(60*60*24*7);
+				userNameCookie.setMaxAge(60*60*24*7);
+				resp.addCookie(userIdCookie);
+				resp.addCookie(userNameCookie);
 			}
 		}
-		dao.free();
 		resp.sendRedirect("home.jsp");
 	}
 }
