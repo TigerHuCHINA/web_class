@@ -128,7 +128,7 @@ $(document).ready(function(){
              <div class="dropdown-content">
                  <a href="homePage.jsp">个人主页</a>
                  <a href="upload.jsp">上传视频</a>
-                 <a href="logout" onclick="logout()">退出登录</a>
+                 <a href="javascript:void(0);" onclick="logout()">退出登录</a>
              </div>
          </div>
 <!-- 个人界面下拉菜单 邓慧颖 -->         
@@ -239,7 +239,6 @@ function checkRegister(){
 
 //判断是否登录及错误
 function init(){
-<<<<<<< HEAD
 	var islog = "<%=session.getAttribute("login")%>";
 	  if(islog=="null"){
 		  var istrue=document.getElementById("istrue");
@@ -250,41 +249,6 @@ function init(){
 		      register.style.display='none';
 		      login.style.display='none';
     }
-=======
-	var userid = "<%=session.getAttribute("userid")%>";
-	var username = "<%=session.getAttribute("username")%>";
-	if(userid!="null")
-		{
-		var register=document.getElementById("register");
-	      var login=document.getElementById("login");
-	      register.style.display='none';
-	      login.style.display='none';
-	      //istrue.style.display='inline-block';
-	      //istrue.style.visibility='visible';
-		}
-	/*else
-		{
-		var istrue=document.getElementById("istrue");
-    	 istrue.style.display='none';
-		}*/
-	else
-	{
-		var username_ = getCookie("username");
-		var userid_ = getCookie("userid");
-		if(userid_==""){
-			  var istrue=document.getElementById("istrue");
-	     	 istrue.style.display='none';
-	    }else{
-	    	  var register=document.getElementById("register");
-			      var login=document.getElementById("login");
-			      register.style.display='none';
-			      login.style.display='none';
-			      location.href="login";
-			      //istrue.style.display='inline-block';
-			      //istrue.style.visibility='visible';
-	    }
-	}
->>>>>>> parent of 13963e2... Revert "修改回话机制"
 	//登录注册错误
 	var error = "<%=session.getAttribute("error")%>";
 	  if(error!="null")
@@ -294,19 +258,11 @@ function init(){
 	  }
 }
 
-<<<<<<< HEAD
 function logout()
 {
 	<% session.removeAttribute("login");
 	session.removeAttribute("username");%>
 	
-=======
-function logout() {
-	<%/*session.removeAttribute("userid");
-	session.removeAttribute("username");*/%>
-	delCookie("userid");
-	delCookie("username");
->>>>>>> parent of 13963e2... Revert "修改回话机制"
 	location.reload();
 }
 
