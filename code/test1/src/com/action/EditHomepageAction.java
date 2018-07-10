@@ -25,12 +25,10 @@ public class EditHomepageAction extends HttpServlet {
 		String name = req.getParameter("name");
 		name = new String(name.getBytes("iso-8859-1"),"utf-8");
 		String sex = req.getParameter("sex");
-		sex = new String(sex.getBytes("iso-8859-1"),"utf-8");
-		System.out.println(sex);
 		String province = req.getParameter("province");
-		province = new String(province.getBytes("iso-8859-1"),"utf-8");
+		//province = new String(province.getBytes("iso-8859-1"),"utf-8");
 		String city = req.getParameter("city");
-		city = new String(city.getBytes("iso-8859-1"),"utf-8");
+		//city = new String(city.getBytes("iso-8859-1"),"utf-8");
 		String birthday = req.getParameter("birthday");
 		String school = req.getParameter("school");
 		school = new String(school.getBytes("iso-8859-1"),"utf-8");
