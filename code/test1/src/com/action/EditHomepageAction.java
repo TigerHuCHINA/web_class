@@ -2,7 +2,6 @@ package com.action;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,9 +46,7 @@ public class EditHomepageAction extends HttpServlet {
 		u.setUprofession(profession);
 		u.setUintroduce(introduce);
 		dao.doEdit(u);
-		session.setAttribute("username", name);
-		Cookie nameCookie = opCookie.getCookieByName(req, "username");
-		opCookie.addCookie(resp, "username", name, nameCookie.getMaxAge());
+			session.setAttribute("","ÐÞ¸Ä³É¹¦£¡");
 		resp.sendRedirect("homePage.jsp");
 	}
 }

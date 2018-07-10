@@ -19,9 +19,6 @@ import com.pojo.User;
 import com.dao.UserDao;
 
 
-import com.action.opCookie;
-
-
 //≈–∂œ◊¢≤· «∑Ò≥…π¶-∂≈”Ó∫Ω
 public class RegisterAction extends HttpServlet {
 	UserDao dao = new UserDao();
@@ -57,14 +54,12 @@ public class RegisterAction extends HttpServlet {
 			dao.doRegister(u);
 			session.setAttribute("userid", u.getUid());
 			session.setAttribute("username", u.getUname());
-			/*Cookie userIdCookie = new Cookie("userid", u.getUid());
+			Cookie userIdCookie = new Cookie("userid", u.getUid());
 			Cookie userNameCookie = new Cookie("username", u.getUname());
 			userIdCookie.setMaxAge(60*60*24*7);
 			userNameCookie.setMaxAge(60*60*24*7);
 			resp.addCookie(userIdCookie);
-			resp.addCookie(userNameCookie);*/
-			opCookie.addCookie(resp, "userid", u.getUid(), 60*60*24*7);
-			opCookie.addCookie(resp, "username", u.getUname(), 60*60*24*7);
+			resp.addCookie(userNameCookie);
 		}
 		resp.sendRedirect("home.jsp");
 	}
