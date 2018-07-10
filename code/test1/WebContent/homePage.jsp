@@ -37,7 +37,7 @@
     <div id="userlocation" class="info">
         <tr>
             <td>所在地 </td>
-            <td><%//这里放所在地 %></td>
+            <td><%=u.getUprovince()%> <%=u.getUcity() %></td>
         </tr>
     </div>
     
@@ -121,8 +121,8 @@
                 <input type="text" name="birthday" onfocus="HS_setDate(this)" placeholder="请输入新的生日"/>
             </div>
             <div id="molocation" class="mo">
-                <select id="s_province" name="s_province"></select> 
-                <select id="s_city" name="s_city"></select> 
+                <select id="s_province" name="province"></select> 
+                <select id="s_city" name="city"></select> 
                 <script type="text/javascript">_init_area();</script>              
             </div>
             <div id="moschool" class="mo">               
@@ -135,7 +135,7 @@
                 <input type="text" name="introduce" placeholder="请输入新的简介"/>
             </div>
             <div id="mosex" class="mo">               
-                <select path="country" id="sex">
+                <select path="country" id="sex" name="sex">
                     <option value="">性别</option>
 				    <option value="">男</option>
 				    <option value="">女</option>

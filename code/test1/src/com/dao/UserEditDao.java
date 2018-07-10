@@ -18,7 +18,7 @@ public class UserEditDao extends BaseDao{
 		return row;
 	}
 	
-	public UserEdit getInfoById(String id)//此处需修改
+	public UserEdit getInfoById(String id)
 	{
 		String sql = "select * from user where idname = ?";
 		Object[] obs = {id};
@@ -34,6 +34,8 @@ public class UserEditDao extends BaseDao{
 				u.setUschool(set.getString(7));
 				u.setUprofession(set.getString(8));
 				u.setUintroduce(set.getString(9));
+				u.setUprovince(set.getString(10));
+				u.setUcity(set.getString(11));
 				free();
 			}
 			else {
