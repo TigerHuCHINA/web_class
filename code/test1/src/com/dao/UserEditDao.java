@@ -6,15 +6,18 @@ import java.sql.SQLException;
 import com.comm.BaseDao;
 import com.pojo.UserEdit;
 
+
+//用户数据库操作-季宇恒
 public class UserEditDao extends BaseDao{
 	public int doEdit(UserEdit u) {
-
-		String sql="UPDATE user SET name=?,sex=?,birthday=?,school=?,profession=?,introduce=? WHERE id=?";
-		Object[] obs={u.getUname(),u.getUsex(),u.getUbirthday(),u.getUschool(),u.getUprofession(),u.getUintroduce(),u.getUid()};
-		return executeUpdate(sql, obs);
+		String sql="UPDATE user SET name=?,sex=?,birthday=?,school=?,profession=?,introduce=?,province=?,city=? WHERE idname=?";
+		Object[] obs={u.getUname(),u.getUsex(),u.getUbirthday(),u.getUschool(),u.getUprofession(),u.getUintroduce(),u.getUprovince(),u.getUcity(),u.getUid()};
+		int row = executeUpdate(sql, obs);
+		free();
+		return row;
 	}
 	
-	public UserEdit getInfoById(String id)
+	public UserEdit getInfoById(String id)//此处需修改
 	{
 		String sql = "select * from user where idname = ?";
 		Object[] obs = {id};
@@ -23,15 +26,6 @@ public class UserEditDao extends BaseDao{
 		try {
 			if(set.next()) {
 				u.setUid(set.getString(1));
-<<<<<<< HEAD
-				u.setUname(set.getString(1));
-				u.setUsex(set.getString(1));
-				u.setUheadphoto(set.getString(1));
-				u.setUbirthday(set.getString(1));
-				u.setUschool(set.getString(1));
-				u.setUprofession(set.getString(1));
-				u.setUintroduce(set.getString(1));
-=======
 				u.setUname(set.getString(2));
 				u.setUsex(set.getString(4));
 				u.setUheadphoto(set.getString(5));
@@ -39,14 +33,11 @@ public class UserEditDao extends BaseDao{
 				u.setUschool(set.getString(7));
 				u.setUprofession(set.getString(8));
 				u.setUintroduce(set.getString(9));
-				u.setUprovince(set.getString(10));
-				u.setUcity(set.getString(11));
 				free();
 			}
 			else {
 				free();
 				return null;
->>>>>>> parent of 696c366... Revert "涓汉涓婚〉鍙婁慨鏀圭殑瀹屽杽"
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -55,4 +46,3 @@ public class UserEditDao extends BaseDao{
 		return u;
 	}
 }
-//季宇恒
