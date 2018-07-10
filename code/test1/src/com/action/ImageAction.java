@@ -46,7 +46,7 @@ public class ImageAction extends HttpServlet {
 		ImageDao id=new ImageDao();
 		if(id.ImageUpload(uid, file)) {
 			request.setAttribute("result", "³É¹¦");
-			request.getRequestDispatcher("homePage.jsp").forward(request, response);
+			request.getRequestDispatcher("success.jsp").forward(request, response);
 		}else {
 			request.setAttribute("result", "Ê§°Ü");
 			request.getRequestDispatcher("xx.jsp").forward(request, response);
