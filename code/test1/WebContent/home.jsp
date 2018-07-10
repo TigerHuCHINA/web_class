@@ -127,7 +127,7 @@ $(document).ready(function(){
              <div class="dropdown-content">
                  <a href="homePage.jsp">个人主页</a>
                  <a href="upload.jsp">上传视频</a>
-                 <a href="javascript:void(0);" onclick="logout()">退出登录</a>
+                 <a href="logout" onclick="logout()">退出登录</a>
              </div>
          </div>
 <!-- 个人界面下拉菜单 邓慧颖 -->         
@@ -265,6 +265,7 @@ function init(){
 			      var login=document.getElementById("login");
 			      register.style.display='none';
 			      login.style.display='none';
+			      location.href="login";
 			      //istrue.style.display='inline-block';
 			      //istrue.style.visibility='visible';
 	    }
@@ -279,9 +280,8 @@ function init(){
 }
 
 function logout() {
-	<%session.removeAttribute("userid");
-	session.removeAttribute("username");%>
-	
+	<%/*session.removeAttribute("userid");
+	session.removeAttribute("username");*/%>
 	delCookie("userid");
 	delCookie("username");
 	location.reload();
@@ -523,7 +523,7 @@ function delCookie(name)
     <ul class="ul1">
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_self" href="video.jsp">
+                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -539,7 +539,7 @@ function delCookie(name)
   
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_self" href="video.jsp">
+                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -555,22 +555,7 @@ function delCookie(name)
   
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_self" href="video.jsp">
-                    <img src="picture/1.png"/>
-                </a>
-                <div class="first">
-                    <p class="top2">PHP入门篇</p>
-                    <p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
-                </div>
-                <div class="last">
-                    <p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
-                    <p class="bottom2">2015-08-17<span>272648人学习</span></p>
-                </div>
-            </div>
-        </li>  
-        <li>
-            <div class="box1">
-                <a class="avatar_pic" target="_self" href="video.jsp">
+                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -586,7 +571,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_self" href="video.jsp">
+                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -602,22 +587,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_self" href="video.jsp">
-                    <img src="picture/1.png"/>
-                </a>
-                <div class="first">
-                    <p class="top2">PHP入门篇</p>
-                    <p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
-                </div>
-                <div class="last">
-                    <p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
-                    <p class="bottom2">2015-08-17<span>272648人学习</span></p>
-                </div>
-            </div>
-        </li>  
-        <li>
-            <div class="box1">
-                <a class="avatar_pic" target="_self" href="video.jsp">
+                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -633,7 +603,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_self" href="video.jsp">
+                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -646,6 +616,39 @@ function delCookie(name)
                 </div>
             </div>
         </li>
+        
+        <li>
+            <div class="box1">
+                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                    <img src="picture/1.png"/>
+                </a>
+                <div class="first">
+                    <p class="top2">PHP入门篇</p>
+                    <p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
+                </div>
+                <div class="last">
+                    <p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
+                    <p class="bottom2">2015-08-17<span>272648人学习</span></p>
+                </div>
+            </div>
+        </li>
+        
+        <li>
+            <div class="box1">
+                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                    <img src="picture/1.png"/>
+                </a>
+                <div class="first">
+                    <p class="top2">PHP入门篇</p>
+                    <p class="bottom2">更新至7-14<span>课程时长:5小时56分</span></p>
+                </div>
+                <div class="last">
+                    <p class="top2">3小时轻松帮你快速掌握PHP语言基础知识,为后续PHP进级课程学习打下基础。</p>
+                    <p class="bottom2">2015-08-17<span>272648人学习</span></p>
+                </div>
+            </div>
+        </li>
+        
         
     </ul>
 </div>
