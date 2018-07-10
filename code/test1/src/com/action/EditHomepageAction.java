@@ -28,6 +28,7 @@ public class EditHomepageAction extends HttpServlet {
 		sex = new String(sex.getBytes("iso-8859-1"),"utf-8");
 		System.out.println(sex);
 		String province = req.getParameter("province");
+<<<<<<< HEAD
 		province = new String(province.getBytes("iso-8859-1"),"utf-8");
 		String city = req.getParameter("city");
 		city = new String(city.getBytes("iso-8859-1"),"utf-8");
@@ -37,6 +38,18 @@ public class EditHomepageAction extends HttpServlet {
 		String profession = req.getParameter("profession");
 		String introduce = req.getParameter("introduce");
 
+=======
+		province = new String(name.getBytes("iso-8859-1"),"utf-8");
+		String city = req.getParameter("city");
+		city = new String(name.getBytes("iso-8859-1"),"utf-8");
+		String birthday = req.getParameter("birthday");
+		String school = req.getParameter("school");
+		school = new String(name.getBytes("iso-8859-1"),"utf-8");
+		String profession = req.getParameter("profession");
+		profession = new String(name.getBytes("iso-8859-1"),"utf-8");
+		String introduce = req.getParameter("introduce");
+		introduce = new String(name.getBytes("iso-8859-1"),"utf-8");
+>>>>>>> parent of f1cba78... 第一版本结束
 		UserEdit u = new UserEdit();
 
 		u.setUid(id);
