@@ -1,5 +1,6 @@
 package com.action;
 
+import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,19 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dao.CollectDao;
+import com.dao.ImageDao;
 
 /**
- * Servlet implementation class CollectAction
+ * Servlet implementation class ImageAction
  */
-
-public class CollectAction extends HttpServlet {
+@WebServlet("/ImageAction")
+public class ImageAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CollectAction() {
+    public ImageAction() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +31,7 @@ public class CollectAction extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
+		doGet(request, response);
 	}
 
 	/**
@@ -40,11 +41,12 @@ public class CollectAction extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
-		String vid = (String) session.getAttribute("videoid");
-		CollectDao cd=new CollectDao();
-		if(cd.collect(uid, vid)) {
+		File file = new File(request.getParameter("file"));
+		System.out.println(uid+file.getName());
+		ImageDao id=new ImageDao();
+		if(id.ImageUpload(uid, file)) {
 			request.setAttribute("result", "³É¹¦");
-			request.getRequestDispatcher("video.jsp").forward(request, response);
+			request.getRequestDispatcher("homePage.jsp").forward(request, response);
 		}else {
 			request.setAttribute("result", "Ê§°Ü");
 			request.getRequestDispatcher("xx.jsp").forward(request, response);
