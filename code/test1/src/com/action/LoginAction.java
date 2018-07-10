@@ -53,4 +53,5 @@ public class LoginAction extends HttpServlet {
 		dao.free();
 		resp.sendRedirect("home.jsp");
 	}
+	
 }

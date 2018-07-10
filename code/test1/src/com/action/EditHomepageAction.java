@@ -20,8 +20,14 @@ public class EditHomepageAction extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		HttpSession session = req.getSession();
+<<<<<<< HEAD
 		String id = req.getParameter("userid");
 		String name = req.getParameter("username");
+=======
+		String id = (String) session.getAttribute("userid");
+		String name = req.getParameter("name");
+		name = new String(name.getBytes("iso-8859-1"),"utf-8");
+>>>>>>> parent of 13963e2... Revert "修改回话机制"
 		String sex = req.getParameter("sex");
 		String birthday = req.getParameter("birthday");
 		String school = req.getParameter("school");
@@ -29,7 +35,10 @@ public class EditHomepageAction extends HttpServlet {
 		String introduce = req.getParameter("introduce");
 
 		UserEdit u = new UserEdit();
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 13963e2... Revert "修改回话机制"
 		u.setUid(id);
 		u.setUname(name);		   
 		u.setUsex(sex);
