@@ -523,7 +523,7 @@ function delCookie(name)
     <ul class="ul1">
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -539,7 +539,7 @@ function delCookie(name)
   
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -555,7 +555,7 @@ function delCookie(name)
   
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -571,7 +571,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -587,7 +587,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -603,7 +603,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -619,7 +619,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -635,7 +635,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">

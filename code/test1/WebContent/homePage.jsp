@@ -165,7 +165,14 @@
         return false
     }
 </script>
-
+<!-- -----------------------------------关注、收藏----------------------------------- -->
+<div class="focusinfo">
+	<a class="focus" onclick="focus();">关注</a>
+</div>
+<div class="same">
+	<strong>2</strong>关注</br>
+	<strong class="look">1.4k</strong>浏览
+</div>
 
 </body>
 </html>
