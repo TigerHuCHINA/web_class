@@ -13,7 +13,7 @@
 <body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 <%
 	getInfo get = new getInfo();
-	UserEdit u = get.getInfoById("11");
+	UserEdit u = get.getInfoById((String)session.getAttribute("userid"));
 %>
 <div class="image">
     <img src="<%=u.getUheadphoto() %>">
@@ -137,8 +137,9 @@
             <div id="mosex" class="mo">               
                 <select path="country" id="sex">
                     <option value="">性别</option>
-				    <option value="">male</option>
-				    <option value="">female</option>
+				    <option value="">男</option>
+				    <option value="">女</option>
+				    <option value="">保密</option>
 				</select>
             </div>
             <div>
