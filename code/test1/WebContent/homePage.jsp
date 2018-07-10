@@ -16,7 +16,7 @@
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
 %>
-<div class="image">
+<%-- <div class="image">
     <img src="<%=u.getUheadphoto() %>">
 </div>
 
@@ -78,7 +78,7 @@
     
     
 </div>
-
+ --%>
 <div class="editinfo">
     <a class="edit" href="#" onclick="return PopLayer(this)">编辑资料</a>
 </div>
