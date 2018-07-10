@@ -27,7 +27,6 @@ public class VideoDao extends BaseDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		free();
 		return videos;
 	}
 }

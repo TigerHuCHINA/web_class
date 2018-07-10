@@ -7,15 +7,13 @@ import com.comm.BaseDao;
 import com.pojo.User;
 
 
-//用户数据库操作-杜宇航
+//用户数据库操作
 public class UserDao extends BaseDao {
 
 	public int doRegister(User u) {
 		String sql="insert into user (idname,name,password) values(?,?,?)";
 		Object[] obs={u.getUid(),u.getUname(),u.getUpwd()};
-		int row =  executeUpdate(sql, obs);
-		free();
-		return row;
+		return executeUpdate(sql, obs);
 	}
 
 	public User dologin(String id) {
@@ -28,10 +26,8 @@ public class UserDao extends BaseDao {
 				user.setUid(set.getString(1));
 				user.setUname(set.getString(2));
 				user.setUpwd(set.getString(3));
-				free();
 			}
 			else {
-				free();
 				return null;
 			}
 		} catch (SQLException e) {

@@ -1,15 +1,15 @@
 package com.pojo;
 
 import java.sql.Date;
-import java.io.*;
+
 // ”∆µ-∂≈”Ó∫Ω
 public class Video {
 	private String id;
 	private String userId;
 	private String title;
 	private String introduce;
-	private File file;
 	//private Date time;
+
 	public String getId() {
 		return id;
 	}
@@ -33,12 +33,6 @@ public class Video {
 	}
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
-	}
-	public void setFile(File file) {
-		this.file = file;
-	}
-	public File getFile() {
-		return file;
 	}
 	/*public Date getTime() {
 		return time;

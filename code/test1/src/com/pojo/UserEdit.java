@@ -1,12 +1,9 @@
 package com.pojo;
 
-//用户基本个人信息-季宇恒
 public class UserEdit extends User {
 	private String usex;
 	private String uheadphoto;
 	private String ubirthday;
-	private String uProvince;
-	private String uCity;
 	private String uschool;
 	private String uprofession;
 	private String uintroduce;
@@ -47,18 +44,6 @@ public class UserEdit extends User {
 	}
 	public void setUbirthday(String ubirthday) {
 		this.ubirthday=ubirthday;
-	}
-	public String getUprovince() {
-		return uProvince;
-	}
-	public void setUprovince(String uProvince) {
-		this.uProvince = uProvince;
-	}
-	public String getUcity() {
-		return uCity;
-	}
-	public void setUcity(String uCity) {
-		this.uCity = uCity;
 	}
 }
 //季宇恒

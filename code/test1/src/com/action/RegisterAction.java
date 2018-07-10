@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +14,7 @@ import javax.sql.rowset.spi.SyncFactoryException;
 
 import com.pojo.User;
 
+import javafx.scene.control.Alert;
 
 import com.dao.UserDao;
 
@@ -52,15 +52,10 @@ public class RegisterAction extends HttpServlet {
 		}
 		else {
 			dao.doRegister(u);
-			session.setAttribute("userid", u.getUid());
+			session.setAttribute("login", u.getUid());
 			session.setAttribute("username", u.getUname());
-			Cookie userIdCookie = new Cookie("userid", u.getUid());
-			Cookie userNameCookie = new Cookie("username", u.getUname());
-			userIdCookie.setMaxAge(60*60*24*7);
-			userNameCookie.setMaxAge(60*60*24*7);
-			resp.addCookie(userIdCookie);
-			resp.addCookie(userNameCookie);
 		}
+		dao.free();
 		resp.sendRedirect("home.jsp");
 	}
 }
