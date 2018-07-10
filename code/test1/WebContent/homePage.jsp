@@ -119,7 +119,7 @@
                 <input type="text" name="name" placeholder="请输入新的用户名"/>
             </div>
             <div id="modate" class="mo">
-                <input type="text" name="birthday" onfocus="HS_setDate(this)" placeholder="请输入新的生日"/>
+                <input type="text" name="birthday" onfocus="HS_setDate(this)" readonly placeholder="请输入新的生日"/>
             </div>
             <div id="molocation" class="mo">
                 <select id="s_province" name="province"></select> 
@@ -137,7 +137,7 @@
             </div>
             <div id="mosex" class="mo">               
                 <select path="country" id="sex" name="sex">
-                    <option value="性别">性别</option>
+                    <option value="" disabled selected>性别</option>
 				      <option value="男">男</option>
 				    <option value="女">女</option>
 				    <option value="保密">保密</option>
@@ -149,7 +149,10 @@
         </div>
     </form>
 </div>
-
+<form method="post" action="ImageAction">
+<input class="fileInput" id="file" type="file" name="file"/>
+<input type="submit" value="提交"/>
+</form>
 
 
 
