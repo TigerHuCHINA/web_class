@@ -12,26 +12,17 @@ public class Login {
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		HttpSession session = req.getSession();
-		Cookie[] cookies = req.getCookies();
-		String name = new String();
-		String id = new String();
-		for(Cookie cookie : cookies){
-		    if(cookie.getName() == "username")
-		    {
-		    	name = cookie.getValue();
-		    }
-		    else if(cookie.getName() == "userid")
-		    {
-		    	id = cookie.getValue();
-		    }
-		}
-		Cookie userIdCookie = new Cookie("userid", id);
+		Cookie idCookie = opCookie.getCookieByName(req, "userid");
+		Cookie nameCookie = opCookie.getCookieByName(req, "username");
+		/*Cookie userIdCookie = new Cookie("userid", id);
 		Cookie userNameCookie = new Cookie("username", name);
 		userIdCookie.setMaxAge(60*60*24*7);
 		userNameCookie.setMaxAge(60*60*24*7);
 		resp.addCookie(userIdCookie);
-		resp.addCookie(userNameCookie);
-		session.setAttribute("userid",id);
-		session.setAttribute("username",name);
+		resp.addCookie(userNameCookie);*/
+		opCookie.addCookie(resp, "userid", idCookie.getValue(), 60*60*24*7);
+		opCookie.addCookie(resp, "username", idCookie.getValue(), 60*60*24*7);
+		session.setAttribute("userid",idCookie.getValue());
+		session.setAttribute("username",nameCookie.getValue());
 	}
 }
