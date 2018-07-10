@@ -119,7 +119,7 @@
                 <input type="text" name="name" placeholder="请输入新的用户名"/>
             </div>
             <div id="modate" class="mo">
-                <input type="text" name="birthday" onfocus="HS_setDate(this)" readonly placeholder="请输入新的生日"/>
+                <input id="birth" type="text" name="birthday" onfocus="HS_setDate(this)" readonly placeholder="请输入新的生日"/>
             </div>
             <div id="molocation" class="mo">
                 <select id="s_province" name="province"></select> 
@@ -144,7 +144,8 @@
 				</select>
             </div>
             <div>
-                <input type="submit" value="保存" class="save" />
+               <!--  <input type="submit" value="保存" class="save"  onclick="overToday()"/> -->
+               <input type="button" value="保存" class="save"  onclick="overToday()"/>
         	</div>
         </div>
     </form>
@@ -177,6 +178,18 @@
 	<strong>2</strong>关注</br>
 	<strong class="look">1.4k</strong>浏览
 </div>
+<script>
+/*----------------判断不能超过今天-----------------*/
+function overToday(){
+	var timeValue=document.getElementById("birth").value;
+	var d1=new Date(Date.parse(timeValue.replace(/-/g, "/")));
+	var curDate=new Date();
+	if(d1>curDate) {
+        alert('不可选择今日之后的日期！');
+    }
+	location.href="";
+}
+</script>
 
 </body>
 </html>
