@@ -41,9 +41,13 @@ public class ImageAction extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
-		File file = new File(request.getParameter("file"));
+		
+		String file = request.getParameter("file");
+		file = new String(file.getBytes("iso-8859-1"),"utf-8");
+		
+		File f = new File(file);
 		ImageDao id=new ImageDao();
-		if(id.ImageUpload(uid, file)) {
+		if(id.ImageUpload(uid, f)) {
 			request.setAttribute("result", "³É¹¦");
 			request.getRequestDispatcher("homePage.jsp").forward(request, response);
 		}else {
