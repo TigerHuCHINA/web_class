@@ -75,14 +75,28 @@ function textup() {
         filter:alpha(opacity=0);
         cursor:pointer;
     }
+<<<<<<< HEAD
  
+=======
+ /* ----------- 标题-------- */
+ .tit{
+ font-size:300%;
+ font-family:"华文楷体";
+ }
+>>>>>>> parent of e618e54... 返回主页
 </style>
 </head>
 <body>
      <div id="pickfiles" class="bigBtn">
+<<<<<<< HEAD
         <p>
          <span class="tit">网页上传</span>
          <span class="txt">仅支持FLV或MP4文件格式</span>
+=======
+        <p align="center">
+         <span class="tit"><strong>网页上传</strong></span>
+        <!--  <span class="txt">仅支持FLV或MP4文件格式</span> -->
+>>>>>>> parent of e618e54... 返回主页
         </p>                              
      </div>
   <div class="upload">
