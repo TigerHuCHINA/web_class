@@ -2,7 +2,6 @@ package com.action;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,7 +25,6 @@ public class EditHomepageAction extends HttpServlet {
 		name = new String(name.getBytes("iso-8859-1"),"utf-8");
 		String sex = req.getParameter("sex");
 		sex = new String(sex.getBytes("iso-8859-1"),"utf-8");
-		System.out.println(sex);
 		String province = req.getParameter("province");
 		province = new String(province.getBytes("iso-8859-1"),"utf-8");
 		String city = req.getParameter("city");
@@ -49,9 +47,7 @@ public class EditHomepageAction extends HttpServlet {
 		u.setUprofession(profession);
 		u.setUintroduce(introduce);
 		dao.doEdit(u);
-		session.setAttribute("username", name);
-		Cookie nameCookie = opCookie.getCookieByName(req, "username");
-		opCookie.addCookie(resp, "username", name, nameCookie.getMaxAge());
+			session.setAttribute("","ÐÞ¸Ä³É¹¦£¡");
 		resp.sendRedirect("homePage.jsp");
 	}
 }

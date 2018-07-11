@@ -122,12 +122,12 @@ $(document).ready(function(){
 		 </div>
 		 
 		<div class="dropdown">
-		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=session.getAttribute("username") %>欢迎光临</a>
+		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 			
              <div class="dropdown-content">
                  <a href="homePage.jsp">个人主页</a>
                  <a href="upload.jsp">上传视频</a>
-                 <a href="logout" onclick="logout()">退出登录</a>
+                 <a onclick="logout()">退出登录</a>
              </div>
          </div>
 <!-- 个人界面下拉菜单 邓慧颖 -->         
@@ -185,7 +185,6 @@ $(document).ready(function(){
 </div>
 
 
-
 <!-- 对登录 注册进行一些限制 常庭瑞 -->
 <script>
 function checkLogin(){
@@ -237,8 +236,8 @@ function checkRegister(){
 
 //判断是否登录及错误-杜宇航
 function init(){
-	var userid = "<%=session.getAttribute("userid")%>";
-	var username = "<%=session.getAttribute("username")%>";
+	var userid = "<%=request.getSession().getAttribute("userid")%>";
+	var username = "<%=request.getSession().getAttribute("username")%>";
 	if(userid!="null")
 		{
 		var register=document.getElementById("register");
@@ -255,27 +254,30 @@ function init(){
 		}*/
 	else
 	{
+		/*alert("1")
 		var username_ = getCookie("username");
 		var userid_ = getCookie("userid");
 		if(userid_==""){
+			alert(userid_);*/
 			  var istrue=document.getElementById("istrue");
 	     	 istrue.style.display='none';
-	    }else{
+	    /*}else{
+	    	alert(userid_);
 	    	  var register=document.getElementById("register");
 			      var login=document.getElementById("login");
 			      register.style.display='none';
 			      login.style.display='none';
-			      location.href="login";
+			      //location.href="login";
 			      //istrue.style.display='inline-block';
 			      //istrue.style.visibility='visible';
-	    }
+	    }*/
 	}
 	//登录注册错误
-	var error = "<%=session.getAttribute("error")%>";
+	var error = "<%=request.getSession().getAttribute("error")%>";
 	  if(error!="null")
 	  {
 	  	alert("\"" +error + "\"");
-	  	<%session.removeAttribute("error");%>
+	  	<%request.getSession().removeAttribute("error");%>
 	  }
 }
 
@@ -283,8 +285,9 @@ function logout() {
 	<%/*session.removeAttribute("userid");
 	session.removeAttribute("username");*/%>
 	delCookie("userid");
-	delCookie("username");
-	location.reload();
+	delCookie("username");//未能删除，等待修改
+	alert(getCookie("userid"));
+	location.href("logout");
 }
 
 function getCookie(c_name) {
@@ -301,13 +304,15 @@ function getCookie(c_name) {
 	return "";
 }
 
-function delCookie(name) 
-{ 
-    var exp = new Date(); 
-    exp.setTime(exp.getTime() - 1); 
-    var cval=getCookie(name); 
-    if(cval!=null) 
-        document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
+
+function delCookie(name)
+{
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1000);
+    var cval=getCookie(name);
+    if(cval!=null)
+        document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+    alert(getCookie(name));
 }
 
 </script>
@@ -523,7 +528,7 @@ function delCookie(name)
     <ul class="ul1">
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -539,7 +544,7 @@ function delCookie(name)
   
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -555,7 +560,7 @@ function delCookie(name)
   
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -571,7 +576,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -587,7 +592,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -603,7 +608,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -619,7 +624,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">
@@ -635,7 +640,7 @@ function delCookie(name)
         
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_blank" href="xxxxx.jsp">
+                <a class="avatar_pic" target="_self" href="video.jsp">
                     <img src="picture/1.png"/>
                 </a>
                 <div class="first">

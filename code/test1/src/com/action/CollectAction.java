@@ -8,22 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.comm.*;
-import com.dao.FileDao;
+import com.dao.CollectDao;
 
-import java.io.*;
-import com.pojo.*;
 /**
- * Servlet implementation class UploadAction
+ * Servlet implementation class CollectAction
  */
-//上传视频到数据库-阿依多斯
-public class UploadAction extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
+public class CollectAction extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public UploadAction() {
+    public CollectAction() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -38,30 +36,18 @@ public class UploadAction extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
-		String title = request.getParameter("title");
-		title = new String(title.getBytes("iso-8859-1"),"utf-8");
-		String introduce = request.getParameter("info");
-		introduce = new String(introduce.getBytes("iso-8859-1"),"utf-8");
-		File file = new File(request.getParameter("file"));
-		
-		Video v=new Video();
-		v.setUserId(uid);
-		v.setTitle(title);
-		v.setIntroduce(request.getParameter(introduce));
-		v.setFile(file);
-		
-		FileDao bd=new FileDao();
-		if(bd.Upload(v)) {
+		String vid = (String) session.getAttribute("videoid");
+		CollectDao cd=new CollectDao();
+		if(cd.collect(uid, vid)) {
 			request.setAttribute("result", "成功");
-			request.getRequestDispatcher("success.jsp").forward(request, response);
+			request.getRequestDispatcher("video.jsp").forward(request, response);
 		}else {
 			request.setAttribute("result", "失败");
-			request.getRequestDispatcher("upload.jsp").forward(request, response);
+			request.getRequestDispatcher("xx.jsp").forward(request, response);
 		}
 	}
 
