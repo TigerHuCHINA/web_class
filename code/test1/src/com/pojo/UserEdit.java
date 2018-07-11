@@ -12,6 +12,8 @@ public class UserEdit extends User {
 	private String uschool;
 	private String uprofession;
 	private String uintroduce;
+	private String follow;
+	private String view;
 
 	public String getUsex() {
 		return usex;
@@ -61,6 +63,18 @@ public class UserEdit extends User {
 	}
 	public void setUcity(String uCity) {
 		this.uCity = uCity;
+	}
+	public String getFollow() {
+		return follow;
+	}
+	public void setFollow(String follow) {
+		this.follow = follow;
+	}
+	public String getView() {
+		return view;
+	}
+	public void setView(String view) {
+		this.view = view;
 	}
 }
 //ºæ”Ó∫„
