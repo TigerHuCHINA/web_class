@@ -1,11 +1,9 @@
 package com.pojo;
 
-import java.io.File;
-
 //用户基本个人信息-季宇恒
 public class UserEdit extends User {
 	private String usex;
-	private File uheadphoto;
+	private String uheadphoto;
 	private String ubirthday;
 	private String uProvince;
 	private String uCity;
@@ -19,10 +17,10 @@ public class UserEdit extends User {
 	public void setUsex(String usex) {
 		this.usex = usex;
 	}
-	public File getUheadphoto() {
+	public String getUheadphoto() {
 		return uheadphoto;
 	}
-	public void setUheadphoto(File uheadphoto) {
+	public void setUheadphoto(String uheadphoto) {
 		this.uheadphoto = uheadphoto;
 	}
 

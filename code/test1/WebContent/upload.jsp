@@ -75,33 +75,14 @@ function textup() {
         filter:alpha(opacity=0);
         cursor:pointer;
     }
-<<<<<<< HEAD
  
-=======
- /* ----------- 标题-------- */
- .tit{
- font-size:300%;
- font-family:"华文楷体";
- }
- .Home{
- left:10px;
- font-size:200%;
- }
->>>>>>> e618e54238ca48a78aef7fd80c0182dace1f40c2
 </style>
 </head>
 <body>
      <div id="pickfiles" class="bigBtn">
-<<<<<<< HEAD
         <p>
          <span class="tit">网页上传</span>
          <span class="txt">仅支持FLV或MP4文件格式</span>
-=======
-     	<a class="Home" href="home.jsp"><strong>Home</strong></a>
-        <p align="center">
-         <span class="tit"><strong>网页上传</strong></span>
-        <!--  <span class="txt">仅支持FLV或MP4文件格式</span> -->
->>>>>>> e618e54238ca48a78aef7fd80c0182dace1f40c2
         </p>                              
      </div>
   <div class="upload">
