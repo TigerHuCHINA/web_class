@@ -6,7 +6,7 @@ import com.pojo.Feedback;
 public class FeedbackDao extends BaseDao {
 	public boolean feedbackCommit(Feedback feedback)
 	{
-		String sql = "insert into feedback('userid','conten') values (?,?)";
+		String sql = "insert into feedback('userid','content') values (?,?)";
 		Object obs[] = {feedback.getUserid(),feedback.getContent()};
 		if(executeUpdate(sql, obs)>=1) {
 			free();

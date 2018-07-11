@@ -23,7 +23,6 @@
 	</form>
 </div>
 <!-- ----------------------播放视频，邓慧颖---------------------------------- -->
-<video width="320" height="240" controls="controls">
 
 
 <div class="search1 dd1">
