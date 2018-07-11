@@ -1,6 +1,8 @@
 package com.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -43,14 +45,17 @@ public class LoginAction extends HttpServlet {
 			{
 				session.setAttribute("userid", u.getUid());
 				session.setAttribute("username", u.getUname());
-				Cookie userIdCookie = new Cookie("userid", u.getUid());
+				/*Cookie userIdCookie = new Cookie("userid", u.getUid());
 				Cookie userNameCookie = new Cookie("username", u.getUname());
 				userIdCookie.setMaxAge(60*60*24*7);
 				userNameCookie.setMaxAge(60*60*24*7);
 				resp.addCookie(userIdCookie);
-				resp.addCookie(userNameCookie);
+				resp.addCookie(userNameCookie);*/
+				opCookie.addCookie(resp, "userid", u.getUid(), 60*60*24*7);
+				opCookie.addCookie(resp, "username", u.getUname(), 60*60*24*7);
 			}
 		}
 		resp.sendRedirect("home.jsp");
 	}
+	
 }

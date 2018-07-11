@@ -1,5 +1,7 @@
 package com.action;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 public class opCookie {
 	public static void addCookie(HttpServletResponse response,String name,String value,int maxAge){
+		try {
+			name = URLEncoder.encode(name, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			value = URLEncoder.encode(value, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    Cookie cookie = new Cookie(name,value);
 	    cookie.setPath("/");
 	    if(maxAge>0)  cookie.setMaxAge(maxAge);

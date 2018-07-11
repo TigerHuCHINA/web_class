@@ -28,13 +28,16 @@ public class UserEditDao extends BaseDao{
 				u.setUid(set.getString(1));
 				u.setUname(set.getString(2));
 				u.setUsex(set.getString(4));
-				u.setUheadphoto(set.getString(5));
+				u.setUheadphoto(set.getBinaryStream(5));
 				u.setUbirthday(set.getString(6));
 				u.setUschool(set.getString(7));
 				u.setUprofession(set.getString(8));
 				u.setUintroduce(set.getString(9));
 				u.setUprovince(set.getString(10));
 				u.setUcity(set.getString(11));
+				u.setFollow(set.getString(12));
+				u.setView(set.getString(13));
+				
 				free();
 			}
 			else {

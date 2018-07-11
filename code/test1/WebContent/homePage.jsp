@@ -17,7 +17,7 @@
 	UserEdit u = get.getInfoById(name);
 %>
 <div class="image">
-    <img src="<%=u.getUheadphoto() %>">
+    <img src="ImageDisplay" width="200px" height="200px"/>
 </div>
 
 <div class="information">
@@ -174,8 +174,8 @@
 	<a class="focus" onclick="focus();">关注</a>
 </div>
 <div class="same">
-	<strong>2</strong>关注</br>
-	<strong class="look">1.4k</strong>浏览
+	<strong><%=u.getFollow() %></strong>关注<br>
+	<strong class="look"><%=u.getView() %></strong>浏览
 </div>
 
 </body>

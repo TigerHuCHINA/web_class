@@ -2,6 +2,7 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page language="java" import="java.sql.* ,javax.servlet.* ,java.util.* ,java.awt.* ,com.action.*, com.comm.* ,com.dao.* ,com.pojo.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,6 +15,13 @@
 </head>
 <body>
 
+<div id="counter">
+	<form action="doCount" action="doRecord" method="post">
+	<div>
+		<input type="submit" value="计算" class="counter" />
+	</div>
+	</form>
+</div>
 <!-- ----------------------播放视频，邓慧颖---------------------------------- -->
 <video width="320" height="240" controls="controls">
 
@@ -73,7 +81,7 @@
     <div id="playcount" class="info">
         <tr>
             <td>观看数 </td>
-            <td><%//观看数%></a></td>
+            <td><%//观看数%></td>
         </tr>
     </div>
     

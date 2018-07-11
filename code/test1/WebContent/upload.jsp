@@ -98,10 +98,15 @@ function textup() {
  font-size:300%;
  font-family:"华文楷体";
  }
+ .Home{
+ left:10px;
+ font-size:200%;
+ }
 </style>
 </head>
 <body>
      <div id="pickfiles" class="bigBtn">
+     	<a class="Home" href="home.jsp"><strong>Home</strong></a>
         <p align="center">
          <span class="tit"><strong>网页上传</strong></span>
         <!--  <span class="txt">仅支持FLV或MP4文件格式</span> -->
@@ -141,7 +146,7 @@ function textup() {
                         <div class="title">
                             <label class="label_tit"><b>*</b>视频标题：</label>
                             <span class="txt_num">0/30</span>
-                            <input class="filter-title" name="title" id="video_title" type="text" readonly placeholder="视频标题不能为空！" maxlength="30"/>
+                            <input class="filter-title" name="title" id="video_title" type="text"  placeholder="视频标题不能为空！" maxlength="30"/>
                         </div></br>
                         <div class="info">
                             <label class="label_tit"><b>*</b>视频简介：视频简介不能为空！0/200</label></br>

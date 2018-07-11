@@ -16,16 +16,7 @@ import com.dao.ImageDao;
  */
 @WebServlet("/ImageAction")
 public class ImageAction extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ImageAction() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -41,12 +32,15 @@ public class ImageAction extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
-		File file = new File(request.getParameter("file"));
-		System.out.println(uid+file.getName());
+		
+		String file = request.getParameter("file");
+		file = new String(file.getBytes("iso-8859-1"),"utf-8");
+		
+		File f = new File(file);
 		ImageDao id=new ImageDao();
-		if(id.ImageUpload(uid, file)) {
+		if(id.ImageUpload(uid, f)) {
 			request.setAttribute("result", "³É¹¦");
-			request.getRequestDispatcher("success.jsp").forward(request, response);
+			request.getRequestDispatcher("homePage.jsp").forward(request, response);
 		}else {
 			request.setAttribute("result", "Ê§°Ü");
 			request.getRequestDispatcher("xx.jsp").forward(request, response);
