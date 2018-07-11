@@ -9,6 +9,61 @@
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
 <title>个人主页</title>	
+<!-- --------------------------私信------------------------------- -->
+<style type="text/css">
+			#write{
+				width:98%;
+				height:28%;
+				border:1px blue solid;
+				margin:10px auto auto;
+				position:absolute;
+				 top:1000px;
+			}
+			.btn{
+				width: 51px;
+				height: 28px;
+				margin: 2px auto auto 90%;	
+			}
+    
+			.personal{
+				width:99%;
+				height:100px;
+				border:1px #33ff00 solid;
+				margin:2px auto;
+				overflow-y:auto;
+			}
+		</style>		
+	<script type="text/javascript">			
+		function  check()
+		{
+			var content=$("te").value;
+			content=trim(content);
+			if(content.length<1)
+			{
+				alert("请输入内容");
+				return;
+			}
+			var infoid="<%=session.getAttribute("infoid")%>";
+			if(infoid!="null"){
+				alert("私信发送成功！");
+				document.getElementById("te").value="";
+				return;
+			}
+		}			
+		function $(id){
+			return document.getElementById(id);
+		}
+		function trim(str){ //删除左右两端的空格
+    		return str.replace(/(^\s*)|(\s*$)/g, "");
+		}
+	</script>
+<!-- -------------------------------------------------------------- -->
+<style>
+ .Home{
+ left:10px;
+ font-size:200%;
+ }
+</style>
 </head>
 <body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 <%
@@ -16,6 +71,7 @@
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
 %>
+	<a class="Home" href="home.jsp"><strong>Home</strong></a>
 <div class="image">
     <img src="<%=u.getUheadphoto() %>">
 </div>
@@ -94,6 +150,13 @@
 	<strong>2</strong>关注</br>
 	<strong class="look">1.4k</strong>浏览
 </div>
+<!-- ---------------------------------------------评论----------------------------------------------- -->
+<div id="write">
+	<textarea   id="te" style="margin: auto auto; width:100%;height:79%;"></textArea>
+	<input type="button" value="私信" class="btn" onclick="check()">				
+</div>
+</div>
+<!-- -------------------------------------------------------------------------------------------------- -->
 
 </body>
 </html>

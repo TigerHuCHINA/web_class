@@ -39,6 +39,7 @@ $(document).ready(function(){
 			<ul>
 				<li><a id="login" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal">登录</a></li>
 				<li><a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1">注册</a></li>
+			    <li><a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">反馈</a></li>
 			</ul>
 		</div>
 		
@@ -120,6 +121,39 @@ $(document).ready(function(){
                  </div>
 		     </div>
 		 </div>
+		 
+		 <div class="modal fade" id="applyModal_2" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog_1">
+				<div class="modal-content">
+							    	
+				    <div class="modal-header">
+					    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					    <h4 class="modal-title" id="myModalLabel">
+					        <div class="head_4"><p>反馈</p></div>
+			            </h4>
+					</div>
+					      	
+	                <div class="modal-body">
+                        <form action="doMessage" method="post" onsubmit="return checkMessage();">
+                             
+                            <div>
+                                <textarea id="message" type="text" placeholder="请输入反馈" style="width:550px;height:200px;"></textarea>                               
+                            </div>
+                            
+                            <div class="section">
+                                <div class="submit">
+                                    <input type="submit" name="submit" onclick="myFunction()" value="提交">
+                                </div>
+                            </div>
+                               
+                            
+                             
+                        </form>
+                    </div>
+				</div>
+		    </div>
+		</div>
+		 
 		 
 		<div class="dropdown">
 		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
@@ -315,6 +349,15 @@ function delCookie(name)
     //alert(getCookie(name));
 }
 
+//判断反馈格式
+function checkMessage(){
+	var x=document.getElementById("message").value;
+	if(x==""){
+		alert("反馈不能为空");
+	    return false;
+	}	        
+	return true;
+}
 </script>
 
 
