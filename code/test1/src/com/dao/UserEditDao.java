@@ -35,6 +35,9 @@ public class UserEditDao extends BaseDao{
 				u.setUintroduce(set.getString(9));
 				u.setUprovince(set.getString(10));
 				u.setUcity(set.getString(11));
+				u.setFollow(set.getString(12));
+				u.setView(set.getString(13));
+				
 				free();
 			}
 			else {
