@@ -83,6 +83,10 @@
     <a class="edit" href="#" onclick="return PopLayer(this)">编辑资料</a>
 </div>
 
+<div class="editinfo">
+    <a class="message" href="message.jsp">查看留言</a>
+</div>
+
 <div class="videos">
     <div class="myvideo">
         <div class="title">我的视频： 共0个视频</div>
