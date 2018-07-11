@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+=======
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+>>>>>>> e16d67ec0dfaa61d3231efeb50e078e84542fe9c
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,6 +16,17 @@
 
 </head>
 <body>
+<<<<<<< HEAD
+<div id="counter">
+	<form action="doCount" action="doRecord" method="post">
+	<div>
+		<input type="submit" value="计算" class="counter" />
+	</div>
+	</form>
+</div>
+<!-- ----------------------播放视频，邓慧颖---------------------------------- -->
+<video width="320" height="240" controls="controls">
+=======
 
 <div class="search1 dd1">
     <form class="search1">
@@ -26,6 +42,7 @@
 
 <div class="myvideo">
     <video width="800" height="500" controls="controls" style="position:absolute;left:550px;top:100px;">
+>>>>>>> e16d67ec0dfaa61d3231efeb50e078e84542fe9c
         <source src="class.mp4" type="audio/mp4">
     </video>
 </div>
