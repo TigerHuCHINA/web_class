@@ -9,6 +9,12 @@
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
 <title>个人主页</title>	
+<style>
+ .Home{
+ left:10px;
+ font-size:200%;
+ }
+</style>
 </head>
 <body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 <%
@@ -16,6 +22,7 @@
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
 %>
+	<a class="Home" href="home.jsp"><strong>Home</strong></a>
 <div class="image">
     <img src="<%=u.getUheadphoto() %>">
 </div>

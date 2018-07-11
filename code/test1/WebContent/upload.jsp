@@ -146,7 +146,7 @@ function textup() {
                         <div class="title">
                             <label class="label_tit"><b>*</b>视频标题：</label>
                             <span class="txt_num">0/30</span>
-                            <input class="filter-title" name="title" id="video_title" type="text"  placeholder="视频标题不能为空！" maxlength="30"/>
+                            <input class="filter-title" name="title" id="video_title" type="text" readonly placeholder="视频标题不能为空！" maxlength="30"/>
                         </div></br>
                         <div class="info">
                             <label class="label_tit"><b>*</b>视频简介：视频简介不能为空！0/200</label></br>
