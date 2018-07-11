@@ -5,8 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>上传视频</title>
+<!-- ------------------------------下拉------------------------------------ -->
+<script type="text/javascript" src="js/down.js"></script>
+<script type="text/javascript" src="js/selectFilter.js"></script>
+<link rel="stylesheet" type="text/css" href="css/selectFilter.css" />
+<style type="text/css">
+	.item {
+		width: 240px;
+		height: 32px;
+		margin: 30px auto;
+		left:700px;
+	}
+</style>
+<!-- -----------------下拉结束-------------------- -->
+
 <style>
-body {background-color:#C0C0C0;}
+body {
+	background:url(picture/upload-back.png);
+  	background-color:rgba(0,0,0,0.2);
+  	
+}
 #video_info {
  width:700px;
  height:150px;
@@ -75,42 +93,42 @@ function textup() {
         filter:alpha(opacity=0);
         cursor:pointer;
     }
-<<<<<<< HEAD
- 
-=======
  /* ----------- 标题-------- */
  .tit{
  font-size:300%;
  font-family:"华文楷体";
  }
->>>>>>> parent of e618e54... 返回主页
+ .Home{
+ left:10px;
+ font-size:200%;
+ }
 </style>
 </head>
 <body>
      <div id="pickfiles" class="bigBtn">
-<<<<<<< HEAD
-        <p>
-         <span class="tit">网页上传</span>
-         <span class="txt">仅支持FLV或MP4文件格式</span>
-=======
+     	<a class="Home" href="home.jsp"><strong>Home</strong></a>
         <p align="center">
          <span class="tit"><strong>网页上传</strong></span>
         <!--  <span class="txt">仅支持FLV或MP4文件格式</span> -->
->>>>>>> parent of e618e54... 返回主页
         </p>                              
      </div>
+<div class="item">
+	<div class="filter-box">
+		<div class="filter-text">
+			<input class="filter-title" type="text" readonly placeholder="选择科目" />
+			<i class="icon icon-filter-arrow"></i>
+		</div>
+		<select name="filter">
+			<option value="">语文</option> 
+			<option value="">数学</option>
+			<option value="">英语</option>
+		</select>
+	</div>
+</div>
   <div class="upload">
     <form method="post" action="UploadAction" onsubmit="return check();">
         <div class="fileInputContainer">  
             <input class="fileInput" id="file" type="file" name="file"/>
-        </div>
-        <div>
-            <select name="subject">
-		    <option value="">选择科目</option>
-			<option value="">语文</option>
-			<option value="">数学</option>
-			<option value="">英语</option>			                         		                        
-		    </select>
         </div>
       <p class="drag_tip">拖拽视频到此也可上传</p>
            <!-- 填写资料 -->
@@ -128,11 +146,7 @@ function textup() {
                         <div class="title">
                             <label class="label_tit"><b>*</b>视频标题：</label>
                             <span class="txt_num">0/30</span>
-                            <input name="title" type="text" id="video_title"  maxlength="30" value="视频标题不能为空！"
-                             onblur="if(this.value=='') {this.value='视频标题不能为空！'}"
-                             onfocus="if(this.value=='视频标题不能为空！') {this.value='';}"
-                            />
-                           <!--  <span>视频标题不能为空！</span> -->
+                            <input class="filter-title" name="title" id="video_title" type="text" readonly placeholder="视频标题不能为空！" maxlength="30"/>
                         </div></br>
                         <div class="info">
                             <label class="label_tit"><b>*</b>视频简介：视频简介不能为空！0/200</label></br>
@@ -166,6 +180,15 @@ function textup() {
          </div>
       </form>
      </div>
-
+<!-- -----------------下拉------------------------- -->
+<script type="text/javascript">
+	//这里是初始化
+	$('.filter-box').selectFilter({
+		callBack : function (val){
+			//返回选择的值
+			console.log(val+'-是返回的值')
+		}
+	});
+</script>
 </body>
 </html>
