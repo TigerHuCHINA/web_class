@@ -17,7 +17,7 @@
 	UserEdit u = get.getInfoById(name);
 %>
 <div class="image">
-    <img src="<%=u.getUheadphoto() %>">
+    <img src="ImageDisplay" width="200px" height="200px"/>
 </div>
 
 <div class="information">
