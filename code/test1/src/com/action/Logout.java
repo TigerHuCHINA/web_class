@@ -11,12 +11,8 @@ import javax.servlet.http.HttpSession;
 public class Logout extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("yes");
 		HttpSession session = req.getSession();
-		System.out.println(session.getAttribute("userid"));
 		session.removeAttribute("userid");
 		session.removeAttribute("username");
-		System.out.println(session.getAttribute("userid"));
-		resp.sendRedirect("home.jsp");
 	}
 }

@@ -286,7 +286,7 @@ function logout() {
 	session.removeAttribute("username");*/%>
 	delCookie("userid");
 	delCookie("username");//未能删除，等待修改
-	alert(getCookie("userid"));
+	//alert(getCookie("userid"));
 	location.href("logout");
 }
 
@@ -312,7 +312,7 @@ function delCookie(name)
     var cval=getCookie(name);
     if(cval!=null)
         document.cookie= name + "="+cval+";expires="+exp.toGMTString();
-    alert(getCookie(name));
+    //alert(getCookie(name));
 }
 
 </script>
