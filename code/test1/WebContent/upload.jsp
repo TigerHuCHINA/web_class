@@ -98,10 +98,15 @@ function textup() {
  font-size:300%;
  font-family:"华文楷体";
  }
+ .Home{
+ left:10px;
+ font-size:200%;
+ }
 </style>
 </head>
 <body>
      <div id="pickfiles" class="bigBtn">
+     	<a class="Home" href="home.jsp"><strong>Home</strong></a>
         <p align="center">
          <span class="tit"><strong>网页上传</strong></span>
         <!--  <span class="txt">仅支持FLV或MP4文件格式</span> -->
