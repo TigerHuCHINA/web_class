@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page language="java" import="java.sql.* ,javax.servlet.* ,java.util.* ,java.awt.* ,com.action.*, com.comm.* ,com.dao.* ,com.pojo.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,6 +14,7 @@
 
 </head>
 <body>
+
 <div id="counter">
 	<form action="doCount" action="doRecord" method="post">
 	<div>
@@ -20,7 +23,7 @@
 	</form>
 </div>
 <!-- ----------------------播放视频，邓慧颖---------------------------------- -->
-<video width="320" height="240" controls="controls">
+
 
 <div class="search1 dd1">
     <form class="search1">
@@ -36,10 +39,21 @@
 
 <div class="myvideo">
     <video width="800" height="500" controls="controls" style="position:absolute;left:550px;top:100px;">
->>>>>>> e16d67ec0dfaa61d3231efeb50e078e84542fe9c
+
         <source src="class.mp4" type="audio/mp4">
     </video>
+
+<% 
+	String id = String.valueOf(11);
+	//String name = (String)session.getAttribute("name");
+	String videoid= String.valueOf(11);
+	VisitorCountAction visitorcount = new VisitorCountAction();
+	visitorcount.doo(id,videoid);
+%>
+
 </div>
+
+
 
 <div class="information">
     <div id="videoname" class="info">

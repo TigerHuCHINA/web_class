@@ -5,10 +5,15 @@ import com.pojo.User;
 import com.pojo.Video;
 
 public class VideoCountDao extends BaseDao {
-	public int doCount(User u) {
-		String sql="update video set view=view+1 where userId=? and "
-				+ "timediff(minute,current_time,(select daytime as d1 from videorecord where userId=? and videoId=?))>5";
-		Object[] obs= {u.getUid(),u.getUid(),u.getUname()};
+	public int doCount(User u,Video v) {
+		System.out.println("³É¹¦");
+		//String sql="if exists(select from video where userId=? and videoId=?)"
+		//		+ "update video set view=view+1 where userId=? and videoId=?"
+		//		+ "else insert into video(userId,videoId,view) values(?,?,1)";
+		String sql="update video set view=view+1 where userId=? and Id=? and \r\n" + 
+				"time_to_sec(now())-(select max(time_to_sec(daytime)) as d1 from videorecord where userId=? and videoId=?)>300;";
+		Object[] obs= {u.getUid(),v.getId(),u.getUid(),v.getId()};
+		
 		int row = executeUpdate(sql,obs);
 		free();
 		return row;

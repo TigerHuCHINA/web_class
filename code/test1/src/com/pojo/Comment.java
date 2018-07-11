@@ -6,14 +6,9 @@ public class Comment {
 	private String userId;
 	private String videoId;
 	private String content;
-	//private Time time;
+	private String time;
+	private String agree;
 
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getUserId() {
 		return userId;
 	}
@@ -32,10 +27,24 @@ public class Comment {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	/*public Time getTime() {
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getTime() {
 		return time;
 	}
-	public void setTime(Time time) {
+	public void setTime(String time) {
 		this.time = time;
-	}*/
+	}
+	public String getAgree() {
+		return agree;
+	}
+	public void setAgree(String agree) {
+		this.agree = agree;
+	}
+	
+
 }
