@@ -70,4 +70,14 @@
     <servlet-name>Collect</servlet-name>
     <url-pattern>/CollectAction</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ImageDisplay</servlet-name>
+    <servlet-class>com.action.ImageDisplay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ImageDisplay</servlet-name>
+    <url-pattern>/ImageDisplay</url-pattern>
+  </servlet-mapping>
 </web-app>
