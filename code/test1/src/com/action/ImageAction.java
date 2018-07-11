@@ -42,7 +42,9 @@ public class ImageAction extends HttpServlet {
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
 		File file = new File(request.getParameter("file"));
-		System.out.println(uid+file.getName());
+		String name = uid+file.getName();
+		name = new String(name.getBytes("iso-8859-1"),"utf-8");
+		System.out.println(name);
 		ImageDao id=new ImageDao();
 		if(id.ImageUpload(uid, file)) {
 			request.setAttribute("result", "³É¹¦");
