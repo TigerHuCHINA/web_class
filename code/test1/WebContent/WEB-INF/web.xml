@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>RegisterAction</servlet-name>
     <servlet-class>com.action.RegisterAction</servlet-class>
   </servlet>
+
   <servlet-mapping>
     <servlet-name>RegisterAction</servlet-name>
     <url-pattern>/doRegister</url-pattern>
@@ -16,16 +21,19 @@
     <servlet-name>LoginAction</servlet-name>
     <servlet-class>com.action.LoginAction</servlet-class>
   </servlet>
+
   <servlet-mapping>
     <servlet-name>LoginAction</servlet-name>
     <url-pattern>/doLogin</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>EditHomepageAction</servlet-name>
     <servlet-class>com.action.EditHomepageAction</servlet-class>
   </servlet>
+
   <servlet-mapping>
     <servlet-name>EditHomepageAction</servlet-name>
     <url-pattern>/doEdit</url-pattern>
@@ -59,15 +67,5 @@
   <servlet-mapping>
     <servlet-name>LoginByCookie</servlet-name>
     <url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>Collect</servlet-name>
-    <servlet-class>com.action.CollectAction</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Collect</servlet-name>
-    <url-pattern>/CollectAction</url-pattern>
   </servlet-mapping>
 </web-app>

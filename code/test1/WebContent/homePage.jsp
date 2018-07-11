@@ -13,8 +13,7 @@
 <body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 <%
 	getInfo get = new getInfo();
-	String name = (String)session.getAttribute("userid");
-	UserEdit u = get.getInfoById(name);
+	UserEdit u = get.getInfoById((String)session.getAttribute("userid"));
 %>
 <div class="image">
     <img src="<%=u.getUheadphoto() %>">
@@ -119,7 +118,7 @@
                 <input type="text" name="name" placeholder="请输入新的用户名"/>
             </div>
             <div id="modate" class="mo">
-                <input type="text" name="birthday" onfocus="HS_setDate(this)" readonly placeholder="请输入新的生日"/>
+                <input type="text" name="birthday" onfocus="HS_setDate(this)" placeholder="请输入新的生日"/>
             </div>
             <div id="molocation" class="mo">
                 <select id="s_province" name="province"></select> 
@@ -137,10 +136,10 @@
             </div>
             <div id="mosex" class="mo">               
                 <select path="country" id="sex" name="sex">
-                    <option value="" disabled selected>性别</option>
-				      <option value="男">男</option>
-				    <option value="女">女</option>
-				    <option value="保密">保密</option>
+                    <option value="">性别</option>
+				    <option value="">男</option>
+				    <option value="">女</option>
+				    <option value="">保密</option>
 				</select>
             </div>
             <div>
@@ -149,10 +148,7 @@
         </div>
     </form>
 </div>
-<form method="post" action="ImageAction">
-<input class="fileInput" id="file" type="file" name="file"/>
-<input type="submit" value="提交"/>
-</form>
+
 
 
 
@@ -169,14 +165,7 @@
         return false
     }
 </script>
-<!-- -----------------------------------关注、收藏----------------------------------- -->
-<div class="focusinfo">
-	<a class="focus" onclick="focus();">关注</a>
-</div>
-<div class="same">
-	<strong>2</strong>关注</br>
-	<strong class="look">1.4k</strong>浏览
-</div>
+
 
 </body>
 </html>
