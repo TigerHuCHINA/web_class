@@ -12,13 +12,12 @@ public class UserEditDao extends BaseDao{
 	public int doEdit(UserEdit u) {
 		String sql="UPDATE user SET name=?,sex=?,birthday=?,school=?,profession=?,introduce=?,province=?,city=? WHERE idname=?";
 		Object[] obs={u.getUname(),u.getUsex(),u.getUbirthday(),u.getUschool(),u.getUprofession(),u.getUintroduce(),u.getUprovince(),u.getUcity(),u.getUid()};
-		System.out.println(u.getUid());
 		int row = executeUpdate(sql, obs);
 		free();
 		return row;
 	}
 	
-	public UserEdit getInfoById(String id)
+	public UserEdit getInfoById(String id)//此处需修改
 	{
 		String sql = "select * from user where idname = ?";
 		Object[] obs = {id};
