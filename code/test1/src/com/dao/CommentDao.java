@@ -36,7 +36,7 @@ public class CommentDao extends BaseDao{
 	
 	public boolean sendComment(Comment comment)
 	{
-		String sql = "insert into feedback('userId','videoId','content') values (?,?,?)";
+		String sql = "insert into comment (userId,videoId,content) values (?,?,?)";
 		Object obs[] = {comment.getUserId(),comment.getVideoId(),comment.getContent()};
 		if(executeUpdate(sql, obs)>=1) {
 			free();

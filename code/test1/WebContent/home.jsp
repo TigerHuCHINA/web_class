@@ -134,10 +134,10 @@ $(document).ready(function(){
 					</div>
 					      	
 	                <div class="modal-body">
-                        <form action="doMessage" method="post" onsubmit="return checkMessage();">
+                        <form action="doFeedback" method="post" onsubmit="return checkMessage();">
                              
                             <div>
-                                <textarea id="message" type="text" placeholder="请输入反馈" style="width:550px;height:200px;"></textarea>                               
+                                <textarea id="message" name="content" type="text" placeholder="请输入反馈" style="width:550px;height:200px;"></textarea>                               
                             </div>
                             
                             <div class="section">

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.bytedeco.javacv.FrameGrabber.Exception;
+//import org.bytedeco.javacv.FrameGrabber.Exception;
 
 import com.comm.*;
 import com.dao.FileDao;
@@ -49,8 +49,6 @@ public class UploadAction extends HttpServlet {
 		title = new String(title.getBytes("iso-8859-1"),"utf-8");
 		String introduce = request.getParameter("info");
 		introduce = new String(introduce.getBytes("iso-8859-1"),"utf-8");
-		
-		
 		String file = request.getParameter("file");
 		file = new String(file.getBytes("iso-8859-1"),"utf-8");
 		File f = new File(file);
@@ -61,6 +59,7 @@ public class UploadAction extends HttpServlet {
 		v.setIntroduce(request.getParameter(introduce));
 		v.setFile(f);
 		v.setDuration(f);
+		
 		FileDao bd=new FileDao();
 		if(bd.Upload(v)) {
 			request.setAttribute("result", "³É¹¦");

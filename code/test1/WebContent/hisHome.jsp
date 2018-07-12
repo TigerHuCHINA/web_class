@@ -144,7 +144,7 @@
 </div>
 <!-- -----------------------------------关注、收藏----------------------------------- -->
 <div class="focusinfo">
-	<a class="focus" onclick="focus();">关注</a>
+	<a class="focus" href="doFollow" onclick="focus();">关注</a>
 </div>
 <div class="same">
 	<strong>2</strong>关注</br>

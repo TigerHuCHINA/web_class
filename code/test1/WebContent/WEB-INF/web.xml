@@ -63,21 +63,51 @@
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>Collect</servlet-name>
-    <servlet-class>com.action.CollectAction</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Collect</servlet-name>
-    <url-pattern>/CollectAction</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>ImageDisplay</servlet-name>
     <servlet-class>com.action.ImageDisplay</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ImageDisplay</servlet-name>
     <url-pattern>/ImageDisplay</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Feedback</servlet-name>
+    <servlet-class>com.action.FeedbackAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Feedback</servlet-name>
+    <url-pattern>/doFeedback</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Follow</servlet-name>
+    <servlet-class>com.action.FollowAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Follow</servlet-name>
+    <url-pattern>/doFollow</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Collect</servlet-name>
+    <servlet-class>com.action.CollectAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Collect</servlet-name>
+    <url-pattern>/doCollect</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CommentAction</servlet-name>
+    <servlet-class>com.action.CommentAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommentAction</servlet-name>
+    <url-pattern>/doComment</url-pattern>
   </servlet-mapping>
 </web-app>

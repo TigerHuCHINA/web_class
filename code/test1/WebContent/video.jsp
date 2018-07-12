@@ -88,17 +88,18 @@
 
 
 <div>
-    <a class="addvideo" href="CollectAction" onclick="function()">收藏</a>
+    <a class="addvideo" href="doCollect" onclick="function()">收藏</a>
 </div>
 
+<form action="doComment" method="post">
 <div id="talk">
     <div id="show"></div>
     <div id="write">
-		<textArea id="te" style="margin: auto auto; width:100%;height:79%;"></textArea>
-	    <input type="button" value="发布" class="btn" onclick="add()">				
+		<textArea name="content" id="te" style="margin: auto auto; width:100%;height:79%;"></textArea>
+	    <input type="submit" value="发布" class="btn" onclick="add()">				
     </div>
 </div>
-
+</form>
 
 </body>
 </html>
