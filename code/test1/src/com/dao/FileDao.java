@@ -40,7 +40,7 @@ public class FileDao extends BaseDao {
 		}
 			fFmpegFrameGrabber.stop();
 	
-}
+	}
 	public static BufferedImage FrameToBufferedImage(Frame frame) {
         //创建BufferedImage对象
         Java2DFrameConverter converter = new Java2DFrameConverter();

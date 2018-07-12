@@ -33,8 +33,22 @@ public class FollowDao extends BaseDao {
 	}
 	public boolean adFollow(Follow follow)
 	{
-		String sql = "insert into follow('followerId','followeeId') values (?,?)";
+		String sql = "INSERT INTO `follow` (`followerId`, `followeeId`) VALUES (?, ?)";
 		Object obs[] = {follow.getFollowerid(),follow.getFolloweeid()};
+		String sql_ = "update user set follow = follow + 1 where idname = ?";
+		Object obs_[] = {follow.getFollowerid()};
+		if(executeUpdate(sql, obs)>=1&&executeUpdate(sql_, obs_)>=1) {
+			free();
+			return true;
+		}else {
+			free();
+			return false;
+		}
+	}
+	public boolean deFollow(Follow defollow)
+	{
+		String sql = "delete from follow where followerId=? and followeeId=?";
+		Object obs[] = {defollow.getFollowerid(),defollow.getFolloweeid()};
 		if(executeUpdate(sql, obs)>=1) {
 			free();
 			return true;

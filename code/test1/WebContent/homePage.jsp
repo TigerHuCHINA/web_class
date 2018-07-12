@@ -8,7 +8,7 @@
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
-<title>个人主页</title>	
+<title>我的个人主页</title>	
 </head>
 <body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 <%
@@ -16,9 +16,33 @@
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
 %>
+
+<a class="return1" href="home.jsp">主界面</a>
+
 <div class="image">
     <img src="ImageDisplay" width="200px" height="200px"/>
+    
 </div>
+
+
+
+
+
+
+
+
+<div id="light" class="white_content">
+    <a href = "javascript:void(0)" id= "close1" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">×</a>
+    <form method="post" action="ImageAction">
+        <input class="fileInput" id="file" type="file" name="file"/>
+        <input class="submitimage" type="submit" value="提交"/>
+    </form>
+</div> 
+    <div id="fade" class="black_overlay">
+</div> 
+
+
+
 
 <div class="information">
     <div id="username" class="info">
@@ -76,16 +100,39 @@
         </tr>
     </div>
     
+    <div id="userfocus" class="info">
+        <tr>
+            <td>关注量</td>
+            <td><%=u.getFollow() %></td>
+        </tr>
+    </div>
     
+    <div id="userread" class="info">
+	    <tr>
+	        <td>浏览量</td>
+	        <td><%=u.getView() %></td>
+	    </tr>
+    </div>
 </div>
 
-<div class="editinfo">
-    <a class="edit" href="#" onclick="return PopLayer(this)">编辑资料</a>
+<div class="mybuttons">
+    <div>
+	    <a class="buttons" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">编辑头像</a>
+    </div>
+    <div class="editinfo">
+        <a class="buttons" href="#" onclick="return PopLayer(this)">编辑资料</a>
+    </div>
+    <div class="editinfo">
+        <a class="buttons" href="message.jsp">查看留言</a>
+    </div>
+    <div class="uploadinfo">
+        <a class="buttons" href="upload.jsp">上传视频</a>
+    </div>
 </div>
 
-<div class="editinfo">
-    <a class="message" href="message.jsp">查看留言</a>
-</div>
+
+
+
 
 <div class="videos">
     <div class="myvideo">
@@ -97,9 +144,7 @@
     </div>
 </div>
 
-<div class="uploadinfo">
-    <a class="upload" href="upload.jsp">上传视频</a>
-</div>
+
 
 
 
@@ -153,10 +198,6 @@
         </div>
     </form>
 </div>
-<form method="post" action="ImageAction">
-<input class="fileInput" id="file" type="file" name="file"/>
-<input type="submit" value="提交"/>
-</form>
 
 
 
@@ -173,14 +214,6 @@
         return false
     }
 </script>
-<!-- -----------------------------------关注、收藏----------------------------------- -->
-<div class="focusinfo">
-	<a class="focus" onclick="focus();">关注</a>
-</div>
-<div class="same">
-	<strong><%=u.getFollow() %></strong>关注<br>
-	<strong class="look"><%=u.getView() %></strong>浏览
-</div>
 
 </body>
 </html>

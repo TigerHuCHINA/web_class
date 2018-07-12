@@ -49,11 +49,11 @@ out.print("vid:"+vid);
         <source src="VideoDisplay" type="audio/mp4">
     </video>
 
-<% 
+<%
 	String id = String.valueOf(11);
 	//String name = (String)session.getAttribute("name");
 	String videoid= String.valueOf(11);
-	VisitorCountAction visitorcount = new VisitorCountAction();
+	VideoCountAction visitorcount = new VideoCountAction();
 	visitorcount.doo(id,videoid);
 %>
 
@@ -94,17 +94,18 @@ out.print("vid:"+vid);
 
 
 <div>
-    <a class="addvideo" href="CollectAction" onclick="function()">收藏</a>
+    <a class="addvideo" href="doCollect" onclick="function()">收藏</a>
 </div>
 
+<form action="doComment" method="post">
 <div id="talk">
     <div id="show"></div>
     <div id="write">
-		<textArea id="te" style="margin: auto auto; width:100%;height:79%;"></textArea>
-	    <input type="button" value="发布" class="btn" onclick="add()">				
+		<textArea name="content" id="te" style="margin: auto auto; width:100%;height:79%;"></textArea>
+	    <input type="submit" value="发布" class="btn" onclick="add()">				
     </div>
 </div>
-
+</form>
 
 </body>
 </html>

@@ -135,10 +135,10 @@ $(document).ready(function(){
 					</div>
 					      	
 	                <div class="modal-body">
-                        <form action="doMessage" method="post" onsubmit="return checkMessage();">
+                        <form action="doFeedback" method="post" onsubmit="return checkMessage();">
                              
                             <div>
-                                <textarea id="message" type="text" placeholder="请输入反馈" style="width:550px;height:200px;"></textarea>                               
+                                <textarea id="message" name="content" type="text" placeholder="请输入反馈" style="width:550px;height:200px;"></textarea>                               
                             </div>
                             
                             <div class="section">
@@ -157,6 +157,7 @@ $(document).ready(function(){
 		 
 		 
 		<div class="dropdown">
+		<img src="<%//放头像地址 %>" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
 		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 			
              <div class="dropdown-content">
@@ -571,42 +572,6 @@ CreateVideo cv=new CreateVideo();
 %>
 <%=cv.createVideo()%>
 <!-- 显示视频 常庭瑞 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

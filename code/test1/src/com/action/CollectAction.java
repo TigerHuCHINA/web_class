@@ -9,15 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dao.CollectDao;
+import com.pojo.Collection;
 
 /**
  * Servlet implementation class CollectAction
  */
 
 public class CollectAction extends HttpServlet {
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(request, response);
@@ -29,12 +27,17 @@ public class CollectAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		String uid = (String) session.getAttribute("userid");
-		String vid = (String) session.getAttribute("videoid");
+		//String uid = (String) session.getAttribute("userid");
+		//String vid = (String) session.getAttribute("videoid");
+		
+		Collection collection = new Collection();
+		collection.setUserid("111");
+		collection.setVideoid("12");
+		
 		CollectDao cd=new CollectDao();
-		if(cd.collect(uid, vid)) {
+		if(cd.collect(collection)) {
 			request.setAttribute("result", "³É¹¦");
-			request.getRequestDispatcher("video.jsp").forward(request, response);
+			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}else {
 			request.setAttribute("result", "Ê§°Ü");
 			request.getRequestDispatcher("xx.jsp").forward(request, response);

@@ -13,21 +13,28 @@
 	.item {
 		width: 240px;
 		height: 32px;
-		margin: 30px auto;
-		left:700px;
+		position:absolute;
+		margin: 60px auto;
+		left:300px;
 	}
 </style>
 <!-- -----------------下拉结束-------------------- -->
 
 <style>
 body {
-	background:url(picture/upload-back.png);
-  	background-color:rgba(0,0,0,0.2);
-  	
+	background:url(picture/upload-back.jpg);
+  	background-color:rgba(0,0,0,1);
 }
 #video_info {
  width:700px;
  height:150px;
+}
+#video_type{
+  	border-radius:5px;
+}
+.drag_tip{
+	font-family:"华文新魏";
+	left:90px;
 }
 </style> 
 <script>
@@ -95,18 +102,32 @@ function textup() {
     }
  /* ----------- 标题-------- */
  .tit{
- font-size:300%;
+ font-size:400%;
  font-family:"华文楷体";
  }
  .Home{
+ position:absolute;
  left:10px;
- font-size:200%;
+ top:10px;
+ font-size:120%;
  }
+ .sub_input{
+ 	 position:relative;
+ 	 top:0;
+ 	 left:10%;
+ 	 text-align:left;
+ }
+.suc_box{
+	 position:relative;
+ 	 top:0;
+ 	 left:10%;
+ 	 text-align:left;
+}
 </style>
 </head>
 <body>
      <div id="pickfiles" class="bigBtn">
-     	<a class="Home" href="home.jsp"><strong>Home</strong></a>
+     	<a class="Home" href="home.jsp">主界面</a>
         <p align="center">
          <span class="tit"><strong>网页上传</strong></span>
         <!--  <span class="txt">仅支持FLV或MP4文件格式</span> -->
@@ -130,7 +151,7 @@ function textup() {
         <div class="fileInputContainer">  
             <input class="fileInput" id="file" type="file" name="file"/>
         </div>
-      <p class="drag_tip">拖拽视频到此也可上传</p>
+      <p class="drag_tip" style="font-size:200%"><strong>点击图片上传视频</strong></p><br><br><br><br>
            <!-- 填写资料 -->
                 <div class="sub_input">
                    <div class="cover_txt">
@@ -146,13 +167,12 @@ function textup() {
                         <div class="title">
                             <label class="label_tit"><b>*</b>视频标题：</label>
                             <span class="txt_num">0/30</span>
-                            <input class="filter-title" name="title" id="video_title" type="text"  placeholder="视频标题不能为空！" maxlength="30"/>
+                            <input style="border-radius:5px" class="filter-title" name="title" id="video_title" type="text"  placeholder="视频标题不能为空！" maxlength="30"/>
                         </div></br>
                         <div class="info">
                             <label class="label_tit"><b>*</b>视频简介：视频简介不能为空！0/200</label></br>
-                            <textarea name="info" id="video_info" 
-                              onKeyDown="textdown(event)"  onKeyUp="textup()">
-                               </textarea>
+                            <textarea style="border-radius:5px" name="info" id="video_info" 
+                              onKeyDown="textdown(event)"  onKeyUp="textup()"></textarea>
                            <!--  <span>0/200</span>
                             <span>视频简介不能为空！</span> -->
                         </div></br>
@@ -160,12 +180,12 @@ function textup() {
                         <div class="tag">
                             <label class="label_tit">&nbsp;&nbsp;视频标签：</label>
                             <div class="tag_box">
-                                <input name="label" type="text" id="video_tag" maxLength="5"/>
-                                <input name="label" type="text" id="video_tag" maxLength="5"/>
-                                <input name="label" type="text" id="video_tag" maxLength="5"/>
-                                <input name="label" type="text" id="video_tag" maxLength="5"/>
-                                <input name="label" type="text" id="video_tag" maxLength="5"/>
-                                <input name="label" type="text" id="video_tag" maxLength="5"/>
+                                <input style="border-radius:5px" name="label" type="text" id="video_tag" maxLength="5"/>
+                                <input style="border-radius:5px" name="label" type="text" id="video_tag" maxLength="5"/>
+                                <input style="border-radius:5px" name="label" type="text" id="video_tag" maxLength="5"/>
+                                <input style="border-radius:5px" name="label" type="text" id="video_tag" maxLength="5"/>
+                                <input style="border-radius:5px" name="label" type="text" id="video_tag" maxLength="5"/>
+                                <input style="border-radius:5px" name="label" type="text" id="video_tag" maxLength="5"/>
                             </div>
                             <div class="tag_tips">
                                 <div class="txt">每标签最多5个字，最多填写6个标签。标签是根据视频内容、属性所概括出的一组关键词。标签可以让别人更快速、准确的搜索到您的视频！</div>
@@ -176,10 +196,12 @@ function textup() {
         
          <div class="suc_box">
          `<p><i class="suc_ico"></i>视频上传完成后将自动为您发布，在此期间请勿关闭网页。</p>
-          <input type="submit" value="提交" onclick="myFunction();"/>
+          <input style="width:80px;height:30px" type="submit" value="提交" onclick="myFunction();"/>
          </div>
       </form>
      </div>
+     
+
 <!-- -----------------下拉------------------------- -->
 <script type="text/javascript">
 	//这里是初始化

@@ -46,8 +46,6 @@ public class UploadAction extends HttpServlet {
 		title = new String(title.getBytes("iso-8859-1"),"utf-8");
 		String introduce = request.getParameter("info");
 		introduce = new String(introduce.getBytes("iso-8859-1"),"utf-8");
-		
-		
 		String file = request.getParameter("file");
 		file = new String(file.getBytes("iso-8859-1"),"utf-8");
 		File f = new File(file);

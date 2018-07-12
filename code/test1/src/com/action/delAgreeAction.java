@@ -9,18 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dao.AgreeDao;
-import com.dao.CollectDao;
+import com.pojo.Agree;
 
-public class disAgreeAction extends HttpServlet {
+public class delAgreeAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		doPost(request, response);
 	}
 	protected void doPost(HttpServletRequest request,HttpServletResponse response)throws IOException, ServletException {
 		HttpSession session = request.getSession();
-		String uid = (String)session.getAttribute("userid");
-		String cid = (String)session.getAttribute("commentid");
+		Agree aa = new Agree();
 		AgreeDao a = new AgreeDao();
-		if(a.disagree(uid,cid)) {
+		if(a.delAgree(aa)) {
 			request.setAttribute("result", "³É¹¦");
 			request.getRequestDispatcher("video.jsp").forward(request, response);
 		}else {
