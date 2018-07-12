@@ -43,11 +43,11 @@
         <source src="class.mp4" type="audio/mp4">
     </video>
 
-<% 
+<%
 	String id = String.valueOf(11);
 	//String name = (String)session.getAttribute("name");
 	String videoid= String.valueOf(11);
-	VisitorCountAction visitorcount = new VisitorCountAction();
+	VideoCountAction visitorcount = new VideoCountAction();
 	visitorcount.doo(id,videoid);
 %>
 
