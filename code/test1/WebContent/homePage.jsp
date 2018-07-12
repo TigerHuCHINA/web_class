@@ -16,14 +16,15 @@
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
 %>
+
+<a class="return1" href="home.jsp">主界面</a>
+
 <div class="image">
     <img src="ImageDisplay" width="200px" height="200px"/>
     
 </div>
 
-<div>
-	<a class="uploadImage" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">编辑头像</a>
-</div>
+
 
 
 
@@ -43,89 +44,95 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="information">
     <div id="username" class="info">
         <tr>
             <td>用户名 </td>
-            <td><%//=u.getUname() %></td>
+            <td><%=u.getUname() %></td>
         </tr>
     </div>
     
     <div id="userid" class="info">
         <tr>
             <td>用户账号 </td>
-            <td><%//=u.getUid() %></td>
+            <td><%=u.getUid() %></td>
         </tr>
     </div>
     
     <div id="userlocation" class="info">
         <tr>
             <td>所在地 </td>
-            <td><%//=u.getUprovince()%> <%//=u.getUcity() %></td>
+            <td><%=u.getUprovince()%> <%//=u.getUcity() %></td>
         </tr>
     </div>
     
     <div id="userdate" class="info">
         <tr>
             <td>生日 </td>
-            <td><%//=u.getUbirthday() %></td>
+            <td><%=u.getUbirthday() %></td>
         </tr>
     </div>
     
     <div id="usersex" class="info">
         <tr>
             <td>性别 </td>
-            <td><%//=u.getUsex() %></td>
+            <td><%=u.getUsex() %></td>
         </tr>
     </div>
     
     <div id="userschool" class="info">
         <tr>
             <td>学校 </td>
-            <td><%//=u.getUschool() %></td>
+            <td><%=u.getUschool() %></td>
         </tr>
     </div>
     
     <div id="userclass" class="info">
         <tr>
             <td>专业 </td>
-            <td><%//=u.getUprofession() %></td>
+            <td><%=u.getUprofession() %></td>
         </tr>
     </div>
     <div id="userinformation" class="info">
         <tr>
             <td>个人简介 </td>
-            <td><%//=u.getUintroduce() %></td>
+            <td><%=u.getUintroduce() %></td>
         </tr>
     </div>
     
+    <div id="userfocus" class="info">
+        <tr>
+            <td>关注量</td>
+            <td><%=u.getFollow() %></td>
+        </tr>
+    </div>
     
+    <div id="userread" class="info">
+	    <tr>
+	        <td>浏览量</td>
+	        <td><%=u.getView() %></td>
+	    </tr>
+    </div>
 </div>
 
-<div class="editinfo">
-    <a class="edit" href="#" onclick="return PopLayer(this)">编辑资料</a>
+<div class="mybuttons">
+    <div>
+	    <a class="buttons" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">编辑头像</a>
+    </div>
+    <div class="editinfo">
+        <a class="buttons" href="#" onclick="return PopLayer(this)">编辑资料</a>
+    </div>
+    <div class="editinfo">
+        <a class="buttons" href="message.jsp">查看留言</a>
+    </div>
+    <div class="uploadinfo">
+        <a class="buttons" href="upload.jsp">上传视频</a>
+    </div>
 </div>
 
-<div class="editinfo">
-    <a class="message" href="message.jsp">查看留言</a>
-</div>
+
+
+
 
 <div class="videos">
     <div class="myvideo">
@@ -137,9 +144,7 @@
     </div>
 </div>
 
-<div class="uploadinfo">
-    <a class="upload" href="upload.jsp">上传视频</a>
-</div>
+
 
 
 
@@ -218,15 +223,7 @@
         return false
     }
 </script>
-<!-- -----------------------------------关注、收藏----------------------------------- -->
-<<<<<<< HEAD
 
-=======
->>>>>>> fe764f57e581988b237b61afc0f7760951643543
-<div class="same">
-	<strong><%//=u.getFollow() %></strong>关注<br>
-	<strong class="look"><%//=u.getView() %></strong>浏览
-</div>
 
 </body>
 </html>

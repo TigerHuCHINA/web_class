@@ -3,11 +3,19 @@ body{
 	font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
 }
 
+.return1{
+	position:absolute;
+	left:90%;
+	top:3%;
+	text-decoration:none;
+	color:white;
+}
+
 .image{
 	display:inline-block;
 	position:absolute;
-	left:50px;
-	top:50px;
+	left:150px;
+	top:100px;
 	width:200px;
 	height:200px;
 	border:3px solid;
@@ -16,7 +24,14 @@ body{
     border-image: linear-gradient( red, blue) 30 30;
 }
 
-
+.information{
+	position:absolute;
+	left:260px;
+	top:50px;
+	width:1000px;
+	height:200px;
+	border:3px solid white;
+}
 
 
 
@@ -65,129 +80,41 @@ body{
 
 .submitimage{
 	position:absolute;
-	left:30%;
-	top:45%;
-    width:40%; 
-    height:10%;
+	left:35%;
+	top:60%;
+	width:30%;
+	height:80%;
+	
 }
-
 
 .information{
 	position:absolute;
-	left:400px;
-	top:50px;
-	width:400px;
+	left:500px;
+	top:100px;
+	width:1200px;
 	height:200px;
 	color:white;
 	font-weight:700;
 }
 
 .info{
-	margin-top:20px;
+	display:block;
+	float:left;
+	width:580px;
+
+	margin-top:15px;
+	margin-left:5px;
 }
 
-.edit{
-	display:inline-block;
-	position:absolute;
-	left:800px;
-	top:70px;
-	width:80px;
-	height:15px;
-	text-decoration:none;
-	
-	
-	padding: .3em .5em;
-    background-image: linear-gradient(#fbb2d0, #e779aa);
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: .3em;
-    box-shadow: 0 1px white inset;
-    text-align: center;
-    text-shadow: 0 1px 1px black;
-    color:white;
-    font-weight: bold;
 
-}
 
-.edit:active{
-    box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
-    border-color: rgba(0,0,0,.3);
-    background: #bbb;
-}
 
-.message{
-	display:inline-block;
-	position:absolute;
-	left:800px;
-	top:130px;
-	width:80px;
-	height:15px;
-	text-decoration:none;
-	
-	
-	padding: .3em .5em;
-    background-image: linear-gradient(#fbb2d0, #e779aa);
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: .3em;
-    box-shadow: 0 1px white inset;
-    text-align: center;
-    text-shadow: 0 1px 1px black;
-    color:white;
-    font-weight: bold;
 
-}
 
-.message:active{
-    box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
-    border-color: rgba(0,0,0,.3);
-    background: #bbb;
-}
-
-.videos{
-	display:inline-block;
-	position:absolute;
-	left:100px;
-	top:400px;
-	height:100px;
-	width:500px;
-}
-
-.title{
-	color:white;
-	font-weight:700;
-	margin-bottom:500px;
-}
-
-.upload{
-	display:inline-block;
-	position:absolute;
-	left:800px;
-	top:700px;
-	width:80px;
-	height:15px;
-	text-decoration:none;
-	
-	
-	padding: .3em .5em;
-    background-image: linear-gradient(#fbb2d0, #e779aa);
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: .3em;
-    box-shadow: 0 1px white inset;
-    text-align: center;
-    text-shadow: 0 1px 1px black;
-    color:white;
-    font-weight: bold;
-
-}
-
-.upload:active{
-    box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
-    border-color: rgba(0,0,0,.3);
-    background: #bbb;
-}
 
 #pop{
 	width:400px;
-	height:600px;
+	height:660px;
 	border:solid 1px #000;
 	position:fixed;
 	left:50%;
@@ -323,15 +250,26 @@ body{
     border-color: rgba(0,0,0,.3);
     background: #bbb;
 }    
+
+
     
-.uploadImage{
-	display:inline-block;
+.mybuttons{
 	position:absolute;
-	left:50px;
-	top:260px;
+	top:50%;
+	left:150px;
+	height:10%;
+	width:1000px;
+	
+}    
+    
+.buttons{
+	display:inline-block;
 	width:80px;
-	height:15px;
+	height:18px;
 	text-decoration:none;
+	float:left;
+	margin:40px;
+
 	
 	
 	padding: .3em .5em;
@@ -345,25 +283,27 @@ body{
     font-weight: bold;
 }
 
-.focus:uploadImage{
+.buttons:active{
 	box-shadow: .05em .1em .2em rgba(0,0,0,.6) inset;
     border-color: rgba(0,0,0,.3);
     background: #bbb;
 }
 
-.same{
+
+.videos{
 	display:inline-block;
 	position:absolute;
 	left:150px;
-	top:260px;
-	width:80px;
-	height:15px;
-	text-decoration:none;
-	color:#fff;
+	top:70%;
+	height:100px;
+	width:500px;
+}
+
+.title{
+	color:white;
+	font-weight:700;
+	margin-bottom:500px;
 }    
-    
-    
-    
     
     
     
