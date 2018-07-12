@@ -150,8 +150,7 @@ function textup() {
                         <div class="info">
                             <label class="label_tit"><b>*</b>视频简介：视频简介不能为空！0/200</label></br>
                             <textarea name="info" id="video_info" 
-                              onKeyDown="textdown(event)"  onKeyUp="textup()">
-                               </textarea>
+                              onKeyDown="textdown(event)"  onKeyUp="textup()"></textarea>
                            <!--  <span>0/200</span>
                             <span>视频简介不能为空！</span> -->
                         </div></br>
