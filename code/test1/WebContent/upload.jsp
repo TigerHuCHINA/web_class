@@ -13,7 +13,7 @@
 	.item {
 		width: 240px;
 		height: 32px;
-		margin: 30px auto;
+		margin: 60px auto;
 		left:700px;
 	}
 </style>
@@ -21,9 +21,8 @@
 
 <style>
 body {
-	background:url(picture/upload-back.png);
-  	background-color:rgba(0,0,0,0.2);
-  	
+	background:url(picture/upload-back.jpg);
+  	background-color:rgba(0,0,0,1);
 }
 #video_info {
  width:700px;
@@ -95,7 +94,7 @@ function textup() {
     }
  /* ----------- 标题-------- */
  .tit{
- font-size:300%;
+ font-size:400%;
  font-family:"华文楷体";
  }
  .Home{
@@ -130,7 +129,7 @@ function textup() {
         <div class="fileInputContainer">  
             <input class="fileInput" id="file" type="file" name="file"/>
         </div>
-      <p class="drag_tip">拖拽视频到此也可上传</p>
+      <p class="drag_tip" style="font-size:200%"><strong>点击图片上传视频</strong></p>
            <!-- 填写资料 -->
                 <div class="sub_input">
                    <div class="cover_txt">
@@ -176,10 +175,12 @@ function textup() {
         
          <div class="suc_box">
          `<p><i class="suc_ico"></i>视频上传完成后将自动为您发布，在此期间请勿关闭网页。</p>
-          <input type="submit" value="提交" onclick="myFunction();"/>
+          <input style="width:80px;height:30px" type="submit" value="提交" onclick="myFunction();"/>
          </div>
       </form>
      </div>
+     
+
 <!-- -----------------下拉------------------------- -->
 <script type="text/javascript">
 	//这里是初始化
