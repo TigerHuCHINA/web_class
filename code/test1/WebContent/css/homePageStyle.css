@@ -28,6 +28,15 @@ body{
 	color:white;
 }
 
+
+.return4{
+	position:absolute;
+	left:80%;
+	top:3%;
+	text-decoration:none;
+	color:white;
+}
+
 .image{
 	display:inline-block;
 	position:absolute;
@@ -54,7 +63,7 @@ body{
 
 .black_overlay{
 	display: none; 
-    position: absolute; 
+    position: fixed; 
     top: 0%; 
     left: 0%; 
     width: 100%; 
@@ -80,6 +89,14 @@ body{
 }
 
 #close1{
+	position:absolute;
+	left:95%;
+	top:2%;
+	text-decoration:none;
+	color:black;
+} 
+
+#close2{
 	position:absolute;
 	left:95%;
 	top:2%;
@@ -322,11 +339,18 @@ body{
 	margin-bottom:500px;
 }    
     
-#light{
+#light1{
 	border-radius: 15px;
 }
-    
-    
+
+
+#light2{
+	border-radius: 15px;
+}    
+
+.mymessage{
+	
+}   
     
     
     
