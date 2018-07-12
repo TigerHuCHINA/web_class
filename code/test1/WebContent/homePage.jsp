@@ -174,9 +174,6 @@
     }
 </script>
 <!-- -----------------------------------关注、收藏----------------------------------- -->
-<div class="focusinfo">
-	<a class="focus" onclick="focus();">关注</a>
-</div>
 <div class="same">
 	<strong><%=u.getFollow() %></strong>关注<br>
 	<strong class="look"><%=u.getView() %></strong>浏览
