@@ -18,6 +18,10 @@
 %>
 
 <a class="return1" href="home.jsp">主界面</a>
+<img src="<%//放头像地址 %>" class="return2" style="width:50px;height:50px;border:1px solid black;" >
+<a class="return3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
+
+
 
 <div class="image">
     <img src="ImageDisplay" width="200px" height="200px"/>

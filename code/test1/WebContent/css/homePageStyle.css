@@ -11,6 +11,23 @@ body{
 	color:white;
 }
 
+.return2{
+	position:absolute;
+	left:15%;
+	top:1%;
+	border-radius:15px;
+	
+	
+}
+
+.return3{
+	position:absolute;
+	left:20%;
+	top:3%;
+	text-decoration:none;
+	color:white;
+}
+
 .image{
 	display:inline-block;
 	position:absolute;
