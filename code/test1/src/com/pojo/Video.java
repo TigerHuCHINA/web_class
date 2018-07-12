@@ -1,7 +1,7 @@
 package com.pojo;
 
-/*import it.sauronsoftware.jave.Encoder;
-import it.sauronsoftware.jave.MultimediaInfo;*/
+import it.sauronsoftware.jave.Encoder;
+import it.sauronsoftware.jave.MultimediaInfo;
 import java.io.*;
 // ”∆µ-∂≈”Ó∫Ω
 public class Video {
@@ -42,7 +42,7 @@ public class Video {
 	public File getFile() {
 		return file;
 	}
-	/*public String getDuration() {
+	public String getDuration() {
 		return duration;
 	}
 	public void setDuration(File f) {
