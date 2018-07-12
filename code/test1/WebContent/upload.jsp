@@ -24,6 +24,7 @@
 body {
 	background:url(picture/upload-back.jpg);
   	background-color:rgba(0,0,0,1);
+  	background-size:100% 100%;
 }
 #video_info {
  width:700px;
@@ -129,7 +130,7 @@ function textup() {
      <div id="pickfiles" class="bigBtn">
      	<a class="Home" href="home.jsp">主界面</a>
         <p align="center">
-         <span class="tit"><strong>网页上传</strong></span>
+         <span class="tit"><strong>上传视频</strong></span>
         <!--  <span class="txt">仅支持FLV或MP4文件格式</span> -->
         </p>                              
      </div>

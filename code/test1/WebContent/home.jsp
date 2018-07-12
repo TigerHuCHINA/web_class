@@ -1,4 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page import="com.dao.CreateVideo"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -566,67 +567,11 @@ function checkMessage(){
     }
   }
 </script>
-
+<%
+CreateVideo cv=new CreateVideo();
+%>
+<%=cv.createVideo()%>
 <!-- 显示视频 常庭瑞 -->
-<div id="videos">
-    <ul class="ul1">
-    
-    
-        <li>
-            <div class="box1">
-                <a class="avatar_pic" target="_self" href="video.jsp">
-                    <img src="<%//视频封面%>"/>
-                </a>
-                <div class="first">
-                    <p class="top2"><%//视频名称 %></p>
-                    <p class="bottom2"><%//视频类别 %></p>
-                </div>
-                <div class="last">
-                    <p class="top2"><%//视频简介 %></p>
-                    <p class="bottom2"><%//上传时间 %><span><%//播放量 %></span></p>
-                </div>
-            </div>
-        </li>
-  
-        
-        
-    </ul>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

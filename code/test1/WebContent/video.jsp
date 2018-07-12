@@ -33,14 +33,20 @@
         <a href="home.jsp">主界面</a>
     </form>
 </div>
-
+<%
+String vid=request.getParameter("id");
+request.getSession().setAttribute("videoid",vid);
+%>
+<%
+out.print("vid:"+vid);
+%>
 
 <div class="background1"></div>
 
 <div class="myvideo">
     <video width="800" height="500" controls="controls" style="position:absolute;left:550px;top:100px;">
 
-        <source src="class.mp4" type="audio/mp4">
+        <source src="VideoDisplay" type="audio/mp4">
     </video>
 
 <%
