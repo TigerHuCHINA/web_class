@@ -12,20 +12,6 @@
 <title>个人主页</title>	
 <!-- --------------------------私信------------------------------- -->
 <style type="text/css">
-			#write{
-				width:98%;
-				height:28%;
-				border:1px blue solid;
-				margin:10px auto auto;
-				position:absolute;
-				 top:1000px;
-			}
-			.btn{
-				width: 51px;
-				height: 28px;
-				margin: 2px auto auto 90%;	
-			}
-    
 			.personal{
 				width:99%;
 				height:100px;
@@ -57,6 +43,7 @@
 		function trim(str){ //删除左右两端的空格
     		return str.replace(/(^\s*)|(\s*$)/g, "");
 		}
+		
 	</script>
 <!-- -------------------------------------------------------------- -->
 <style>
@@ -157,12 +144,35 @@
 	<strong>2</strong>关注</br>
 	<strong class="look">1.4k</strong>浏览
 </div>
-<!-- ---------------------------------------------评论----------------------------------------------- -->
-<div id="write">
-	<textarea   id="te" style="margin: auto auto; width:100%;height:79%;"></textArea>
-	<input type="button" value="私信" class="btn" onclick="check()">				
+<!-- ---------------------------------------------私信----------------------------------------------- -->
+<div class="sixin"><a href="#" onclick="return PopLayer(this)">私信</a></div>
+<div id="lightbox2"></div>
+<div id="pop2" style="background-image:url(picture/back.jpg)">
+    <form action = "doEdit" method = "post">
+		<div class="close">
+        	<input type="button" value="×" onclick="PopLayer()" /> 
+        </div>	
+        <div class="char">
+        	<textarea id="te" rows="11" cols="65"></textarea>
+        </div>
+        <div>
+        	<input class="check" type="button" value="提交" onclick="check()"/>
+        </div>
+	</form>
 </div>
-</div>
+<script>
+    var pop=document.getElementById('pop2'),popf=pop.getElementsByTagName('form')[0],lightbox=document.getElementById('lightbox2')
+    function PopLayer(obj) {
+        lightbox.style.display = pop.style.display = obj ? 'block' : 'none';
+        if (obj) {
+            var tr = obj.parentNode.parentNode
+            popf.name.value = tr.cells[0].innerHTML
+            popf.birthday.value = tr.cells[1].innerHTML
+            popf.address.value = tr.cells[2].innerHTML
+        }
+        return false
+    }
+</script>
 <!-- -------------------------------------------------------------------------------------------------- -->
 
 </body>
