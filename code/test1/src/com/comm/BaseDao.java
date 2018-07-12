@@ -9,8 +9,7 @@ import java.io.*;
 //数据库基础操作-杜宇航
 public class BaseDao {
 	private static String driver="com.mysql.jdbc.Driver";
-
-	private String url="jdbc:mysql://120.77.155.205/schoolol";
+	private String url="jdbc:mysql://120.77.155.205:3306/schoolol";
 	private String user = "root";
 	private String pwd="123456zxC";
 	private Connection conn;

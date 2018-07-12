@@ -62,7 +62,7 @@
     <div id="userlocation" class="info">
         <tr>
             <td>所在地 </td>
-            <td><%=u.getUprovince()%> <%//=u.getUcity() %></td>
+            <td><%=u.getUprovince()%> <%=u.getUcity() %></td>
         </tr>
     </div>
     
@@ -199,15 +199,10 @@
     </form>
 </div>
 
-
-
-
-
-
-
-
-
-
+<form method="post" action="ImageAction">
+<input class="fileInput" id="file" type="file" name="file"/>
+<input type="submit" value="提交"/>
+</form>
 
 
 <script>
@@ -223,7 +218,6 @@
         return false
     }
 </script>
-
 
 </body>
 </html>

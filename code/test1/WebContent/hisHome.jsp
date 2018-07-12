@@ -1,6 +1,8 @@
 <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
+<%@page import="com.action.UserCountAction" %>
 <%@page import="java.sql.* ,javax.servlet.* ,java.util.* ,java.awt.* ,com.action.*, com.comm.* ,com.dao.* ,com.pojo.*" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -55,9 +57,13 @@
 </head>
 <body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 <%
-	getInfo get = new getInfo();
+	/*getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
+	String id = String.valueOf(11);
+	String id0= String.valueOf(11);
+	UserCountAction usercount = new UserCountAction();
+	usercount.doo(id,id0);*/
 %>
 	<a class="Home" href="home.jsp"><strong>Home</strong></a>
 <div class="image">
@@ -120,10 +126,10 @@
         </tr>
     </div>
     <%
-	String id = String.valueOf(11);
-	String id0= String.valueOf(11);
+	String id1 = String.valueOf(11);
+	String id2= String.valueOf(11);
 	UserCountAction visitorcount = new UserCountAction();
-	visitorcount.doo(id,id0);
+	visitorcount.doo(id1,id2);
 	%>
 </div>
 
@@ -138,7 +144,7 @@
 </div>
 <!-- -----------------------------------关注、收藏----------------------------------- -->
 <div class="focusinfo">
-	<a class="focus" onclick="focus();">关注</a>
+	<a class="focus" href="doFollow" onclick="focus();">关注</a>
 </div>
 <div class="same">
 	<strong>2</strong>关注</br>
