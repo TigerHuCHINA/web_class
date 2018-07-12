@@ -106,8 +106,10 @@ function textup() {
  font-family:"华文楷体";
  }
  .Home{
+ position:absolute;
  left:10px;
- font-size:200%;
+ top:10px;
+ font-size:120%;
  }
  .sub_input{
  	 position:relative;
@@ -125,7 +127,7 @@ function textup() {
 </head>
 <body>
      <div id="pickfiles" class="bigBtn">
-     	<a class="Home" href="home.jsp"><strong>Home</strong></a>
+     	<a class="Home" href="home.jsp">主界面</a>
         <p align="center">
          <span class="tit"><strong>网页上传</strong></span>
         <!--  <span class="txt">仅支持FLV或MP4文件格式</span> -->
