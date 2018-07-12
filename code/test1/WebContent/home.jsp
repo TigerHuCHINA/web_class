@@ -156,6 +156,7 @@ $(document).ready(function(){
 		 
 		 
 		<div class="dropdown">
+		<img src="<%//放头像地址 %>" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
 		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 			
              <div class="dropdown-content">
