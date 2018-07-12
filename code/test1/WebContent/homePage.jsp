@@ -38,7 +38,7 @@
         <input class="submitimage" type="submit" value="提交"/>
     </form>
 </div> 
-<div id="fade" class="black_overlay">
+    <div id="fade" class="black_overlay">
 </div> 
 
 
@@ -199,10 +199,6 @@
     </form>
 </div>
 
-<form method="post" action="ImageAction">
-<input class="fileInput" id="file" type="file" name="file"/>
-<input type="submit" value="提交"/>
-</form>
 
 
 <script>
