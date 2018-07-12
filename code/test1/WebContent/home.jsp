@@ -115,8 +115,11 @@ $(document).ready(function(){
                             </div>
                             <div class="checkbox check_1">
 							    <input id="check1" type="checkbox" name="check" value="check1">
-							    <label for="check1">我同意服务条款和隐私政策</label>
+							    <label for="check1" >我同意服务条款和隐私政策</label>
+							   
 							</div>
+							
+			
 						</form>   			                                       
 	                </div>     
                  </div>
