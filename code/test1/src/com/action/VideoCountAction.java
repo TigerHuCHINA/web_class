@@ -12,7 +12,7 @@ import com.pojo.User;
 import com.pojo.Video;
 import com.dao.VideoCountDao;
 
-public class VisitorCountAction extends HttpServlet {
+public class VideoCountAction extends HttpServlet {
 	VideoCountDao dao = new VideoCountDao();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)

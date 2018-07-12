@@ -1,5 +1,6 @@
 <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
+<%@page import="java.sql.* ,javax.servlet.* ,java.util.* ,java.awt.* ,com.action.*, com.comm.* ,com.dao.* ,com.pojo.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -131,6 +132,12 @@
             <td><%=u.getUintroduce() %></td>
         </tr>
     </div>
+    <%
+	String id = String.valueOf(11);
+	String id0= String.valueOf(11);
+	UserCountAction visitorcount = new UserCountAction();
+	visitorcount.doo(id,id0);
+	%>
 </div>
 
 <div class="videos">
