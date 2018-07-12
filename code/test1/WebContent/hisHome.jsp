@@ -50,8 +50,9 @@
 <!-- -------------------------------------------------------------- -->
 <style>
  .Home{
- left:10px;
- font-size:200%;
+ 	position:absolute;
+ 	left:1000px;
+ 	font-size:120%;
  }
 </style>
 </head>
@@ -65,7 +66,7 @@
 	UserCountAction usercount = new UserCountAction();
 	usercount.doo(id,id0);*/
 %>
-	<a class="Home" href="home.jsp"><strong>Home</strong></a>
+	<a class="Home" href="home.jsp">主界面</a>
 <div class="image">
     <img src="<%//=u.getUheadphoto() %>">
 </div>
@@ -159,7 +160,7 @@
         	<input type="button" value="×" onclick="PopLayer()" /> 
         </div>	
         <div class="char">
-        	<textarea id="te" rows="11" cols="65"></textarea>
+        	<textarea id="te" rows="11" cols="56"></textarea>
         </div>
         <div>
         	<input class="check" type="button" value="提交" onclick="check()"/>
