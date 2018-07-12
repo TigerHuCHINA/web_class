@@ -43,4 +43,16 @@ public class FollowDao extends BaseDao {
 			return false;
 		}
 	}
+	public boolean deFollow(Follow defollow)
+	{
+		String sql = "delete from follow where followerId=? and followeeId=?";
+		Object obs[] = {defollow.getFollowerid(),defollow.getFolloweeid()};
+		if(executeUpdate(sql, obs)>=1) {
+			free();
+			return true;
+		}else {
+			free();
+			return false;
+		}
+	}
 }

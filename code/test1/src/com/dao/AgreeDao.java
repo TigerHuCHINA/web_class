@@ -42,4 +42,15 @@ public class AgreeDao extends BaseDao{
 			return false;
 		}
 	}
+	public boolean delAgree(Agree disagree) {
+		String sql = "delete from agree where userId=? and commentId=?";
+		Object obs[] = {disagree.getUserid(),disagree.getCommentid()};
+		if(executeUpdate(sql, obs)>=1) {
+			free();
+			return true;
+		}else {
+			free();
+			return false;
+		}
+	}
 }
