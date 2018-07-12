@@ -42,4 +42,8 @@ public class AgreeDao extends BaseDao{
 			return false;
 		}
 	}
+	public boolean disagree(String uid, String cid) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

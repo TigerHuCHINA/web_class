@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.AgreeDao;
 import com.dao.CollectDao;
 
 public class disAgreeAction extends HttpServlet {

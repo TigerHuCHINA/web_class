@@ -2,10 +2,10 @@ package com.dao;
 import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO; 
-import org.bytedeco.javacv.FFmpegFrameGrabber; 
+/*import org.bytedeco.javacv.FFmpegFrameGrabber; 
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.FrameGrabber.Exception;
-import org.bytedeco.javacv.Java2DFrameConverter;
+import org.bytedeco.javacv.Java2DFrameConverter;*/
 import com.comm.BaseDao;
 import com.pojo.*;
 public class FileDao extends BaseDao {
@@ -20,7 +20,7 @@ public class FileDao extends BaseDao {
 			return false;
 		}
 	}
-	public static void FetchFrame(String path) throws Exception, IOException {
+	/*public static void FetchFrame(String path) throws Exception, IOException {
 		Frame frame=null;
 		int flag=0;
 		FFmpegFrameGrabber fFmpegFrameGrabber = new FFmpegFrameGrabber(path);
@@ -46,7 +46,7 @@ public class FileDao extends BaseDao {
         Java2DFrameConverter converter = new Java2DFrameConverter();
         BufferedImage bufferedImage = converter.getBufferedImage(frame);
         return bufferedImage;
-    }	
+    }	*/
 	
 	
 	
