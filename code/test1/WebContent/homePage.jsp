@@ -8,7 +8,7 @@
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
-<title>个人主页</title>	
+<title>我的个人主页</title>	
 </head>
 <body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 <%
@@ -18,61 +18,101 @@
 %>
 <div class="image">
     <img src="ImageDisplay" width="200px" height="200px"/>
+    
 </div>
+
+<div>
+	<a class="uploadImage" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">编辑头像</a>
+</div>
+
+
+
+
+
+
+<div id="light" class="white_content">
+    <a href = "javascript:void(0)" id= "close1" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">×</a>
+    <form method="post" action="ImageAction">
+        <input class="fileInput" id="file" type="file" name="file"/>
+        <input class="submitimage" type="submit" value="提交"/>
+    </form>
+</div> 
+<div id="fade" class="black_overlay">
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="information">
     <div id="username" class="info">
         <tr>
             <td>用户名 </td>
-            <td><%=u.getUname() %></td>
+            <td><%//=u.getUname() %></td>
         </tr>
     </div>
     
     <div id="userid" class="info">
         <tr>
             <td>用户账号 </td>
-            <td><%=u.getUid() %></td>
+            <td><%//=u.getUid() %></td>
         </tr>
     </div>
     
     <div id="userlocation" class="info">
         <tr>
             <td>所在地 </td>
-            <td><%=u.getUprovince()%> <%=u.getUcity() %></td>
+            <td><%//=u.getUprovince()%> <%//=u.getUcity() %></td>
         </tr>
     </div>
     
     <div id="userdate" class="info">
         <tr>
             <td>生日 </td>
-            <td><%=u.getUbirthday() %></td>
+            <td><%//=u.getUbirthday() %></td>
         </tr>
     </div>
     
     <div id="usersex" class="info">
         <tr>
             <td>性别 </td>
-            <td><%=u.getUsex() %></td>
+            <td><%//=u.getUsex() %></td>
         </tr>
     </div>
     
     <div id="userschool" class="info">
         <tr>
             <td>学校 </td>
-            <td><%=u.getUschool() %></td>
+            <td><%//=u.getUschool() %></td>
         </tr>
     </div>
     
     <div id="userclass" class="info">
         <tr>
             <td>专业 </td>
-            <td><%=u.getUprofession() %></td>
+            <td><%//=u.getUprofession() %></td>
         </tr>
     </div>
     <div id="userinformation" class="info">
         <tr>
             <td>个人简介 </td>
-            <td><%=u.getUintroduce() %></td>
+            <td><%//=u.getUintroduce() %></td>
         </tr>
     </div>
     
@@ -153,10 +193,15 @@
         </div>
     </form>
 </div>
-<form method="post" action="ImageAction">
-<input class="fileInput" id="file" type="file" name="file"/>
-<input type="submit" value="提交"/>
-</form>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -174,12 +219,10 @@
     }
 </script>
 <!-- -----------------------------------关注、收藏----------------------------------- -->
-<div class="focusinfo">
-	<a class="focus" onclick="focus();">关注</a>
-</div>
+
 <div class="same">
-	<strong><%=u.getFollow() %></strong>关注<br>
-	<strong class="look"><%=u.getView() %></strong>浏览
+	<strong><%//=u.getFollow() %></strong>关注<br>
+	<strong class="look"><%//=u.getView() %></strong>浏览
 </div>
 
 </body>

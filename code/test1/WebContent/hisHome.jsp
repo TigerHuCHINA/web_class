@@ -8,7 +8,7 @@
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
-<title>个人主页</title>	
+<title>别人的个人主页</title>	
 <!-- --------------------------私信------------------------------- -->
 <style type="text/css">
 			#write{
@@ -73,21 +73,21 @@
 %>
 	<a class="Home" href="home.jsp"><strong>Home</strong></a>
 <div class="image">
-    <img src="<%=u.getUheadphoto() %>">
+    <img src="<%//=u.getUheadphoto() %>">
 </div>
 
 <div class="information">
     <div id="username" class="info">
         <tr>
             <td>用户名 </td>
-            <td><%=u.getUname() %></td>
+            <td><%//=u.getUname() %></td>
         </tr>
     </div>
     
     <div id="userid" class="info">
         <tr>
             <td>用户账号 </td>
-            <td><%=u.getUid() %></td>
+            <td><%//=u.getUid() %></td>
         </tr>
     </div>
     
@@ -101,34 +101,34 @@
     <div id="userdate" class="info">
         <tr>
             <td>生日 </td>
-            <td><%=u.getUbirthday() %></td>
+            <td><%//=u.getUbirthday() %></td>
         </tr>
     </div>
     
     <div id="usersex" class="info">
         <tr>
             <td>性别 </td>
-            <td><%=u.getUsex() %></td>
+            <td><%//=u.getUsex() %></td>
         </tr>
     </div>
     
     <div id="userschool" class="info">
         <tr>
             <td>学校 </td>
-            <td><%=u.getUschool() %></td>
+            <td><%//=u.getUschool() %></td>
         </tr>
     </div>
     
     <div id="userclass" class="info">
         <tr>
             <td>专业 </td>
-            <td><%=u.getUprofession() %></td>
+            <td><%//=u.getUprofession() %></td>
         </tr>
     </div>
     <div id="userinformation" class="info">
         <tr>
             <td>个人简介 </td>
-            <td><%=u.getUintroduce() %></td>
+            <td><%//=u.getUintroduce() %></td>
         </tr>
     </div>
 </div>
