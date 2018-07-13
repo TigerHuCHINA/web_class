@@ -8,11 +8,10 @@ import com.comm.BaseDao;
 import com.pojo.Agree;
 
 public class AgreeDao extends BaseDao{
-	public ArrayList<Agree> getByUserId(String userId)
+	public ArrayList<Agree> getByComment(String commentId)
 	{
-		String sql = "select agree.id,agree.userId,agree.commentId,agree.time "
-				+ "from comment left join agree on comment.id=agree.commentId where comment.userId=?";
-		Object obj[] = {userId};
+		String sql = "select * from comment where commentId = ?";
+		Object obj[] = {commentId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Agree> agrees = new ArrayList<Agree>();
 		try {

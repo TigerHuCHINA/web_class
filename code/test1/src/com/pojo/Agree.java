@@ -30,4 +30,5 @@ public class Agree {
 	public void setTime(String time) {
 		this.time = time;
 	}
+	
 }
