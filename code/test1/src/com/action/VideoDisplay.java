@@ -44,8 +44,7 @@ public class VideoDisplay extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		String vid = (String)session.getAttribute("vid");
-		System.out.println(vid);
+		String vid = (String)session.getAttribute("videoid");
 		VideoDao v = new VideoDao();
 		Video video = null;
 		try {

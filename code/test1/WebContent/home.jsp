@@ -1,4 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page import="com.dao.CreateVideo"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -566,7 +567,11 @@ function checkMessage(){
     }
   }
 </script>
-
+<%
+CreateVideo cv=new CreateVideo();
+StringBuilder s=cv.createVideo();
+out.println(s);
+%>
 <!-- 显示视频 常庭瑞 -->
 <div id="videos">
     <ul class="ul1">

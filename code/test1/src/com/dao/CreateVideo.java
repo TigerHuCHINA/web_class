@@ -15,6 +15,7 @@ public class CreateVideo {
 		videos=vd.getAll();
 		StringBuilder sh = new StringBuilder();
 		try{
+			
 			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
 			sh.append("<div id='videos'>");
 			sh.append("<ul class='ul1'>");
