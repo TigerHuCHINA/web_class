@@ -5,7 +5,6 @@ import com.pojo.User;
 
 public class UserCountDao extends BaseDao {
 	public int doCount(User u,User u0) {
-		System.out.println("Ö´ÐÐ");
 		String sql="update user set view=view+1 where idname=? and \r\n" + 
 				"time_to_sec(now())-(select max(time_to_sec(daytime)) as d1 from userrecord where visiting=? and visited=?)>300;";
 		Object[] obs= {u0.getUid(),u.getUid(),u0.getUid()};

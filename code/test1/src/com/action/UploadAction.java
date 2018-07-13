@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-//import org.bytedeco.javacv.FrameGrabber.Exception;
-
 import com.comm.*;
 import com.dao.FileDao;
 
@@ -58,15 +55,14 @@ public class UploadAction extends HttpServlet {
 		v.setTitle(title);
 		v.setIntroduce(request.getParameter(introduce));
 		v.setFile(f);
-		v.setDuration(f);
-		
+		v.setDuration();
 		FileDao bd=new FileDao();
 		if(bd.Upload(v)) {
 			request.setAttribute("result", "³É¹¦");
 			request.getRequestDispatcher("success.jsp").forward(request, response);
 		}else {
 			request.setAttribute("result", "Ê§°Ü");
-			request.getRequestDispatcher("upload.jsp").forward(request, response);
+			request.getRequestDispatcher("xx.jsp").forward(request, response);
 		}
 	}
 
