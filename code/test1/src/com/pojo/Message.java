@@ -4,6 +4,7 @@ public class Message {
 	private String passsId;
 	private String acceptId;
 	private String content;
+	private String time;
 	
 	public String getPasssId() {
 		return passsId;
@@ -22,6 +23,12 @@ public class Message {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
 	}
 	
 }

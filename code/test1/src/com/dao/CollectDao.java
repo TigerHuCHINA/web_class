@@ -1,9 +1,35 @@
 package com.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 import com.comm.BaseDao;
 import com.pojo.Collection;
 
 public class CollectDao extends BaseDao {
+	public ArrayList<Collection> getByUserId(String userId)
+	{
+		String sql = "select * from collection where userId = ?";
+		Object obj[] = {userId};
+		ResultSet set = executeSelect(sql, obj);
+		ArrayList<Collection> collections = new ArrayList<Collection>();
+		try {
+			while(set.next()) {
+				Collection collection = new Collection();
+				collection.setId(set.getString(1));
+				collection.setUserid(set.getString(2));
+				collection.setVideoid(set.getString(3));
+				collection.setTime(set.getString(4));
+				collections.add(collection);
+			}
+		}catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		free();
+		return collections;
+	}
 	public boolean collect(Collection collection) {
 		String sql = "INSERT INTO collection (`userId`,`videoId`) VALUES (?,?)";
 		Object obs[] = {collection.getUserid(),collection.getVideoid()};
