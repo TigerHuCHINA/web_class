@@ -1,4 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page import="com.dao.CreateVideo"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -114,8 +115,11 @@ $(document).ready(function(){
                             </div>
                             <div class="checkbox check_1">
 							    <input id="check1" type="checkbox" name="check" value="check1">
-							    <label for="check1">我同意服务条款和隐私政策</label>
+							    <label for="check1" >我同意服务条款和隐私政策</label>
+							   
 							</div>
+							
+			
 						</form>   			                                       
 	                </div>     
                  </div>
@@ -156,6 +160,7 @@ $(document).ready(function(){
 		 
 		 
 		<div class="dropdown">
+		<img src="<%//放头像地址 %>" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
 		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 			
              <div class="dropdown-content">
@@ -565,67 +570,11 @@ function checkMessage(){
     }
   }
 </script>
-
+<%
+CreateVideo cv=new CreateVideo();
+%>
+<%=cv.createVideo()%>
 <!-- 显示视频 常庭瑞 -->
-<div id="videos">
-    <ul class="ul1">
-    
-    
-        <li>
-            <div class="box1">
-                <a class="avatar_pic" target="_self" href="video.jsp">
-                    <img src="<%//视频封面%>"/>
-                </a>
-                <div class="first">
-                    <p class="top2"><%//视频名称 %></p>
-                    <p class="bottom2"><%//视频类别 %></p>
-                </div>
-                <div class="last">
-                    <p class="top2"><%//视频简介 %></p>
-                    <p class="bottom2"><%//上传时间 %><span><%//播放量 %></span></p>
-                </div>
-            </div>
-        </li>
-  
-        
-        
-    </ul>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

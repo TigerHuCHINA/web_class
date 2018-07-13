@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import com.dao.AgreeDao;
 import com.pojo.Agree;
-
 public class AgreeAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		doPost(request, response);

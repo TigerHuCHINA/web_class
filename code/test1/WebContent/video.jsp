@@ -14,14 +14,6 @@
 
 </head>
 <body>
-
-<div id="counter">
-	<form action="doCount" action="doRecord" method="post">
-	<div>
-		<input type="submit" value="计算" class="counter" />
-	</div>
-	</form>
-</div>
 <!-- ----------------------播放视频，邓慧颖---------------------------------- -->
 
 
@@ -33,6 +25,10 @@
         <a href="home.jsp">主界面</a>
     </form>
 </div>
+<%
+String vid=request.getParameter("id");
+request.getSession().setAttribute("videoid",vid);
+%>
 
 
 <div class="background1"></div>
@@ -40,7 +36,7 @@
 <div class="myvideo">
     <video width="800" height="500" controls="controls" style="position:absolute;left:550px;top:100px;">
 
-        <source src="class.mp4" type="audio/mp4">
+        <source src="VideoDisplay" type="audio/mp4">
     </video>
 
 <%
@@ -96,8 +92,9 @@
     <div id="show"></div>
     <div id="write">
 		<textArea name="content" id="te" style="margin: auto auto; width:100%;height:79%;"></textArea>
-	    <input type="submit" value="发布" class="btn" onclick="add()">				
+	    <input type="submit" value="发布" class="btn">				
     </div>
+    
 </div>
 </form>
 
