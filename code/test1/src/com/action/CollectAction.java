@@ -28,7 +28,7 @@ public class CollectAction extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
-		String vid = (String) session.getAttribute("videoid");
+		String vid = (String) session.getAttribute("vid");
 		System.out.println(vid);
 		
 		Collection collection = new Collection();

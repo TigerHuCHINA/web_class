@@ -17,9 +17,12 @@ public class FollowAction extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request,HttpServletResponse response)throws IOException, ServletException {
 		HttpSession session = request.getSession();
+		String follower = (String) session.getAttribute("ownerid");
+		String followee = (String) session.getAttribute("userid");
+		
 		Follow ff = new Follow();
-		ff.setFollowerid("11");
-		ff.setFolloweeid("111");
+		ff.setFollowerid(follower);
+		ff.setFolloweeid(followee);
 		FollowDao f = new FollowDao();
 		if(f.adFollow(ff)) {
 			request.setAttribute("result", "³É¹¦");

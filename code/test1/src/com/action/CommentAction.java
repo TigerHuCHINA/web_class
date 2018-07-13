@@ -25,9 +25,7 @@ public class CommentAction extends HttpServlet {
 		String userid = (String) session.getAttribute("userid");
 		String videoid = (String) session.getAttribute("vid");
 		String content = req.getParameter("content");
-		System.out.println(content);
 		content =new String(content.getBytes("iso-8859-1"),"utf-8");
-		System.out.println(content);
 		
 		Comment comment = new Comment();
 		comment.setUserId(userid);

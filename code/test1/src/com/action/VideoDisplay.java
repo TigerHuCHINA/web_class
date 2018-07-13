@@ -69,11 +69,7 @@ public class VideoDisplay extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-		
-		
-		
-	}
+}
 
 

@@ -27,8 +27,8 @@ public class MessageAction extends HttpServlet {
 		content = new String(content.getBytes("iso-8859-1"),"utf-8");
 		
 		Message m = new Message();
-		m.setPasssId("11");
-		m.setAcceptId("111");
+		m.setPasssId(passId);
+		m.setAcceptId(acceptId);
 		m.setContent(content);
 		
 		MessageDao dao = new MessageDao();

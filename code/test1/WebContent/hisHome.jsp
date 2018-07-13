@@ -57,18 +57,21 @@
 </head>
 <body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 <%
-	String ownerid=request.getParameter("ownerid");
+	String ownerid=(String)request.getSession().getAttribute("ownerid");
 	UserEditDao ued=new UserEditDao();
 	UserEdit ue=ued.getInfoById(ownerid);
 	UserDao ud=new UserDao();
 	User u=ud.dologin(ownerid);
 	String ownername=u.getUname();
-	String ownerlocation=ue.getUcity();
 	String birthday=ue.getUbirthday();
 	String sex=ue.getUsex();
 	String school=ue.getUschool();
 	String profession=ue.getUprofession();
 	String introduce=ue.getUintroduce();
+	String province = ue.getUprovince();
+	String city = ue.getUcity();
+	String follow = ue.getFollow();
+	String view = ue.getView();
 	request.getSession().setAttribute("ownerid",ownerid);
 	/*getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
@@ -101,7 +104,7 @@
     <div id="userlocation" class="info">
         <tr>
             <td>所在地 </td>
-            <td><%=ownerlocation%></td>
+            <td><%=province%> <%=city %></td>
         </tr>
     </div>
     
@@ -160,8 +163,8 @@
 	<a class="focus" href="doFollow" onclick="focus();">关注</a>
 </div>
 <div class="same">
-	<strong>2</strong>关注</br>
-	<strong class="look">1.4k</strong>浏览
+	<strong><%=follow %></strong>关注<br>
+	<strong class="look"><%=view %></strong>浏览
 </div>
 <!-- ---------------------------------------------私信----------------------------------------------- -->
 <div class="sixin"><a href="#" onclick="return PopLayer(this)">私信</a></div>
