@@ -14,6 +14,14 @@
 
 </head>
 <body>
+
+<div id="counter">
+	<form action="doCount" action="doRecord" method="post">
+	<div>
+		<input type="submit" value="计算" class="counter" />
+	</div>
+	</form>
+</div>
 <!-- ----------------------播放视频，邓慧颖---------------------------------- -->
 
 
@@ -29,7 +37,9 @@
 String vid=request.getParameter("id");
 request.getSession().setAttribute("videoid",vid);
 %>
-
+<%
+out.print("vid:"+vid);
+%>
 
 <div class="background1"></div>
 
@@ -92,9 +102,8 @@ request.getSession().setAttribute("videoid",vid);
     <div id="show"></div>
     <div id="write">
 		<textArea name="content" id="te" style="margin: auto auto; width:100%;height:79%;"></textArea>
-	    <input type="submit" value="发布" class="btn">				
+	    <input type="submit" value="发布" class="btn" onclick="add()">				
     </div>
-    
 </div>
 </form>
 
