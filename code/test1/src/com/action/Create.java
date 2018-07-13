@@ -1,4 +1,4 @@
-package com.dao;
+package com.action;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -6,9 +6,11 @@ import java.io.PrintStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+
+import com.dao.VideoDao;
 import com.pojo.Video;
 
-public class CreateVideo {
+public class Create {
 	public StringBuilder createVideo() throws SQLException, ParseException {
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();

@@ -1,5 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@page import="com.dao.CreateVideo"%>
+<%@page import="com.action.Create"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -157,8 +157,8 @@ $(document).ready(function(){
 		 
 		 
 		<div class="dropdown">
-		<img src="<%//放头像地址 %>" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
-		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
+		<img src="<%//放头像地址%>" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
+		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username")%>欢迎光临</a>
 			
              <div class="dropdown-content">
                  <a href="homePage.jsp">个人主页</a>
@@ -568,7 +568,7 @@ function checkMessage(){
   }
 </script>
 <%
-CreateVideo cv=new CreateVideo();
+	Create cv=new Create();
 StringBuilder s=cv.createVideo();
 out.println(s);
 %>
