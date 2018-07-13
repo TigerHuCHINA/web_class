@@ -3,23 +3,18 @@
 <html>
 <head>
 <title>动态界面</title>
-<style type="text/css">
-body { background-color: #fff }
-body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td {
-	margin:0;
-	padding:0;
-	border:none;
-	outline:none;
-}
-h1,h2,h3,h4,h5,h6 {
-	font-size:100%;
-}
-address,cite,dfn,em,var {
-	font-style:normal;
-}
-code,kbd,pre,samp {
-	font-family:courier new,courier,monospace;
-}
+<link rel="stylesheet" href="css/tabulous.css">
+<script src="js/tabulous.js"></script>
+<!-- --------------------------------TAB切换------------------------- -->
+<!-- <script>
+$(function(){
+	$('.tabs').tabulous({
+		effect: 'slideLeft'
+	});
+});
+</script> -->
+<!-- ---------------------------------切换结束------------------------------- -->
+<style>
 ul,ol {
 	list-style:none;
 }
@@ -143,6 +138,16 @@ body {
 	padding:10px 0;
 	border-top:1px solid #eee;
 }
+.comment-left {
+	width:30px;
+	float:left;
+	display:inline;
+	margin-right:10px;
+}
+.comment-left img {
+	width:30px;
+	height:30px;
+}
 .comment-right {
 	float:left;
 	width:410px;
@@ -182,325 +187,89 @@ body {
 .hf {
 	*zoom:1;
 }
-.hf-text {
-	border:1px solid #eee;
-	display:block;
-	height:15px;
-	width:438px;
-	padding:5px;
-	resize:none;
-	color:#ccc;
-	font-size:12px;
-}
-.hf-on .hf-text {
-	height:60px;
-	color:#333;
-	border:1px solid #ff8140;
-}
-.hf-btn {
-	float:right;
-	width:65px;
-	height:26px;
-	background:#f7f7f7;
-	color:#ccc;
-	font-size:12px;
-	display:none;
-}
-.hf-btn-on {
-	background:#ff8140;
-	color:#fff;
-}
-.hf-nub {
-	float:right;
-	padding:3px 5px;
-	color:#666;
-	display:none;
-}
-.hf-on .hf-btn {
-	display:inline;
-}
-.hf-on .hf-nub {
-	display:inline;
-}
 </style>
 </head>
 <body>
+<!-- -----------------------------------------切换开始---------------------- -->
+<!-- <div class="main">
+	<div class="mianc">
+		<div class="tabs">
+			<ul>
+				<li><a href="#tabs-1" title="">Tab 1</a></li>
+				<li><a href="#tabs-2" title="">Tab 2</a></li>
+				<li><a href="#tabs-3" title="">Tab 3</a></li>
+			</ul>
+
+			<div id="tabs_container">
+				<div id="tabs-1">
+					<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus.</p>
+					<p>Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+				</div>
+
+				<div id="tabs-2">
+					<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor.</p>
+				</div>
+
+				<div id="tabs-3">
+					<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem.</p>
+					<p>Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra , per inceptos himenaeos. Fusce sodales.</p>
+				</div>
+			</div>
+		</div>
+	</div>	        
+</div> -->
+<!-- --------------------------------TAB切换结束---------------------------------------------- -->
 <ul id="pn">
-    <li class="list0"> <a class="close" href="javascript:;">X</a>
-        <div class="head"><img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""></div>
+    <li class="list0"> <input style="position:relative; left:450px;" type="button" value="X" onclick="delete()"/>
+        <div class="head"><img src="<%//头像 %>" alt=""></div>
         <div class="content">
-            <p class="text"><span class="name">Andy：</span>哈哈哈哈哈</p>
-            <div class="good"><span class="date">02-14 23:01</span><a class="dzan" href="javascript:;">赞</a></div>
+            <p class="text"><span class="name"><%//上传人 %></span><%//视频 %></p>
+            <div class="good"><span class="date">02-14 23:01//上传时间</span></div>
             <div class="people" total="2980">2980人觉得很赞</div>
             <div class="comment-list">
                 <div class="comment" user="self">
                     <div class="comment-right">
-                        <div class="comment-text"><span class="user">老王：</span>我</div>
-                        <div class="comment-date">02-14 22:00 <a class="comment-zan" href="javascript:;" total="23" my="1">23 取消赞</a> <a class="comment-dele" href="javascript:;">回复</a> </div>
-                    </div>
-                </div>
-                <div class="comment" user="self">
-                    <div class="comment-right">
-                        <div class="comment-text"><span class="user">我：</span>看哭了留卡号吧</div>
-                        <div class="comment-date">02-14 24:00 <a class="comment-zan" href="javascript:;" total="0" my="0">赞</a> <a class="comment-dele" href="javascript:;">删除</a> </div>
+                        <div class="comment-text"><span class="user"><%//评论人 %></span><%//说了什么 %></div>
+                        <div class="comment-date">02-14 22:00 <input type="button" class="comment-zan" onclick="dianzan()" value="23 赞">
+                   		    <a class="comment-dele" href="#C1">回复</a>
+                        </div>
                     </div>
                 </div>
             </div>
+         <form name="form1" method="post" action="">
             <div class="hf">
-                <textarea type="text" class="hf-text" autocomplete="off" maxlength="100">评论…</textarea>
-                <button class="hf-btn">回复</button>
+                <textarea name="C1" id="te" class="hf-text" autocomplete="off" maxlength="100" rows="10" cols="50"></textarea>
+         	      <input type="submit" class="comment-dele" value="提交回复" onclick="return check()"/>
                 <span class="hf-nub">0/100</span> </div>
+         </form>
         </div>
+        
     </li>
-  <!--   <li class="list0"> <a class="close" href="javascript:;">X</a>
-        <div class="head"><img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""></div>
-        <div class="content">
-            <p class="text"><span class="name">Andy：</span>哈哈哈哈哈谁</p>
-            <div class="pic"><img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""></div>
-            <div class="good"><span class="date">02-14 23:01</span><a class="dzan" href="javascript:;">赞</a></div>
-            <div class="people" total="0" style="display: none;"></div>
-            <div class="comment-list">
-                <div class="comment" user="self">
-                    <div class="comment-left"><img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""></div>
-                    <div class="comment-right">
-                        <div class="comment-text"><span class="user">我：</span>看哭了留卡号吧</div>
-                        <div class="comment-date">02-14 24:00 <a class="comment-zan" href="javascript:;" total="286" my="1">286 取消赞</a> <a class="comment-dele" href="javascript:;">删除</a> </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hf">
-                <textarea type="text" class="hf-text" autocomplete="off" maxlength="100">评论…</textarea>
-                <button class="hf-btn">回复</button>
-                <span class="hf-nub">0/100</span> </div>
-        </div>
-    </li> -->
 </ul>
-
 <script>
- function addloadEvent(func) {
-     var oldonload = window.onload;
-     if (typeof window.onload != "function") {
-         window.onload = func;
-     } else {
-         window.onload = function() {
-             if (oldonload) {
-                 oldonload();
-             }
-             func();
-         }
-     }
- }
- addloadEvent(b);
+function  check()
+{
+	var content=$("te").value;
+	content=trim(content);
+	if(content.length<1)
+	{
+		alert("请输入内容");
+		return false;
+	}
+	var infoid=<%=session.getAttribute("infoid")%>;
+	if(infoid!=null){
+		alert("回复成功！");
+		document.getElementById("te").value="";
+		return true;
+	}
+}			
+function $(id){
+	return document.getElementById(id);
+}
+function trim(str){ //删除左右两端的空格
+	return str.replace(/(^\s*)|(\s*$)/g, "");
+}
 
- function b() {
-     var pn = document.getElementById("pn");
-     var lists = pn.children;
-     //删除当前节点
-     function remove(node) {
-         node.parentNode.removeChild(node);
-     }
-     //上面的点赞
-     function praisebox(box, el) {
-         //获取赞数量容器
-         var praise = box.getElementsByClassName("people")[0];
-         //获取容器当前total值
-         var total = parseInt(praise.getAttribute("total"));
-         //获取点击的innerHTML
-         var txt = el.innerHTML;
-         //创建一个新的total存储用
-         var newtotal;
-         //判断点击的文字内容
-         if (txt == "赞") {
-             //total值+1 因为我还没点击赞，所以要点击的时候就多了一个人 total+1
-             newtotal = total + 1;
-             //判断赞数量 把相应文字放到赞容器里
-             praise.innerHTML = newtotal == 1 ? "我觉得很赞" : "我和" + total + "个人觉得很赞";
-             el.innerHTML = "取消赞";
-         } else {
-             //反之total值-1
-             newtotal = total - 1;
-             praise.innerHTML = newtotal == 0 ? "" : newtotal + "个人觉得很赞";
-             el.innerHTML = "赞";
-         }
-         //更新total值
-         praise.setAttribute("total", newtotal);
-         //如果没有人点赞容器隐藏
-         praise.style.display = (newtotal == 0) ? "none" : "block";
-     }
-     //回复评论
-     function reply(box) {
-         //获取评论框
-         var textarea = box.getElementsByTagName("textarea")[0];
-         //获取包含所有评论的容器
-         var comment = box.getElementsByClassName("comment-list")[0];
-         //创建新的评论div
-         var div = document.createElement("div");
-         //赋类名
-         div.className = "comment";
-         //设置属性
-         div.setAttribute("user", "self");
-         //获取每条评论的innerHTML结构，每次只替换textarea的输入内容和 当前发送时间
-           var html = '<div class="comment-right">' +
-             '<div class="comment-text"><span>我：</span>' + textarea.value + '</div>' +
-             '<div class="comment-date">' +
-             getTime() +
-             '<a class="comment-zan" href="javascript:;" total="0" my="0">赞</a>' +
-             '<a class="comment-dele" href="javascript:;">删除</a>' +
-             '</div>' +
-             '</div>';
-       /*   var html = '<div class="comment-left">' + '<img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""/>' + '</div>' +
-             '<div class="comment-right">' +
-             '<div class="comment-text"><span>我：</span>' + textarea.value + '</div>' +
-             '<div class="comment-date">' +
-             getTime() +
-             '<a class="comment-zan" href="javascript:;" total="0" my="0">赞</a>' +
-             '<a class="comment-dele" href="javascript:;">删除</a>' +
-             '</div>' +
-             '</div>'; */
-         //插入到新建的评论div
-         div.innerHTML = html;
-         //把新评论插入到评论列表
-         comment.appendChild(div);
-         //评论后初始化textarea输入框
-         textarea.value = "评论…";
-         textarea.parentNode.className = "hf";
-     }
-     //获取当前时间回复评论时调用
-     function getTime() {
-         var t = new Date();
-         var y = t.getFullYear();
-         var m = t.getMonth() + 1;
-         var d = t.getDate();
-         var h = t.getHours();
-         var mi = t.getMinutes();
-         m = m < 10 ? "0" + m : m;
-         d = d < 10 ? "0" + d : d;
-         h = h < 10 ? "0" + h : h;
-         mi = mi < 10 ? "0" + mi : mi;
-         return y + "-" + m + "-" + d + "" + h + ":" + mi;
-     }
-     //回复里点赞
-     function praiseReply(el) {
-         //获取当前total值 也就是所有点赞数量
-         var total = parseInt(el.getAttribute("total"));
-         //获取当前my值 我的点赞
-         var my = parseInt(el.getAttribute("my"));
-         //创建新的total
-         var newtotal;
-         //判断my=0就是我准备要点赞
-         if (my == 0) {
-             //我点了赞总数量就要+1
-             newtotal = total + 1;
-             //更新total值
-             el.setAttribute("total", newtotal);
-             //更新my值
-             el.setAttribute("my", 1);
-             //更新文字 就是我点了后 文字就是取消赞了
-             el.innerHTML = newtotal + " 取消赞";
-         } else {
-             //反之-1
-             newtotal = total - 1;
-             el.setAttribute("total", newtotal);
-             el.setAttribute("my", 0);
-             el.innerHTML = (newtotal == 0) ? " 赞" : newtotal + " 赞";
-         }
-     }
-     //操作回复
-     function operateReply(el) {
-         //每条评论
-         var comment = el.parentNode.parentNode.parentNode;
-         //整个状态
-         var box = comment.parentNode.parentNode.parentNode;
-         //评论框
-         var textarea = box.getElementsByTagName("textarea")[0];
-         //名字
-         var user = comment.getElementsByClassName("user")[0];
-         //点击的innerHTML
-         var txt = el.innerHTML;
-         //判断当前点击的是否为回复
-         if (txt == "回复") {
-             //评论框触发焦点事件 也就是变高
-             textarea.onfocus();
-             //内容变为回复+当前人的名字
-             textarea.value = "回复 " + user.innerHTML;
-             //调用键盘事件
-             textarea.onkeyup();
-         } else {
-             //否则就是删除节点
-             remove(comment);
-         }
-     }
-     //遍历所有状态消息
-     for (var i = 0; i < lists.length; i++) {
-         //全部事件代理
-         lists[i].onclick = function(e) {
-             //获取当前点击事件
-             var e = e || window.event;
-             var el = e.srcElement;
-             if (!el) {
-                 el = e.target;
-             }
-             //判断点击的类名
-             switch (el.className) {
-                 //关闭整个状态
-                 case "close":
-                     remove(el.parentNode);
-                     break;
-                     //上面的点赞
-                 case "dzan":
-                     praisebox(el.parentNode.parentNode.parentNode, el);
-                     break;
-                     //回复评论
-                 case "hf-btn hf-btn-on":
-                     reply(el.parentNode.parentNode.parentNode);
-                     break;
-                     //每条评论中点赞
-                 case "comment-zan":
-                     praiseReply(el);
-                     break;
-                 case "comment-dele":
-                     operateReply(el);
-                     break;
-             }
-         }
-         var textarea = lists[i].getElementsByClassName("hf-text")[0];
-         //焦点事件
-         textarea.onfocus = function() {
-             this.parentNode.className = 'hf hf-on';
-             this.value = this.value == '评论…' ? '' : this.value;
-         }
-         //失焦事件
-         textarea.onblur = function() {
-             if (this.value == '') {
-                 this.parentNode.className = 'hf';
-                 this.value = '评论…';
-             }
-         }
-         //键盘事件
-         textarea.onkeyup = function() {
-             var len = this.value.length;
-             var textParentNode = this.parentNode;
-             var textBtn = textParentNode.children[1];
-             var textNub = textParentNode.children[2];
-             if (len == 0 /*|| len>100*/ ) {
-                 textBtn.className = "hf-btn";
-             } else {
-                 textBtn.className = "hf-btn hf-btn-on";
-                 /*this.style.color="#333"; */
-             }
-             textNub.innerHTML = len + "/100";
-         }
-     }
-     //遍历结束
- }
 </script>
-
-
-
-
-
-
-
-
 </body>
 </html>
