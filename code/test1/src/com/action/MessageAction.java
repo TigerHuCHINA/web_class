@@ -21,8 +21,8 @@ public class MessageAction extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		HttpSession session = req.getSession();
-		String passId = req.getParameter("passId");
-		String acceptId = req.getParameter("acceptId");
+		String passId = (String) session.getAttribute("userid");
+		String acceptId = (String) session.getAttribute("ownerid");
 		String content = req.getParameter("content");
 		content = new String(content.getBytes("iso-8859-1"),"utf-8");
 		
@@ -35,10 +35,10 @@ public class MessageAction extends HttpServlet {
 		
 		if(dao.sendMessage(m)) {
 			req.setAttribute("result", "³É¹¦");
-			req.getRequestDispatcher("success.jsp").forward(req, resp);
+			req.getRequestDispatcher("hisHome.jsp").forward(req, resp);
 		}else {
 			req.setAttribute("result", "Ê§°Ü");
-			req.getRequestDispatcher("upload.jsp").forward(req, resp);
+			req.getRequestDispatcher("xx.jsp").forward(req, resp);
 		}
 	}
 }

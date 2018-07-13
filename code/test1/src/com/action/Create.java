@@ -1,4 +1,4 @@
-package com.dao;
+package com.action;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -6,15 +6,18 @@ import java.io.PrintStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+
+import com.dao.VideoDao;
 import com.pojo.Video;
 
-public class CreateVideo {
+public class Create {
 	public StringBuilder createVideo() throws SQLException, ParseException {
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
 		videos=vd.getAll();
 		StringBuilder sh = new StringBuilder();
 		try{
+			
 			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
 			sh.append("<div id='videos'>");
 			sh.append("<ul class='ul1'>");
@@ -23,10 +26,12 @@ public class CreateVideo {
 			sh.append("<div class='box1'>");
 			sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");
 			sh.append(videos.get(j).getId());
-			sh.append("&video=");
-			sh.append("name");
+			sh.append("&useid=");
+			sh.append(videos.get(j).getUserId());
 			sh.append("'>");
-			sh.append("<img src='picture/1.png'/>");
+			sh.append("<img src='");
+			sh.append("cover/cover.png");
+			sh.append("'>");
 			sh.append("</a>");
 			sh.append("<div class='first'>");
 			sh.append("<p class='top2'>");

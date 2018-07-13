@@ -2,6 +2,8 @@ package com.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.FileDao;
 import com.dao.ImageDao;
+import com.pojo.Date;
 
 /**
  * Servlet implementation class ImageAction
@@ -36,9 +40,12 @@ public class ImageAction extends HttpServlet {
 		String file = request.getParameter("file");
 		file = new String(file.getBytes("iso-8859-1"),"utf-8");
 		
-		File f = new File(file);
+		FileDao fd=new FileDao();
+		SimpleDateFormat df = new SimpleDateFormat("ss");
+        String now=df.format(new java.util.Date());
+		String tarPath=fd.getPath(file,uid+now,"headphoto");
 		ImageDao id=new ImageDao();
-		if(id.ImageUpload(uid, f)) {
+		if(id.ImageUpload(uid, tarPath)) {
 			request.setAttribute("result", "³É¹¦");
 			request.getRequestDispatcher("homePage.jsp").forward(request, response);
 		}else {

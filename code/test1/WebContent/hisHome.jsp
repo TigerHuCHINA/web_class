@@ -34,8 +34,8 @@
 				alert("请输入内容");
 				return;
 			}
-			var infoid="<%=session.getAttribute("infoid")%>";
-			if(infoid!="null"){
+			var infoid=<%=session.getAttribute("infoid")%>;
+			if(infoid!=null){
 				alert("私信发送成功！");
 				document.getElementById("te").value="";
 				return;
@@ -59,6 +59,22 @@
 </head>
 <body>
 <%
+	String ownerid=(String)request.getSession().getAttribute("ownerid");
+	UserEditDao ued=new UserEditDao();
+	UserEdit ue=ued.getInfoById(ownerid);
+	UserDao ud=new UserDao();
+	User u=ud.dologin(ownerid);
+	String ownername=u.getUname();
+	String birthday=ue.getUbirthday();
+	String sex=ue.getUsex();
+	String school=ue.getUschool();
+	String profession=ue.getUprofession();
+	String introduce=ue.getUintroduce();
+	String province = ue.getUprovince();
+	String city = ue.getUcity();
+	String follow = ue.getFollow();
+	String view = ue.getView();
+	request.getSession().setAttribute("ownerid",ownerid);
 	/*getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
@@ -69,12 +85,15 @@
 %>
 
 
+
 <!----------------顶部菜单--------------->
 <div class="header">
 <a class="return1" href="home.jsp">主界面</a>
 <a href="homePage.jsp"><img src="<%//=u.getUheadphoto() %>" class="return2"></a>
 <a class="return3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 <a class="return4" href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">反馈</a>
+
+	
 </div>
 
 
@@ -83,55 +102,55 @@
     <div id="username" class="info">
         <tr>
             <td>用户名 </td>
-            <td><%//=u.getUname() %></td>
+            <td><%=ownername%></td>
         </tr>
     </div>
     
     <div id="userid" class="info">
         <tr>
             <td>用户账号 </td>
-            <td><%//=u.getUid() %></td>
+            <td><%=ownerid%></td>
         </tr>
     </div>
     
     <div id="userlocation" class="info">
         <tr>
             <td>所在地 </td>
-            <td><%//这里放所在地 %></td>
+            <td><%=province%> <%=city %></td>
         </tr>
     </div>
     
     <div id="userdate" class="info">
         <tr>
             <td>生日 </td>
-            <td><%//=u.getUbirthday() %></td>
+            <td><%=birthday %></td>
         </tr>
     </div>
     
     <div id="usersex" class="info">
         <tr>
             <td>性别 </td>
-            <td><%//=u.getUsex() %></td>
+            <td><%=sex%></td>
         </tr>
     </div>
     
     <div id="userschool" class="info">
         <tr>
             <td>学校 </td>
-            <td><%//=u.getUschool() %></td>
+            <td><%=school%></td>
         </tr>
     </div>
     
     <div id="userclass" class="info">
         <tr>
             <td>专业 </td>
-            <td><%//=u.getUprofession() %></td>
+            <td><%=profession%></td>
         </tr>
     </div>
     <div id="userinformation" class="info">
         <tr>
             <td>个人简介 </td>
-            <td><%//=u.getUintroduce() %></td>
+            <td><%=introduce%></td>
         </tr>
     </div>
     <%
@@ -156,22 +175,22 @@
 	<a class="focus" href="doFollow" onclick="focus();">关注</a>
 </div>
 <div class="same">
-	<strong>2</strong>关注</br>
-	<strong class="look">1.4k</strong>浏览
+	<strong><%=follow %></strong>关注<br>
+	<strong class="look"><%=view %></strong>浏览
 </div>
 <!-- ---------------------------------------------私信----------------------------------------------- -->
 <div class="sixin"><a href="#" onclick="return PopLayer(this)">私信</a></div>
 <div id="lightbox2"></div>
 <div id="pop2" style="background-image:url(picture/back.jpg)">
-    <form action = "doEdit" method = "post">
+    <form action = "doMessage" method = "post">
 		<div class="close">
         	<input type="button" value="×" onclick="PopLayer()" /> 
         </div>	
         <div class="char">
-        	<textarea id="te" rows="11" cols="65"></textarea>
+        	<textarea name="content" id="te" rows="11" cols="65"></textarea>
         </div>
         <div>
-        	<input class="check" type="button" value="提交" onclick="check()"/>
+        	<input class="check" type="submit" value="提交" onclick="check()"/>
         </div>
 	</form>
 </div>

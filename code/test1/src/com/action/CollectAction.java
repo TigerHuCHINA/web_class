@@ -27,12 +27,13 @@ public class CollectAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		//String uid = (String) session.getAttribute("userid");
-		//String vid = (String) session.getAttribute("videoid");
+		String uid = (String) session.getAttribute("userid");
+		String vid = (String) session.getAttribute("vid");
+		System.out.println(vid);
 		
 		Collection collection = new Collection();
-		collection.setUserid("111");
-		collection.setVideoid("12");
+		collection.setUserid(uid);
+		collection.setVideoid(vid);
 		
 		CollectDao cd=new CollectDao();
 		if(cd.collect(collection)) {

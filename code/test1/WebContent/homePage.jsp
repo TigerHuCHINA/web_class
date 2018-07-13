@@ -24,6 +24,7 @@
 <!-- 顶部菜单 -->
 <div class="header">
 
+
     <a class="head1" href="home.jsp">主界面</a>
 
     <a class="head2" href="homePage.jsp"><img src="picture/1.png" width="100%" height="100%"></a>

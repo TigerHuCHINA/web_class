@@ -1,5 +1,7 @@
 package com.action;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -45,12 +47,12 @@ public class VideoDisplay extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String vid = (String)session.getAttribute("vid");
-		System.out.println(vid);
 		VideoDao v = new VideoDao();
 		Video video = null;
 		try {
 			video = v.getInfoById(vid);
-			InputStream is = video.getIs();  
+			File f=new File(video.getFile());
+			InputStream is =new FileInputStream(f);  
 		    OutputStream os = null;
 		    os = response.getOutputStream();
 		    int num;  
@@ -67,11 +69,7 @@ public class VideoDisplay extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-		
-		
-		
-	}
+}
 
 

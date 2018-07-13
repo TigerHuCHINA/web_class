@@ -1,4 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page import="com.action.Create"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -156,8 +157,11 @@ $(document).ready(function(){
 		 
 		 
 		<div class="dropdown">
-		<img id="istrue2" src="<%//放头像地址 %>" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
+
+		<img id="istrue2" src="ImageDisplay" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
+
 		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
+
 			
              <div class="dropdown-content">
                  <a href="homePage.jsp">个人主页</a>
@@ -372,7 +376,7 @@ function checkMessage(){
 
 <div class="search1 dd1">
     <form class="search1">
-        <input type="text" placeholder="搜索你感兴趣的课程">
+        <input type="text" name="content" placeholder="搜索你感兴趣的课程">
 		<button id="search" class="button" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
     </form>
 </div>
@@ -568,7 +572,11 @@ function checkMessage(){
     }
   }
 </script>
-
+<%
+	Create cv=new Create();
+StringBuilder s=cv.createVideo();
+out.println(s);
+%>
 <!-- 显示视频 常庭瑞 -->
 <div id="videos">
     <ul class="ul1">
@@ -577,7 +585,7 @@ function checkMessage(){
         <li>
             <div class="box1">
                 <a class="avatar_pic" target="_self" href="video.jsp">
-                    <img src="<%//视频封面%>"/>
+                    <img src="cover/cover.png"/>
                 </a>
                 <div class="first">
                     <p class="top2"><%//视频名称 %></p>

@@ -1,6 +1,8 @@
 package com.action;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,6 +42,7 @@ public class UploadAction extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		FileDao bd=new FileDao();
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
 		String title = request.getParameter("title");
@@ -48,15 +51,20 @@ public class UploadAction extends HttpServlet {
 		introduce = new String(introduce.getBytes("iso-8859-1"),"utf-8");
 		String file = request.getParameter("file");
 		file = new String(file.getBytes("iso-8859-1"),"utf-8");
+		
 		File f = new File(file);
+		SimpleDateFormat df = new SimpleDateFormat("ss");
+        String now=df.format(new java.util.Date());
+		String tarPath=bd.getPath(file,uid+now,"video");
+		
 		
 		Video v=new Video();
 		v.setUserId(uid);
 		v.setTitle(title);
-		v.setIntroduce(request.getParameter(introduce));
-		v.setFile(f);
-		v.setDuration();
-		FileDao bd=new FileDao();
+		v.setIntroduce(introduce);
+		v.setFile(tarPath);
+		v.setDuration(f);
+		
 		if(bd.Upload(v)) {
 			request.setAttribute("result", "³É¹¦");
 			request.getRequestDispatcher("success.jsp").forward(request, response);
