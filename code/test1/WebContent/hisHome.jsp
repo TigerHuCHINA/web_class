@@ -57,7 +57,7 @@
 </head>
 <body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 <%
-	String ownerid=request.getParameter("ownerid");
+	String ownerid=(String)request.getSession().getAttribute("ownerid");
 	UserEditDao ued=new UserEditDao();
 	UserEdit ue=ued.getInfoById(ownerid);
 	UserDao ud=new UserDao();

@@ -49,11 +49,8 @@ request.getSession().setAttribute("ownerid",ownerid);
     </video>
 
 <%
-	String id = String.valueOf(11);
-	//String name = (String)session.getAttribute("name");
-	String videoid= String.valueOf(11);
 	VideoCountAction visitorcount = new VideoCountAction();
-	visitorcount.doo(id,videoid);
+	visitorcount.doo((String)request.getSession().getAttribute("userid"),vid);
 %>
 <%
 VideoDao vd=new VideoDao();
