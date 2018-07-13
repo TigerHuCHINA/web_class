@@ -9,9 +9,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
+<link href="css/header.css" rel='stylesheet' type='text/css'>
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
-<title>别人的个人主页</title>	
+<title>别人的个人主页</title>
+	
 <!-- --------------------------私信------------------------------- -->
 <style type="text/css">
 			.personal{
@@ -55,7 +57,7 @@
  }
 </style>
 </head>
-<body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
+<body>
 <%
 	/*getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
@@ -65,10 +67,17 @@
 	UserCountAction usercount = new UserCountAction();
 	usercount.doo(id,id0);*/
 %>
-	<a class="Home" href="home.jsp"><strong>Home</strong></a>
-<div class="image">
-    <img src="<%//=u.getUheadphoto() %>">
+
+
+<!----------------顶部菜单--------------->
+<div class="header">
+<a class="return1" href="home.jsp">主界面</a>
+<a href="homePage.jsp"><img src="<%//=u.getUheadphoto() %>" class="return2"></a>
+<a class="return3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
+<a class="return4" href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">反馈</a>
 </div>
+
+
 
 <div class="information">
     <div id="username" class="info">
