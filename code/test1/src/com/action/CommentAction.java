@@ -23,7 +23,7 @@ public class CommentAction extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("userid");
-		//String videoid;
+		String videoid = (String) session.getAttribute("vid");
 		String content = req.getParameter("content");
 		System.out.println(content);
 		content =new String(content.getBytes("iso-8859-1"),"utf-8");
@@ -31,7 +31,7 @@ public class CommentAction extends HttpServlet {
 		
 		Comment comment = new Comment();
 		comment.setUserId(userid);
-		comment.setVideoId("12");
+		comment.setVideoId(videoid);
 		comment.setContent(content);
 		
 		CommentDao dao = new CommentDao();

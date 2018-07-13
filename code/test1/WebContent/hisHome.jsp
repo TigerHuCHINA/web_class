@@ -32,8 +32,8 @@
 				alert("请输入内容");
 				return;
 			}
-			var infoid="<%=session.getAttribute("infoid")%>";
-			if(infoid!="null"){
+			var infoid=<%=session.getAttribute("infoid")%>;
+			if(infoid!=null){
 				alert("私信发送成功！");
 				document.getElementById("te").value="";
 				return;
@@ -167,15 +167,15 @@
 <div class="sixin"><a href="#" onclick="return PopLayer(this)">私信</a></div>
 <div id="lightbox2"></div>
 <div id="pop2" style="background-image:url(picture/back.jpg)">
-    <form action = "doEdit" method = "post">
+    <form action = "doMessage" method = "post">
 		<div class="close">
         	<input type="button" value="×" onclick="PopLayer()" /> 
         </div>	
         <div class="char">
-        	<textarea id="te" rows="11" cols="65"></textarea>
+        	<textarea name="content" id="te" rows="11" cols="65"></textarea>
         </div>
         <div>
-        	<input class="check" type="button" value="提交" onclick="check()"/>
+        	<input class="check" type="submit" value="提交" onclick="check()"/>
         </div>
 	</form>
 </div>

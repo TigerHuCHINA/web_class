@@ -20,7 +20,7 @@ public class UserDao extends BaseDao {
 
 	public User dologin(String id) {
 		User user = new User();
-		String sql = "select * from user where idname = ?";
+		String sql = "select idname,name,password from user where idname = ?";
 		Object[] obs={id};
 		ResultSet set = executeSelect(sql, obs);
 		try {
@@ -43,7 +43,7 @@ public class UserDao extends BaseDao {
 
 	public int testRepeat(String id)
 	{
-		String sql = "select * from user where idname = ?";
+		String sql = "select idname from user where idname = ?";
 		Object[] obs={id};
 		ResultSet set = executeSelect(sql, obs);
 		int result = 0;

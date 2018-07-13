@@ -10,11 +10,11 @@
 
 <script src="js/videopage.js"></script>
 <link href="css/videostyle.css" rel='stylesheet' type='text/css'>
-<title>视频名称</title>
-
+<title>视频名称</title>l
+<link type="text/css" rel="stylesheet" href="css/yizan.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
-
 <div id="counter">
 	<form action="doCount" action="doRecord" method="post">
 	<div>
@@ -103,11 +103,47 @@ String videoname=v.getTitle();
 
 <form action="doComment" method="post">
 <div id="talk">
-    <div id="show"></div>
+    <div id="show">   
+    
+    <!-- ----------------------------------评论和点赞------------------------ -->
+    <div class="praise">
+		<span id="praise"><img src="picture/zan.png" id="praise-img" /></span>
+		<span id="praise-txt">1455</span>
+		<span id="add-num"><em>+1</em></span>
+	</div>
+<!--动态点赞结束-->
+<script>
+$(function(){
+	$("#praise").click(function(){
+		var praise_img = $("#praise-img");
+		var text_box = $("#add-num");
+		var praise_txt = $("#praise-txt");
+		var num=parseInt(praise_txt.text());
+		if(praise_img.attr("src") == ("picture/yizan.png")){
+			$(this).html("<img src='picture/zan.png' id='praise-img' class='animation' />");
+			praise_txt.removeClass("hover");
+			text_box.show().html("<em class='add-animation'>-1</em>");
+			$(".add-animation").removeClass("hover");
+			num -=1;
+			praise_txt.text(num)
+		}else{
+			$(this).html("<img src='picture/yizan.png' id='praise-img' class='animation' />");
+			praise_txt.addClass("hover");
+			text_box.show().html("<em class='add-animation'>+1</em>");
+			$(".add-animation").addClass("hover");
+			num +=1;
+			praise_txt.text(num)
+		}
+	});
+})
+</script>
+   <!-- -----------------------------------评论和点赞结束------------------------------- -->
+     
+    </div>
     <div id="write">
 		<textArea name="content" id="te" style="margin: auto auto; width:100%;height:79%;"></textArea>
-	    <input type="submit" value="发布" class="btn" onclick="add()">				
-    </div>
+	    <input type="submit" value="发布" class="btn" onclick="add()">
+	     </div>
 </div>
 </form>
 
