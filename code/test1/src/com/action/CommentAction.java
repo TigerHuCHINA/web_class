@@ -31,7 +31,7 @@ public class CommentAction extends HttpServlet {
 		
 		Comment comment = new Comment();
 		comment.setUserId(userid);
-		comment.setVideoId("12");
+		comment.setVideoId(videoid);
 		comment.setContent(content);
 		
 		CommentDao dao = new CommentDao();

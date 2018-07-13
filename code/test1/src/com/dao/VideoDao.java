@@ -13,7 +13,7 @@ import com.pojo.Video;
 //视频数据库操作-杜宇航
 public class VideoDao extends BaseDao{
 	public ArrayList<Video> getAll() throws ParseException {
-		String sql = "select * from video";
+		String sql = "select id,userId,title,introduce,time,duration from video";
 		ResultSet set = executeSelect(sql, null);
 		ArrayList<Video> videos = new ArrayList<Video>();
 		try {
