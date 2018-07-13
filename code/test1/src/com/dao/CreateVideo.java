@@ -24,8 +24,8 @@ public class CreateVideo {
 			sh.append("<div class='box1'>");
 			sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");
 			sh.append(videos.get(j).getId());
-			sh.append("&video=");
-			sh.append("name");
+			sh.append("&useid=");
+			sh.append(videos.get(j).getUserId());
 			sh.append("'>");
 			sh.append("<img src='picture/1.png'/>");
 			sh.append("</a>");

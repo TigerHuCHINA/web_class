@@ -35,10 +35,9 @@
 </div>
 <%
 String vid=request.getParameter("id");
-request.getSession().setAttribute("videoid",vid);
-%>
-<%
-out.print("vid:"+vid);
+request.getSession().setAttribute("vid",vid);
+String ownerid=request.getParameter("useid");
+request.getSession().setAttribute("ownerid",ownerid);
 %>
 
 <div class="background1"></div>
@@ -56,7 +55,12 @@ out.print("vid:"+vid);
 	VideoCountAction visitorcount = new VideoCountAction();
 	visitorcount.doo(id,videoid);
 %>
+<%
+VideoDao vd=new VideoDao();
+Video v=vd.getInfoById(vid);
+String videoname=v.getTitle();
 
+%>
 </div>
 
 
@@ -65,7 +69,7 @@ out.print("vid:"+vid);
     <div id="videoname" class="info">
         <tr>
             <td>视频名称 </td>
-            <td><%//这里放视频名称 %></td>
+            <td><%=videoname%></td>
         </tr>
     </div>
     
@@ -79,7 +83,7 @@ out.print("vid:"+vid);
     <div id="userlocation" class="info">
         <tr>
             <td>上传者 </td>
-            <td><a href=""><%//上传者昵称%></a></td>
+            <td><a href="hisHome.jsp?ownerid=<%=ownerid%>"><%=ownerid%></a></td>
         </tr>
     </div>
     
