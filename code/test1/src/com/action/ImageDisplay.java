@@ -74,13 +74,6 @@ public class ImageDisplay extends HttpServlet {
 		    is.close();  
 		    os.close(); 
 			}
-	    
-	    
-	    
-	    
-	    
-	    
-	    
 	}
 
 }
