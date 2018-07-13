@@ -371,7 +371,7 @@ function checkMessage(){
 
 <div class="search1 dd1">
     <form class="search1">
-        <input type="text" placeholder="搜索你感兴趣的课程">
+        <input type="text" name="content" placeholder="搜索你感兴趣的课程">
 		<button id="search" class="button" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
     </form>
 </div>
