@@ -230,19 +230,16 @@ body {
         <div class="head"><img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""></div>
         <div class="content">
             <p class="text"><span class="name">Andy：</span>哈哈哈哈哈</p>
-            <div class="pic"><img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""></div>
             <div class="good"><span class="date">02-14 23:01</span><a class="dzan" href="javascript:;">赞</a></div>
             <div class="people" total="2980">2980人觉得很赞</div>
             <div class="comment-list">
                 <div class="comment" user="self">
-                    <div class="comment-left"><img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""></div>
                     <div class="comment-right">
                         <div class="comment-text"><span class="user">老王：</span>我</div>
                         <div class="comment-date">02-14 22:00 <a class="comment-zan" href="javascript:;" total="23" my="1">23 取消赞</a> <a class="comment-dele" href="javascript:;">回复</a> </div>
                     </div>
                 </div>
                 <div class="comment" user="self">
-                    <div class="comment-left"><img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""></div>
                     <div class="comment-right">
                         <div class="comment-text"><span class="user">我：</span>看哭了留卡号吧</div>
                         <div class="comment-date">02-14 24:00 <a class="comment-zan" href="javascript:;" total="0" my="0">赞</a> <a class="comment-dele" href="javascript:;">删除</a> </div>
@@ -255,7 +252,7 @@ body {
                 <span class="hf-nub">0/100</span> </div>
         </div>
     </li>
-    <li class="list0"> <a class="close" href="javascript:;">X</a>
+  <!--   <li class="list0"> <a class="close" href="javascript:;">X</a>
         <div class="head"><img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""></div>
         <div class="content">
             <p class="text"><span class="name">Andy：</span>哈哈哈哈哈谁</p>
@@ -276,7 +273,7 @@ body {
                 <button class="hf-btn">回复</button>
                 <span class="hf-nub">0/100</span> </div>
         </div>
-    </li>
+    </li> -->
 </ul>
 
 <script>
@@ -343,8 +340,7 @@ body {
          //设置属性
          div.setAttribute("user", "self");
          //获取每条评论的innerHTML结构，每次只替换textarea的输入内容和 当前发送时间
-         var html = '<div class="comment-left">' + '<img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""/>' + '</div>' +
-             '<div class="comment-right">' +
+           var html = '<div class="comment-right">' +
              '<div class="comment-text"><span>我：</span>' + textarea.value + '</div>' +
              '<div class="comment-date">' +
              getTime() +
@@ -352,6 +348,15 @@ body {
              '<a class="comment-dele" href="javascript:;">删除</a>' +
              '</div>' +
              '</div>';
+       /*   var html = '<div class="comment-left">' + '<img src="http://www.jq22.com/img/cs/500x500-4.png" alt=""/>' + '</div>' +
+             '<div class="comment-right">' +
+             '<div class="comment-text"><span>我：</span>' + textarea.value + '</div>' +
+             '<div class="comment-date">' +
+             getTime() +
+             '<a class="comment-zan" href="javascript:;" total="0" my="0">赞</a>' +
+             '<a class="comment-dele" href="javascript:;">删除</a>' +
+             '</div>' +
+             '</div>'; */
          //插入到新建的评论div
          div.innerHTML = html;
          //把新评论插入到评论列表
