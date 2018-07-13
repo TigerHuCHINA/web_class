@@ -134,14 +134,17 @@
     <div>
 	    <a class="buttons" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">编辑头像</a>
     </div>
-    <div class="editinfo">
+    <div>
         <a class="buttons" href="#" onclick="return PopLayer(this)">编辑资料</a>
     </div>
-    <div class="editinfo">
+    <div>
         <a class="buttons" href="message.jsp">查看留言</a>
     </div>
-    <div class="uploadinfo">
+    <div>
         <a class="buttons" href="upload.jsp">上传视频</a>
+    </div>
+    <div>
+        <a class="buttons" href="dynamic.jsp">查看动态</a>
     </div>
 </div>
 
