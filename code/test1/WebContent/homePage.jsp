@@ -18,7 +18,7 @@
 %>
 
 <a class="return1" href="home.jsp">主界面</a>
-<img src="<%//放头像地址 %>" class="return2" style="width:50px;height:50px;border:1px solid black;" >
+<img src="ImageDisplay" class="return2" style="width:50px;height:50px;border:1px solid black;" >
 <a class="return3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 <a class="return4" href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">反馈</a>
 

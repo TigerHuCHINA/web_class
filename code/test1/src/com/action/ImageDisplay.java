@@ -1,5 +1,7 @@
 package com.action;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -44,9 +46,11 @@ public class ImageDisplay extends HttpServlet {
 		HttpSession session = request.getSession();
 		String ownername = request.getParameter("id");
 		String name = (String)session.getAttribute("userid");
+		
 		if(ownername!=null) {
 		UserEdit u = get.getInfoById(ownername);
-		InputStream is = u.getUheadphoto();  
+		File f=new File(u.getUheadphoto());
+		InputStream is = new FileInputStream(f);  
 	    OutputStream os = null;
 	    response.setContentType("image/jpeg");
 	    os = response.getOutputStream();
@@ -59,9 +63,11 @@ public class ImageDisplay extends HttpServlet {
 	    is.close();  
 	    os.close(); 
 		}
+		
 		if(name!=null) {
 			UserEdit u = get.getInfoById(name);
-			InputStream is = u.getUheadphoto();  
+			File f=new File(u.getUheadphoto());
+			InputStream is = new FileInputStream(f);  
 		    OutputStream os = null;
 		    response.setContentType("image/jpeg");
 		    os = response.getOutputStream();
@@ -73,14 +79,12 @@ public class ImageDisplay extends HttpServlet {
 		    os.flush();  
 		    is.close();  
 		    os.close(); 
-			}
 	    
-	    
-	    
-	    
-	    
+
 	    
 	    
 	}
-
+	}
 }
+
+

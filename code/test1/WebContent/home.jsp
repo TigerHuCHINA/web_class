@@ -157,7 +157,7 @@ $(document).ready(function(){
 		 
 		 
 		<div class="dropdown">
-		<img src="<%//放头像地址 %>" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
+		<img src="ImageDisplay" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
 		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 			
              <div class="dropdown-content">
@@ -580,7 +580,7 @@ out.println(s);
         <li>
             <div class="box1">
                 <a class="avatar_pic" target="_self" href="video.jsp">
-                    <img src="<%//视频封面%>"/>
+                    <img src="cover/cover.png"/>
                 </a>
                 <div class="first">
                     <p class="top2"><%//视频名称 %></p>
