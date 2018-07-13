@@ -120,4 +120,14 @@
     <servlet-name>VideoDisplay</servlet-name>
     <url-pattern>/VideoDisplay</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Message</servlet-name>
+    <servlet-class>com.action.MessageAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Message</servlet-name>
+    <url-pattern>/doMessage</url-pattern>
+  </servlet-mapping>
 </web-app>

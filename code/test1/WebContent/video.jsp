@@ -102,8 +102,8 @@ out.print("vid:"+vid);
     <div id="show"></div>
     <div id="write">
 		<textArea name="content" id="te" style="margin: auto auto; width:100%;height:79%;"></textArea>
-	    <input type="submit" value="发布" class="btn" onclick="add()">				
-    </div>
+	    <input type="submit" value="发布" class="btn" onclick="add()">
+	     </div>
 </div>
 </form>
 
