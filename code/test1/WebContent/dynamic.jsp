@@ -1,6 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@page import="com.action.Create"%>
-<%@page import="com.pojo.Agree"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.sql.* ,javax.servlet.* ,java.util.* ,java.awt.* ,com.action.*, com.comm.* ,com.dao.* ,com.pojo.*"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -274,57 +275,112 @@
             <input type="radio" id="tab1" name="tabGroup1" class="tab" checked>
             <label for="tab1">点赞</label>
 
-            <input type="radio" id="tab2" name="tabGroup1" class="tab">
-            <label for="tab2">私信</label>
-
+			<input type="radio" id="tab2" name="tabGroup1" class="tab">
+            <label for="tab2">关注</label>
+            
             <input type="radio" id="tab3" name="tabGroup1" class="tab">
-            <label for="tab3">评论</label>
-<%
-Create cv1=new Create();
-Agree agree = new Agree();
-//String userid = agree.getUserid();
-String userid = "11";
-StringBuilder s=cv1.createAgree(userid);
-out.println(s);
-%>
+            <label for="tab3">收藏</label>
+
+            <input type="radio" id="tab4" name="tabGroup1" class="tab">
+            <label for="tab4">私信</label>
+
+            <input type="radio" id="tab5" name="tabGroup1" class="tab">
+            <label for="tab5">评论</label>
+
             <div class="tab__content">
                 <h3>点赞</h3>
             	<div class="dianzan">
             		<ul>
-            			<li><% %> <% %> 点了赞
-            			<li><% %> <% %> 点了赞
+            		<%
+					String id1=request.getParameter("id");
+					Create cv1=new Create();
+					//Agree agree = new Agree();
+					//String userid = agree.getUserid();
+					StringBuilder s1=cv1.createAgree(id1);
+					out.println(s1);
+					%>
+            		</ul>
+            	</div>   
+            </div>
+
+			<div class="tab__content">
+                <h3>关注</h3>
+            	<div class="guanzhu">
+            		<ul>
+            		<%
+					String id2=request.getParameter("id");
+					Create cv2=new Create();
+					//Follow follow = new Follow();
+					//String userId = follow.getFollowerid();
+					StringBuilder s2=cv2.createAgree(id2);
+					out.println(s2);
+					%>
+            		</ul>
+            	</div>   
+            </div>
+            
+            <div class="tab__content">
+                <h3>收藏</h3>
+            	<div class="guanzhu">
+            		<ul>
+            		<%
+					String id3=request.getParameter("id");
+					Create cv3=new Create();
+					//Follow follow = new Follow();
+					//String userId = follow.getFollowerid();
+					StringBuilder s3=cv3.createCollection(id3);
+					out.println(s3);
+					%>
             		</ul>
             	</div>   
             </div>
 
             <div class="tab__content">
                 <h3>私信</h3>
-            	<ul id="pn1">
-  				 <li class="list1">
-      			  <div class="content">
-      			      <div class="comment-list">
-              		  <div class="comment">
-               	      <div class="comment-right">
-                        <div class="comment-text"><span class="user"><%//评论人 %></span><%//说了什么 %></div>
-                        <div class="comment-date">02-14 22:00 <input type="button" class="comment-zan" onclick="dianzan()" value="23 赞">
-                   		    <a class="comment-dele" href="#C1">回复</a>
-                        </div>
-                  	 </div>
-              		</div>
-          			</div>
-     			    <form name="form1" method="post" action="">
-         			   <div class="hf">
-          			   <textarea name="C1" id="te" class="hf-text" autocomplete="off" maxlength="100" rows="10" cols="50"></textarea>
-         	 		   <input type="submit" class="comment-dele" value="提交回复" onclick="return check()"/>
-               		   <span class="hf-nub">0/100</span> </div>
-         		   </form>
-     			 </div>
-   			   </li>
-			</ul> 
+                <%
+                String id4=request.getParameter("id");
+                Create cv4=new Create();
+				//Message message = new Message();
+				//String acceptid = message.getAcceptId();
+				StringBuilder s4=cv4.createAgree(id4);
+				out.println(s4);
+                %>
+                
+<!--			           	<ul id="pn1">
+			  				 <li class="list1">
+			      			  <div class="content">
+			      			      <div class="comment-list">
+			              		  <div class="comment">
+			               	      <div class="comment-right">
+			                        <div class="comment-text"><span class="user"><%//评论人 %></span><%//说了什么 %></div>
+			                        <div class="comment-date">02-14 22:00 <input type="button" class="comment-zan" onclick="dianzan()" value="23 赞">
+			                   		    <a class="comment-dele" href="#C1">回复</a>
+			                        </div>
+			                  	 </div>
+			              		</div>
+			          			</div>
+			     			    <form name="form1" method="post" action="">
+			         			   <div class="hf">
+			          			   <textarea name="C1" id="te" class="hf-text" autocomplete="off" maxlength="100" rows="10" cols="50"></textarea>
+			         	 		   <input type="submit" class="comment-dele" value="提交回复" onclick="return check()"/>
+			               		   <span class="hf-nub">0/100</span> </div>
+			         		   </form>
+			     			 </div>
+			   			   </li>
+						</ul> 
+						-->
          </div>
             
             <div class="tab__content">
                 <h3>评论</h3>
+           <%
+	           	String id5=request.getParameter("id");
+	           	Create cv5=new Create();
+				
+				StringBuilder s5=cv5.createAgree(id5);
+				out.println(s5);
+           %>     
+<!-- 
             	<ul id="pn">
   				 <li class="list">
       			  <div class="content">
@@ -347,6 +403,7 @@ out.println(s);
      			 </div>
    			   </li>
 			</ul> 
+-->			
             </div>
     </div>
 </div>
