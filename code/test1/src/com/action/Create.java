@@ -37,7 +37,7 @@ public class Create {
 			for(int j=0;j<videos.size();j++) {
 				sh.append("<li>");
 				sh.append("<div class='box1'>");
-				sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");
+				sh.append("<a onclick='return login2()' class='avatar_pic' target='_self' href='video.jsp?id=");
 				sh.append(videos.get(j).getId());
 				sh.append("&useid=");
 				sh.append(videos.get(j).getUserId());
@@ -72,6 +72,10 @@ public class Create {
 		}
 		return sh;	
 	}
+	
+	
+	
+	
 	public StringBuilder createComment(String videoId,String userId) throws SQLException, ParseException {
 		CommentDao dao=new CommentDao();
 		ArrayList<Comment> comments = new ArrayList<Comment>();

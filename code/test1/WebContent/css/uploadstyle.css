@@ -1,0 +1,63 @@
+body{
+	font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
+	background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.fileInputContainer{
+    position:absolute;
+    left:30%;
+    top:10%;
+    width:80%;
+    height:10%;
+}
+#text{
+	width:500px;
+	height:49px;
+}
+.item{
+	position:absolute;
+    left:30%;
+    top:25%;
+    width:640px;
+}
+.title{
+	position:absolute;
+    left:30%;
+    top:40%;
+}
+.title input{
+	width:640px;
+	height:49px;
+}
+
+.info{
+	position:absolute;
+    left:30%;
+    top:55%;
+}
+.info textarea{
+	width:640px;
+	height:250px;
+}
+
+.submit{
+	position:absolute;
+	width:80%;
+    height:20%;
+    left:30%;
+    top:90%;
+    
+} 
+
+
+
+
+
+
+
+
+
+
