@@ -9,6 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script src="js/videopage.js"></script>
+
+<link href="css/button.css" rel='stylesheet' type='text/css'>
 <link href="css/videostyle.css" rel='stylesheet' type='text/css'>
 <title>视频名称</title>
 <link type="text/css" rel="stylesheet" href="css/yizan.css">
@@ -261,12 +263,12 @@ request.getSession().setAttribute("ownerid",ownerid);
 	VideoCountAction visitorcount = new VideoCountAction();
 	visitorcount.doo((String)request.getSession().getAttribute("userid"),vid);
 %>
-<%
+<%-- <%
 VideoDao vd=new VideoDao();
 Video v=vd.getInfoById(vid);
 String videoname=v.getTitle();
 
-%>
+%> --%>
 </div>
 
 
@@ -275,7 +277,7 @@ String videoname=v.getTitle();
     <div id="videoname" class="info">
         <tr>
             <td>视频名称 </td>
-            <td><%=videoname%></td>
+            <td><%//=videoname%></td>
         </tr>
     </div>
     
@@ -302,10 +304,27 @@ String videoname=v.getTitle();
     
 </div>
 
+<!-- <a class="addvideo btn btn-medium type3" href="doCollect" onclick="function()">收藏</a> -->
+<div class="mybuttons">
+<div>
+    <a class="mybtn1 btn btn-medium type3" href="doCollect">收藏</a>
+</div>
 
 <div>
-    <a class="addvideo" href="doCollect" onclick="function()">收藏</a>
+    <a id="delvideo" class="mybtn1 btn btn-medium type2" onmouseover="funcText1()" onmouseout="funcText2()">已收藏</a>
 </div>
+</div>
+<script>
+var demo = document.getElementById("delvideo");
+function funcText1(){
+	demo.innerHTML="取消收藏";
+	}
+function funcText2(){
+	demo.innerHTML="已收藏";
+	}
+</script>
+
+
    	<!-- ----------------------------------点赞------------------------ -->
     <div class="praise">
 		<span id="praise"><img src="picture/zan.png" id="praise-img" onclick="changeImg()"/></span>
