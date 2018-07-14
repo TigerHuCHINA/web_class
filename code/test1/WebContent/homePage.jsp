@@ -19,10 +19,11 @@
 	getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
+	String path="C:\\Users\\acer\\Desktop\\"+u.getUheadphoto();
+	System.out.print(path);
 %>
 <!-- 顶部菜单 -->
 <div class="header">
-
 
     <a class="head1" href="home.jsp">主界面</a>
 

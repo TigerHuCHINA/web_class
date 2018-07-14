@@ -26,23 +26,43 @@ public class CollectAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
 		String vid = (String) session.getAttribute("vid");
-		System.out.println(vid);
-		
+		String flag=new String(request.getParameter("flag"));
+
 		Collection collection = new Collection();
 		collection.setUserid(uid);
 		collection.setVideoid(vid);
-		
+
 		CollectDao cd=new CollectDao();
-		if(cd.collect(collection)) {
-			request.setAttribute("result", "成功");
-			request.getRequestDispatcher("home.jsp").forward(request, response);
-		}else {
-			request.setAttribute("result", "失败");
-			request.getRequestDispatcher("xx.jsp").forward(request, response);
+		if(flag.equals(new String("add"))){
+			if(cd.collect(collection)) {
+				request.setAttribute("result", "成功收藏");
+				request.setAttribute("id", vid);
+				response.sendRedirect("video.jsp?id="+vid+"&useid="+session.getAttribute("ownerid"));
+				
+			}else {
+				request.setAttribute("result", "收藏失败");
+				request.setAttribute("id", vid);
+				request.getRequestDispatcher("xx.jsp").forward(request, response);
+			}
 		}
+
+		else{
+			if(cd.decollect(uid, vid)) {
+				request.setAttribute("result", "成功取消收藏");
+				request.setAttribute("vid", vid);
+				response.sendRedirect("video.jsp?id="+vid+"&useid="+session.getAttribute("ownerid"));
+			}else {
+				request.setAttribute("result", "取消收藏失败");
+				request.getRequestDispatcher("xx.jsp").forward(request, response);
+			}
+
+		}
+		
+		
 	}
 
 }

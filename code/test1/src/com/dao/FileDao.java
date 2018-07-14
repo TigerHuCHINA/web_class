@@ -42,7 +42,7 @@ public class FileDao extends BaseDao {
 		if (!tempFile.exists()) {
             tempFile.mkdirs();
         }
-		tarPath=tarPath+"/"+id+"."+format;
+		tarPath=tarPath+"\\"+id+"." + format;
 		System.out.println("tarPath:"+tarPath);
 		out = new FileOutputStream(tarPath);
 		 while ((len = f.read(bs)) != -1) {
