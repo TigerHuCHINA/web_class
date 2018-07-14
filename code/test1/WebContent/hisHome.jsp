@@ -45,68 +45,68 @@
         <div id="username" class="info">
             <tr>
                 <td>用户名: </td>
-                <td><%=ownername%></td>
+                <td><%//=ownername%></td>
             </tr>
         </div>
     
         <div id="userid" class="info">
             <tr>
                 <td>用户账号: </td>
-                <td><%=ownerid%></td>
+                <td><%//=ownerid%></td>
             </tr>
         </div>
     
         <div id="userlocation" class="info">
             <tr>
                 <td>所在地: </td>
-                <td><%=province%> <%//=city %></td>
+                <td><%//=province%> <%//=city %></td>
             </tr>
         </div>
     
         <div id="userdate" class="info">
             <tr>
                 <td>生日: </td>
-                <td><%=birthday %></td>
+                <td><%//=birthday %></td>
             </tr>
         </div>
     
         <div id="usersex" class="info">
             <tr>
                 <td>性别: </td>
-                <td><%=sex%></td>
+                <td><%//=sex%></td>
             </tr>
         </div>
     
         <div id="userschool" class="info">
             <tr>
                 <td>学校: </td>
-                <td><%=school%></td>
+                <td><%//=school%></td>
             </tr>
         </div>
     
         <div id="userclass" class="info">
             <tr>
                 <td>专业: </td>
-                <td><%=profession%></td>
+                <td><%//=profession%></td>
             </tr>
         </div>
         <div id="userinformation" class="info">
             <tr>
                 <td>个人简介: </td>
-                <td><%=introduce%></td>
+                <td><%//=introduce%></td>
             </tr>
         </div>
         <div id="userfocus" class="info">
             <tr>
                 <td>关注量: </td>
-                <td><%=follow %></td>
+                <td><%//=follow %></td>
             </tr>
         </div>
     
         <div id="userread" class="info">
 	        <tr>
 	            <td>浏览量: </td>
-	            <td><%=view %></td>
+	            <td><%//=view %></td>
 	        </tr>
         </div>
            
@@ -156,7 +156,7 @@
 	visitorcount.doo(id1,id2);
 %>   
 <%
-	String ownerid=(String)request.getParameter("ownerid");
+	/* String ownerid=(String)request.getParameter("ownerid");
 	UserEditDao ued=new UserEditDao();
 	UserEdit ue=ued.getInfoById(ownerid);
 	UserDao ud=new UserDao();
@@ -171,7 +171,7 @@
 	String city = ue.getUcity();
 	String follow = ue.getFollow();
 	String view = ue.getView();
-	request.getSession().setAttribute("ownerid",ownerid);
+	request.getSession().setAttribute("ownerid",ownerid); */
 	/*getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
@@ -180,6 +180,10 @@
 	UserCountAction usercount = new UserCountAction();
 	usercount.doo(id,id0);*/
 %>
+
+
+
+
 
 
 
