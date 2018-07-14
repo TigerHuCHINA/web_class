@@ -20,6 +20,13 @@
 </head>
 <body>
 
+<%
+if(((String)request.getSession().getAttribute("userid")).equals((String)request.getSession().getAttribute("ownerid")))
+		{
+			response.sendRedirect("homePage.jsp");
+		}
+%>
+
 <!----------------顶部菜单--------------->
 <div class="header">
 

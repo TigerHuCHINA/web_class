@@ -412,7 +412,7 @@ function checkMessage(){
 <!-- 搜索界面 常庭瑞 -->
 
 <div class="search1 dd1">
-    <form class="search1">
+    <form class="search1" action="searchvideo.jsp">
         <input type="text" name="content" placeholder="搜索你感兴趣的课程">
 		<button id="search" class="button" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
     </form>

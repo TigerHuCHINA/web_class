@@ -1,5 +1,6 @@
 <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
+<%@page import="com.action.Create"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -23,6 +24,13 @@
 
 
 </div>
+
+<%
+Create cv=new Create();
+String key = request.getParameter("content");
+StringBuilder s=cv.createSelectedVideo(key);
+out.println(s);
+%>
 
 
 </body>
