@@ -359,30 +359,11 @@ $(function(){
 </script>
    <!-- -----------------------------------点赞结束------------------------------- --> 
 <!-- ---------------------------评论--------------------------- -->
-<ul id="pn">
-    <li class="list0"> <a class="close" href="javascript:;">X</a>
-        <div class="content">
-            <div class="comment-list">
-                <div class="comment" user="self">
-                    <div class="comment-right">
-                        <div class="comment-text"><span class="user">老王：</span>我</div>
-                        <div class="comment-date">02-14 22:00 <a class="comment-zan" href="javascript:;" total="23" my="1">23 取消赞</a> <a class="comment-dele" href="#C1">回复</a> </div>
-                    </div>
-                </div>
-                <div class="comment" user="self">
-                    <div class="comment-right">
-                        <div class="comment-text"><span class="user">我：</span>看哭了留卡号吧</div>
-                        <div class="comment-date">02-14 24:00 <a class="comment-zan" href="javascript:;" total="0" my="0">赞</a> <a class="comment-dele" href="javascript:;">删除</a> </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hf">
-                <textarea name="C1" type="text" class="hf-text" autocomplete="off" maxlength="100"></textarea>
-                <button class="hf-btn">回复</button>
-                <span class="hf-nub">0/100</span> </div>
-        </div>
-    </li>
-</ul>
+<%
+Create cv=new Create();
+StringBuilder s=cv.createComment(vid,ownerid);
+out.println(s);
+%>
 <!-- -------------------------------评论结束----------------------- -->
 </body>
 </html>

@@ -33,7 +33,7 @@ public class AgreeDao extends BaseDao{
 	}
 	public boolean addAgree(Agree agree)
 	{
-		String sql = "insert into agree('userId','commentId') values (?,?)";
+		String sql = "insert into agree(userId,commentId) values (?,?)";
 		Object obs[] = {agree.getUserid(),agree.getCommentid()};
 		if(executeUpdate(sql, obs)>=1) {
 			free();

@@ -369,16 +369,5 @@ function trim(str){ //删除左右两端的空格
 
 </script>
 
-
-<%
-Create cv=new Create();
-StringBuilder s=cv.createComment((String)request.getSession().getAttribute("vid"));
-out.println(s);
-%>
-
-
-
-
-
 </body>
 </html>

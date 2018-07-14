@@ -63,10 +63,10 @@ public class Create {
 			}
 			return sh;	
 	}
-	public StringBuilder createComment(String videoId) throws SQLException, ParseException {
+	public StringBuilder createComment(String videoId,String userId) throws SQLException, ParseException {
 		CommentDao dao=new CommentDao();
 		ArrayList<Comment> comments = new ArrayList<Comment>();
-		comments=dao.getByVideo("12");//videoId
+		comments=dao.getByVideo(videoId);
 		StringBuilder sh = new StringBuilder();
 		try{
 			
@@ -84,23 +84,26 @@ public class Create {
 				sh.append("\">");
 				sh.append(comments.get(j).getUserId());
 				sh.append("</a>");
-				sh.append("</span><br>");
+				if(comments.get(j).getUserId().equals(userId)) sh.append("(上传者)");
+				sh.append(" :</span><br>");
 				sh.append(comments.get(j).getContent());
 				sh.append("</div>");
 				sh.append("<div class=\"comment-date\">");
 				sh.append(comments.get(j).getTime());
-				sh.append("<input type=\"button\" class=\"comment-zan\" onclick=\"dianzan()\" value=\"");
+				sh.append("<a class=\"comment-zan\" href=\"doAgree?commentid=");
+				sh.append(comments.get(j).getId());
+				sh.append("\">");
 				sh.append(comments.get(j).getAgree());
-				sh.append(" 赞\">");
+				sh.append(" 赞");
 				sh.append("<a class=\"comment-dele\" href=\"#C1\">回复</a>");
 				sh.append("</div>");
 				sh.append("</div>");
 				sh.append("</div>");
 				sh.append("</div>");
 			}
-			sh.append("<form name=\"form1\" method=\"post\" action=\"\">");
+			sh.append("<form name=\"form1\" method=\"post\" action=\"doComment\">");
 			sh.append("<div class=\"hf\">");
-			sh.append("<textarea name=\"C1\" id=\"te\" class=\"hf-text\" autocomplete=\"off\" maxlength=\"100\" rows=\"10\" cols=\"50\"></textarea>");
+			sh.append("<textarea name=\"content\" id=\"te\" class=\"hf-text\" autocomplete=\"off\" maxlength=\"100\" rows=\"10\" cols=\"50\"></textarea>");
 			sh.append("<input type=\"submit\" class=\"comment-dele\" value=\"提交回复\" onclick=\"return check()\"/>");
 			sh.append("<span class=\"hf-nub\">0/100</span> </div>");
 			sh.append("</form>");
