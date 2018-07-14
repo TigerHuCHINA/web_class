@@ -1,4 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page import="com.action.Create"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -220,12 +221,8 @@ body {
 </div> -->
 <!-- --------------------------------TAB切换结束---------------------------------------------- -->
 <ul id="pn">
-    <li class="list0"> <input style="position:relative; left:450px;" type="button" value="X" onclick="delete()"/>
-        <div class="head"><img src="<%//头像 %>" alt=""></div>
+    <li class="list0">
         <div class="content">
-            <p class="text"><span class="name"><%//上传人 %></span><%//视频 %></p>
-            <div class="good"><span class="date">02-14 23:01//上传时间</span></div>
-            <div class="people" total="2980">2980人觉得很赞</div>
             <div class="comment-list">
                 <div class="comment" user="self">
                     <div class="comment-right">
@@ -271,5 +268,17 @@ function trim(str){ //删除左右两端的空格
 }
 
 </script>
+
+
+<%
+Create cv=new Create();
+StringBuilder s=cv.createComment((String)request.getSession().getAttribute("vid"));
+out.println(s);
+%>
+
+
+
+
+
 </body>
 </html>
