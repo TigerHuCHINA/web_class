@@ -78,8 +78,7 @@ public class Create {
 		comments=dao.getByVideo(videoId);
 		StringBuilder sh = new StringBuilder();
 		try{
-
-			PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+			PrintStream printStream = new PrintStream(new FileOutputStream("video.jsp"));
 			sh.append("<ul id=\"pn\">");
 			sh.append("<li class=\"list0\">");
 			for(int j=0;j<comments.size();j++) {
@@ -130,6 +129,7 @@ public class Create {
 	public StringBuilder createAgree(String userid) throws SQLException, ParseException {
 		AgreeDao dao=new AgreeDao();
 		ArrayList<Agree> agrees = new ArrayList<Agree>();
+
 		agrees=dao.getByUserId(userid);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
@@ -306,6 +306,55 @@ public class Create {
 			e.printStackTrace();
 		}
 		return sh;
+	}
+	public StringBuilder createSelectedVideo(String key) throws SQLException, ParseException {
+		VideoDao vd=new VideoDao();
+		ArrayList<Video> videos = new ArrayList<Video>();
+		videos=vd.getByKeywords(key);
+		StringBuilder sh = new StringBuilder();
+		try{
+			
+			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
+			sh.append("<div id='videos'>");
+			sh.append("<ul class='ul1'>");
+			if(videos.size()==0)sh.append("<strong>未找到您搜索的视频</strong>");
+			for(int j=0;j<videos.size();j++) {
+			sh.append("<li>");
+			sh.append("<div class='box1'>");
+			sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");
+			sh.append(videos.get(j).getId());
+			sh.append("&useid=");
+			sh.append(videos.get(j).getUserId());
+			sh.append("'>");
+			sh.append("<img src='");
+			sh.append("cover/cover.png");
+			sh.append("'>");
+			sh.append("</a>");
+			sh.append("<div class='first'>");
+			sh.append("<p class='top2'>");
+			sh.append(videos.get(j).getTitle());
+			sh.append("</p>");
+			sh.append("<p class='bottom2'>更新至7-14<span>课程时长:");
+			sh.append(videos.get(j).getDuration());
+			sh.append("</span></p>");
+			sh.append("</div>");
+			sh.append("<div class='last'>");
+			sh.append("<p class='top2'>");
+			sh.append(videos.get(j).getIntroduce());
+			sh.append("</p>");
+			sh.append("<p class='bottom2'>2015-08-17<span>272648人学习</span></p>");
+			sh.append("</div>");
+			sh.append("</div>");
+			sh.append("</li>");
+			}
+			sh.append("</ul>");
+			sh.append("</div>");
+			printStream.println(sh.toString()); 
+			printStream.close();
+			}catch(FileNotFoundException e){
+			   e.printStackTrace();
+			}
+			return sh;	
 	}
 }
 

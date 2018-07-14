@@ -1,14 +1,14 @@
 <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
+<%@page import="com.action.Create"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-
+<link href="css/style.css" rel='stylesheet' type='text/css'>
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 
-
-<title>留言界面</title>
+<title>我的个人主页</title>	
 </head>
 <body>
 <!-- 顶部菜单 -->
@@ -26,62 +26,13 @@
 
 </div>
 
-<h1 style="text-align:center;">留言板</h1>
-<div class="message">
+<%
+Create cv=new Create();
+String key = request.getParameter("content");
+StringBuilder s=cv.createSelectedVideo(key);
+out.println(s);
+%>
 
-    <hr/>
-    
-    <div id="messageName" class="info">
-        <tr>
-            <td>留言者： </td>
-            <td><%//这里放留言者 %></td>
-        </tr>
-    </div>
-    
-    <div id="messageDate" class="info">
-        <tr>
-            <td>留言时间： </td>
-            <td><%//这里放留言时间 %></td>
-        </tr>
-    </div>
-    
-    <div id="messageContent" class="info">
-        <tr>
-            <td>留言内容： </td>
-            <td><%//这里放留言内容 %></td>
-        </tr>
-    </div>
-    <hr/>
 
-</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
