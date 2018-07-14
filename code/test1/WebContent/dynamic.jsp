@@ -222,6 +222,7 @@ body {
 <!-- --------------------------------TAB切换结束---------------------------------------------- -->
 <ul id="pn">
     <li class="list0">
+        <div class="content">
             <div class="comment-list">
                 <div class="comment" user="self">
                     <div class="comment-right">
