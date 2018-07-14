@@ -21,10 +21,38 @@
 <body>
 
 <%
+	String ownerid=(String)request.getSession().getAttribute("ownerid");
+	UserEditDao ued=new UserEditDao();
+	UserEdit ue=ued.getInfoById(ownerid);
+	UserDao ud=new UserDao();
+	User u=ud.dologin(ownerid);
+	String ownername=u.getUname();
+	String birthday=ue.getUbirthday();
+	String sex=ue.getUsex();
+	String school=ue.getUschool();
+	String profession=ue.getUprofession();
+	String introduce=ue.getUintroduce();
+	String province = ue.getUprovince();
+	String city = ue.getUcity();
+	String follow = ue.getFollow();
+	String view = ue.getView();
+	request.getSession().setAttribute("ownerid",ownerid);
+
+	
+	
+	/*getInfo get = new getInfo();
+	String name = (String)session.getAttribute("userid");
+	UserEdit u = get.getInfoById(name);
+	String id = String.valueOf(11);
+	String id0= String.valueOf(11);
+	UserCountAction usercount = new UserCountAction();
+	usercount.doo(id,id0);*/
+
 if(((String)request.getSession().getAttribute("userid")).equals((String)request.getSession().getAttribute("ownerid")))
 		{
 			response.sendRedirect("homePage.jsp");
 		}
+
 %>
 
 <!----------------顶部菜单--------------->
@@ -156,6 +184,34 @@ request.getSession().setAttribute("ownerid",ownerid);
         <div class="title">他的收藏： 共0个视频</div>
     </div>
 </div>
+
+<!-- -----------------------------------关注、收藏----------------------------------- -->
+<div class="focusinfo">
+<%
+FollowDao fd=new FollowDao();
+boolean hasfollow=fd.hasFollow((String)request.getSession().getAttribute("ownerid"),(String)request.getSession().getAttribute("userid"));
+if(hasfollow){System.out.print("true");}
+else{System.out.print("false");}
+if(hasfollow){
+out.print("<a class='focus' href='doFollow?flag=de' onclick='focus();'>取消关注</a>");
+}else{
+out.print("<a class='focus' href='doFollow?flag=add' onclick='focus();'>关注</a>");
+}
+%>
+
+	
+</div>
+
+<div class="same">
+	<strong><%=follow %></strong>关注<br>
+	<strong class="look"><%=view %></strong>浏览
+</div>
+
+<!-- ---------------------------------------------私信----------------------------------------------- -->
+<div class="sixin"><a href="#" onclick="return PopLayer(this)">私信</a></div>
+<div id="lightbox2"></div>
+<div id="pop2" style="background-image:url(picture/back.jpg)">
+
 
 
 

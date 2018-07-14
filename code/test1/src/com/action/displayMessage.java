@@ -1,5 +1,6 @@
 package com.action;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.sql.SQLException;
@@ -10,17 +11,14 @@ import com.dao.MessageDao;
 import com.pojo.Message;
 
 public class displayMessage {
-	public StringBuilder createVideo() throws SQLException, ParseException {
+	public StringBuilder createVideo() throws SQLException, ParseException, FileNotFoundException {
 		MessageDao md=new MessageDao();
 		ArrayList<Message> messages = new ArrayList<Message>();
 		Message message = new Message();
 		String acceptid = message.getAcceptId();
 		messages=md.getByUserId(acceptid);
 		StringBuilder sh = new StringBuilder();
-		/*try {
-			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
-			
-		}*/
+		PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
 	return sh;
 	}
 }

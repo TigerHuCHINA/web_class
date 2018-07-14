@@ -263,16 +263,19 @@ request.getSession().setAttribute("ownerid",ownerid);
 	VideoCountAction visitorcount = new VideoCountAction();
 	visitorcount.doo((String)request.getSession().getAttribute("userid"),vid);
 %>
-<%-- <%
+<%
 VideoDao vd=new VideoDao();
+if(vid==null){
+	vid=(String)request.getAttribute("id");
+	}
 Video v=vd.getInfoById(vid);
 String videoname=v.getTitle();
+String view=v.getView();
+%>
 
-%> --%>
+
+
 </div>
-
-
-
 <div class="information">
     <div id="videoname" class="info">
         <tr>
@@ -287,18 +290,18 @@ String videoname=v.getTitle();
             <td><%//这里放视频类型 %></td>
         </tr>
     </div>
-    
     <div id="userlocation" class="info">
         <tr>
             <td>上传者 </td>
-            <td><a href="hisHome.jsp?ownerid=<%=ownerid%>"><%=ownerid%></a></td>
+
+            <td><a href="hisHome.jsp?ownerid=<%=ownerid%>" ><%=ownerid%></a></td> 
         </tr>
     </div>
     
     <div id="playcount" class="info">
         <tr>
             <td>观看数 </td>
-            <td><%//观看数%></td>
+            <td><%=view%></td>
         </tr>
     </div>
     
@@ -310,9 +313,25 @@ String videoname=v.getTitle();
     <a class="mybtn1 btn btn-medium type3" href="doCollect">收藏</a>
 </div>
 
+
 <div>
+<<<<<<< HEAD
+	<%
+	CollectDao cd=new CollectDao();
+	boolean result=cd.hasCollect((String)request.getSession().getAttribute("userid"),(String)request.getSession().getAttribute("vid"));
+	if(result){
+		System.out.print("true");
+    out.print("<a id='collect'  class='addvideo' href='doCollect?flag=de' >已收藏</a>");
+    } 
+	else{ 
+		System.out.print("false");
+		out.print("<a id='collect'  class='addvideo' href='doCollect?flag=add' >收藏</a>");
+    } %>
+    
+=======
     <a id="delvideo" class="mybtn1 btn btn-medium type2" onmouseover="funcText1()" onmouseout="funcText2()">已收藏</a>
 </div>
+>>>>>>> f0d2f982e41f7d402ab6dd6c1492469c57aa0eff
 </div>
 <script>
 var demo = document.getElementById("delvideo");
