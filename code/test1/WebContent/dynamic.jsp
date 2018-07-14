@@ -287,8 +287,6 @@
             <input type="radio" id="tab5" name="tabGroup1" class="tab">
             <label for="tab5">评论</label>
 
-
->>>>>>> 0924c6c42f3ac031811adf2cf81f83a8ca5498f9
             <div class="tab__content">
                 <h3>点赞</h3>
             	<div class="dianzan">
