@@ -11,6 +11,7 @@
 <link href="css/button.css" rel='stylesheet' type='text/css'>
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
+<link href="css/style.css" rel='stylesheet' type='text/css'>
 
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
@@ -159,12 +160,18 @@ request.getSession().setAttribute("ownerid",ownerid);
 
 <div class="videos">
     <div class="myvideo">
-        <div class="title">他的视频： 共0个视频</div>
+        <div class="title">他的视频： 共
+    <%
+        VideoDao dao = new VideoDao();
+        out.print(dao.getInfoByUserId(ownerid).size());
+     %>    
+        个视频</div>
     </div>
-
-    <div class="mycollect">
-        <div class="title">他的收藏： 共0个视频</div>
-    </div>
+    <%
+Create c=new Create();
+StringBuilder s=c.createUploadVideo(ownerid);
+out.println(s);
+%>
 </div>
 
 <!-- -----------------------------------关注、收藏----------------------------------- -->
@@ -214,19 +221,18 @@ out.print("<a class='focus' href='doFollow?flag=add' onclick='focus();'>关注</
 <div id="fade" class="black_overlay"></div> 
 
 <%
-	String id1 = String.valueOf(11);
+	/*String id1 = String.valueOf(11);
 	String id2= String.valueOf(11);
 	UserCountAction visitorcount = new UserCountAction();
-	visitorcount.doo(id1,id2);
+	visitorcount.doo(id1,id2);*/
 %>   
 <%
-	/*getInfo get = new getInfo();
-	String name = (String)session.getAttribute("userid");
-	UserEdit u = get.getInfoById(name);
-	String id = String.valueOf(11);
-	String id0= String.valueOf(11);
+	getInfo get = new getInfo();
+	String name = (String)request.getSession().getAttribute("userid");
+	String id = String.valueOf(name);
+	String id0= String.valueOf((String)request.getSession().getAttribute("ownerid"));
 	UserCountAction usercount = new UserCountAction();
-	usercount.doo(id,id0);*/
+	usercount.doo(id,id0);
 %>
 
 

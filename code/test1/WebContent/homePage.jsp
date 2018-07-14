@@ -1,3 +1,4 @@
+<%@page import="com.dao.VideoDao"%>
 <%@page import="com.action.getCollect"%>
 <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
@@ -146,8 +147,19 @@
 
 <div class="videos">
     <div class="myvideo">
-        <div class="title">我的视频： 共0个视频</div>
+        <div class="title">我的视频： 共     
+        <%
+        VideoDao dao = new VideoDao();
+        out.print(dao.getInfoByUserId(name).size());
+        %>
+        个视频</div>
     </div>
+
+	<%
+Create cv=new Create();
+StringBuilder s=cv.createUploadVideo(name);
+out.println(s);
+%>
 
     <div class="mycollect">
         <div class="title">我的收藏： 共
@@ -158,9 +170,8 @@
         个视频</div>
     </div>
 <%
-Create cv=new Create();
-StringBuilder s=cv.createCollectVideo(name);
-out.println(s);
+StringBuilder s_=cv.createCollectVideo(name);
+out.println(s_);
 %>
 </div>
 
