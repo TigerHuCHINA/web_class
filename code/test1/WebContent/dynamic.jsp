@@ -292,10 +292,9 @@
             	<div class="dianzan">
             		<ul>
             		<%
-					String id1=request.getParameter("id");
+					//String id1=request.getParameter("id");
+            		String id1="11";
 					Create cv1=new Create();
-					//Agree agree = new Agree();
-					//String userid = agree.getUserid();
 					StringBuilder s1=cv1.createAgree(id1);
 					out.println(s1);
 					%>
@@ -308,11 +307,12 @@
             	<div class="guanzhu">
             		<ul>
             		<%
-					String id2=request.getParameter("id");
+					//String id2=request.getParameter("id");
+            		String id2="11";
 					Create cv2=new Create();
 					//Follow follow = new Follow();
 					//String userId = follow.getFollowerid();
-					StringBuilder s2=cv2.createAgree(id2);
+					StringBuilder s2=cv2.createFollow(id2);
 					out.println(s2);
 					%>
             		</ul>
@@ -324,7 +324,8 @@
             	<div class="guanzhu">
             		<ul>
             		<%
-					String id3=request.getParameter("id");
+					//String id3=request.getParameter("id");
+            		String id3="11";
 					Create cv3=new Create();
 					//Follow follow = new Follow();
 					//String userId = follow.getFollowerid();
@@ -338,46 +339,22 @@
             <div class="tab__content">
                 <h3>私信</h3>
                 <%
-                String id4=request.getParameter("id");
+                String id4="11";
+                //String id4=request.getParameter("id");
                 Create cv4=new Create();
-				//Message message = new Message();
-				//String acceptid = message.getAcceptId();
-				StringBuilder s4=cv4.createAgree(id4);
+				StringBuilder s4=cv4.createMessage(id4);
 				out.println(s4);
                 %>
-                
-<!--			           	<ul id="pn1">
-			  				 <li class="list1">
-			      			  <div class="content">
-			      			      <div class="comment-list">
-			              		  <div class="comment">
-			               	      <div class="comment-right">
-			                        <div class="comment-text"><span class="user"><%//评论人 %></span><%//说了什么 %></div>
-			                        <div class="comment-date">02-14 22:00 <input type="button" class="comment-zan" onclick="dianzan()" value="23 赞">
-			                   		    <a class="comment-dele" href="#C1">回复</a>
-			                        </div>
-			                  	 </div>
-			              		</div>
-			          			</div>
-			     			    <form name="form1" method="post" action="">
-			         			   <div class="hf">
-			          			   <textarea name="C1" id="te" class="hf-text" autocomplete="off" maxlength="100" rows="10" cols="50"></textarea>
-			         	 		   <input type="submit" class="comment-dele" value="提交回复" onclick="return check()"/>
-			               		   <span class="hf-nub">0/100</span> </div>
-			         		   </form>
-			     			 </div>
-			   			   </li>
-						</ul> 
-						-->
          </div>
             
             <div class="tab__content">
                 <h3>评论</h3>
            <%
-	           	String id5=request.getParameter("id");
+           		String id5="11";
+	           	//String id5=request.getParameter("id");
 	           	Create cv5=new Create();
 				
-				StringBuilder s5=cv5.createAgree(id5);
+				StringBuilder s5=cv5.createCommentR(id5);
 				out.println(s5);
            %>     
 <!-- 

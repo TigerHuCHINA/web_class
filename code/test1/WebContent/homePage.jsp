@@ -1,5 +1,8 @@
+<%@page import="com.dao.VideoDao"%>
+<%@page import="com.action.getCollect"%>
 <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
+<%@page import="com.action.Create"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -8,6 +11,7 @@
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/button.css" rel='stylesheet' type='text/css'>
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
+<link href="css/style.css" rel='stylesheet' type='text/css'>
 
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
@@ -19,10 +23,11 @@
 	getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
+	String path="C:\\Users\\acer\\Desktop\\"+u.getUheadphoto();
+	System.out.print(path);
 %>
 <!-- 顶部菜单 -->
 <div class="header">
-
 
     <a class="head1" href="home.jsp">主界面</a>
 
@@ -142,12 +147,32 @@
 
 <div class="videos">
     <div class="myvideo">
-        <div class="title">我的视频： 共0个视频</div>
+        <div class="title">我的视频： 共     
+        <%
+        VideoDao dao = new VideoDao();
+        out.print(dao.getInfoByUserId(name).size());
+        %>
+        个视频</div>
     </div>
 
+	<%
+Create cv=new Create();
+StringBuilder s=cv.createUploadVideo(name);
+out.println(s);
+%>
+
     <div class="mycollect">
-        <div class="title">我的收藏： 共0个视频</div>
+        <div class="title">我的收藏： 共
+    <%
+    getCollect getC = new getCollect();
+    out.print(getC.getById(name).size());
+    %>    
+        个视频</div>
     </div>
+<%
+StringBuilder s_=cv.createCollectVideo(name);
+out.println(s_);
+%>
 </div>
 
 

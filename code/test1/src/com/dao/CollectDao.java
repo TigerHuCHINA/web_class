@@ -46,7 +46,7 @@ public class CollectDao extends BaseDao {
 	
 	public boolean decollect(String UserId,String VideoId) {
 		String sql="DELETE FROM collection WHERE userId=? and videoId=?";
-		Object obs[]= {UserId,11};
+		Object obs[]= {UserId,VideoId};
 		if(executeUpdate(sql, obs)>=1) {
 			free();
 			return true;
@@ -55,4 +55,20 @@ public class CollectDao extends BaseDao {
 			return false;
 		}
 	}
+	public boolean hasCollect(String userId,String videoId) throws SQLException {
+		String sql = "select * from collection where userId = ? and videoId=?";
+		Object obj[] = {userId,videoId};
+		ResultSet set = executeSelect(sql, obj);
+		if(set.next()) {
+			return true;
+		}else {
+			return false;
+		}
+
+		
+	}
+			
+	
+
+
 }

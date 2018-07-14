@@ -54,6 +54,7 @@ public class VideoDao extends BaseDao{
 				video.setTime(s.parse(set.getString("time")));
 				video.setDuration(set.getString("duration"));
 				video.setFile(set.getString("file"));
+				video.setView(set.getString("view"));
 				free();
 			}
 			else {
@@ -95,5 +96,30 @@ public class VideoDao extends BaseDao{
 		free();
 		return videos;
 	}
-	
+	public ArrayList<Video> getInfoByUserId(String id) throws ParseException
+	{
+		String sql = "select * from video where userId = ?";
+		Object[] obs = {id};
+		ResultSet set = executeSelect(sql, obs);
+		ArrayList<Video> videos = new ArrayList<Video>();
+		try {
+			while(set.next()) {
+				Video video = new Video();
+				video.setId(set.getString("id"));
+				video.setUserId(set.getString("userId"));
+				video.setTitle(set.getString("title"));
+				video.setIntroduce(set.getString("introduce"));
+				SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				video.setTime(s.parse(set.getString("time")));
+				video.setDuration(set.getString("duration"));
+				video.setFile(set.getString("file"));
+				video.setView(set.getString("view"));
+				videos.add(video);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return videos;
+	}
 }

@@ -57,4 +57,18 @@ public class FollowDao extends BaseDao {
 			return false;
 		}
 	}
+	public boolean hasFollow(String follower,String followee) throws SQLException {
+		String sql = "select * from follow where followerId = ? and followeeId=?";
+		Object obs[] = {follower,followee};
+		ResultSet set = executeSelect(sql, obs);
+
+		if(set.next()) {
+		free();
+		return true;
+		}else {
+		free();
+		return false;
+		}
+	}
+	
 }
