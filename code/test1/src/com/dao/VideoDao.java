@@ -54,6 +54,7 @@ public class VideoDao extends BaseDao{
 				video.setTime(s.parse(set.getString("time")));
 				video.setDuration(set.getString("duration"));
 				video.setFile(set.getString("file"));
+				video.setView(set.getString("view"));
 				free();
 			}
 			else {

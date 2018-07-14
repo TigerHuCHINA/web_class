@@ -19,17 +19,32 @@ public class FollowAction extends HttpServlet {
 		HttpSession session = request.getSession();
 		String follower = (String) session.getAttribute("ownerid");
 		String followee = (String) session.getAttribute("userid");
-		
+		String flag=new String(request.getParameter("flag"));
 		Follow ff = new Follow();
 		ff.setFollowerid(follower);
 		ff.setFolloweeid(followee);
 		FollowDao f = new FollowDao();
+		if(flag.equals(new String("add"))) {
 		if(f.adFollow(ff)) {
 			request.setAttribute("result", "成功");
-			request.getRequestDispatcher("home.jsp").forward(request, response);
+			request.getRequestDispatcher("hisHome.jsp").forward(request, response);
 		}else {
 			request.setAttribute("result", "失败");
 			request.getRequestDispatcher("xx.jsp").forward(request, response);
 		}
+		}
+		else{
+			if(f.deFollow(ff)) {
+				request.setAttribute("result", "成功");
+				request.getRequestDispatcher("hisHome.jsp").forward(request, response);
+			}else {
+				request.setAttribute("result", "失败");
+				request.getRequestDispatcher("xx.jsp").forward(request, response);
+			}
+			}
+		
+		
+		
+		
 	}
 }

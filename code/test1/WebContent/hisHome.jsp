@@ -73,6 +73,9 @@
 	String follow = ue.getFollow();
 	String view = ue.getView();
 	request.getSession().setAttribute("ownerid",ownerid);
+
+	
+	
 	/*getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
@@ -160,12 +163,26 @@
 </div>
 <!-- -----------------------------------关注、收藏----------------------------------- -->
 <div class="focusinfo">
-	<a class="focus" href="doFollow" onclick="focus();">关注</a>
+<%
+FollowDao fd=new FollowDao();
+boolean hasfollow=fd.hasFollow((String)request.getSession().getAttribute("ownerid"),(String)request.getSession().getAttribute("userid"));
+if(hasfollow){System.out.print("true");}
+else{System.out.print("false");}
+if(hasfollow){
+out.print("<a class='focus' href='doFollow?flag=de' onclick='focus();'>取消关注</a>");
+}else{
+out.print("<a class='focus' href='doFollow?flag=add' onclick='focus();'>关注</a>");
+}
+%>
+
+	
 </div>
+
 <div class="same">
 	<strong><%=follow %></strong>关注<br>
 	<strong class="look"><%=view %></strong>浏览
 </div>
+
 <!-- ---------------------------------------------私信----------------------------------------------- -->
 <div class="sixin"><a href="#" onclick="return PopLayer(this)">私信</a></div>
 <div id="lightbox2"></div>

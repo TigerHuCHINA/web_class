@@ -258,19 +258,17 @@ request.getSession().setAttribute("ownerid",ownerid);
     </video>
 
 <%
-	VideoCountAction visitorcount = new VideoCountAction();
-	visitorcount.doo((String)request.getSession().getAttribute("userid"),vid);
-%>
-<%
+VideoCountAction visitorcount = new VideoCountAction();
+visitorcount.doo((String)request.getSession().getAttribute("userid"),vid);
 VideoDao vd=new VideoDao();
+if(vid==null){
+	vid=(String)request.getAttribute("id");
+	}
 Video v=vd.getInfoById(vid);
 String videoname=v.getTitle();
-
+String view=v.getView();
 %>
 </div>
-
-
-
 <div class="information">
     <div id="videoname" class="info">
         <tr>
@@ -285,26 +283,38 @@ String videoname=v.getTitle();
             <td><%//这里放视频类型 %></td>
         </tr>
     </div>
-    
     <div id="userlocation" class="info">
         <tr>
             <td>上传者 </td>
-            <td><a href="hisHome.jsp?ownerid=<%=ownerid%>"><%=ownerid%></a></td>
+
+            <td><a href="hisHome.jsp?ownerid=<%=ownerid%>" ><%=ownerid%></a></td> 
         </tr>
     </div>
     
     <div id="playcount" class="info">
         <tr>
             <td>观看数 </td>
-            <td><%//观看数%></td>
+            <td><%=view%></td>
         </tr>
     </div>
     
 </div>
 
 
+
 <div>
-    <a class="addvideo" href="doCollect" onclick="function()">收藏</a>
+	<%
+	CollectDao cd=new CollectDao();
+	boolean result=cd.hasCollect((String)request.getSession().getAttribute("userid"),(String)request.getSession().getAttribute("vid"));
+	if(result){
+		System.out.print("true");
+    out.print("<a id='collect'  class='addvideo' href='doCollect?flag=de' >已收藏</a>");
+    } 
+	else{ 
+		System.out.print("false");
+		out.print("<a id='collect'  class='addvideo' href='doCollect?flag=add' >收藏</a>");
+    } %>
+    
 </div>
    	<!-- ----------------------------------点赞------------------------ -->
     <div class="praise">

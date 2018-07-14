@@ -14,16 +14,23 @@ public class Video {
 	private String duration;
 	private Date time;
 	private String cover;
+	private String view;
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
+	public String getView() {
+		return view;
+	}
+	public void setView(String view) {
+		this.view = view;
+	}
 	public String getCover() {
 		return cover;
 	}
-	public void setCover(String id) {
+	public void setCover(String cover) {
 		this.cover = cover;
 	}
 	public String getUserId() {
