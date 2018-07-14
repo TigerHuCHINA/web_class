@@ -1,5 +1,6 @@
 <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
+<%@page import="com.action.Create"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -148,6 +149,11 @@
     <div class="mycollect">
         <div class="title">我的收藏： 共0个视频</div>
     </div>
+<%
+Create cv=new Create();
+StringBuilder s=cv.createVideo();
+out.println(s);
+%>
 </div>
 
 

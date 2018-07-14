@@ -42,6 +42,25 @@ if(((String)request.getSession().getAttribute("userid")).equals((String)request.
 
 </div>
 
+<%
+String ownerid=(String)request.getParameter("ownerid");
+UserEditDao ued=new UserEditDao();
+UserEdit ue=ued.getInfoById(ownerid);
+UserDao ud=new UserDao();
+User u=ud.dologin(ownerid);
+String ownername=u.getUname();
+String birthday=ue.getUbirthday();
+String sex=ue.getUsex();
+String school=ue.getUschool();
+String profession=ue.getUprofession();
+String introduce=ue.getUintroduce();
+String province = ue.getUprovince();
+String city = ue.getUcity();
+String follow = ue.getFollow();
+String view = ue.getView();
+request.getSession().setAttribute("ownerid",ownerid);
+%>
+
 
 <!-- 个人头像与信息 -->
 <div class="myinformation">
@@ -52,68 +71,68 @@ if(((String)request.getSession().getAttribute("userid")).equals((String)request.
         <div id="username" class="info">
             <tr>
                 <td>用户名: </td>
-                <td><%//=ownername%></td>
+                <td><%=ownername%></td>
             </tr>
         </div>
     
         <div id="userid" class="info">
             <tr>
                 <td>用户账号: </td>
-                <td><%//=ownerid%></td>
+                <td><%=ownerid%></td>
             </tr>
         </div>
     
         <div id="userlocation" class="info">
             <tr>
                 <td>所在地: </td>
-                <td><%//=province%> <%//=city %></td>
+                <td><%=province%> <%//=city %></td>
             </tr>
         </div>
     
         <div id="userdate" class="info">
             <tr>
                 <td>生日: </td>
-                <td><%//=birthday %></td>
+                <td><%=birthday %></td>
             </tr>
         </div>
     
         <div id="usersex" class="info">
             <tr>
                 <td>性别: </td>
-                <td><%//=sex%></td>
+                <td><%=sex%></td>
             </tr>
         </div>
     
         <div id="userschool" class="info">
             <tr>
                 <td>学校: </td>
-                <td><%//=school%></td>
+                <td><%=school%></td>
             </tr>
         </div>
     
         <div id="userclass" class="info">
             <tr>
                 <td>专业: </td>
-                <td><%//=profession%></td>
+                <td><%=profession%></td>
             </tr>
         </div>
         <div id="userinformation" class="info">
             <tr>
                 <td>个人简介: </td>
-                <td><%//=introduce%></td>
+                <td><%=introduce%></td>
             </tr>
         </div>
         <div id="userfocus" class="info">
             <tr>
                 <td>关注量: </td>
-                <td><%//=follow %></td>
+                <td><%=follow %></td>
             </tr>
         </div>
     
         <div id="userread" class="info">
 	        <tr>
 	            <td>浏览量: </td>
-	            <td><%//=view %></td>
+	            <td><%=view %></td>
 	        </tr>
         </div>
            
@@ -163,22 +182,6 @@ if(((String)request.getSession().getAttribute("userid")).equals((String)request.
 	visitorcount.doo(id1,id2);
 %>   
 <%
-	/* String ownerid=(String)request.getParameter("ownerid");
-	UserEditDao ued=new UserEditDao();
-	UserEdit ue=ued.getInfoById(ownerid);
-	UserDao ud=new UserDao();
-	User u=ud.dologin(ownerid);
-	String ownername=u.getUname();
-	String birthday=ue.getUbirthday();
-	String sex=ue.getUsex();
-	String school=ue.getUschool();
-	String profession=ue.getUprofession();
-	String introduce=ue.getUintroduce();
-	String province = ue.getUprovince();
-	String city = ue.getUcity();
-	String follow = ue.getFollow();
-	String view = ue.getView();
-	request.getSession().setAttribute("ownerid",ownerid); */
 	/*getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);

@@ -8,7 +8,7 @@
 <link href="css/style.css" rel='stylesheet' type='text/css'>
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 
-<title>我的个人主页</title>	
+<title>搜索视频</title>	
 </head>
 <body>
 <!-- 顶部菜单 -->
@@ -29,6 +29,7 @@
 <%
 Create cv=new Create();
 String key = request.getParameter("content");
+System.out.println(key);
 StringBuilder s=cv.createSelectedVideo(key);
 out.println(s);
 %>
