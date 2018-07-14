@@ -133,13 +133,7 @@ public class Create {
 		agrees=dao.getByUserId(userid);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
-			File file=new File("dynamic.jsp");
-			if(!file.isFile()) {
 				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
-				//sh.append("<div class=\"tab__content\">");
-				//sh.append("<h3>点赞</h3>");
-				//sh.append("<div class=\"dianzan\">");
-				//sh.append("<ul>");
 				for(int j=0;j<agrees.size();j++) {	
 					sh.append("<li>");
 					sh.append(agrees.get(j).getUserid());
@@ -147,16 +141,8 @@ public class Create {
 					sh.append(agrees.get(j).getTime());
 					sh.append("给你点了赞");
 				}
-				//sh.append("</ul>");
-				//sh.append("</div>");
-				//sh.append("</div>");
-
 				printStream.println(sh.toString()); 
 				printStream.close();
-			}
-			else {
-				System.out.println("有问题");
-			}
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -168,8 +154,6 @@ public class Create {
 		follows=dao.getByUser(userid);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
-			File file=new File("dynamic.jsp");
-			if(file.isFile()) {
 				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
 				for(int j=0;j<follows.size();j++) {	
 					sh.append("<li>");
@@ -180,10 +164,6 @@ public class Create {
 				}
 				printStream.println(sh.toString()); 
 				printStream.close();
-			}
-			else {
-				System.out.println("有问题");
-			}
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -196,8 +176,6 @@ public class Create {
 		collections=dao.getByUserId(userid);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
-			File file=new File("dynamic.jsp");
-			if(file.isFile()) {
 				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
 				for(int j=0;j<collections.size();j++) {	
 					sh.append("<li>");
@@ -209,10 +187,6 @@ public class Create {
 				}
 				printStream.println(sh.toString()); 
 				printStream.close();
-			}
-			else {
-				System.out.println("有问题");
-			}
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -225,8 +199,6 @@ public class Create {
 		messages=dao.getByUserId(acceptid);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
-			File file=new File("dynamic.jsp");
-			if(file.isFile()) {
 				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
 				for(int j=0;j<messages.size();j++) {	
 					sh.append("<ul id=\"pn1\">");
@@ -253,10 +225,6 @@ public class Create {
 				}
 				printStream.println(sh.toString()); 
 				printStream.close();
-			}
-			else {
-				System.out.println("有问题");
-			}
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -268,8 +236,6 @@ public class Create {
 		comments=dao.getById(id);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
-			File file=new File("dynamic.jsp");
-			if(file.isFile()) {
 				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
 				for(int j=0;j<comments.size();j++) {	
 					sh.append("<ul id=\"pn1\">");
@@ -298,10 +264,6 @@ public class Create {
 				}
 				printStream.println(sh.toString()); 
 				printStream.close();
-			}
-			else {
-				System.out.println("有问题");
-			}
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -313,7 +275,6 @@ public class Create {
 		videos=vd.getByKeywords(key);
 		StringBuilder sh = new StringBuilder();
 		try{
-			
 			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
 			sh.append("<div id='videos'>");
 			sh.append("<ul class='ul1'>");
