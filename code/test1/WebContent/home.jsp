@@ -591,7 +591,7 @@ function checkMessage(){
   }
 </script>
 <%
-	Create cv=new Create();
+Create cv=new Create();
 StringBuilder s=cv.createVideo();
 out.println(s);
 %>
