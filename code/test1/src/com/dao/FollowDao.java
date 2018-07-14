@@ -21,7 +21,7 @@ public class FollowDao extends BaseDao {
 				follow.setId(set.getString(1));
 				follow.setFollowerid(set.getString(2));
 				follow.setFolloweeid(set.getString(3));
-				follow.setTime(set.getString(4));
+				follow.setTime(set.getString(5));
 				follows.add(follow);
 			}
 		} catch (SQLException e) {

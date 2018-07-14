@@ -132,14 +132,36 @@ public class Create {
 		try{
 				System.out.println("qiuniao");
 				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
-				sh.append("qiuniao");
 				
 				for(int j=0;j<agrees.size();j++) {	
-					sh.append("<li>");
+					/*sh.append("<li>");
 					sh.append(agrees.get(j).getUserid());
-					sh.append("在");
+					sh.append("\t在\t");
 					sh.append(agrees.get(j).getTime());
-					sh.append("给你点了赞");
+					sh.append("\t给你点了赞\n");*/
+					
+					
+					sh.append("<ul id=\"pn1\">");
+					sh.append("<li class=\"list1\">");
+					sh.append("<div class=\"content\">");
+					sh.append("<div class=\"comment-list\">");
+					sh.append("<div class=\"comment\">");
+					sh.append("<div class=\"comment-right\">");
+					sh.append("<div class=\"comment-text\">");
+					sh.append("<span class=\"user\">");
+					sh.append(agrees.get(j).getUserid());
+					sh.append("\t点赞了你的评论：\t");
+					sh.append(agrees.get(j).getContent());
+					sh.append("</div>");
+					sh.append("<div class=\"comment-date\">");
+					sh.append(agrees.get(j).getTime());
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</li>");
+					sh.append("</ul>");
+					
 				}
 				printStream.println(sh.toString()); 
 				printStream.close();
@@ -158,9 +180,9 @@ public class Create {
 				for(int j=0;j<follows.size();j++) {	
 					sh.append("<li>");
 					sh.append(follows.get(j).getFolloweeid());
-					sh.append("在");
+					sh.append("\t在\t");
 					sh.append(follows.get(j).getTime());
-					sh.append("关注了你");
+					sh.append("\t关注了你\n");
 				}
 				printStream.println(sh.toString()); 
 				printStream.close();
@@ -180,9 +202,9 @@ public class Create {
 				for(int j=0;j<collections.size();j++) {	
 					sh.append("<li>");
 					sh.append(collections.get(j).getUserid());
-					sh.append("在");
+					sh.append("\t在\t");
 					sh.append(collections.get(j).getTime());
-					sh.append("收藏了你的视频：");
+					sh.append("\t收藏了你的视频：\t");
 					sh.append(collections.get(j).getVideoid());
 				}
 				printStream.println(sh.toString()); 
@@ -211,11 +233,11 @@ public class Create {
 					sh.append("<span class=\"user\">");
 					sh.append(messages.get(j).getPasssId());
 					sh.append("</span>");
+					sh.append("\t私信了你：\t\n");
 					sh.append(messages.get(j).getContent());
 					sh.append("</div>");
 					sh.append("<div class=\"comment-date\">");
 					sh.append(messages.get(j).getTime());
-					//sh.append("<input type=\"button\" class=\"comment-zan\" onclick=\"dianzan()\" value=\"23 赞\">");
 					sh.append("</div>");
 					sh.append("</div>");
 					sh.append("</div>");
@@ -247,14 +269,14 @@ public class Create {
 					sh.append("<div class=\"comment-text\">");
 					sh.append("<span class=\"user\">");
 					sh.append(comments.get(j).getUserId());
-					sh.append("@你的视频");
+					sh.append("\t评论了你的视频\t");
 					sh.append(comments.get(j).getVideoId());
 					sh.append("</span>");
+					sh.append(":\t\n");
 					sh.append(comments.get(j).getContent());
 					sh.append("</div>");
 					sh.append("<div class=\"comment-date\">");
 					sh.append(comments.get(j).getTime());
-					//sh.append("<input type=\"button\" class=\"comment-zan\" onclick=\"dianzan()\" value=\"23 赞\">");
 					sh.append("</div>");
 					sh.append("</div>");
 					sh.append("</div>");
