@@ -25,7 +25,7 @@ public class MessageDao extends BaseDao {
 	}
 	public ArrayList<Message> getByUserId(String acceptId)
 	{
-		String sql = "select * from collection where acceptId = ?";
+		String sql = "select * from message where acceptId = ?";
 		Object obj[] = {acceptId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Message> messages = new ArrayList<Message>();
