@@ -184,78 +184,6 @@
 
 <!-- ---------------------------------切换结束------------------------------- -->
 <style>
-ul,ol {
-	list-style:none;
-}
-a {
-	text-decoration:none;
-}
-a:hover,a:visited,a:link,a:active {
-	text-decoration:none;
-}
-sup {
-	vertical-align:text-top;
-}
-sub {
-	vertical-align:text-bottom;
-}
-legend {
-	color:#000;
-}
-fieldset,img {
-	border:0;
-}
-button,input,select,textarea {
-	font-size:100%;
-}
-table {
-	border-collapse:collapse;
-	border-spacing:0;
-}
-.clear {
-	clear:both;
-	float:none;
-	height:0;
-	overflow:hidden;
-}
-body {
-	color:#333;
-	font:12px/1.3 'Arial','Microsoft YaHei';
-}
-#pn {
-	width:550px;
-	height:auto;
-	background:#fff;
-	margin:0 auto;
-	padding:20px;
-}
-.list0 {
-	padding:20px 0;
-	position:relative;
-	border-top:1px solid #eee;
-}
-.head {
-	width:60px;
-	float:left;
-}
-.head img {
-	width:60px;
-	height:60px;
-}
-.close {
-	width:20px;
-	height:20px;
-	position:absolute;
-	top:0;
-	right:0;
-	color:#696e78;
-	font-size:14px;
-	text-align:center;
-	line-height:20px;
-}
-.close:hover {
-	color:#eb7350;
-}
 .content {
 	width:450px;
 	line-height:20px;
@@ -264,9 +192,6 @@ body {
 }
 .name {
 	color:#eb7350;
-}
-.pic {
-	margin:5px 0;
 }
 .good:after {
 	clear:both;
@@ -339,23 +264,6 @@ body {
 	bottom:0;
 	color:#808080;
 }
-.comment-dele {
-	position:absolute;
-	right:0;
-	bottom:0;
-	color:#808080;
-}
-.hf:after {
-	clear:both;
-	content:'';
-	display:block;
-	width:0;
-	height:0;
-	visibility:hidden;
-}
-.hf {
-	*zoom:1;
-}
 </style>
 </head>
 <body>
@@ -387,7 +295,7 @@ body {
   				 <li class="list1">
       			  <div class="content">
       			      <div class="comment-list">
-              		  <div class="comment" user="self">
+              		  <div class="comment">
                	      <div class="comment-right">
                         <div class="comment-text"><span class="user"><%//评论人 %></span><%//说了什么 %></div>
                         <div class="comment-date">02-14 22:00 <input type="button" class="comment-zan" onclick="dianzan()" value="23 赞">
@@ -410,28 +318,27 @@ body {
             <div class="tab__content">
                 <h3>评论</h3>
             	<ul id="pn">
-  				 <li class="list0">
-        <div class="content">
-            <div class="comment-list">
-                <div class="comment" user="self">
-                    <div class="comment-right">
+  				 <li class="list">
+      			  <div class="content">
+      			      <div class="comment-list">
+              		  <div class="comment">
+               	      <div class="comment-right">
                         <div class="comment-text"><span class="user"><%//评论人 %></span><%//说了什么 %></div>
                         <div class="comment-date">02-14 22:00 <input type="button" class="comment-zan" onclick="dianzan()" value="23 赞">
-                   		    <a class="comment-dele" href="#C1">回复</a>
+                   		    <a class="comment-dele" href="#C2">回复</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-         <form name="form1" method="post" action="">
-            <div class="hf">
-                <textarea name="C1" id="te" class="hf-text" autocomplete="off" maxlength="100" rows="10" cols="50"></textarea>
-         	      <input type="submit" class="comment-dele" value="提交回复" onclick="return check()"/>
-                <span class="hf-nub">0/100</span> </div>
-         </form>
-        </div>
-        
-   						 </li>
-					</ul>
+                  	 </div>
+              		</div>
+          			</div>
+     			    <form name="form1" method="post" action="">
+         			   <div class="hf">
+          			   <textarea name="C2" id="te" class="hf-text" autocomplete="off" maxlength="100" rows="10" cols="50"></textarea>
+         	 		   <input type="submit" class="comment-dele" value="提交回复" onclick="return check()"/>
+               		   <span class="hf-nub">0/100</span> </div>
+         		   </form>
+     			 </div>
+   			   </li>
+			</ul> 
             </div>
     </div>
 </div>
