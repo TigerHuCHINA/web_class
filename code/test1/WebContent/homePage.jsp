@@ -1,154 +1,143 @@
 <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<link href="css/header.css" rel='stylesheet' type='text/css'>
+<link href="css/button.css" rel='stylesheet' type='text/css'>
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
+
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
 <title>我的个人主页</title>	
 </head>
-<body style="background-image:url('picture/4.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
+<body>
+
 <%
 	getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
 	UserEdit u = get.getInfoById(name);
 %>
-
-<a class="return1" href="home.jsp">主界面</a>
-<img src="<%//放头像地址 %>" class="return2" style="width:50px;height:50px;border:1px solid black;" >
-<a class="return3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
-<a class="return4" href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">反馈</a>
+<!-- 顶部菜单 -->
+<div class="header">
 
 
-<div class="image">
-    <img src="ImageDisplay" width="200px" height="200px"/>
+    <a class="head1" href="home.jsp">主界面</a>
+
+    <a class="head2" href="homePage.jsp"><img src="picture/1.png" width="100%" height="100%"></a>
+        
+    <a class="head3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
+
+    <a class="head4" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">反馈</a>
+
+
+</div>
+
+
+
+<!-- 个人头像与信息 -->
+<div class="myinformation">
+    <div class="image">
+        <img src="ImageDisplay"/>    
+    </div>
+    <div class="informationbox">
+        <div id="username" class="info">
+            <tr>
+                <td>用户名: </td>
+                <td><%=u.getUname() %></td>
+            </tr>
+        </div>
     
+        <div id="userid" class="info">
+            <tr>
+                <td>用户账号: </td>
+                <td><%=u.getUid() %></td>
+            </tr>
+        </div>
+    
+        <div id="userlocation" class="info">
+            <tr>
+                <td>所在地: </td>
+                <td><%=u.getUprovince()%> <%=u.getUcity() %></td>
+            </tr>
+        </div>
+    
+        <div id="userdate" class="info">
+            <tr>
+                <td>生日: </td>
+                <td><%=u.getUbirthday() %></td>
+            </tr>
+        </div>
+    
+        <div id="usersex" class="info">
+            <tr>
+                <td>性别: </td>
+                <td><%=u.getUsex() %></td>
+            </tr>
+        </div>
+    
+        <div id="userschool" class="info">
+            <tr>
+                <td>学校: </td>
+                <td><%=u.getUschool() %></td>
+            </tr>
+        </div>
+    
+        <div id="userclass" class="info">
+            <tr>
+                <td>专业: </td>
+                <td><%=u.getUprofession() %></td>
+            </tr>
+        </div>
+        <div id="userinformation" class="info">
+            <tr>
+                <td>个人简介: </td>
+                <td><%=u.getUintroduce() %></td>
+            </tr>
+        </div>
+    
+        <div id="userfocus" class="info">
+            <tr>
+                <td>关注量: </td>
+                <td><%=u.getFollow() %></td>
+            </tr>
+        </div>
+    
+        <div id="userread" class="info">
+	        <tr>
+	            <td>浏览量: </td>
+	            <td><%=u.getView() %></td>
+	        </tr>
+        </div>
+           
+    </div>
+
 </div>
 
 
 
 
-
-
-
-
-<div id="light1" class="white_content">
-    <a href = "javascript:void(0)" id= "close1" onclick = "document.getElementById('light1').style.display='none';document.getElementById('fade').style.display='none'">×</a>
-    <form method="post" action="ImageAction">
-        <input class="fileInput" id="file" type="file" name="file"/>
-        <input class="submitimage" type="submit" value="提交"/>
-    </form>
-</div> 
-    <div id="fade" class="black_overlay">
-</div> 
-
-<div id="light2" class="white_content">
-    <a href = "javascript:void(0)" id= "close2" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade').style.display='none'">×</a>
-    
-    <form action="doFeedback" method="post" onsubmit="return checkMessage();">
-         <textarea class="mymessage" id="message" name="content" type="text" placeholder="请输入反馈" style="width:300px;height:150px;"></textarea>                               
-         <input type="submit" name="submit" onclick="myFunction()" value="提交">                        
-    </form>
-</div> 
-<div id="fade" class="black_overlay">
-</div> 
-
-
-
-
-<div class="information">
-    <div id="username" class="info">
-        <tr>
-            <td>用户名 </td>
-            <td><%=u.getUname() %></td>
-        </tr>
-    </div>
-    
-    <div id="userid" class="info">
-        <tr>
-            <td>用户账号 </td>
-            <td><%=u.getUid() %></td>
-        </tr>
-    </div>
-    
-    <div id="userlocation" class="info">
-        <tr>
-            <td>所在地 </td>
-            <td><%=u.getUprovince()%> <%=u.getUcity() %></td>
-        </tr>
-    </div>
-    
-    <div id="userdate" class="info">
-        <tr>
-            <td>生日 </td>
-            <td><%=u.getUbirthday() %></td>
-        </tr>
-    </div>
-    
-    <div id="usersex" class="info">
-        <tr>
-            <td>性别 </td>
-            <td><%=u.getUsex() %></td>
-        </tr>
-    </div>
-    
-    <div id="userschool" class="info">
-        <tr>
-            <td>学校 </td>
-            <td><%=u.getUschool() %></td>
-        </tr>
-    </div>
-    
-    <div id="userclass" class="info">
-        <tr>
-            <td>专业 </td>
-            <td><%=u.getUprofession() %></td>
-        </tr>
-    </div>
-    <div id="userinformation" class="info">
-        <tr>
-            <td>个人简介 </td>
-            <td><%=u.getUintroduce() %></td>
-        </tr>
-    </div>
-    
-    <div id="userfocus" class="info">
-        <tr>
-            <td>关注量</td>
-            <td><%=u.getFollow() %></td>
-        </tr>
-    </div>
-    
-    <div id="userread" class="info">
-	    <tr>
-	        <td>浏览量</td>
-	        <td><%=u.getView() %></td>
-	    </tr>
-    </div>
-</div>
-
+<!-- 按键 -->
 <div class="mybuttons">
     <div>
-	    <a class="buttons" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">编辑头像</a>
+	    <a class="mybtn1 btn btn-medium type1" href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">编辑头像</a>
     </div>
     <div>
-        <a class="buttons" href="#" onclick="return PopLayer(this)">编辑资料</a>
+        <a class="mybtn1 btn btn-medium type2" href="javascript:void(0)" onclick="document.getElementById('light3').style.display='block';document.getElementById('fade').style.display='block'">编辑资料</a>
     </div>
     <div>
-        <a class="buttons" href="message.jsp">查看留言</a>
+        <a class="mybtn1 btn btn-medium type3" href="message.jsp">查看留言</a>
     </div>
     <div>
-        <a class="buttons" href="upload.jsp">上传视频</a>
+        <a class="mybtn1 btn btn-medium type1" href="upload.jsp">上传视频</a>
     </div>
     <div>
-        <a class="buttons" href="dynamic.jsp">查看动态</a>
+        <a class="mybtn1 btn btn-medium type2" href="dynamic.jsp">查看动态</a>
     </div>
 </div>
-
-
 
 
 
@@ -170,14 +159,36 @@
 
 
 
-<div id="lightbox"></div>
-<div id="pop">
-    <form action = "doEdit" method = "post">
+
+
+
+
+
+<!-- 隐藏界面1 -->
+<div id="light1">
+    <a href = "javascript:void(0)" id= "close1" onclick = "document.getElementById('light1').style.display='none';document.getElementById('fade').style.display='none'">×</a>
+    
+    <form action="doFeedback" method="post" onsubmit="return checkMessage();">
+         <textarea class="mymessage" id="message" name="content" type="text" placeholder="请输入反馈" style="width:300px;height:150px;"></textarea>                               
+         <input type="submit" name="submit" onclick="myFunction()" value="提交">                        
+    </form>
+</div> 
+
+
+<!-- 隐藏界面2 -->
+<div id="light2">
+    <a href = "javascript:void(0)" id= "close2" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade').style.display='none'">×</a>
+    <form method="post" action="ImageAction">
+        <input class="fileInput" id="file" type="file" name="file"/>
+        <input class="submitimage" type="submit" value="提交"/>
+    </form>
+</div>
+
+<!-- 隐藏界面3 -->
+<div id="light3">
+    <a href = "javascript:void(0)" id= "close3" onclick = "document.getElementById('light3').style.display='none';document.getElementById('fade').style.display='none'">×</a>
+    <form action = "doEdit" method = "post"> 
         <div id="modified" style="OVERFLOW-Y: auto; OVERFLOW-X:hidden;">
-            <div class="close">
-                <input type="button" value="×" onclick="PopLayer()" /> 
-        	</div>
-        	
             <div class="moheader">
                 <p>修改信息</p>
             </div>
@@ -211,27 +222,18 @@
 				</select>
             </div>
             <div>
-                <input type="submit" value="保存" class="save" />
+                <input type="submit" value="保存" class="mybtn2 btn btn-medium type3" />
         	</div>
         </div>
+        
+        
     </form>
 </div>
 
 
 
-<script>
-    var pop=document.getElementById('pop'),popf=pop.getElementsByTagName('form')[0],lightbox=document.getElementById('lightbox')
-    function PopLayer(obj) {
-        lightbox.style.display = pop.style.display = obj ? 'block' : 'none';
-        if (obj) {
-            var tr = obj.parentNode.parentNode
-            popf.name.value = tr.cells[0].innerHTML
-            popf.birthday.value = tr.cells[1].innerHTML
-            popf.address.value = tr.cells[2].innerHTML
-        }
-        return false
-    }
-</script>
+
+<div id="fade" class="black_overlay"></div> 
 
 </body>
 </html>

@@ -33,7 +33,9 @@ public class Create {
 			sh.append("&useid=");
 			sh.append(videos.get(j).getUserId());
 			sh.append("'>");
-			sh.append("<img src='picture/1.png'/>");
+			sh.append("<img src='");
+			sh.append("cover/cover.png");
+			sh.append("'>");
 			sh.append("</a>");
 			sh.append("<div class='first'>");
 			sh.append("<p class='top2'>");

@@ -5,17 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.io.*;
 //数据库基础操作-杜宇航
 public class BaseDao {
 	private static String driver="com.mysql.jdbc.Driver";
-	private String url="jdbc:mysql://120.77.155.205:3306/schoolol?useSSL=false";
+	private String url="jdbc:mysql://120.77.155.205/schoolol?useSSL=false";
 	private String user = "root";
 	private String pwd="123456zxC";
 	private Connection conn;
 	private PreparedStatement ps;
 	private ResultSet rs;
-	private FileInputStream f;
 	static{
 		try {
 			Class.forName(driver);
@@ -40,12 +38,8 @@ public class BaseDao {
 			ps = conn.prepareStatement(sql);
 			if(obs!=null&&obs.length>0){
 				for(int i=0;i<obs.length;i++){
-					if(obs[i] instanceof File) {
-					f=new FileInputStream((File)obs[i]);
-					ps.setBinaryStream(i+1,f,((File)obs[i]).length());
-					}else {
 					ps.setObject(i+1, obs[i]);
-					}
+					
 				}
 			}
 			row= ps.executeUpdate();

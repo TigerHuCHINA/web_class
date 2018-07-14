@@ -1,7 +1,9 @@
 package com.dao;
 import java.io.*;
 import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO; 
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpSession;
+
 /*import org.bytedeco.javacv.FFmpegFrameGrabber; 
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.FrameGrabber.Exception;
@@ -20,33 +22,41 @@ public class FileDao extends BaseDao {
 			return false;
 		}
 	}
-	/*public static void FetchFrame(String path) throws Exception, IOException {
-		Frame frame=null;
-		int flag=0;
-		FFmpegFrameGrabber fFmpegFrameGrabber = new FFmpegFrameGrabber(path);
-		
-			fFmpegFrameGrabber.start();
-			int length = fFmpegFrameGrabber.getLengthInFrames();
-			while (flag <= length) {
-                String fileName ="C://Users/acer/Desktop/" + String.valueOf(flag) + ".jpg";
-                //文件储存对象
-                File outPut = new File(fileName);
-                //获取帧
-                frame = fFmpegFrameGrabber.grabImage();
-                if (frame != null) {
-                    ImageIO.write(FrameToBufferedImage(frame), "jpg", outPut);
-                }
-                flag++;
+	public String getPath(String filepath,String id,String folder) throws IOException {
+		String tarPath = null;
+		if(folder=="cover") {
+			tarPath="cover";
+		}else if(folder=="headphoto") {
+			tarPath="picture";
+		}else if(folder=="video") {
+			tarPath="video";
 		}
-			fFmpegFrameGrabber.stop();
-	
+		File file=new File(filepath);
+		String fileName=file.getName();
+		String format=fileName.substring(fileName.lastIndexOf(".") + 1);
+		FileInputStream f=new FileInputStream(file);
+		FileOutputStream out=null;
+		byte[] bs = new byte[1024];
+		int len;
+		File tempFile = new File(tarPath);
+		if (!tempFile.exists()) {
+            tempFile.mkdirs();
+        }
+		tarPath=tarPath+"/"+id+"."+format;
+		System.out.println("tarPath:"+tarPath);
+		out = new FileOutputStream(tarPath);
+		 while ((len = f.read(bs)) != -1) {
+             out.write(bs, 0, len);
+         }
+		 try {
+             out.close();
+             f.close();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+		
+		return tarPath;
 	}
-	public static BufferedImage FrameToBufferedImage(Frame frame) {
-        //创建BufferedImage对象
-        Java2DFrameConverter converter = new Java2DFrameConverter();
-        BufferedImage bufferedImage = converter.getBufferedImage(frame);
-        return bufferedImage;
-    }	*/
 	
 	
 	

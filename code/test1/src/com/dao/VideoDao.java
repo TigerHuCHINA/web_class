@@ -7,13 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.comm.BaseDao;
-import com.pojo.UserEdit;
 import com.pojo.Video;
 
 //视频数据库操作-杜宇航
 public class VideoDao extends BaseDao{
 	public ArrayList<Video> getAll() {
-		String sql = "select id,userId,title,introduce,time,duration from video";
+		String sql = "select *from video";
 		ResultSet set = executeSelect(sql, null);
 		ArrayList<Video> videos = new ArrayList<Video>();
 		try {
@@ -21,6 +20,7 @@ public class VideoDao extends BaseDao{
 				Video video = new Video();
 				video.setId(set.getString("id"));
 				video.setUserId(set.getString("userId"));
+				video.setFile(set.getString("file"));
 				video.setTitle(set.getString("title"));
 				video.setIntroduce(set.getString("introduce"));
 				SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -53,7 +53,7 @@ public class VideoDao extends BaseDao{
 				SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				video.setTime(s.parse(set.getString("time")));
 				video.setDuration(set.getString("duration"));
-				video.setIs(set.getBlob("file").getBinaryStream());
+				video.setFile(set.getString("file"));
 				free();
 			}
 			else {

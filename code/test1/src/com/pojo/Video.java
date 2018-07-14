@@ -10,21 +10,21 @@ public class Video {
 	private String userId;
 	private String title;
 	private String introduce;
-	private File file;
+	private String file;
 	private String duration;
 	private Date time;
-	private InputStream is;
+	private String cover;
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public InputStream getIs() {
-		return is;
+	public String getCover() {
+		return cover;
 	}
-	public void setIs(InputStream is) {
-		this.is = is;
+	public void setCover(String id) {
+		this.cover = cover;
 	}
 	public String getUserId() {
 		return userId;
@@ -44,19 +44,19 @@ public class Video {
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
-	public void setFile(File file) {
+	public void setFile(String file) {
 		this.file = file;
 	}
-	public File getFile() {
+	public String getFile() {
 		return file;
 	}
 	public String getDuration() {
 		return duration;
 	}
-	public void setDuration() {
+	public void setDuration(File f) {
 		Encoder encoder = new Encoder();
 		try {
-			MultimediaInfo m = encoder.getInfo(this.file);
+			MultimediaInfo m = encoder.getInfo(f);
 			long ls = m.getDuration()/1000;
 			int hour = (int) (ls/3600);
 			int minute = (int) (ls%3600)/60;
