@@ -4,16 +4,184 @@
 <html>
 <head>
 <title>动态界面</title>
-<link rel="stylesheet" href="css/tabulous.css">
-<script src="js/tabulous.js"></script>
 <!-- --------------------------------TAB切换------------------------- -->
-<!-- <script>
-$(function(){
-	$('.tabs').tabulous({
-		effect: 'slideLeft'
-	});
-});
-</script> -->
+ <style type="text/css">
+        .tab-wrap {
+            -webkit-transition: 0.3s box-shadow ease;
+            transition: 0.3s box-shadow ease;
+            border-radius: 6px;
+            max-width: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            position: relative;
+            list-style: none;
+            background-color: #fff;
+            margin: 40px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+        .tab-wrap:hover {
+            box-shadow: 0 12px 23px rgba(0, 0, 0, 0.23), 0 10px 10px rgba(0, 0, 0, 0.19);
+        }
+
+        .tab {
+            display: none;
+        }
+        .tab:checked:nth-of-type(1) ~ .tab__content:nth-of-type(1) {
+            opacity: 1;
+            -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+            transition: 0.5s opacity ease-in, 0.8s transform ease;
+            position: relative;
+            top: 0;
+            z-index: 100;
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            text-shadow: 0 0 0;
+        }
+        .tab:checked:nth-of-type(2) ~ .tab__content:nth-of-type(2) {
+            opacity: 1;
+            -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+            transition: 0.5s opacity ease-in, 0.8s transform ease;
+            position: relative;
+            top: 0;
+            z-index: 100;
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            text-shadow: 0 0 0;
+        }
+        .tab:checked:nth-of-type(3) ~ .tab__content:nth-of-type(3) {
+            opacity: 1;
+            -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+            transition: 0.5s opacity ease-in, 0.8s transform ease;
+            position: relative;
+            top: 0;
+            z-index: 100;
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            text-shadow: 0 0 0;
+        }
+        .tab:checked:nth-of-type(4) ~ .tab__content:nth-of-type(4) {
+            opacity: 1;
+            -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+            transition: 0.5s opacity ease-in, 0.8s transform ease;
+            position: relative;
+            top: 0;
+            z-index: 100;
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            text-shadow: 0 0 0;
+        }
+        .tab:checked:nth-of-type(5) ~ .tab__content:nth-of-type(5) {
+            opacity: 1;
+            -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+            transition: 0.5s opacity ease-in, 0.8s transform ease;
+            position: relative;
+            top: 0;
+            z-index: 100;
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            text-shadow: 0 0 0;
+        }
+        .tab:first-of-type:not(:last-of-type) + label {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .tab:not(:first-of-type):not(:last-of-type) + label {
+            border-radius: 0;
+        }
+        .tab:last-of-type:not(:first-of-type) + label {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .tab:checked + label {
+            background-color: #fff;
+            box-shadow: 0 -1px 0 #fff inset;
+            cursor: default;
+        }
+        .tab:checked + label:hover {
+            box-shadow: 0 -1px 0 #fff inset;
+            background-color: #fff;
+        }
+        .tab + label {
+            box-shadow: 0 -1px 0 #eee inset;
+            border-radius: 6px 6px 0 0;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            -webkit-box-flex: 3;
+            -webkit-flex-grow: 3;
+            -ms-flex-positive: 3;
+            flex-grow: 3;
+            text-align: center;
+            background-color: #f2f2f2;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            text-align: center;
+            -webkit-transition: 0.3s background-color ease, 0.3s box-shadow ease;
+            transition: 0.3s background-color ease, 0.3s box-shadow ease;
+            height: 50px;
+            box-sizing: border-box;
+            padding: 15px;
+        }
+        .tab + label:hover {
+            background-color: #f9f9f9;
+            box-shadow: 0 1px 0 #f4f4f4 inset;
+        }
+        .tab__content {
+            padding: 10px 25px;
+            background-color: transparent;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+            opacity: 0;
+            left: 0;
+            -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+            border-radius: 6px;
+        }
+
+        /* boring stuff */
+        body {
+            font-family: 'Maven Pro', sans-serif;
+            background-color: #e7e7e7;
+            color: #777;
+            padding: 30px 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            display: block;
+            max-width: 800px;
+        }
+        .container > *:not(.tab-wrap) {
+            padding: 0 80px;
+        }
+
+        h1,
+        h2 {
+            margin: 0;
+            color: #444;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        </style>
+
 <!-- ---------------------------------切换结束------------------------------- -->
 <style>
 ul,ol {
@@ -192,36 +360,57 @@ body {
 </head>
 <body>
 <!-- -----------------------------------------切换开始---------------------- -->
-<!-- <div class="main">
-	<div class="mianc">
-		<div class="tabs">
-			<ul>
-				<li><a href="#tabs-1" title="">Tab 1</a></li>
-				<li><a href="#tabs-2" title="">Tab 2</a></li>
-				<li><a href="#tabs-3" title="">Tab 3</a></li>
-			</ul>
+<div class="container">
+    <div class="tab-wrap">
+            <input type="radio" id="tab1" name="tabGroup1" class="tab" checked>
+            <label for="tab1">点赞</label>
 
-			<div id="tabs_container">
-				<div id="tabs-1">
-					<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus.</p>
-					<p>Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-				</div>
+            <input type="radio" id="tab2" name="tabGroup1" class="tab">
+            <label for="tab2">私信</label>
 
-				<div id="tabs-2">
-					<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor.</p>
-				</div>
+            <input type="radio" id="tab3" name="tabGroup1" class="tab">
+            <label for="tab3">评论</label>
 
-				<div id="tabs-3">
-					<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem.</p>
-					<p>Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra , per inceptos himenaeos. Fusce sodales.</p>
-				</div>
-			</div>
-		</div>
-	</div>	        
-</div> -->
-<!-- --------------------------------TAB切换结束---------------------------------------------- -->
-<ul id="pn">
-    <li class="list0">
+            <div class="tab__content">
+                <h3>点赞</h3>
+            	<div class="dianzan">
+            		<ul>
+            			<li>time1 who1 点了赞
+            			<li>time2 who2 点了赞
+            		</ul>
+            	</div>   
+            </div>
+
+            <div class="tab__content">
+                <h3>私信</h3>
+            	<ul id="pn1">
+  				 <li class="list1">
+      			  <div class="content">
+      			      <div class="comment-list">
+              		  <div class="comment" user="self">
+               	      <div class="comment-right">
+                        <div class="comment-text"><span class="user"><%//评论人 %></span><%//说了什么 %></div>
+                        <div class="comment-date">02-14 22:00 <input type="button" class="comment-zan" onclick="dianzan()" value="23 赞">
+                   		    <a class="comment-dele" href="#C1">回复</a>
+                        </div>
+                  	 </div>
+              		</div>
+          			</div>
+     			    <form name="form1" method="post" action="">
+         			   <div class="hf">
+          			   <textarea name="C1" id="te" class="hf-text" autocomplete="off" maxlength="100" rows="10" cols="50"></textarea>
+         	 		   <input type="submit" class="comment-dele" value="提交回复" onclick="return check()"/>
+               		   <span class="hf-nub">0/100</span> </div>
+         		   </form>
+     			 </div>
+   			   </li>
+			</ul> 
+         </div>
+            
+            <div class="tab__content">
+                <h3>评论</h3>
+            	<ul id="pn">
+  				 <li class="list0">
         <div class="content">
             <div class="comment-list">
                 <div class="comment" user="self">
@@ -241,8 +430,12 @@ body {
          </form>
         </div>
         
-    </li>
-</ul>
+   						 </li>
+					</ul>
+            </div>
+    </div>
+</div>
+<!-- --------------------------------TAB切换结束---------------------------------------------- -->
 <script>
 function  check()
 {
