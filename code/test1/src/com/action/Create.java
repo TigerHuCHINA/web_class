@@ -9,8 +9,10 @@ import java.util.ArrayList;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
+import com.dao.AgreeDao;
 import com.dao.CommentDao;
 import com.dao.VideoDao;
+import com.pojo.Agree;
 import com.pojo.Comment;
 import com.pojo.Video;
 
@@ -114,6 +116,23 @@ public class Create {
 		}
 		return sh;	
 
+	}
+	public StringBuilder createAgree(String userid) throws SQLException, ParseException {
+		AgreeDao dao=new AgreeDao();
+		ArrayList<Agree> comments = new ArrayList<Agree>();
+		comments=dao.getByUserId("11");//videoId
+		StringBuilder sh = new StringBuilder();
+		try{
+			PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+			for(int j=0;j<comments.size();j++) {
+				
+			}
+			printStream.println(sh.toString()); 
+			printStream.close();
+		}catch(FileNotFoundException e){
+			   e.printStackTrace();
+		}
+		return sh;
 	}
 }
 
