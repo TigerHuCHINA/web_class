@@ -127,7 +127,10 @@ $(document).ready(function(){
 								或第三方工具对网站相关软件或服务的正常运行进行干扰、破坏、修改或施加其他影响。</p>
 							</div>
 	 						 <script type="text/javascript">
-	 						function Show_Hidden(obj)
+	 						 function show(id){
+									document.getElementById(id).style.display="block";
+								 }
+	 						/* function Show_Hidden(obj)
 	 						{
 	 						 if(obj.style.display=="block")
 	 						 {
@@ -147,7 +150,7 @@ $(document).ready(function(){
 	 						  Show_Hidden(odiv);
 	 						  return false;
 	 						 }
-	 						}
+	 						} */
      						  </script>
   							 <!-- ----------------条款结束------------------------- -->
 							
