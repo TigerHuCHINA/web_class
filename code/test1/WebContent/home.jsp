@@ -115,14 +115,29 @@ $(document).ready(function(){
                             </div>
                             <div class="checkbox check_1">
 							    <input id="check1" type="checkbox" name="check" value="check1">
-							    <label for="check1">我同意服务条款和隐私政策</label>
+							    <label for="check1">我同意服务条款和隐私政策<span style="color:blue" onclick="show('a')">查看条款</span>
+							    </label>
 							</div>
+							  <!-- 	--------------条款------------------------ -->
+							<div style="display:none;" id="a">
+								<p>用户在注册帐号过程中，需要提供一些必要信息，包括但不限于有效的身份证明材料及相关必要信息
+								（包括但不限于您的姓名、电子邮件地址、联系电话、联系地址等）。</p>
+								<p>除非法律允许或者经网站事先书面许可，您使用网站相关服务不得使用未经网站授权或许可的任何软件、插件、外挂、系统
+								或第三方工具对网站相关软件或服务的正常运行进行干扰、破坏、修改或施加其他影响。</p>
+							</div>
+	 						 <script type="text/javascript">
+ 								 function show(id){
+ 									document.getElementById(id).style.display="block";
+  								 }
+     						  </script>
+  							 <!-- ----------------条款结束------------------------- -->
+							
 						</form>   			                                       
 	                </div>     
                  </div>
 		     </div>
 		 </div>
-		 
+	
 		 <div class="modal fade" id="applyModal_2" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog_1">
 				<div class="modal-content">
