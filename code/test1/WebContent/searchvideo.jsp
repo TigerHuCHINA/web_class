@@ -5,8 +5,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-
+<link href="css/style.css" rel='stylesheet' type='text/css'>
 <link href="css/header.css" rel='stylesheet' type='text/css'>
+
 <title>我的个人主页</title>	
 </head>
 <body>
