@@ -21,8 +21,8 @@ public class Agree {
 	public String getCommentid() {
 		return commentid;
 	}
-	public void setCommentid(String videoid) {
-		this.commentid = videoid;
+	public void setCommentid(String commentid) {
+		this.commentid = commentid;
 	}
 	public String getTime() {
 		return time;

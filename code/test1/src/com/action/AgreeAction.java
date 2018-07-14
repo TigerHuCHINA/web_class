@@ -16,11 +16,16 @@ public class AgreeAction extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request,HttpServletResponse response)throws IOException, ServletException {
 		HttpSession session = request.getSession();
+		String userid = (String)session.getAttribute("userid");
+		String commentid = request.getParameter("commentid");
+		
 		Agree aa = new Agree();
+		aa.setUserid(userid);
+		aa.setCommentid(commentid);
 		AgreeDao a = new AgreeDao();
 		if(a.addAgree(aa)) {
 			request.setAttribute("result", "³É¹¦");
-			request.getRequestDispatcher("video.jsp").forward(request, response);
+			response.sendRedirect("video.jsp?id=" + (String)request.getSession().getAttribute("vid") + "&useid=" + (String)request.getSession().getAttribute("ownerid"));
 		}else {
 			request.setAttribute("result", "Ê§°Ü");
 			request.getRequestDispatcher("xx.jsp").forward(request, response);

@@ -377,12 +377,5 @@ function trim(str){ //删除左右两端的空格
 
 </script>
 
-
-
-
-
-
-
-
 </body>
 </html>
