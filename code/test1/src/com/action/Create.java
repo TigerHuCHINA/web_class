@@ -133,7 +133,10 @@ public class Create {
 		agrees=dao.getByUserId(userid);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
+				System.out.println("qiuniao");
 				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+				sh.append("qiuniao");
+				
 				for(int j=0;j<agrees.size();j++) {	
 					sh.append("<li>");
 					sh.append(agrees.get(j).getUserid());
