@@ -1,3 +1,4 @@
+<%@page import="com.action.getCollect"%>
 <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
 <%@page import="com.action.Create"%>
@@ -9,6 +10,7 @@
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/button.css" rel='stylesheet' type='text/css'>
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
+<link href="css/style.css" rel='stylesheet' type='text/css'>
 
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
@@ -148,11 +150,16 @@
     </div>
 
     <div class="mycollect">
-        <div class="title">我的收藏： 共0个视频</div>
+        <div class="title">我的收藏： 共
+    <%
+    getCollect getC = new getCollect();
+    out.print(getC.getById(name).size());
+    %>    
+        个视频</div>
     </div>
 <%
 Create cv=new Create();
-StringBuilder s=cv.createVideo();
+StringBuilder s=cv.createCollectVideo(name);
 out.println(s);
 %>
 </div>

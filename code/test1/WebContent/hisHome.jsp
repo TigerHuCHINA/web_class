@@ -21,24 +21,6 @@
 <body>
 
 <%
-	String ownerid=(String)request.getSession().getAttribute("ownerid");
-	UserEditDao ued=new UserEditDao();
-	UserEdit ue=ued.getInfoById(ownerid);
-	UserDao ud=new UserDao();
-	User u=ud.dologin(ownerid);
-	String ownername=u.getUname();
-	String birthday=ue.getUbirthday();
-	String sex=ue.getUsex();
-	String school=ue.getUschool();
-	String profession=ue.getUprofession();
-	String introduce=ue.getUintroduce();
-	String province = ue.getUprovince();
-	String city = ue.getUcity();
-	String follow = ue.getFollow();
-	String view = ue.getView();
-	request.getSession().setAttribute("ownerid",ownerid);
-
-	
 	
 	/*getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
