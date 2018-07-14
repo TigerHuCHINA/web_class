@@ -279,14 +279,14 @@
 
             <input type="radio" id="tab3" name="tabGroup1" class="tab">
             <label for="tab3">评论</label>
-<%
+<%-- <%
 Create cv1=new Create();
 Agree agree = new Agree();
 //String userid = agree.getUserid();
 String userid = "11";
 StringBuilder s=cv1.createAgree(userid);
 out.println(s);
-%>
+%> --%>
             <div class="tab__content">
                 <h3>点赞</h3>
             	<div class="dianzan">
