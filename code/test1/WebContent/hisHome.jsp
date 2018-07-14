@@ -59,7 +59,7 @@
 </head>
 <body>
 <%
-	String ownerid=(String)request.getSession().getAttribute("ownerid");
+	String ownerid=(String)request.getParameter("ownerid");
 	UserEditDao ued=new UserEditDao();
 	UserEdit ue=ued.getInfoById(ownerid);
 	UserDao ud=new UserDao();

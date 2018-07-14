@@ -221,12 +221,7 @@ body {
 </div> -->
 <!-- --------------------------------TAB切换结束---------------------------------------------- -->
 <ul id="pn">
-    <li class="list0"> <input style="position:relative; left:450px;" type="button" value="X" onclick="delete()"/>
-        <div class="head"><img src="<%//头像 %>" alt=""></div>
-        <div class="content">
-            <p class="text"><span class="name"><%//上传人 %></span><%//视频 %></p>
-            <div class="good"><span class="date">02-14 23:01//上传时间</span></div>
-            <div class="people" total="2980">2980人觉得很赞</div>
+    <li class="list0">
             <div class="comment-list">
                 <div class="comment" user="self">
                     <div class="comment-right">
