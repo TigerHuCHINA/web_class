@@ -1,0 +1,47 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.header{
+	position:absolute;
+	width:100%;
+	height:5%;
+	background-color:black;
+}
+
+.head1{
+	position:absolute;
+	left:83%;
+	top:33%;
+	text-decoration:none;
+	color:white;
+}
+
+.head2{
+	
+	position:absolute;
+	left:7.5%;
+	top:10%;
+	width:38px;
+	height:38px;
+	border-radius:2px;
+	border:1px solid white;
+}
+
+.head3{
+	position:absolute;
+	left:11%;
+	top:33%;
+	text-decoration:none;
+	color:white;
+}
+
+
+.head4{
+	position:absolute;
+	left:90%;
+	top:33%;
+	text-decoration:none;
+	color:white;
+}

@@ -115,14 +115,34 @@ $(document).ready(function(){
                             </div>
                             <div class="checkbox check_1">
 							    <input id="check1" type="checkbox" name="check" value="check1">
-							    <label for="check1">我同意服务条款和隐私政策</label>
+							    <label for="check1">我同意服务条款和隐私政策&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							    </label>
+							    <a id="toggle" href="#">查看条款</a>
 							</div>
+							  <!-- 	--------------条款------------------------ -->
+							<div style="display:none;" id="a">
+								<p>用户在注册帐号过程中，需要提供一些必要信息，包括但不限于有效的身份证明材料及相关必要信息
+								（包括但不限于您的姓名、电子邮件地址、联系电话、联系地址等）。</p>
+								<p>除非法律允许或者经网站事先书面许可，您使用网站相关服务不得使用未经网站授权或许可的任何软件、插件、外挂、系统
+								或第三方工具对网站相关软件或服务的正常运行进行干扰、破坏、修改或施加其他影响。</p>
+							</div>
+	 						 <script type="text/javascript">
+	 						$(function() {
+	 							   $("#toggle").click(function() {
+	 							         $(this).text($("#a").is(":hidden") ? "收起" : "展开");
+	 							         $("#a").slideToggle();
+	 							     });
+	 							 });
+	 						
+     						  </script>
+  							 <!-- ----------------条款结束------------------------- -->
+							
 						</form>   			                                       
 	                </div>     
                  </div>
 		     </div>
 		 </div>
-		 
+	
 		 <div class="modal fade" id="applyModal_2" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog_1">
 				<div class="modal-content">
@@ -157,7 +177,7 @@ $(document).ready(function(){
 		 
 		 
 		<div class="dropdown">
-		<img src="ImageDisplay" class="btn btn-default btn1 pull-left" style="width:75px;height:75px;border:0px solid black;" >
+		<img id="istrue2" src="ImageDisplay" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
 		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 
 			
@@ -298,6 +318,8 @@ function init(){
 			alert(userid_);*/
 			  var istrue=document.getElementById("istrue");
 	     	 istrue.style.display='none';
+	     	var istrue2=document.getElementById("istrue2");
+	     	 istrue2.style.display='none';
 	    /*}else{
 	    	alert(userid_);
 	    	  var register=document.getElementById("register");
@@ -371,7 +393,7 @@ function checkMessage(){
 <!-- 搜索界面 常庭瑞 -->
 
 <div class="search1 dd1">
-    <form class="search1">
+    <form class="search1" action="searchvideo.jsp">
         <input type="text" name="content" placeholder="搜索你感兴趣的课程">
 		<button id="search" class="button" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
     </form>

@@ -18,7 +18,7 @@ public class displayMessage {
 		String acceptid = message.getAcceptId();
 		messages=md.getByUserId(acceptid);
 		StringBuilder sh = new StringBuilder();
-			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
+		PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
 	return sh;
 	}
 }

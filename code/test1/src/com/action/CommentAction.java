@@ -36,7 +36,7 @@ public class CommentAction extends HttpServlet {
 		if(dao.sendComment(comment))
 		{
 			req.setAttribute("result", "³É¹¦");
-			req.getRequestDispatcher("video.jsp").forward(req, resp);
+			resp.sendRedirect("video.jsp?id=" + videoid + "&useid=" + (String)req.getSession().getAttribute("ownerid"));
 		}
 		else 
 		{

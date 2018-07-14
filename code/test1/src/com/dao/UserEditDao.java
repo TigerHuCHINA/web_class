@@ -2,9 +2,13 @@ package com.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import com.comm.BaseDao;
 import com.pojo.UserEdit;
+import com.pojo.Video;
 
 
 //用户数据库操作-季宇恒
@@ -49,5 +53,34 @@ public class UserEditDao extends BaseDao{
 			e.printStackTrace();
 		}
 		return u;
+	}
+	
+	public ArrayList<Video> getUploadVideo(String id){
+		String sql = "select * from video where userId=?";
+		Object[] obs = {id};
+		ResultSet set = executeSelect(sql, null);
+		ArrayList<Video> videos = new ArrayList<Video>();
+		try {
+			while(set.next()) {
+				Video video = new Video();
+				video.setId(set.getString("id"));
+				video.setUserId(set.getString("userId"));
+				video.setFile(set.getString("file"));
+				video.setTitle(set.getString("title"));
+				video.setIntroduce(set.getString("introduce"));
+				SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				video.setTime(s.parse(set.getString("time")));
+				video.setDuration(set.getString("duration"));
+				videos.add(video);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		free();
+		return videos;
 	}
 }

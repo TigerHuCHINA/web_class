@@ -33,6 +33,31 @@ public class CommentDao extends BaseDao{
 		free();
 		return comments;
 	}
+//按视频上传者读取视频评论-季宇恒	
+	public ArrayList<Comment> getById(String id)
+	{
+		String sql = "select comment.userId,comment.time,video.title,comment.content "
+				+ "from comment left join video on video.id=comment.videoId "
+				+ "where video.userId=?";
+		Object obj[] = {id};
+		ResultSet set = executeSelect(sql, obj);
+		ArrayList<Comment> comments = new ArrayList<Comment>();
+		try {
+			while(set.next()) {
+				Comment comment = new Comment();
+				comment.setUserId(set.getString(1));
+				comment.setTime(set.getString(2));
+				comment.setVideoId(set.getString(3));
+				comment.setContent(set.getString(4));
+				comments.add(comment);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		free();
+		return comments;
+	}
 	
 	public boolean sendComment(Comment comment)
 	{
