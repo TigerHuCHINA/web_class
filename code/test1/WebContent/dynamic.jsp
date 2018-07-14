@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="com.action.Create"%>
+<%@page import="com.pojo.Agree"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -278,13 +279,20 @@
 
             <input type="radio" id="tab3" name="tabGroup1" class="tab">
             <label for="tab3">评论</label>
-
+<%
+Create cv1=new Create();
+Agree agree = new Agree();
+//String userid = agree.getUserid();
+String userid = "11";
+StringBuilder s=cv1.createAgree(userid);
+out.println(s);
+%>
             <div class="tab__content">
                 <h3>点赞</h3>
             	<div class="dianzan">
             		<ul>
-            			<li>time1 who1 点了赞
-            			<li>time2 who2 点了赞
+            			<li><% %> <% %> 点了赞
+            			<li><% %> <% %> 点了赞
             		</ul>
             	</div>   
             </div>
@@ -370,11 +378,7 @@ function trim(str){ //删除左右两端的空格
 </script>
 
 
-<%
-Create cv=new Create();
-StringBuilder s=cv.createComment((String)request.getSession().getAttribute("vid"));
-out.println(s);
-%>
+
 
 
 
