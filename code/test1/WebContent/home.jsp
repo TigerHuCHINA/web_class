@@ -115,8 +115,9 @@ $(document).ready(function(){
                             </div>
                             <div class="checkbox check_1">
 							    <input id="check1" type="checkbox" name="check" value="check1">
-							    <label for="check1">我同意服务条款和隐私政策<span style="color:blue" onclick="show('a')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查看条款</span>
+							    <label for="check1">我同意服务条款和隐私政策&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							    </label>
+							    <a id="link" href="#">查看条款</a>
 							</div>
 							  <!-- 	--------------条款------------------------ -->
 							<div style="display:none;" id="a">
@@ -126,9 +127,27 @@ $(document).ready(function(){
 								或第三方工具对网站相关软件或服务的正常运行进行干扰、破坏、修改或施加其他影响。</p>
 							</div>
 	 						 <script type="text/javascript">
- 								 function show(id){
- 									document.getElementById(id).style.display="block";
-  								 }
+	 						function Show_Hidden(obj)
+	 						{
+	 						 if(obj.style.display=="block")
+	 						 {
+	 						  obj.style.display='none';
+	 						 }
+	 						 else
+	 						 {
+	 						  obj.style.display='block';
+	 						 }
+	 						}
+	 						window.onload=function()
+	 						{
+	 						 var olink=document.getElementById("link");
+	 						 var odiv=document.getElementById("a");
+	 						 olink.onclick=function()
+	 						 {
+	 						  Show_Hidden(odiv);
+	 						  return false;
+	 						 }
+	 						}
      						  </script>
   							 <!-- ----------------条款结束------------------------- -->
 							
