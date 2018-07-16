@@ -154,6 +154,17 @@ request.getSession().setAttribute("ownerid",ownerid);
 <div class="mybuttons">
     <div>
 	    <a class="mybtn1 btn btn-medium type2" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">私信</a>
+<%
+FollowDao fd=new FollowDao();
+boolean hasfollow=fd.hasFollow((String)request.getSession().getAttribute("ownerid"),(String)request.getSession().getAttribute("userid"));
+if(hasfollow){System.out.print("true");}
+else{System.out.print("false");}
+if(hasfollow){
+out.print("<a class='focus' href='doFollow?flag=de' onclick='focus();'>取消关注</a>");
+}else{
+out.print("<a class='focus' href='doFollow?flag=add' onclick='focus();'>关注</a>");
+}
+%>
     </div>
 </div>
 
@@ -176,17 +187,7 @@ out.println(s);
 
 <!-- -----------------------------------关注、收藏----------------------------------- -->
 <div class="focusinfo">
-<%
-FollowDao fd=new FollowDao();
-boolean hasfollow=fd.hasFollow((String)request.getSession().getAttribute("ownerid"),(String)request.getSession().getAttribute("userid"));
-if(hasfollow){System.out.print("true");}
-else{System.out.print("false");}
-if(hasfollow){
-out.print("<a class='focus' href='doFollow?flag=de' onclick='focus();'>取消关注</a>");
-}else{
-out.print("<a class='focus' href='doFollow?flag=add' onclick='focus();'>关注</a>");
-}
-%>
+
 
 	
 </div>
