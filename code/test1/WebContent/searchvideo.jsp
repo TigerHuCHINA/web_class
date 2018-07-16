@@ -20,7 +20,7 @@
 
     <a class="head1" href="home.jsp">主界面</a>
 
-    <a class="head2" href="homePage.jsp"><img src="ImageDisplay" width="100%" height="100%"></a>
+    <a class="head2" href="homePage.jsp"><img src="ImageDisplay?id=user" width="100%" height="100%"></a>
         
     <a class="head3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 
@@ -32,84 +32,19 @@
 <%
 Create cv=new Create();
 String key = request.getParameter("content");
+//key = new String(key.getBytes("iso-8859-1"),"utf-8");
+System.out.println(key);
 StringBuilder s=cv.createSelectedVideo(key);
 out.println(s);
 %>
 
 <h1>相关用户</h1>
 
-<div class="myinformation">
-    <div class="image">
-        <img src="ImageDisplay" onclick="hisHome"/>    
-    </div>
-    <div class="informationbox">
-        <div id="username" class="info">
-            <tr>
-                <td>用户名: </td>
-                <td><%//=ownername%></td>
-            </tr>
-        </div>
-    
-        <div id="userid" class="info">
-            <tr>
-                <td>用户账号: </td>
-                <td><%//=ownerid%></td>
-            </tr>
-        </div>
-        
-        <div id="userfocus" class="info">
-            <tr>
-                <td>关注量: </td>
-                <td><%//=follow %></td>
-            </tr>
-        </div>
-    
-        <div id="userread" class="info">
-	        <tr>
-	            <td>浏览量: </td>
-	            <td><%//=view %></td>
-	        </tr>
-        </div>
-           
-    </div>
-</div>
+<%
+StringBuilder s_=cv.createSelectedUser(key);
+out.println(s_);
+%>
 
-
-<div class="myinformation">
-    <div class="image">
-        <img src="ImageDisplay" onclick="hisHome.jsp"/>    
-    </div>
-    <div class="informationbox">
-        <div id="username" class="info">
-            <tr>
-                <td>用户名: </td>
-                <td><%//=ownername%></td>
-            </tr>
-        </div>
-    
-        <div id="userid" class="info">
-            <tr>
-                <td>用户账号: </td>
-                <td><%//=ownerid%></td>
-            </tr>
-        </div>
-        
-        <div id="userfocus" class="info">
-            <tr>
-                <td>关注量: </td>
-                <td><%//=follow %></td>
-            </tr>
-        </div>
-    
-        <div id="userread" class="info">
-	        <tr>
-	            <td>浏览量: </td>
-	            <td><%//=view %></td>
-	        </tr>
-        </div>
-           
-    </div>
-</div>
 
 
 

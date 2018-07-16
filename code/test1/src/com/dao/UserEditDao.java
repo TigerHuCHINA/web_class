@@ -57,7 +57,7 @@ public class UserEditDao extends BaseDao{
 	
 	public ArrayList<UserEdit> getByKeywords(String key)
 	{
-		String sql = "select idname,name,headphoto from user where name like ?";
+		String sql = "select idname,name,headphoto,follow,view from user where name like ?";
 		Object obs[] = {"%" + key + "%"};
 		ResultSet set = executeSelect(sql, obs);
 		ArrayList<UserEdit> users = new ArrayList<UserEdit>();
@@ -67,6 +67,8 @@ public class UserEditDao extends BaseDao{
 				userEdit.setUid(set.getString("idname"));
 				userEdit.setUname(set.getString("name"));
 				userEdit.setUheadphoto(set.getString("headphoto"));
+				userEdit.setFollow(set.getString("follow"));
+				userEdit.setView(set.getString("view"));
 				users.add(userEdit);
 				}
 		} catch (SQLException e) {

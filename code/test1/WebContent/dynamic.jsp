@@ -324,7 +324,7 @@
             
             <div class="tab__content">
                 <h3>收藏</h3>
-            	<div class="guanzhu">
+            	<div class="shoucang">
             		<ul>
             		<%
 					String id3=(String)request.getSession().getAttribute("userid");
@@ -341,6 +341,7 @@
 
             <div class="tab__content">
                 <h3>私信</h3>
+                <div class="sixin">
                 <%
                 //String id4="11";
                 String id4=(String)request.getSession().getAttribute("userid");
@@ -348,10 +349,12 @@
 				StringBuilder s4=cv4.createMessage(id4);
 				out.println(s4);
                 %>
+                </div>
          </div>
             
            <div class="tab__content">
                 <h3>评论</h3>
+                <div class="pinglun">
            <%
            		//String id5="11";
 	           	String id5=(String)request.getSession().getAttribute("userid");
@@ -359,11 +362,13 @@
 				
 				StringBuilder s5=cv5.createCommentR(id5);
 				out.println(s5);
-           %>     
+           %>    
+           </div> 
            </div>
            
            <div class="tab__content">
            		<h3>好友列表</h3>
+           		<div class="haoyou">
            <%
            		String id6=(String)request.getSession().getAttribute("userid");
            		Create cv6=new Create();
@@ -371,7 +376,7 @@
            		StringBuilder s6=cv6.createFriend(id6);
            		out.println(s6);
            %>
-           
+           </div>
     </div>
 </div>
 <!-- --------------------------------TAB切换结束---------------------------------------------- -->
