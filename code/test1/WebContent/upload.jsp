@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%if(request.getSession().getAttribute("userid")==null)response.sendRedirect("home.jsp"); %>
 <html>
 <head>
 
@@ -101,7 +102,7 @@
             <textarea name="info" id="video_info" onKeyDown="textdown(event)"  onKeyUp="textup()" placeholder="请输入视频简介"></textarea>
         </div>
         <div class="submit">
-            <a class="mybtn1 btn btn-large type3"type=" submit" onclick="myFunction();">提交</a>
+            <button class="mybtn1 btn btn-large type3"type=" submit" onclick="check();">提交</button>
         </div>       
     </form>
 </div>

@@ -106,20 +106,33 @@ public class VideoDao extends BaseDao{
 			while(set.next()) {
 				Video video = new Video();
 				video.setId(set.getString("id"));
-				video.setUserId(set.getString("userId"));
-				video.setTitle(set.getString("title"));
-				video.setIntroduce(set.getString("introduce"));
-				SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				video.setTime(s.parse(set.getString("time")));
-				video.setDuration(set.getString("duration"));
-				video.setFile(set.getString("file"));
-				video.setView(set.getString("view"));
 				videos.add(video);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return videos;
+	}
+	
+	public ArrayList<Video> getByVideoRecord(String id) throws ParseException
+	{
+		String sql = "SELECT videoId,max(daytime) FROM schoolol.videorecord where userId=? group by videoId order by max(daytime) desc;";
+		Object[] obs = {id};
+		ResultSet set = executeSelect(sql, obs);
+		ArrayList<Video> videos = new ArrayList<Video>();
+		try {
+			while(set.next()) {
+				VideoDao videoDao = new VideoDao();
+				Video video = videoDao.getInfoById(set.getString(1));
+				video.setSeeTime(set.getString(2));
+				videos.add(video);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		free();
 		return videos;
 	}
 }
