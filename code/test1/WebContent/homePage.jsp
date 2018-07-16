@@ -24,8 +24,8 @@
 	String name = (String)session.getAttribute("userid");
 	System.out.println(name);
 	UserEdit u = get.getInfoById(name);
-	String path="C:\\Users\\acer\\Desktop\\"+u.getUheadphoto();
-	System.out.print(path);
+	/*String path="C:\\Users\\acer\\Desktop\\"+u.getUheadphoto();
+	System.out.print(path);*/
 %>
 <!-- 顶部菜单 -->
 <div class="header">
@@ -73,7 +73,10 @@
         <div id="userdate" class="info">
             <tr>
                 <td>生日: </td>
-                <td><%=u.getUbirthday() %></td>
+                <td><%
+                if(u.getUbirthday() != null) out.print(u.getUbirthday());
+                else out.print("未知");
+                %></td>
             </tr>
         </div>
     
@@ -100,7 +103,9 @@
         <div id="userinformation" class="info">
             <tr>
                 <td>个人简介: </td>
-                <td><%=u.getUintroduce() %></td>
+                <td><%
+                if(u.getUintroduce() != null) out.print(u.getUintroduce());
+                else out.print("还没有个人简介");%></td>
             </tr>
         </div>
     
