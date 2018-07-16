@@ -434,6 +434,7 @@ public class Create{
 			sh.append("还没有收藏任何视频");
 			return sh;
 		}
+		
 		try{
 
 			PrintStream printStream = new PrintStream(new FileOutputStream("homePage.jsp"));
