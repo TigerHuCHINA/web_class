@@ -383,6 +383,7 @@ public class Create{
 			sh.append("<ul class='ul1'>");
 			if(videos.size()==0)sh.append("<strong>Î´ÕÒµ½ÄúËÑË÷µÄÊÓÆµ</strong>");
 			for(int j=0;j<videos.size();j++) {
+				System.out.println(videos.get(j).getCover());
 			sh.append("<li>");
 			sh.append("<div class='box1'>");
 			sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");

@@ -73,7 +73,7 @@ public class VideoDao extends BaseDao{
 	
 	public ArrayList<Video> getByKeywords(String key)
 	{
-		String sql = "select id,userId,title,introduce,time,duration from video where title like ?";
+		String sql = "select id,userId,title,introduce,time,duration,cover from video where title like ?";
 		Object obs[] = {"%" + key + "%"};
 		ResultSet set = executeSelect(sql, obs);
 		ArrayList<Video> videos = new ArrayList<Video>();
