@@ -140,7 +140,7 @@
         <a class="mybtn1 btn btn-medium type2" href="javascript:void(0)" onclick="document.getElementById('light3').style.display='block';document.getElementById('fade').style.display='block'">编辑资料</a>
     </div>
     <div>
-        <a class="mybtn1 btn btn-medium type3" href="message.jsp">查看留言</a>
+        <a class="mybtn1 btn btn-medium type3" href="history.jsp">观看记录</a>
     </div>
     <div>
         <a class="mybtn1 btn btn-medium type1" href="upload.jsp">上传视频</a>

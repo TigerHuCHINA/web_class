@@ -7,8 +7,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link href="css/style.css" rel='stylesheet' type='text/css'>
 <link href="css/header.css" rel='stylesheet' type='text/css'>
+<link href="css/video.css" rel='stylesheet' type='text/css'>
+<link href="css/searchvideo.css" rel='stylesheet' type='text/css'>
 
 <title>搜索视频</title>	
 </head>
@@ -27,13 +28,90 @@
 
 
 </div>
-
+<h1 style="position:relative;top:80px;">相关视频</h1>
 <%
 Create cv=new Create();
 String key = request.getParameter("content");
 StringBuilder s=cv.createSelectedVideo(key);
 out.println(s);
 %>
+
+<h1>相关用户</h1>
+
+<div class="myinformation">
+    <div class="image">
+        <img src="ImageDisplay" onclick="hisHome"/>    
+    </div>
+    <div class="informationbox">
+        <div id="username" class="info">
+            <tr>
+                <td>用户名: </td>
+                <td><%//=ownername%></td>
+            </tr>
+        </div>
+    
+        <div id="userid" class="info">
+            <tr>
+                <td>用户账号: </td>
+                <td><%//=ownerid%></td>
+            </tr>
+        </div>
+        
+        <div id="userfocus" class="info">
+            <tr>
+                <td>关注量: </td>
+                <td><%//=follow %></td>
+            </tr>
+        </div>
+    
+        <div id="userread" class="info">
+	        <tr>
+	            <td>浏览量: </td>
+	            <td><%//=view %></td>
+	        </tr>
+        </div>
+           
+    </div>
+</div>
+
+
+<div class="myinformation">
+    <div class="image">
+        <img src="ImageDisplay" onclick="hisHome.jsp"/>    
+    </div>
+    <div class="informationbox">
+        <div id="username" class="info">
+            <tr>
+                <td>用户名: </td>
+                <td><%//=ownername%></td>
+            </tr>
+        </div>
+    
+        <div id="userid" class="info">
+            <tr>
+                <td>用户账号: </td>
+                <td><%//=ownerid%></td>
+            </tr>
+        </div>
+        
+        <div id="userfocus" class="info">
+            <tr>
+                <td>关注量: </td>
+                <td><%//=follow %></td>
+            </tr>
+        </div>
+    
+        <div id="userread" class="info">
+	        <tr>
+	            <td>浏览量: </td>
+	            <td><%//=view %></td>
+	        </tr>
+        </div>
+           
+    </div>
+</div>
+
+
 
 
 </body>
