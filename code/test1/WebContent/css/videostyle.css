@@ -86,18 +86,11 @@ form.search1 {
 }*/
 
 
-.mybuttons{
+ 
+.mybutton{
 	position:absolute;
-	width:80%;
-    height:20%;
-    left:50%;
-    top:70%;
-    
-}  
-
-.mybtn1{
-	margin-left:10px;
+	left:1200px;
+	top:700px;
 }
-
 
 

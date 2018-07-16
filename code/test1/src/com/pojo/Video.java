@@ -15,6 +15,7 @@ public class Video {
 	private Date time;
 	private String cover;
 	private String view;
+	private String seeTime;
 	public String getId() {
 		return id;
 	}
@@ -83,6 +84,12 @@ public class Video {
 	}
 	public void setTime(Date time) {
 		this.time = time;
+	}
+	public String getSeeTime() {
+		return seeTime;
+	}
+	public void setSeeTime(String seeTime) {
+		this.seeTime = seeTime;
 	}
 	
 	

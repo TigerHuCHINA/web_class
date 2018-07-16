@@ -2,6 +2,8 @@
 <%@page import="com.action.getInfo"%>
 <%@page import="com.action.Create"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%if(request.getSession().getAttribute("userid")==null)response.sendRedirect("home.jsp"); %>
+<%if(request.getSession().getAttribute("userid")==null)response.sendRedirect("home.jsp"); %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -17,7 +19,7 @@
 
     <a class="head1" href="home.jsp">主界面</a>
 
-    <a class="head2" href="homePage.jsp"><img src="picture/1.png" width="100%" height="100%"></a>
+    <a class="head2" href="homePage.jsp"><img src="ImageDisplay" width="100%" height="100%"></a>
         
     <a class="head3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 
@@ -29,7 +31,6 @@
 <%
 Create cv=new Create();
 String key = request.getParameter("content");
-System.out.println(key);
 StringBuilder s=cv.createSelectedVideo(key);
 out.println(s);
 %>

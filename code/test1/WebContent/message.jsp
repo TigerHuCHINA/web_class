@@ -1,6 +1,7 @@
 <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%if(request.getSession().getAttribute("userid")==null)response.sendRedirect("home.jsp"); %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>

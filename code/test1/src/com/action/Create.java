@@ -103,6 +103,7 @@ public class Create{
 				sh.append("<div class=\"comment-date\">");
 				sh.append(comments.get(j).getTime());
 				sh.append("<a class=\"comment-zan\" href=\"doAgree?commentid=");
+				
 				sh.append(comments.get(j).getId());
 				sh.append("\">");
 				sh.append(comments.get(j).getAgree());
@@ -365,6 +366,12 @@ public class Create{
 		ArrayList<Video> videos = new ArrayList<Video>();
 		videos=vd.getByKeywords(key);
 		StringBuilder sh = new StringBuilder();
+		if(videos.size()==0)
+		{
+			System.out.println("123132");
+			sh.append("<h1 style=\"position:absolute;left:200px;top:400px;\">未找到您搜索的视频</h1>");
+			return sh;
+		}
 		try{
 			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
 			sh.append("<div id='videos'>");
@@ -412,6 +419,11 @@ public class Create{
 		getCollect get = new getCollect();
 		ArrayList<Video> videos = get.getById(id);
 		StringBuilder sh = new StringBuilder();
+		if(videos.size()==0)
+		{
+			sh.append("还没有收藏任何视频");
+			return sh;
+		}
 		try{
 
 			PrintStream printStream = new PrintStream(new FileOutputStream("homePage.jsp"));
@@ -459,6 +471,11 @@ public class Create{
 		VideoDao dao = new VideoDao();
 		ArrayList<Video> videos = dao.getInfoByUserId(id);
 		StringBuilder sh = new StringBuilder();
+		if(videos.size()==0)
+		{
+			sh.append("还没有上传任何视频");
+			return sh;
+		}
 		try{
 
 			PrintStream printStream = new PrintStream(new FileOutputStream("homePage.jsp"));
