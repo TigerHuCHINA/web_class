@@ -5,6 +5,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+
+<link href="css/header.css" rel='stylesheet' type='text/css'>
 <title>动态界面</title>
 <!-- --------------------------------TAB切换------------------------- -->
  <style type="text/css">
@@ -150,15 +152,18 @@
         }
 
         /* boring stuff */
-        body {
+    /*     body {
             font-family: 'Maven Pro', sans-serif;
             background-color: #e7e7e7;
             color: #777;
             padding: 30px 0;
-        }
+        } */
 
         .container {
-            margin: 0 auto;
+            position:absolute;
+            top:100px;
+            left:500px;
+            
             display: block;
             max-width: 800px;
         }
@@ -269,6 +274,22 @@
 </style>
 </head>
 <body>
+
+<!-- 顶部菜单 -->
+<div class="header">
+
+
+    <a class="head1" href="home.jsp">主界面</a>
+
+    <a class="head2" href="homePage.jsp"><img src="picture/1.png" width="100%" height="100%"></a>
+        
+    <a class="head3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
+
+    <a class="head4" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">反馈</a>
+
+
+</div>
+
 <!-- -----------------------------------------切换开始---------------------- -->
 <div class="container">
     <div class="tab-wrap">

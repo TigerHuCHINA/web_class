@@ -373,7 +373,7 @@ public class Create{
 		if(videos.size()==0)
 		{
 			System.out.println("123132");
-			sh.append("<h1 style=\"position:absolute;left:200px;top:400px;\">未找到您搜索的视频</h1>");
+			sh.append("<div>未找到您搜索的视频</div>");
 			return sh;
 		}
 		try{
@@ -381,7 +381,7 @@ public class Create{
 			SimpleDateFormat   formatter =new   SimpleDateFormat( "yyyy-MM-dd ");
 			sh.append("<div id='videos'>");
 			sh.append("<ul class='ul1'>");
-			if(videos.size()==0)sh.append("<strong>未找到您搜索的视频</strong>");
+			//if(videos.size()==0)sh.append("<strong>未找到您搜索的视频</strong>");
 			for(int j=0;j<videos.size();j++) {
 				System.out.println(videos.get(j).getCover());
 			sh.append("<li>");

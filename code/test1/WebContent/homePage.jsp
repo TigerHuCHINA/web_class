@@ -11,8 +11,8 @@
 
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/button.css" rel='stylesheet' type='text/css'>
+<link href="css/video.css" rel='stylesheet' type='text/css'>
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
-<link href="css/style.css" rel='stylesheet' type='text/css'>
 
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
@@ -160,14 +160,14 @@
         out.print(dao.getInfoByUserId(name).size());
         %>
         个视频</div>
-    </div>
+    
 
 	<%
 Create cv=new Create();
 StringBuilder s=cv.createUploadVideo(name);
 out.println(s);
 %>
-
+</div>
     <div class="mycollect">
         <div class="title">我的收藏： 共
     <%
@@ -175,11 +175,12 @@ out.println(s);
     out.print(getC.getById(name).size());
     %>    
         个视频</div>
-    </div>
+    
 <%
 StringBuilder s_=cv.createCollectVideo(name);
 out.println(s_);
 %>
+</div>
 </div>
 
 
