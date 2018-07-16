@@ -223,16 +223,11 @@ body {
 	display:inline;
 }
 </style>
-<!-- ---------------------------------评论结束--------------------------------- -->
+
+
 </head>
 <body>
-<div id="counter">
-	<form action="doCount" action="doRecord" method="post">
-	<div>
-		<input type="submit" value="计算" class="counter" />
-	</div>
-	</form>
-</div>
+
 <!-- ----------------------播放视频，邓慧颖---------------------------------- -->
 
 
@@ -264,13 +259,13 @@ request.getSession().setAttribute("ownerid",ownerid);
 	visitorcount.doo((String)request.getSession().getAttribute("userid"),vid);
 %>
 <%
-VideoDao vd=new VideoDao();
+/* VideoDao vd=new VideoDao();
 if(vid==null){
 	vid=(String)request.getAttribute("id");
 	}
 Video v=vd.getInfoById(vid);
 String videoname=v.getTitle();
-String view=v.getView();
+String view=v.getView(); */
 %>
 
 
@@ -301,13 +296,13 @@ String view=v.getView();
     <div id="playcount" class="info">
         <tr>
             <td>观看数 </td>
-            <td><%=view%></td>
+            <td><%//=view%></td>
         </tr>
     </div>
     
 </div>
 
-<div>
+<div class="mybutton">
 	<%
 	CollectDao cd=new CollectDao();
 	boolean result=cd.hasCollect((String)request.getSession().getAttribute("userid"),(String)request.getSession().getAttribute("vid"));
@@ -334,8 +329,6 @@ function funcText2(){
 
 	
 <!--动态点赞结束-->
-=======
->>>>>>> 51aedc868eae82ebbb0ebc90bba5f1605d7f99dc
 <script>
 $(function(){
 	$("#praise").click(function(){
