@@ -178,7 +178,7 @@ $(document).ready(function(){
 		 
 		 
 		<div class="dropdown">
-		<img id="istrue2" src="ImageDisplay" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
+		<img id="istrue2" src="ImageDisplay?id=user" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
 		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 
 			

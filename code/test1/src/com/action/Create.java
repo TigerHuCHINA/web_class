@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import com.dao.AgreeDao;
 import com.dao.CollectDao;
@@ -29,6 +30,7 @@ public class Create {
 		try{
 
 			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
+			SimpleDateFormat   formatter =new   SimpleDateFormat( "yyyy-MM-dd ");
 			sh.append("<div id='videos'>");
 			sh.append("<ul class='ul1'>");
 			for(int j=0;j<videos.size();j++) {
@@ -40,14 +42,14 @@ public class Create {
 				sh.append(videos.get(j).getUserId());
 				sh.append("'>");
 				sh.append("<img src='");
-				sh.append("cover/cover.png");
+				sh.append("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
 				sh.append("'>");
 				sh.append("</a>");
 				sh.append("<div class='first'>");
 				sh.append("<p class='top2'>");
 				sh.append(videos.get(j).getTitle());
 				sh.append("</p>");
-				sh.append("<p class='bottom2'>更新至7-14<span>课程时长:");
+				sh.append("<p class='bottom2'><span>课程时长:");
 				sh.append(videos.get(j).getDuration());
 				sh.append("</span></p>");
 				sh.append("</div>");
@@ -55,7 +57,12 @@ public class Create {
 				sh.append("<p class='top2'>");
 				sh.append(videos.get(j).getIntroduce());
 				sh.append("</p>");
-				sh.append("<p class='bottom2'>2015-08-17<span>272648人学习</span></p>");
+				sh.append("<p class='bottom2'>");
+				String date=formatter.format(videos.get(j).getTime());
+				sh.append(date);
+				sh.append("<span>");
+				sh.append(videos.get(j).getView());
+				sh.append("人学习</span></p>");
 				sh.append("</div>");
 				sh.append("</div>");
 				sh.append("</li>");

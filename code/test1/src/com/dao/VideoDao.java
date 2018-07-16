@@ -23,9 +23,11 @@ public class VideoDao extends BaseDao{
 				video.setFile(set.getString("file"));
 				video.setTitle(set.getString("title"));
 				video.setIntroduce(set.getString("introduce"));
+				video.setCover(set.getString("cover"));
 				SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				video.setTime(s.parse(set.getString("time")));
 				video.setDuration(set.getString("duration"));
+				video.setView(String.valueOf(set.getInt("view")));
 				videos.add(video);
 			}
 		} catch (SQLException e) {
