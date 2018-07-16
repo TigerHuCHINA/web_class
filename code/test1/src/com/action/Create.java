@@ -47,7 +47,7 @@ public class Create{
 				sh.append(videos.get(j).getUserId());
 				sh.append("'>");
 				sh.append("<img src='");
-				sh.append("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
+				sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
 				sh.append("'>");
 				sh.append("</a>");
 				sh.append("<div class='first'>");
@@ -207,9 +207,9 @@ public class Create{
 					sh.append("</a>");
 					sh.append("\t¹Ø×¢ÁËÄã");
 					sh.append("</div>");
-					sh.append("<div class=\"comment-date\">");
-					sh.append(follows.get(j).getTime());
-					sh.append("</div>");
+					//sh.append("<div class=\"comment-date\">");
+					//sh.append(follows.get(j).getTime());
+					//sh.append("</div>");
 					sh.append("</div>");
 					sh.append("</div>");
 					sh.append("</div>");
@@ -390,7 +390,7 @@ public class Create{
 			sh.append(videos.get(j).getUserId());
 			sh.append("'>");
 			sh.append("<img src='");
-			sh.append("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
+			sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
 			sh.append("'>");
 			sh.append("</a>");
 			sh.append("<div class='first'>");
@@ -449,7 +449,7 @@ public class Create{
 				sh.append(videos.get(j).getUserId());
 				sh.append("'>");
 				sh.append("<img src='");
-				sh.append("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
+				sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
 				sh.append("'>");
 				sh.append("</a>");
 				sh.append("<div class='first'>");
@@ -507,8 +507,7 @@ public class Create{
 				sh.append(videos.get(j).getUserId());
 				sh.append("'>");
 				sh.append("<img src='");
-				sh.append("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
-				System.out.println("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
+				sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
 				sh.append("'>");
 				sh.append("</a>");
 				sh.append("<div class='first'>");
@@ -561,7 +560,7 @@ public class Create{
 				sh.append(videos.get(j).getUserId());
 				sh.append("'>");
 				sh.append("<img src='");
-				sh.append("cover/cover.png");
+				sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
 				sh.append("'>");
 				sh.append("</a>");
 				sh.append("<div class='first'>");
@@ -650,7 +649,7 @@ public class Create{
 					sh.append(videos.get(j).getUserId());
 					sh.append("'>");
 					sh.append("<img src='");
-					sh.append("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
+					sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
 					sh.append("'>");
 					sh.append("</a>");
 					sh.append("<div class='first'>");

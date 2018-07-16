@@ -68,7 +68,7 @@ public class UploadAction extends HttpServlet {
 		v.setIntroduce(introduce);
 		v.setFile(tarPath);
 		v.setDuration(f);
-		v.setCover("C:\\Users\\acer\\Desktop\\"+tarPath2);
+		v.setCover("C:\\Users\\Lenovo\\Desktop\\"+tarPath2);
 		if(bd.Upload(v)) {
 			request.setAttribute("result", "³É¹¦");
 			request.getRequestDispatcher("success.jsp").forward(request, response);

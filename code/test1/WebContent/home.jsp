@@ -592,65 +592,6 @@ Create cv=new Create();
 StringBuilder s=cv.createVideo();
 out.println(s);
 %>
-<!-- 显示视频 常庭瑞 -->
-<div id="videos">
-    <ul class="ul1">
-    
-    
-        <li>
-            <div class="box1">
-                <a href="video.jsp" class="avatar_pic" target="_self" onclick="return false" >
-                    <img src="cover/cover.png"/>
-                </a>
-                <div class="first">
-                    <p class="top2"><%//视频名称 %></p>
-                    <p class="bottom2"><%//视频类别 %></p>
-                </div>
-                <div class="last">
-                    <p class="top2"><%//视频简介 %></p>
-                    <p class="bottom2"><%//上传时间 %><span><%//播放量 %></span></p>
-                </div>
-            </div>
-        </li>
-  
-        
-        
-    </ul>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
