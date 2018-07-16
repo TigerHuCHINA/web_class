@@ -32,7 +32,14 @@ $(document).ready(function(){
 
 
 </script>
-
+<style>
+#istrue{
+display:none;
+}
+#istrue2{
+display:none
+}
+</style>
 </head>
 
 <body onload = "init()">
@@ -297,10 +304,7 @@ function checkRegister(){
 
 //判断是否登录及错误-杜宇航
 function init(){
-	 var istrue=document.getElementById("istrue");
-	 istrue.style.display='none';
-     var istrue2=document.getElementById("istrue2");
-	 istrue2.style.display='none';
+	 
 	 
 	 
 	var userid = "<%=request.getSession().getAttribute("userid")%>";
