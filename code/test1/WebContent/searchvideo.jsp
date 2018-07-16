@@ -32,11 +32,17 @@
 <%
 Create cv=new Create();
 String key = request.getParameter("content");
+key = new String(key.getBytes("iso-8859-1"),"utf-8");
 StringBuilder s=cv.createSelectedVideo(key);
 out.println(s);
 %>
 
 <h1>相关用户</h1>
+
+<%
+StringBuilder s_=cv.createSelectedUser(key);
+out.println(s_);
+%>
 
 <div class="myinformation">
     <div class="image">
