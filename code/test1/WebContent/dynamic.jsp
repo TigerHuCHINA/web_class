@@ -286,6 +286,9 @@
 
             <input type="radio" id="tab5" name="tabGroup1" class="tab">
             <label for="tab5">评论</label>
+            
+            <input type="radio" id="tab6" name="tabGroup1" class="tab">
+            <label for="tab6">好友列表</label>
 
             <div class="tab__content">
                 <h3>点赞</h3>
@@ -347,7 +350,7 @@
                 %>
          </div>
             
-            <div class="tab__content">
+           <div class="tab__content">
                 <h3>评论</h3>
            <%
            		//String id5="11";
@@ -357,31 +360,18 @@
 				StringBuilder s5=cv5.createCommentR(id5);
 				out.println(s5);
            %>     
-<!-- 
-            	<ul id="pn">
-  				 <li class="list">
-      			  <div class="content">
-      			      <div class="comment-list">
-              		  <div class="comment">
-               	      <div class="comment-right">
-                        <div class="comment-text"><span class="user"><%//评论人 %></span><%//说了什么 %></div>
-                        <div class="comment-date">02-14 22:00 <input type="button" class="comment-zan" onclick="dianzan()" value="23 赞">
-                   		    <a class="comment-dele" href="#C2">回复</a>
-                        </div>
-                  	 </div>
-              		</div>
-          			</div>
-     			    <form name="form1" method="post" action="">
-         			   <div class="hf">
-          			   <textarea name="C2" id="te" class="hf-text" autocomplete="off" maxlength="100" rows="10" cols="50"></textarea>
-         	 		   <input type="submit" class="comment-dele" value="提交回复" onclick="return check()"/>
-               		   <span class="hf-nub">0/100</span> </div>
-         		   </form>
-     			 </div>
-   			   </li>
-			</ul> 
--->			
-            </div>
+           </div>
+           
+           <div class="tab__content">
+           		<h3>好友列表</h3>
+           <%
+           		String id6=(String)request.getSession().getAttribute("userid");
+           		Create cv6=new Create();
+           		
+           		StringBuilder s6=cv6.createFriend(id6);
+           		out.println(s6);
+           %>
+           
     </div>
 </div>
 <!-- --------------------------------TAB切换结束---------------------------------------------- -->

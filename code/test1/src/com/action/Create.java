@@ -183,11 +183,6 @@ public class Create{
 		try{
 				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
 				for(int j=0;j<follows.size();j++) {	
-					/*sh.append("<li>");
-					sh.append(follows.get(j).getFolloweeid());
-					sh.append("\t在\t");
-					sh.append(follows.get(j).getTime());
-					sh.append("\t关注了你\n");*/
 					sh.append("<ul id=\"pn1\">");
 					sh.append("<li class=\"list1\">");
 					sh.append("<div class=\"content\">");
@@ -566,7 +561,7 @@ public class Create{
 		}
 		return sh;	
 	}
-/*	public StringBuilder createFriend(String id) throws SQLException, ParseException {
+	public StringBuilder createFriend(String id) throws SQLException, ParseException {
 		FollowDao dao=new FollowDao();
 		ArrayList<Follow> follows = new ArrayList<Follow>();
 		follows=dao.getByUser(id);//videoId
@@ -574,11 +569,6 @@ public class Create{
 		try{
 				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
 				for(int j=0;j<follows.size();j++) {	
-					sh.append("<li>");
-					sh.append(follows.get(j).getFolloweeid());
-					sh.append("\t在\t");
-					sh.append(follows.get(j).getTime());
-					sh.append("\t关注了你\n");
 					sh.append("<ul id=\"pn1\">");
 					sh.append("<li class=\"list1\">");
 					sh.append("<div class=\"content\">");
@@ -592,7 +582,6 @@ public class Create{
 					sh.append("\">");
 					sh.append(follows.get(j).getFolloweeid());
 					sh.append("</a>");
-					sh.append("\t关注了你");
 					sh.append("</div>");
 					sh.append("<div class=\"comment-date\">");
 					sh.append(follows.get(j).getTime());
@@ -610,6 +599,5 @@ public class Create{
 		}
 		return sh;
 	}
-*/
 }
 
