@@ -32,7 +32,8 @@
 <%
 Create cv=new Create();
 String key = request.getParameter("content");
-key = new String(key.getBytes("iso-8859-1"),"utf-8");
+//key = new String(key.getBytes("iso-8859-1"),"utf-8");
+System.out.println(key);
 StringBuilder s=cv.createSelectedVideo(key);
 out.println(s);
 %>
@@ -44,78 +45,6 @@ StringBuilder s_=cv.createSelectedUser(key);
 out.println(s_);
 %>
 
-<div class="myinformation">
-    <div class="image">
-        <img src="ImageDisplay" onclick="hisHome"/>    
-    </div>
-    <div class="informationbox">
-        <div id="username" class="info">
-            <tr>
-                <td>用户名: </td>
-                <td><%//=ownername%></td>
-            </tr>
-        </div>
-    
-        <div id="userid" class="info">
-            <tr>
-                <td>用户账号: </td>
-                <td><%//=ownerid%></td>
-            </tr>
-        </div>
-        
-        <div id="userfocus" class="info">
-            <tr>
-                <td>关注量: </td>
-                <td><%//=follow %></td>
-            </tr>
-        </div>
-    
-        <div id="userread" class="info">
-	        <tr>
-	            <td>浏览量: </td>
-	            <td><%//=view %></td>
-	        </tr>
-        </div>
-           
-    </div>
-</div>
-
-
-<div class="myinformation">
-    <div class="image">
-        <img src="ImageDisplay" onclick="hisHome.jsp"/>    
-    </div>
-    <div class="informationbox">
-        <div id="username" class="info">
-            <tr>
-                <td>用户名: </td>
-                <td><%//=ownername%></td>
-            </tr>
-        </div>
-    
-        <div id="userid" class="info">
-            <tr>
-                <td>用户账号: </td>
-                <td><%//=ownerid%></td>
-            </tr>
-        </div>
-        
-        <div id="userfocus" class="info">
-            <tr>
-                <td>关注量: </td>
-                <td><%//=follow %></td>
-            </tr>
-        </div>
-    
-        <div id="userread" class="info">
-	        <tr>
-	            <td>浏览量: </td>
-	            <td><%//=view %></td>
-	        </tr>
-        </div>
-           
-    </div>
-</div>
 
 
 
