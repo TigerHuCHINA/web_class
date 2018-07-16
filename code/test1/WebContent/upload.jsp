@@ -75,7 +75,7 @@
         <div class="fileInputContainer">  
             <a href="#" class="mybtn1 btn btn-medium type1" onclick="addVideo()">点击上传视频</a>
             <input id="file" type="file" name="file" style="display:none;"/>
-            <input id="text" type="text"/>
+            <input id="text" type="text" readonly="readonly"/>
         </div>
         
         
