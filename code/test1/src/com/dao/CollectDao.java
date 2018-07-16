@@ -22,6 +22,7 @@ public class CollectDao extends BaseDao {
 				collection.setUserid(set.getString(2));
 				collection.setVideoid(set.getString(3));
 				collection.setTime(set.getString(4));
+				collection.setContent(set.getString(5));
 				collections.add(collection);
 				System.out.println(collection.getVideoid());
 			}

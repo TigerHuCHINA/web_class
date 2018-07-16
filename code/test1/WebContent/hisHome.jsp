@@ -2,7 +2,7 @@
 <%@page import="com.action.getInfo"%>
 <%@page import="com.action.UserCountAction" %>
 <%@page import="java.sql.* ,javax.servlet.* ,java.util.* ,java.awt.* ,com.action.*, com.comm.* ,com.dao.* ,com.pojo.*" %>
-
+<%if(request.getSession().getAttribute("userid")==null)response.sendRedirect("home.jsp"); %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -15,7 +15,7 @@
 
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
-<title>别人的个人主页</title>
+<title><%=request.getSession().getAttribute("username") %>的个人主页</title>
 	
 
 </head>
@@ -30,8 +30,7 @@
 	String id0= String.valueOf(11);
 	UserCountAction usercount = new UserCountAction();
 	usercount.doo(id,id0);*/
-
-if(((String)request.getSession().getAttribute("userid")).equals((String)request.getSession().getAttribute("ownerid")))
+if(((String)request.getSession().getAttribute("userid")).equals((String)request.getParameter("ownerid")))
 		{
 			response.sendRedirect("homePage.jsp");
 		}
@@ -44,8 +43,8 @@ if(((String)request.getSession().getAttribute("userid")).equals((String)request.
 
     <a class="head1" href="home.jsp">主界面</a>
 
-    <a class="head2" href="homePage.jsp"><img src="picture/1.png" width="100%" height="100%"></a>
-        
+    <a class="head2" href="homePage.jsp"><img src="ImageDisplay?id=user"  width="100%" height="100%"></a>
+     
     <a class="head3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 
     <a class="head4" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">反馈</a>
@@ -76,7 +75,7 @@ request.getSession().setAttribute("ownerid",ownerid);
 <!-- 个人头像与信息 -->
 <div class="myinformation">
     <div class="image">
-        <img src="ImageDisplay"/>    
+        <img src="ImageDisplay?id=owner"/>    
     </div>
     <div class="informationbox">
         <div id="username" class="info">

@@ -9,9 +9,31 @@ import com.pojo.Agree;
 import com.pojo.Follow;
 
 public class FollowDao extends BaseDao {
-	public ArrayList<Follow> getByUser(String userId)
+	public ArrayList<Follow> getByUser(String userId)//获得关注自己的人
 	{
 		String sql = "select * from follow where followerId = ?";
+		Object obj[] = {userId};
+		ResultSet set = executeSelect(sql, obj);
+		ArrayList<Follow> follows = new ArrayList<Follow>();
+		try {
+			while(set.next()) {
+				Follow follow = new Follow();
+				follow.setId(set.getString(1));
+				follow.setFollowerid(set.getString(2));
+				follow.setFolloweeid(set.getString(3));
+				follow.setTime(set.getString(5));
+				follows.add(follow);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		free();
+		return follows;
+	}
+	public ArrayList<Follow> getByUser2(String userId)//获得自己关注的人
+	{
+		String sql = "select * from follow where followeeId = ?";
 		Object obj[] = {userId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Follow> follows = new ArrayList<Follow>();

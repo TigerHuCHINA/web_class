@@ -1,7 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.* ,javax.servlet.* ,java.util.* ,java.awt.* ,com.action.*, com.comm.* ,com.dao.* ,com.pojo.*"%>
-
+<%if(request.getSession().getAttribute("userid")==null)response.sendRedirect("home.jsp"); %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -286,14 +286,17 @@
 
             <input type="radio" id="tab5" name="tabGroup1" class="tab">
             <label for="tab5">评论</label>
+            
+            <input type="radio" id="tab6" name="tabGroup1" class="tab">
+            <label for="tab6">好友列表</label>
 
             <div class="tab__content">
                 <h3>点赞</h3>
             	<div class="dianzan">
             		<ul>
             		<%
-					//String id1=request.getParameter("id");
-            		String id1="11";
+					String id1=(String)request.getSession().getAttribute("userid");
+            		//String id1="11";
 					Create cv1=new Create();
 					StringBuilder s1=cv1.createAgree(id1);
 					out.println(s1);
@@ -307,8 +310,8 @@
             	<div class="guanzhu">
             		<ul>
             		<%
-					//String id2=request.getParameter("id");
-            		String id2="11";
+					String id2=(String)request.getSession().getAttribute("userid");
+            		//String id2="11";
 					Create cv2=new Create();
 					//Follow follow = new Follow();
 					//String userId = follow.getFollowerid();
@@ -324,8 +327,8 @@
             	<div class="guanzhu">
             		<ul>
             		<%
-					//String id3=request.getParameter("id");
-            		String id3="11";
+					String id3=(String)request.getSession().getAttribute("userid");
+            		//String id3="11";
 					Create cv3=new Create();
 					//Follow follow = new Follow();
 					//String userId = follow.getFollowerid();
@@ -339,49 +342,36 @@
             <div class="tab__content">
                 <h3>私信</h3>
                 <%
-                String id4="11";
-                //String id4=request.getParameter("id");
+                //String id4="11";
+                String id4=(String)request.getSession().getAttribute("userid");
                 Create cv4=new Create();
 				StringBuilder s4=cv4.createMessage(id4);
 				out.println(s4);
                 %>
          </div>
             
-            <div class="tab__content">
+           <div class="tab__content">
                 <h3>评论</h3>
            <%
-           		String id5="11";
-	           	//String id5=request.getParameter("id");
+           		//String id5="11";
+	           	String id5=(String)request.getSession().getAttribute("userid");
 	           	Create cv5=new Create();
 				
 				StringBuilder s5=cv5.createCommentR(id5);
 				out.println(s5);
            %>     
-<!-- 
-            	<ul id="pn">
-  				 <li class="list">
-      			  <div class="content">
-      			      <div class="comment-list">
-              		  <div class="comment">
-               	      <div class="comment-right">
-                        <div class="comment-text"><span class="user"><%//评论人 %></span><%//说了什么 %></div>
-                        <div class="comment-date">02-14 22:00 <input type="button" class="comment-zan" onclick="dianzan()" value="23 赞">
-                   		    <a class="comment-dele" href="#C2">回复</a>
-                        </div>
-                  	 </div>
-              		</div>
-          			</div>
-     			    <form name="form1" method="post" action="">
-         			   <div class="hf">
-          			   <textarea name="C2" id="te" class="hf-text" autocomplete="off" maxlength="100" rows="10" cols="50"></textarea>
-         	 		   <input type="submit" class="comment-dele" value="提交回复" onclick="return check()"/>
-               		   <span class="hf-nub">0/100</span> </div>
-         		   </form>
-     			 </div>
-   			   </li>
-			</ul> 
--->			
-            </div>
+           </div>
+           
+           <div class="tab__content">
+           		<h3>好友列表</h3>
+           <%
+           		String id6=(String)request.getSession().getAttribute("userid");
+           		Create cv6=new Create();
+           		
+           		StringBuilder s6=cv6.createFriend(id6);
+           		out.println(s6);
+           %>
+           
     </div>
 </div>
 <!-- --------------------------------TAB切换结束---------------------------------------------- -->
