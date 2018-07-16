@@ -38,9 +38,10 @@ $(document).ready(function(){
 	    <!-- 登录 注册 button 邓慧颖 -->
 		<div class="top-menu">
 			<ul>
+			    
 				<li><a id="login" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal">登录</a></li>
 				<li><a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1">注册</a></li>
-			    <li><a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">反馈</a></li>
+			    <li><a id="return" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">反馈</a></li>
 			</ul>
 		</div>
 		
@@ -393,7 +394,7 @@ function checkMessage(){
 <!-- 搜索界面 常庭瑞 -->
 
 <div class="search1 dd1">
-    <form class="search1" action="searchvideo.jsp">
+    <form class="search1" action="searchvideo.jsp" onsubmit="return login2()">
         <input type="text" name="content" placeholder="搜索你感兴趣的课程">
 		<button id="search" class="button" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
     </form>
@@ -602,7 +603,7 @@ out.println(s);
     
         <li>
             <div class="box1">
-                <a class="avatar_pic" target="_self" href="video.jsp">
+                <a href="video.jsp" class="avatar_pic" target="_self" onclick="return false" >
                     <img src="cover/cover.png"/>
                 </a>
                 <div class="first">
@@ -680,7 +681,8 @@ $(function(){
 .return_top{ 
   width: 50px;
   height: 50px; 
-  background: url(images/top.png) no-repeat center #FF8D16; 
+  background: url('picture/top.jpg'); 
+  background-size:cover;
   position:fixed; 
   right: 30px; 
   bottom: 30px; 
@@ -690,6 +692,20 @@ $(function(){
 }
 </style>
 
-
+<div>
+<img src="picture/logo.jpg" width="120px" height="120px" style="position:absolute;left:0;top:0;border:2px solid black;border-radius:5px;">
+</div>
+<!-- -----------------------检查是否登陆--------------------- -->
+<script>
+function login2()
+{
+	var userid = "<%=request.getSession().getAttribute("userid")%>";
+	if(userid=="null")
+		{
+		document.getElementById("login").click();
+	      return false;
+		}
+}
+</script>
 </body>
 </html>
