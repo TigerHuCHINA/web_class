@@ -28,4 +28,22 @@ public class getCollect {
 		}
 		return videos;
 	}
+	public ArrayList<Video> getByCollectId(String id)
+	{
+		CollectDao collectDao = new CollectDao();
+		VideoDao videoDao = new VideoDao();
+		ArrayList<Collection> collections = collectDao.getByCollectUserId(id);
+		ArrayList<Video> videos = new ArrayList<Video>();
+		for(int i = 0; i < collections.size(); i++)
+		{
+			try {
+				Video video = videoDao.getInfoById(collections.get(i).getVideoid());
+				videos.add(video);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return videos;
+	}
 }

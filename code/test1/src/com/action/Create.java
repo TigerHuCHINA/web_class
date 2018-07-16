@@ -427,7 +427,7 @@ public class Create{
 	}
 	public StringBuilder createCollectVideo(String id) throws SQLException, ParseException {
 		getCollect get = new getCollect();
-		ArrayList<Video> videos = get.getById(id);
+		ArrayList<Video> videos = get.getByCollectId(id);
 		StringBuilder sh = new StringBuilder();
 		if(videos.size()==0)
 		{
@@ -592,7 +592,7 @@ public class Create{
 	public StringBuilder createFriend(String id) throws SQLException, ParseException {
 		FollowDao dao=new FollowDao();
 		ArrayList<Follow> follows = new ArrayList<Follow>();
-		follows=dao.getByUser(id);//videoId
+		follows=dao.getByUser2(id);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
 				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
@@ -606,9 +606,9 @@ public class Create{
 					sh.append("<div class=\"comment-text\">");
 					sh.append("<span class=\"user\">");
 					sh.append("<a href=\"hisHome.jsp?ownerid=");
-					sh.append(follows.get(j).getFolloweeid());
+					sh.append(follows.get(j).getFollowerid());
 					sh.append("\">");
-					sh.append(follows.get(j).getFolloweeid());
+					sh.append(follows.get(j).getFollowerid());
 					sh.append("</a>");
 					sh.append("</div>");
 					sh.append("<div class=\"comment-date\">");
