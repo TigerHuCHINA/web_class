@@ -52,6 +52,7 @@ public class UploadAction extends HttpServlet {
 		String file = request.getParameter("file");//视频上传
 		file = new String(file.getBytes("iso-8859-1"),"utf-8");
 		File f = new File(file);
+		System.out.println(file);
 		SimpleDateFormat df = new SimpleDateFormat("ss");
         String now=df.format(new java.util.Date());
 		String tarPath=bd.getPath(file,uid+now,"video");
@@ -68,7 +69,7 @@ public class UploadAction extends HttpServlet {
 		v.setIntroduce(introduce);
 		v.setFile(tarPath);
 		v.setDuration(f);
-		v.setCover("C:\\Users\\acer\\Desktop\\"+tarPath2);
+		v.setCover(tarPath2);
 		if(bd.Upload(v)) {
 			request.setAttribute("result", "成功");
 			request.getRequestDispatcher("success.jsp").forward(request, response);

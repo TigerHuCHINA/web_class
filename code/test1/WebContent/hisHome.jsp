@@ -1,4 +1,4 @@
-<%@page import="com.pojo.UserEdit"%>
+ <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
 <%@page import="com.action.UserCountAction" %>
 <%@page import="java.sql.* ,javax.servlet.* ,java.util.* ,java.awt.* ,com.action.*, com.comm.* ,com.dao.* ,com.pojo.*" %>

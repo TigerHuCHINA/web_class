@@ -36,10 +36,8 @@ public class ImageAction extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
-		
 		String file = request.getParameter("file");
 		file = new String(file.getBytes("iso-8859-1"),"utf-8");
-		
 		FileDao fd=new FileDao();
 		SimpleDateFormat df = new SimpleDateFormat("ss");
         String now=df.format(new java.util.Date());

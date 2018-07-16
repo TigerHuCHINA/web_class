@@ -703,6 +703,12 @@ public class Create{
 				for(int j=0;j<userEdits.size();j++) {	
 					sh.append("<div class=\"myinformation\">");
 					sh.append("<div class=\"image\">");
+					
+					System.out.println("C:\\Users\\acer\\Desktop\\"+userEdits.get(j).getUheadphoto());
+					sh.append("<img src='");
+					sh.append("C:\\Users\\acer\\Desktop\\"+userEdits.get(j).getUheadphoto());
+					sh.append("' onclick=\"hisHome\"/>");
+					sh.append("<img src=\"ImageDisplay\" onclick=\"hisHome\"/>");
 					sh.append("<img src=\"ImageDisplay\" onclick=\"hisHome\"/>");
 					sh.append("</div>");
 					sh.append("<div class=\"informationbox\">");
