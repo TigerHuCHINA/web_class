@@ -11,7 +11,7 @@ public class CollectDao extends BaseDao {
 	public ArrayList<Collection> getByUserId(String userId)
 	{
 		String sql = "select collection.id,collection.userId,video.id,collection.time,video.title"
-				+ " from collection left join video on collection.videoId=video.id where collection.userId = ?";
+				+ " from collection left join video on collection.videoId=video.id where video.userId = ?";
 		Object obj[] = {userId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Collection> collections = new ArrayList<Collection>();

@@ -78,14 +78,21 @@
             <input id="file" type="file" name="file" style="display:none;"/>
             <input id="text" type="text"/>
             
-            <div class="fileInputContainer">  
+            <!-- <div class="fileInputContainer">  
             <input class="fileInput" id="file2" type="file" name="file2" accept=".jpg,.png"/>
 
-        </div>
+            </div> -->
+        
+        
             
         </div>
-             
-     
+        
+        
+        <div class="imageInputContainer">  
+            <a href="#" class="mybtn1 btn btn-medium type2" onclick="addImage()">点击上传封面</a>
+            <input id="file2" type="file" name="file2" accept=".jpg,.png" style="display:none;"/>
+            <input id="text2" type="text"/>
+        </div>
         
         <div class="item">
 	        <div class="filter-box">
@@ -122,6 +129,11 @@
 function addVideo(){
 	document.getElementById("file").click();
 	document.getElementById("text").value=document.getElementById("file").value;
+}
+
+function addImage(){
+	document.getElementById("file2").click();
+	document.getElementById("text2").value=document.getElementById("file").value;
 }
 </script>    
      

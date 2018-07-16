@@ -73,19 +73,23 @@ body{
 
 /*ÊÓÆµ*/
 .videos{
-
 	position:absolute;
 	left:150px;
-	top:100%;
-	height:100px;
+	top:700px;
 	width:500px;
 }
 
 .title{
 	color:white;
 	font-weight:700;
-	margin-bottom:300px;
+	margin-bottom:10px;
 }   
+
+.mycollect{
+	position:relative;
+	top:200px;
+}
+
 
 
 /*Òþ²Ø¿é1*/

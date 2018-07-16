@@ -27,7 +27,7 @@ public class FollowAction extends HttpServlet {
 		if(flag.equals(new String("add"))) {
 		if(f.adFollow(ff)) {
 			request.setAttribute("result", "成功");
-			request.getRequestDispatcher("hisHome.jsp").forward(request, response);
+			request.getRequestDispatcher("hisHome.jsp?ownerid="+follower).forward(request, response);
 		}else {
 			request.setAttribute("result", "失败");
 			request.getRequestDispatcher("xx.jsp").forward(request, response);
@@ -36,7 +36,7 @@ public class FollowAction extends HttpServlet {
 		else{
 			if(f.deFollow(ff)) {
 				request.setAttribute("result", "成功");
-				request.getRequestDispatcher("hisHome.jsp").forward(request, response);
+				request.getRequestDispatcher("hisHome.jsp?ownerid="+follower).forward(request, response);
 			}else {
 				request.setAttribute("result", "失败");
 				request.getRequestDispatcher("xx.jsp").forward(request, response);

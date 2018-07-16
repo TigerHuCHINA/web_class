@@ -5,6 +5,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+
+<link href="css/header.css" rel='stylesheet' type='text/css'>
 <title>动态界面</title>
 <!-- --------------------------------TAB切换------------------------- -->
  <style type="text/css">
@@ -88,6 +90,17 @@
             transform: translateY(0px);
             text-shadow: 0 0 0;
         }
+         .tab:checked:nth-of-type(6) ~ .tab__content:nth-of-type(6) {
+            opacity: 1;
+            -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+            transition: 0.5s opacity ease-in, 0.8s transform ease;
+            position: relative;
+            top: 0;
+            z-index: 100;
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            text-shadow: 0 0 0;
+        }
         .tab:first-of-type:not(:last-of-type) + label {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
@@ -150,15 +163,18 @@
         }
 
         /* boring stuff */
-        body {
+    /*     body {
             font-family: 'Maven Pro', sans-serif;
             background-color: #e7e7e7;
             color: #777;
             padding: 30px 0;
-        }
+        } */
 
         .container {
-            margin: 0 auto;
+            position:absolute;
+            top:100px;
+            left:500px;
+            
             display: block;
             max-width: 800px;
         }
@@ -269,6 +285,22 @@
 </style>
 </head>
 <body>
+
+<!-- 顶部菜单 -->
+<div class="header">
+
+
+    <a class="head1" href="home.jsp">主界面</a>
+
+    <a class="head2" href="homePage.jsp"><img src="picture/1.png" width="100%" height="100%"></a>
+        
+    <a class="head3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
+
+    <a class="head4" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">反馈</a>
+
+
+</div>
+
 <!-- -----------------------------------------切换开始---------------------- -->
 <div class="container">
     <div class="tab-wrap">
@@ -369,13 +401,14 @@
            <div class="tab__content">
            		<h3>好友列表</h3>
            		<div class="haoyou">
+           		<ul>
            <%
            		String id6=(String)request.getSession().getAttribute("userid");
            		Create cv6=new Create();
-           		
            		StringBuilder s6=cv6.createFriend(id6);
            		out.println(s6);
            %>
+           </ul>
            </div>
     </div>
 </div>

@@ -28,7 +28,8 @@
 
 
 </div>
-<h1 style="position:relative;top:80px;">相关视频</h1>
+<div style="position:relative;top:100px;">
+<div >相关视频</div>
 <%
 Create cv=new Create();
 String key = request.getParameter("content");
@@ -38,7 +39,7 @@ StringBuilder s=cv.createSelectedVideo(key);
 out.println(s);
 %>
 
-<h1>相关用户</h1>
+<div>相关用户</div>
 
 <%
 StringBuilder s_=cv.createSelectedUser(key);
@@ -48,6 +49,6 @@ out.println(s_);
 
 
 
-
+</div>
 </body>
 </html>

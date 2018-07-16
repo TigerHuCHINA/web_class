@@ -46,7 +46,7 @@ function HS_calender(){
  style +=".calenderBottom {clear:both; border-top:1px solid #ddd; padding: 3px 0; text-align:left}";
  style +=".calenderBottom a {text-decoration:none; margin:2px !important; font-weight:bold; color:#000}";
  style +=".calenderBottom a.closeCalender{float:right}";
- style +=".closeCalenderBox {float:right; border:1px solid #000; background:#fff; font-size:9px; width:11px; height:11px; line-height:11px; text-align:center;overflow:hidden; font-weight:normal !important}";
+ style +=".closeCalenderBox {float:right; border:1px solid #000; background:#fff; font-size:9px; width:11px; height:11px; line-height:11px; text-align:center;overflow:hidden;font-weight:normal !important}";
  style +="</style>";
 
  var now;
