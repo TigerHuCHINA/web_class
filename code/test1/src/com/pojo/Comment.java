@@ -8,6 +8,7 @@ public class Comment {
 	private String content;
 	private String time;
 	private String agree;
+	private String videotitle;
 
 	public String getUserId() {
 		return userId;
@@ -44,6 +45,12 @@ public class Comment {
 	}
 	public void setAgree(String agree) {
 		this.agree = agree;
+	}
+	public String getVideotitle() {
+		return videotitle;
+	}
+	public void setVideotitle(String videotitle) {
+		this.videotitle = videotitle;
 	}
 	
 

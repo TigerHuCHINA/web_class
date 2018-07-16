@@ -14,6 +14,7 @@
 <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
 <link href="css/style.css" rel='stylesheet' type='text/css'>
+
 <!-- 实现登陆注册界面的下滑 邓慧颖、常庭瑞 -->
 <script>
 $(document).ready(function(){
@@ -28,8 +29,17 @@ $(document).ready(function(){
         }
     );
 });
-</script>
 
+
+</script>
+<style>
+#istrue{
+display:none;
+}
+#istrue2{
+display:none
+}
+</style>
 </head>
 
 <body onload = "init()">
@@ -149,7 +159,7 @@ $(document).ready(function(){
 				<div class="modal-content">
 							    	
 				    <div class="modal-header">
-					    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					    <button type="button" id="close3" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 					    <h4 class="modal-title" id="myModalLabel">
 					        <div class="head_4"><p>反馈</p></div>
 			            </h4>
@@ -294,6 +304,9 @@ function checkRegister(){
 
 //判断是否登录及错误-杜宇航
 function init(){
+	 
+	 
+	 
 	var userid = "<%=request.getSession().getAttribute("userid")%>";
 	var username = "<%=request.getSession().getAttribute("username")%>";
 	if(userid!="null")
@@ -302,36 +315,9 @@ function init(){
 	      var login=document.getElementById("login");
 	      register.style.display='none';
 	      login.style.display='none';
-	      //istrue.style.display='inline-block';
-	      //istrue.style.visibility='visible';
+	      istrue.style.display='block';
+	      istrue2.style.display='block';
 		}
-	/*else
-		{
-		var istrue=document.getElementById("istrue");
-    	 istrue.style.display='none';
-		}*/
-	else
-	{
-		/*alert("1")
-		var username_ = getCookie("username");
-		var userid_ = getCookie("userid");
-		if(userid_==""){
-			alert(userid_);*/
-			  var istrue=document.getElementById("istrue");
-	     	 istrue.style.display='none';
-	     	var istrue2=document.getElementById("istrue2");
-	     	 istrue2.style.display='none';
-	    /*}else{
-	    	alert(userid_);
-	    	  var register=document.getElementById("register");
-			      var login=document.getElementById("login");
-			      register.style.display='none';
-			      login.style.display='none';
-			      //location.href="login";
-			      //istrue.style.display='inline-block';
-			      //istrue.style.visibility='visible';
-	    }*/
-	}
 	//登录注册错误
 	var error = "<%=request.getSession().getAttribute("error")%>";
 	  if(error!="null")
@@ -380,8 +366,9 @@ function checkMessage(){
  
 	var userid = "<%=request.getSession().getAttribute("userid")%>";
 	if(userid=="null"){
+		document.getElementById("close3").click();
 		document.getElementById("login").click();
-	    document.getElementById("applyModal_2").style.display="none";
+	    
 		return false;
 	     
 		}
@@ -706,6 +693,8 @@ $(function(){
 </div>
 <!-- -----------------------检查是否登陆--------------------- -->
 <script>
+
+
 function login2()
 {
 	var userid = "<%=request.getSession().getAttribute("userid")%>";

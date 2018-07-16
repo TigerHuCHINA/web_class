@@ -55,32 +55,25 @@ public class UserEditDao extends BaseDao{
 		return u;
 	}
 	
-	public ArrayList<Video> getUploadVideo(String id){
-		String sql = "select * from video where userId=?";
-		Object[] obs = {id};
-		ResultSet set = executeSelect(sql, null);
-		ArrayList<Video> videos = new ArrayList<Video>();
+	public ArrayList<UserEdit> getByKeywords(String key)
+	{
+		String sql = "select idname,name,headphoto from user where name like ?";
+		Object obs[] = {"%" + key + "%"};
+		ResultSet set = executeSelect(sql, obs);
+		ArrayList<UserEdit> users = new ArrayList<UserEdit>();
 		try {
 			while(set.next()) {
-				Video video = new Video();
-				video.setId(set.getString("id"));
-				video.setUserId(set.getString("userId"));
-				video.setFile(set.getString("file"));
-				video.setTitle(set.getString("title"));
-				video.setIntroduce(set.getString("introduce"));
-				SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				video.setTime(s.parse(set.getString("time")));
-				video.setDuration(set.getString("duration"));
-				videos.add(video);
-			}
+				UserEdit userEdit = new UserEdit();
+				userEdit.setUid(set.getString("idname"));
+				userEdit.setUname(set.getString("name"));
+				userEdit.setUheadphoto(set.getString("headphoto"));
+				users.add(userEdit);
+				}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		free();
-		return videos;
+		return users;
 	}
 }

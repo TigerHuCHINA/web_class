@@ -36,7 +36,7 @@ public class CommentDao extends BaseDao{
 //按视频上传者读取视频评论-季宇恒	
 	public ArrayList<Comment> getById(String id)
 	{
-		String sql = "select comment.userId,comment.time,video.title,comment.content "
+		String sql = "select comment.userId,comment.time,comment.videoId,comment.content,video.title "
 				+ "from comment left join video on video.id=comment.videoId "
 				+ "where video.userId=?";
 		Object obj[] = {id};
@@ -49,6 +49,7 @@ public class CommentDao extends BaseDao{
 				comment.setTime(set.getString(2));
 				comment.setVideoId(set.getString(3));
 				comment.setContent(set.getString(4));
+				comment.setVideotitle(set.getString(5));
 				comments.add(comment);
 			}
 		} catch (SQLException e) {

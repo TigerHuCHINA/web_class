@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServlet;
+
 import com.dao.AgreeDao;
 import com.dao.CollectDao;
 import com.dao.CommentDao;
@@ -21,7 +24,7 @@ import com.pojo.Follow;
 import com.pojo.Message;
 import com.pojo.Video;
 
-public class Create {
+public class Create{
 	public StringBuilder createVideo() throws SQLException, ParseException {
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
@@ -153,7 +156,9 @@ public class Create {
 					sh.append("<div class=\"comment-right\">");
 					sh.append("<div class=\"comment-text\">");
 					sh.append("<span class=\"user\">");
-					sh.append("<a href=\"hisHome.jsp?id=\">");//++++++++++++++++++++
+					sh.append("<a href=\"hisHome.jsp?ownerid=");
+					sh.append(agrees.get(j).getUserid());
+					sh.append("\">");
 					sh.append(agrees.get(j).getUserid());
 					sh.append("</a>");
 					sh.append("\t点赞了你的评论：\t");
@@ -198,7 +203,9 @@ public class Create {
 					sh.append("<div class=\"comment-right\">");
 					sh.append("<div class=\"comment-text\">");
 					sh.append("<span class=\"user\">");
-					sh.append("<a href=\"hisHome.jsp?id=\">");//+++++++++++++++++++++
+					sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++
+					sh.append(follows.get(j).getFolloweeid());
+					sh.append("\">");
 					sh.append(follows.get(j).getFolloweeid());
 					sh.append("</a>");
 					sh.append("\t关注了你");
@@ -242,11 +249,16 @@ public class Create {
 					sh.append("<div class=\"comment-right\">");
 					sh.append("<div class=\"comment-text\">");
 					sh.append("<span class=\"user\">");
-					sh.append("<a href=\"hisHome.jsp?id=\">");//+++++++++++++++++++++++++
+					sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++++++
 					sh.append(collections.get(j).getUserid());
+					sh.append("\">");
+					sh.append(collections.get(j).getUserid());
+					sh.append("</a>");
 					sh.append("\t收藏了你的视频：\t");
-					sh.append("<a href=\"video.jsp?id=\">");//++++++++++++++++++++++++++++++++++++++++
+					sh.append("<a href=\"video.jsp?id=");//++++++++++++++++++++++++++++++++++++++++
 					sh.append(collections.get(j).getVideoid());
+					sh.append("\">");
+					sh.append(collections.get(j).getContent());
 					sh.append("</a>");
 					sh.append("</div>");
 					sh.append("<div class=\"comment-date\">");
@@ -282,7 +294,9 @@ public class Create {
 					sh.append("<div class=\"comment-right\">");
 					sh.append("<div class=\"comment-text\">");
 					sh.append("<span class=\"user\">");
-					sh.append("<a href=\"hisHome.jsp?id=\">");//+++++++++++++++++++++++++++
+					sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++++++++
+					sh.append(messages.get(j).getPasssId());
+					sh.append("\">");
 					sh.append(messages.get(j).getPasssId());
 					sh.append("</a>");
 					sh.append("</span>");
@@ -321,12 +335,18 @@ public class Create {
 					sh.append("<div class=\"comment-right\">");
 					sh.append("<div class=\"comment-text\">");
 					sh.append("<span class=\"user\">");
-					sh.append("<a href=\"hisHome.jsp?id=\">");//++++++++++++++++++++++
+					sh.append("<a href=\"hisHome.jsp?ownerid=");
+					sh.append(comments.get(j).getUserId());
+					sh.append("\">");
 					sh.append(comments.get(j).getUserId());
 					sh.append("</a>");
 					sh.append("\t评论了你的视频\t");
-					sh.append("<a href=\"video.jsp?id=\">");//+++++++++++++++++++++++++++++++++++++
+					sh.append("<a href=\"video.jsp?id=");
 					sh.append(comments.get(j).getVideoId());
+					sh.append("&useid=");
+					sh.append(id);
+					sh.append("\">");
+					sh.append(comments.get(j).getVideotitle());
 					sh.append("</a>");
 					sh.append("</span>");
 					sh.append(":\t\n");
@@ -553,5 +573,50 @@ public class Create {
 		}
 		return sh;	
 	}
+/*	public StringBuilder createFriend(String id) throws SQLException, ParseException {
+		FollowDao dao=new FollowDao();
+		ArrayList<Follow> follows = new ArrayList<Follow>();
+		follows=dao.getByUser(id);//videoId
+		StringBuilder sh = new StringBuilder();
+		try{
+				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+				for(int j=0;j<follows.size();j++) {	
+					sh.append("<li>");
+					sh.append(follows.get(j).getFolloweeid());
+					sh.append("\t在\t");
+					sh.append(follows.get(j).getTime());
+					sh.append("\t关注了你\n");
+					sh.append("<ul id=\"pn1\">");
+					sh.append("<li class=\"list1\">");
+					sh.append("<div class=\"content\">");
+					sh.append("<div class=\"comment-list\">");
+					sh.append("<div class=\"comment\">");
+					sh.append("<div class=\"comment-right\">");
+					sh.append("<div class=\"comment-text\">");
+					sh.append("<span class=\"user\">");
+					sh.append("<a href=\"hisHome.jsp?ownerid=");
+					sh.append(follows.get(j).getFolloweeid());
+					sh.append("\">");
+					sh.append(follows.get(j).getFolloweeid());
+					sh.append("</a>");
+					sh.append("\t关注了你");
+					sh.append("</div>");
+					sh.append("<div class=\"comment-date\">");
+					sh.append(follows.get(j).getTime());
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</li>");
+					sh.append("</ul>");
+				}
+				printStream.println(sh.toString()); 
+				printStream.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;
+	}
+*/
 }
 
