@@ -7,6 +7,7 @@ import com.dao.CollectDao;
 import com.dao.VideoDao;
 import com.pojo.Collection;
 import com.pojo.Video;
+import com.sun.org.apache.bcel.internal.util.SecuritySupport;
 
 public class getCollect {
 	public ArrayList<Video> getById(String id)

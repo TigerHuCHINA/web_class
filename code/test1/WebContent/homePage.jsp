@@ -22,6 +22,7 @@
 <%
 	getInfo get = new getInfo();
 	String name = (String)session.getAttribute("userid");
+	System.out.println(name);
 	UserEdit u = get.getInfoById(name);
 	String path="C:\\Users\\acer\\Desktop\\"+u.getUheadphoto();
 	System.out.print(path);

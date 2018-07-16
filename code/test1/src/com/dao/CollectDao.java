@@ -10,7 +10,7 @@ import com.pojo.Collection;
 public class CollectDao extends BaseDao {
 	public ArrayList<Collection> getByUserId(String userId)
 	{
-		String sql = "select collection.id,collection.userId,video.title,collection.time,video.title"
+		String sql = "select collection.id,collection.userId,video.id,collection.time,video.title"
 				+ " from collection left join video on collection.videoId=video.id where collection.userId = ?";
 		Object obj[] = {userId};
 		ResultSet set = executeSelect(sql, obj);
@@ -23,6 +23,7 @@ public class CollectDao extends BaseDao {
 				collection.setVideoid(set.getString(3));
 				collection.setTime(set.getString(4));
 				collections.add(collection);
+				System.out.println(collection.getVideoid());
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception

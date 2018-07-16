@@ -29,7 +29,6 @@
 <%
 Create cv=new Create();
 String key = request.getParameter("content");
-System.out.println(key);
 StringBuilder s=cv.createSelectedVideo(key);
 out.println(s);
 %>
