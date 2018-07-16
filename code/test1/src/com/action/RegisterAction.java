@@ -48,7 +48,6 @@ public class RegisterAction extends HttpServlet {
 		u.setUname(name);
 		u.setUpwd(pwd);
 		u.setUid(id);
-
 		if(dao.testRepeat(u.getUid())!=0)
 		{
 			session.setAttribute("error", "用户名已存在！");

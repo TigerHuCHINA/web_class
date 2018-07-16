@@ -309,29 +309,17 @@ String view=v.getView();
 
 <!-- <a class="addvideo btn btn-medium type3" href="doCollect" onclick="function()">收藏</a> -->
 <div class="mybuttons">
-<div>
-    <a class="mybtn1 btn btn-medium type3" href="doCollect">收藏</a>
-</div>
-
-
-<div>
-<<<<<<< HEAD
 	<%
 	CollectDao cd=new CollectDao();
 	boolean result=cd.hasCollect((String)request.getSession().getAttribute("userid"),(String)request.getSession().getAttribute("vid"));
 	if(result){
 		System.out.print("true");
-    out.print("<a id='collect'  class='addvideo' href='doCollect?flag=de' >已收藏</a>");
+    out.print("<a id='collect'  class='mybtn1 btn btn-medium type3' href='doCollect?flag=de' >已收藏</a>");
     } 
 	else{ 
 		System.out.print("false");
-		out.print("<a id='collect'  class='addvideo' href='doCollect?flag=add' >收藏</a>");
+		out.print("<a id='collect'  class='mybtn1 btn btn-medium type3' href='doCollect?flag=add' >收藏</a>");
     } %>
-    
-=======
-    <a id="delvideo" class="mybtn1 btn btn-medium type2" onmouseover="funcText1()" onmouseout="funcText2()">已收藏</a>
-</div>
->>>>>>> f0d2f982e41f7d402ab6dd6c1492469c57aa0eff
 </div>
 <script>
 var demo = document.getElementById("delvideo");
@@ -345,11 +333,8 @@ function funcText2(){
 
 
    	<!-- ----------------------------------点赞------------------------ -->
-    <div class="praise">
-		<span id="praise"><img src="picture/zan.png" id="praise-img" onclick="changeImg()"/></span>
-		<span id="praise-txt">1455</span>
-		<span id="add-num"><em>+1</em></span>
-	</div>
+
+	
 <!--动态点赞结束-->
 <script>
 $(function(){
