@@ -566,5 +566,50 @@ public class Create{
 		}
 		return sh;	
 	}
+/*	public StringBuilder createFriend(String id) throws SQLException, ParseException {
+		FollowDao dao=new FollowDao();
+		ArrayList<Follow> follows = new ArrayList<Follow>();
+		follows=dao.getByUser(id);//videoId
+		StringBuilder sh = new StringBuilder();
+		try{
+				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+				for(int j=0;j<follows.size();j++) {	
+					sh.append("<li>");
+					sh.append(follows.get(j).getFolloweeid());
+					sh.append("\t在\t");
+					sh.append(follows.get(j).getTime());
+					sh.append("\t关注了你\n");
+					sh.append("<ul id=\"pn1\">");
+					sh.append("<li class=\"list1\">");
+					sh.append("<div class=\"content\">");
+					sh.append("<div class=\"comment-list\">");
+					sh.append("<div class=\"comment\">");
+					sh.append("<div class=\"comment-right\">");
+					sh.append("<div class=\"comment-text\">");
+					sh.append("<span class=\"user\">");
+					sh.append("<a href=\"hisHome.jsp?ownerid=");
+					sh.append(follows.get(j).getFolloweeid());
+					sh.append("\">");
+					sh.append(follows.get(j).getFolloweeid());
+					sh.append("</a>");
+					sh.append("\t关注了你");
+					sh.append("</div>");
+					sh.append("<div class=\"comment-date\">");
+					sh.append(follows.get(j).getTime());
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</li>");
+					sh.append("</ul>");
+				}
+				printStream.println(sh.toString()); 
+				printStream.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;
+	}
+*/
 }
 
