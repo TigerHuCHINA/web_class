@@ -377,6 +377,15 @@ function delCookie(name)
 
 //判断反馈格式
 function checkMessage(){
+ 
+	var userid = "<%=request.getSession().getAttribute("userid")%>";
+	if(userid=="null"){
+		document.getElementById("login").click();
+	    document.getElementById("applyModal_2").style.display="none";
+		return false;
+	     
+		}
+	
 	var x=document.getElementById("message").value;
 	if(x==""){
 		alert("反馈不能为空");

@@ -307,18 +307,17 @@ String view=v.getView();
     
 </div>
 
-
 <div>
 	<%
 	CollectDao cd=new CollectDao();
 	boolean result=cd.hasCollect((String)request.getSession().getAttribute("userid"),(String)request.getSession().getAttribute("vid"));
 	if(result){
 		System.out.print("true");
-    out.print("<a id='collect'  class='addvideo' href='doCollect?flag=de' >已收藏</a>");
+    out.print("<a id='collect'  class='mybtn1 btn btn-medium type3' href='doCollect?flag=de' >已收藏</a>");
     } 
 	else{ 
 		System.out.print("false");
-		out.print("<a id='collect'  class='addvideo' href='doCollect?flag=add' >收藏</a>");
+		out.print("<a id='collect'  class='mybtn1 btn btn-medium type3' href='doCollect?flag=add' >收藏</a>");
     } %>
 </div>
 <script>
@@ -331,6 +330,12 @@ function funcText2(){
 	}
 </script>
 
+   	<!-- ----------------------------------点赞------------------------ -->
+
+	
+<!--动态点赞结束-->
+=======
+>>>>>>> 51aedc868eae82ebbb0ebc90bba5f1605d7f99dc
 <script>
 $(function(){
 	$("#praise").click(function(){

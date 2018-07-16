@@ -100,6 +100,7 @@ public class Create {
 				sh.append("<div class=\"comment-date\">");
 				sh.append(comments.get(j).getTime());
 				sh.append("<a class=\"comment-zan\" href=\"doAgree?commentid=");
+				
 				sh.append(comments.get(j).getId());
 				sh.append("\">");
 				sh.append(comments.get(j).getAgree());

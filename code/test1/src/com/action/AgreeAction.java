@@ -1,6 +1,7 @@
 package com.action;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,11 +19,19 @@ public class AgreeAction extends HttpServlet {
 		HttpSession session = request.getSession();
 		String userid = (String)session.getAttribute("userid");
 		String commentid = request.getParameter("commentid");
-		
+		AgreeDao ad=new AgreeDao();
+		boolean r=false;
+		try {
+			r=ad.hasAgree(userid, commentid);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		Agree aa = new Agree();
 		aa.setUserid(userid);
 		aa.setCommentid(commentid);
 		AgreeDao a = new AgreeDao();
+		
+		if(!r){
 		if(a.addAgree(aa)) {
 			request.setAttribute("result", "成功");
 			response.sendRedirect("video.jsp?id=" + (String)request.getSession().getAttribute("vid") + "&useid=" + (String)request.getSession().getAttribute("ownerid"));
@@ -30,5 +39,19 @@ public class AgreeAction extends HttpServlet {
 			request.setAttribute("result", "失败");
 			request.getRequestDispatcher("xx.jsp").forward(request, response);
 		}
+		}
+		else{
+			if(a.delAgree(aa)) {
+				request.setAttribute("result", "成功");
+				response.sendRedirect("video.jsp?id=" + (String)request.getSession().getAttribute("vid") + "&useid=" + (String)request.getSession().getAttribute("ownerid"));
+			}else {
+				request.setAttribute("result", "失败");
+				request.getRequestDispatcher("xx.jsp").forward(request, response);
+			}
+			}
+		
+		
+		
+		
 	}
 }

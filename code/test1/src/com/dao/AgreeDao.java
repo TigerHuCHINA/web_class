@@ -55,4 +55,17 @@ public class AgreeDao extends BaseDao{
 			return false;
 		}
 	}
+	public boolean hasAgree(String userid,String commentid) throws SQLException {
+		String sql = "select * from agree where userId = ? and commentId=?";
+		Object obj[] = {userid,commentid};
+		ResultSet set = executeSelect(sql, obj);
+		if(set.next()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	
+	
 }
