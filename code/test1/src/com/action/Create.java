@@ -16,12 +16,14 @@ import com.dao.CollectDao;
 import com.dao.CommentDao;
 import com.dao.FollowDao;
 import com.dao.MessageDao;
+import com.dao.UserEditDao;
 import com.dao.VideoDao;
 import com.pojo.Agree;
 import com.pojo.Collection;
 import com.pojo.Comment;
 import com.pojo.Follow;
 import com.pojo.Message;
+import com.pojo.UserEdit;
 import com.pojo.Video;
 
 public class Create{
@@ -376,6 +378,7 @@ public class Create{
 		}
 		try{
 			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
+			SimpleDateFormat   formatter =new   SimpleDateFormat( "yyyy-MM-dd ");
 			sh.append("<div id='videos'>");
 			sh.append("<ul class='ul1'>");
 			if(videos.size()==0)sh.append("<strong>未找到您搜索的视频</strong>");
@@ -383,19 +386,17 @@ public class Create{
 			sh.append("<li>");
 			sh.append("<div class='box1'>");
 			sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");
-			sh.append(videos.get(j).getId());
-			sh.append("&useid=");
 			sh.append(videos.get(j).getUserId());
 			sh.append("'>");
 			sh.append("<img src='");
-			sh.append("cover/cover.png");
+			sh.append("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
 			sh.append("'>");
 			sh.append("</a>");
 			sh.append("<div class='first'>");
 			sh.append("<p class='top2'>");
 			sh.append(videos.get(j).getTitle());
 			sh.append("</p>");
-			sh.append("<p class='bottom2'>更新至7-14<span>课程时长:");
+			sh.append("<p class='bottom2'><span>课程时长:");
 			sh.append(videos.get(j).getDuration());
 			sh.append("</span></p>");
 			sh.append("</div>");
@@ -403,7 +404,13 @@ public class Create{
 			sh.append("<p class='top2'>");
 			sh.append(videos.get(j).getIntroduce());
 			sh.append("</p>");
-			sh.append("<p class='bottom2'>2015-08-17<span>272648人学习</span></p>");
+			sh.append("<p class='bottom2'>");
+			String date=formatter.format(videos.get(j).getTime());
+			sh.append(date);
+			sh.append("<span>");
+			sh.append(videos.get(j).getView());
+			sh.append("人学习</span></p>");
+			
 			sh.append("</div>");
 			sh.append("</div>");
 			sh.append("</li>");
@@ -429,6 +436,7 @@ public class Create{
 		try{
 
 			PrintStream printStream = new PrintStream(new FileOutputStream("homePage.jsp"));
+			SimpleDateFormat   formatter =new   SimpleDateFormat( "yyyy-MM-dd ");
 			sh.append("<div id='videos'>");
 			sh.append("<ul class='ul1'>");
 			for(int j=0;j<videos.size();j++) {
@@ -440,14 +448,14 @@ public class Create{
 				sh.append(videos.get(j).getUserId());
 				sh.append("'>");
 				sh.append("<img src='");
-				sh.append("cover/cover.png");
+				sh.append("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
 				sh.append("'>");
 				sh.append("</a>");
 				sh.append("<div class='first'>");
 				sh.append("<p class='top2'>");
 				sh.append(videos.get(j).getTitle());
 				sh.append("</p>");
-				sh.append("<p class='bottom2'>更新至7-14<span>课程时长:");
+				sh.append("<p class='bottom2'><span>课程时长:");
 				sh.append(videos.get(j).getDuration());
 				sh.append("</span></p>");
 				sh.append("</div>");
@@ -455,7 +463,12 @@ public class Create{
 				sh.append("<p class='top2'>");
 				sh.append(videos.get(j).getIntroduce());
 				sh.append("</p>");
-				sh.append("<p class='bottom2'>2015-08-17<span>272648人学习</span></p>");
+				sh.append("<p class='bottom2'>");
+				String date=formatter.format(videos.get(j).getTime());
+				sh.append(date);
+				sh.append("<span>");
+				sh.append(videos.get(j).getView());
+				sh.append("人学习</span></p>");
 				sh.append("</div>");
 				sh.append("</div>");
 				sh.append("</li>");
@@ -472,6 +485,7 @@ public class Create{
 	public StringBuilder createUploadVideo(String id) throws SQLException, ParseException {
 		VideoDao dao = new VideoDao();
 		ArrayList<Video> videos = dao.getInfoByUserId(id);
+		SimpleDateFormat   formatter =new   SimpleDateFormat( "yyyy-MM-dd ");
 		StringBuilder sh = new StringBuilder();
 		if(videos.size()==0)
 		{
@@ -492,14 +506,15 @@ public class Create{
 				sh.append(videos.get(j).getUserId());
 				sh.append("'>");
 				sh.append("<img src='");
-				sh.append("cover/cover.png");
+				sh.append("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
+				System.out.println("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
 				sh.append("'>");
 				sh.append("</a>");
 				sh.append("<div class='first'>");
 				sh.append("<p class='top2'>");
 				sh.append(videos.get(j).getTitle());
 				sh.append("</p>");
-				sh.append("<p class='bottom2'>更新至7-14<span>课程时长:");
+				sh.append("<p class='bottom2'><span>课程时长:");
 				sh.append(videos.get(j).getDuration());
 				sh.append("</span></p>");
 				sh.append("</div>");
@@ -507,11 +522,17 @@ public class Create{
 				sh.append("<p class='top2'>");
 				sh.append(videos.get(j).getIntroduce());
 				sh.append("</p>");
-				sh.append("<p class='bottom2'>2015-08-17<span>272648人学习</span></p>");
+				sh.append("<p class='bottom2'>");
+				String date=formatter.format(videos.get(j).getTime());
+				sh.append(date);
+				sh.append("<span>");
+				sh.append(videos.get(j).getView());
+				sh.append("人学习</span></p>");
 				sh.append("</div>");
 				sh.append("</div>");
 				sh.append("</li>");
 			}
+			
 			sh.append("</ul>");
 			sh.append("</div>");
 			printStream.println(sh.toString()); 
@@ -598,6 +619,113 @@ public class Create{
 					sh.append("</div>");
 					sh.append("</li>");
 					sh.append("</ul>");
+				}
+				printStream.println(sh.toString()); 
+				printStream.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;
+	}
+	public StringBuilder createHistory(String id) throws SQLException, ParseException {
+		VideoDao dao=new VideoDao();
+		ArrayList<Video> videos = new ArrayList<Video>();
+		videos = dao.getByVideoRecord(id);//videoId
+		StringBuilder sh = new StringBuilder();
+		if(videos.size()==0)
+		{
+			sh.append("<div>暂无浏览记录</div>");
+		}
+		try{
+				PrintStream printStream = new PrintStream(new FileOutputStream("history.jsp"));
+				sh.append("<div id=\"videos\">");
+				for(int j=0;j<videos.size();j++) {	
+					sh.append("<ul class=\"ul1\">");
+					sh.append("<table><tr><th><li>");
+					sh.append("<div class='box1'>");
+					sh.append("<a onclick='return login2()' class='avatar_pic' target='_self' href='video.jsp?id=");
+					sh.append(videos.get(j).getId());
+					sh.append("&useid=");
+					sh.append(videos.get(j).getUserId());
+					sh.append("'>");
+					sh.append("<img src='");
+					sh.append("C:\\Users\\acer\\Desktop\\"+videos.get(j).getCover());
+					sh.append("'>");
+					sh.append("</a>");
+					sh.append("<div class='first'>");
+					sh.append("<p class='top2'>");
+					sh.append(videos.get(j).getTitle());
+					sh.append("</p>");
+					sh.append("<p class='bottom2'><span>课程时长:");
+					sh.append(videos.get(j).getDuration());
+					sh.append("</span></p>");
+					sh.append("</div>");
+					sh.append("<div class='last'>");
+					sh.append("<p class='top2'>");
+					sh.append(videos.get(j).getIntroduce());
+					sh.append("</p>");
+					sh.append("<p class='bottom2'>");
+					sh.append(videos.get(j).getTime());
+					sh.append("<span>");
+					sh.append(videos.get(j).getView());
+					sh.append("人学习</span></p>");
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</li></th>");
+					sh.append("<th>");
+					sh.append("<div>上次观看时间：<p>");
+					sh.append(videos.get(j).getSeeTime());
+					sh.append("</p></div>");
+					sh.append("</th></tr></table>");
+					sh.append("<hr width=\"1800px\"/>");
+					sh.append("</ul>");
+				}
+				sh.append("</div>");
+				printStream.println(sh.toString()); 
+				printStream.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;
+	}
+	public StringBuilder createSelectedUser(String key) throws SQLException, ParseException {
+		UserEditDao dao=new UserEditDao();
+		ArrayList<UserEdit> userEdits = new ArrayList<UserEdit>();
+		userEdits = dao.getByKeywords(key);//videoId
+		StringBuilder sh = new StringBuilder();
+		if(userEdits.size()==0)
+		{
+			sh.append("<div>未搜索到相关用户</div>");
+		}
+		try{
+				PrintStream printStream = new PrintStream(new FileOutputStream("searchvideo.jsp"));
+				for(int j=0;j<userEdits.size();j++) {	
+					sh.append("<div class=\"myinformation\">");
+					sh.append("<div class=\"image\">");
+					sh.append("<img src=\"ImageDisplay\" onclick=\"hisHome\"/>");
+					sh.append("</div>");
+					sh.append("<div class=\"informationbox\">");
+					sh.append("<div id=\"username\" class=\"info\">");
+					sh.append("<tr>");
+					sh.append("<td>用户名: </td><td>");
+					sh.append(userEdits.get(j).getUname());
+					sh.append("</td></tr></div>");
+					sh.append("<div id=\"userid\" class=\"info\">");
+					sh.append("<tr>");
+					sh.append("<td>用户账号: </td><td>");
+					sh.append(userEdits.get(j).getUid());
+					sh.append("</td></tr></div>");
+					sh.append("<div id=\"userfocus\" class=\"info\">");
+					sh.append("<tr>");
+					sh.append("<td>关注量: </td><td>");
+					sh.append(userEdits.get(j).getFollow());
+					sh.append("</td></tr></div>");
+					sh.append("<div id=\"userread\" class=\"info\">");
+					sh.append("<tr>");
+					sh.append("<td>浏览量: </td><td>");
+					sh.append(userEdits.get(j).getView());
+					sh.append("</td></tr></div>");
+					sh.append("</div></div>");
 				}
 				printStream.println(sh.toString()); 
 				printStream.close();

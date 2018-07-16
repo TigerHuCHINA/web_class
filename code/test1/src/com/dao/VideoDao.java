@@ -57,6 +57,7 @@ public class VideoDao extends BaseDao{
 				video.setDuration(set.getString("duration"));
 				video.setFile(set.getString("file"));
 				video.setView(set.getString("view"));
+				video.setCover(set.getString("cover"));
 				free();
 			}
 			else {
@@ -86,6 +87,7 @@ public class VideoDao extends BaseDao{
 				SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				video.setTime(s.parse(set.getString("time")));
 				video.setDuration(set.getString("duration"));
+				video.setCover(set.getString("cover"));
 				videos.add(video);
 			}
 		} catch (SQLException e) {
@@ -108,6 +110,15 @@ public class VideoDao extends BaseDao{
 			while(set.next()) {
 				Video video = new Video();
 				video.setId(set.getString("id"));
+				video.setUserId(set.getString("userId"));
+				video.setTitle(set.getString("title"));
+				video.setIntroduce(set.getString("introduce"));
+				SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				video.setTime(s.parse(set.getString("time")));
+				video.setDuration(set.getString("duration"));
+				video.setFile(set.getString("file"));
+				video.setView(set.getString("view"));
+				video.setCover(set.getString("cover"));
 				videos.add(video);
 			}
 		} catch (SQLException e) {

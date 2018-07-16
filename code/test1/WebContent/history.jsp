@@ -1,5 +1,6 @@
 <%@page import="com.pojo.UserEdit"%>
 <%@page import="com.action.getInfo"%>
+<%@page import="com.action.Create"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -29,74 +30,11 @@
 
 <h1 style="position:absolute;top:100px;width:100%;text-align:center;">我的观看记录</h1>
 
-
-
-<div id="videos">
-    <ul class="ul1">
-    
-    
-    <table>
-        <tr>
-        <th>
-        <li>
-            <div class="box1">
-                <a href="video.jsp" class="avatar_pic" target="_self" onclick="return false" >
-                    <img src="cover/cover.png"/>
-                </a>
-                <div class="first">
-                    <p class="top2"><%//视频名称 %></p>
-                    <p class="bottom2"><%//视频类别 %></p>
-                </div>
-                <div class="last">
-                    <p class="top2"><%//视频简介 %></p>
-                    <p class="bottom2"><%//上传时间 %><span><%//播放量 %></span></p>
-                </div>
-            </div>
-        </li>
-        </th>
-        <th>
-        <div>上次观看时间：<p><%//填时间 %></p></div>
-        </th>
-        <tr>
-    </table>
-    <hr width="1800px"/>
-        
-    </ul>
-    
-    
-    <ul class="ul1">
-    
-    
-    <table>
-        <tr>
-        <th>
-        <li>
-            <div class="box1">
-                <a href="video.jsp" class="avatar_pic" target="_self" onclick="return false" >
-                    <img src="cover/cover.png"/>
-                </a>
-                <div class="first">
-                    <p class="top2"><%//视频名称 %></p>
-                    <p class="bottom2"><%//视频类别 %></p>
-                </div>
-                <div class="last">
-                    <p class="top2"><%//视频简介 %></p>
-                    <p class="bottom2"><%//上传时间 %><span><%//播放量 %></span></p>
-                </div>
-            </div>
-        </li>
-        </th>
-        <th>
-        <div>上次观看时间：<p><%//填时间 %></p></div>
-        </th>
-        <tr>
-    </table>
-    <hr width="1800px"/>
-        
-    </ul>
-</div>
-
-
+<%
+Create cv=new Create();
+StringBuilder s=cv.createHistory((String)request.getSession().getAttribute("userid"));
+out.println(s);
+%>
 
 </body>
 </html>
