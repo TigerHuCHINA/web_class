@@ -90,6 +90,17 @@
             transform: translateY(0px);
             text-shadow: 0 0 0;
         }
+         .tab:checked:nth-of-type(6) ~ .tab__content:nth-of-type(6) {
+            opacity: 1;
+            -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+            transition: 0.5s opacity ease-in, 0.8s transform ease;
+            position: relative;
+            top: 0;
+            z-index: 100;
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            text-shadow: 0 0 0;
+        }
         .tab:first-of-type:not(:last-of-type) + label {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
@@ -390,13 +401,14 @@
            <div class="tab__content">
            		<h3>好友列表</h3>
            		<div class="haoyou">
+           		<ul>
            <%
            		String id6=(String)request.getSession().getAttribute("userid");
            		Create cv6=new Create();
-           		
            		StringBuilder s6=cv6.createFriend(id6);
            		out.println(s6);
            %>
+           </ul>
            </div>
     </div>
 </div>
