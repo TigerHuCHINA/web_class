@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script src="js/videopage.js"></script>
-
+<link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/button.css" rel='stylesheet' type='text/css'>
 <link href="css/videostyle.css" rel='stylesheet' type='text/css'>
 <title>视频名称</title>
@@ -227,16 +227,28 @@ body {
 
 </head>
 <body>
+<!-- 顶部菜单 -->
+<div class="header">
 
+    <a class="head1" href="home.jsp">主界面</a>
+
+    <a class="head2" href="homePage.jsp"><img src="ImageDisplay?id=user" width="75px" height="75px"></a>
+        
+    <a class="head3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
+
+    <a class="head4" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">反馈</a>
+
+
+</div>
 <!-- ----------------------播放视频，邓慧颖---------------------------------- -->
 
-
+<div style="position:relative;top:46px;">
 <div class="search1 dd1">
     <form class="search1">
         <input type="text" placeholder="搜索你感兴趣的课程">
 		<button id="search" class="searchbutton" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
     
-        <a href="home.jsp">主界面</a>
+
     </form>
 </div>
 <%
@@ -362,5 +374,6 @@ StringBuilder s=cv.createComment(vid,ownerid);
 out.println(s);
 %>
 <!-- -------------------------------评论结束----------------------- -->
+</div>
 </body>
 </html>
