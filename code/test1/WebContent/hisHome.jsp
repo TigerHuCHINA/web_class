@@ -15,7 +15,7 @@
 
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
-<title>别人的个人主页</title>
+<title><%=request.getSession().getAttribute("username") %>的个人主页</title>
 	
 
 </head>
@@ -30,8 +30,7 @@
 	String id0= String.valueOf(11);
 	UserCountAction usercount = new UserCountAction();
 	usercount.doo(id,id0);*/
-
-if(((String)request.getSession().getAttribute("userid")).equals((String)request.getSession().getAttribute("ownerid")))
+if(((String)request.getSession().getAttribute("userid")).equals((String)request.getParameter("ownerid")))
 		{
 			response.sendRedirect("homePage.jsp");
 		}
