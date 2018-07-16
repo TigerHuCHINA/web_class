@@ -307,8 +307,7 @@ String view=v.getView();
     
 </div>
 
-<!-- <a class="addvideo btn btn-medium type3" href="doCollect" onclick="function()">收藏</a> -->
-<div class="mybuttons">
+<div>
 	<%
 	CollectDao cd=new CollectDao();
 	boolean result=cd.hasCollect((String)request.getSession().getAttribute("userid"),(String)request.getSession().getAttribute("vid"));
@@ -331,11 +330,12 @@ function funcText2(){
 	}
 </script>
 
-
    	<!-- ----------------------------------点赞------------------------ -->
 
 	
 <!--动态点赞结束-->
+=======
+>>>>>>> 51aedc868eae82ebbb0ebc90bba5f1605d7f99dc
 <script>
 $(function(){
 	$("#praise").click(function(){

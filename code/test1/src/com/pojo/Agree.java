@@ -5,6 +5,7 @@ public class Agree {
 	private String userid;
 	private String commentid;
 	private String time;
+	private String content;
 	
 	public String getId() {
 		return id;
@@ -30,4 +31,11 @@ public class Agree {
 	public void setTime(String time) {
 		this.time = time;
 	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 }

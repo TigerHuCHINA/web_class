@@ -10,8 +10,8 @@ import com.pojo.Agree;
 public class AgreeDao extends BaseDao{
 	public ArrayList<Agree> getByUserId(String userId)
 	{
-		String sql = "select agree.id,agree.userId,agree.commentId,agree.time "
-				+ "from comment left join agree on comment.id=agree.commentId where comment.userId=?";
+		String sql = "select agree.id,agree.userId,agree.commentId,agree.time,comment.content "
+				+ "from comment left join agree on comment.id=agree.commentId where comment.userId=? and agree.userId is not null";
 		Object obj[] = {userId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Agree> agrees = new ArrayList<Agree>();
@@ -22,6 +22,7 @@ public class AgreeDao extends BaseDao{
 				agree.setUserid(set.getString(2));
 				agree.setCommentid(set.getString(3));
 				agree.setTime(set.getString(4));
+				agree.setContent(set.getString(5));
 				agrees.add(agree);
 			}
 		} catch (SQLException e) {
