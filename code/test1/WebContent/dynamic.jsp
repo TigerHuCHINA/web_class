@@ -292,8 +292,8 @@
             	<div class="dianzan">
             		<ul>
             		<%
-					//String id1=request.getParameter("id");
-            		String id1="11";
+					String id1=(String)request.getSession().getAttribute("userid");
+            		//String id1="11";
 					Create cv1=new Create();
 					StringBuilder s1=cv1.createAgree(id1);
 					out.println(s1);
@@ -307,8 +307,8 @@
             	<div class="guanzhu">
             		<ul>
             		<%
-					//String id2=request.getParameter("id");
-            		String id2="11";
+					String id2=(String)request.getSession().getAttribute("userid");
+            		//String id2="11";
 					Create cv2=new Create();
 					//Follow follow = new Follow();
 					//String userId = follow.getFollowerid();
@@ -324,8 +324,8 @@
             	<div class="guanzhu">
             		<ul>
             		<%
-					//String id3=request.getParameter("id");
-            		String id3="11";
+					String id3=(String)request.getSession().getAttribute("userid");
+            		//String id3="11";
 					Create cv3=new Create();
 					//Follow follow = new Follow();
 					//String userId = follow.getFollowerid();
@@ -339,8 +339,8 @@
             <div class="tab__content">
                 <h3>私信</h3>
                 <%
-                String id4="11";
-                //String id4=request.getParameter("id");
+                //String id4="11";
+                String id4=(String)request.getSession().getAttribute("userid");
                 Create cv4=new Create();
 				StringBuilder s4=cv4.createMessage(id4);
 				out.println(s4);
@@ -350,8 +350,8 @@
             <div class="tab__content">
                 <h3>评论</h3>
            <%
-           		String id5="11";
-	           	//String id5=request.getParameter("id");
+           		//String id5="11";
+	           	String id5=(String)request.getSession().getAttribute("userid");
 	           	Create cv5=new Create();
 				
 				StringBuilder s5=cv5.createCommentR(id5);
