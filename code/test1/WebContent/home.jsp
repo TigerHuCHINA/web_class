@@ -629,9 +629,44 @@ $(function(){
 }
 </style>
 
-<div>
-<img src="picture/logo.jpg" width="120px" height="120px" style="position:absolute;left:0;top:0;border:2px solid black;border-radius:5px;">
+<script>
+function  showImg(){
+	 document.getElementById("logo-image").style.display='block';
+	 }
+	 function hideImg(){
+	 document.getElementById("logo-image").style.display='none';
+	 }
+</script>
+<div id="logo">
+	<a href="javascript:void(0);" onMouseOut="hideImg()"  onmouseover="showImg()">
+		<img src="picture/mylogo.jpg" width="50px" height="50px" style="position:absolute;left:0;top:0;border:2px solid black;border-radius:5px;">
+	</a>
 </div>
+
+<div id="logo-image" style="display: none;">
+	<img src="picture/logo.jpg" width="250px" height="250px" style="position:absolute;left:0;top:0;border:2px solid black;border-radius:15px;">
+</div>
+<style>
+#logo{
+ position: absolute;
+ z-index: 111;
+ height: 50px;
+ width: 50px;
+ left:0px;
+ top:175px;
+}
+#logo img{
+ width: 50px;
+ height: 50px;
+}
+#logo-image{
+ display: none;
+ position: absolute;
+ z-index: 111;
+ top:75px;
+ left:50px;
+}
+</style>
 <!-- -----------------------检查是否登陆--------------------- -->
 <script>
 
