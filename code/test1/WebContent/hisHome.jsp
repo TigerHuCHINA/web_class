@@ -43,8 +43,8 @@ if(((String)request.getSession().getAttribute("userid")).equals((String)request.
 
     <a class="head1" href="home.jsp">主界面</a>
 
-    <a class="head2" href="homePage.jsp"><img src="picture/1.png" width="100%" height="100%"></a>
-        
+    <a class="head2" href="homePage.jsp"><img src="ImageDisplay?id=user"  width="100%" height="100%"></a>
+     
     <a class="head3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 
     <a class="head4" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">反馈</a>
@@ -75,7 +75,7 @@ request.getSession().setAttribute("ownerid",ownerid);
 <!-- 个人头像与信息 -->
 <div class="myinformation">
     <div class="image">
-        <img src="ImageDisplay"/>    
+        <img src="ImageDisplay?id=owner"/>    
     </div>
     <div class="informationbox">
         <div id="username" class="info">

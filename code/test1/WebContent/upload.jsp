@@ -39,7 +39,7 @@
 
     <a class="head1" href="home.jsp">主界面</a>
 
-    <a class="head2" href="homePage.jsp"><img src="ImageDisplay" width="100%" height="100%"></a>
+    <a class="head2" href="homePage.jsp"><img src="ImageDisplay?id=user" width="100%" height="100%"></a>
         
     <a class="head3">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
 
@@ -76,9 +76,16 @@
         <div class="fileInputContainer">  
             <a href="#" class="mybtn1 btn btn-medium type1" onclick="addVideo()">点击上传视频</a>
             <input id="file" type="file" name="file" style="display:none;"/>
-            <input id="text" type="text" readonly="readonly"/>
+            <input id="text" type="text"/>
+            
+            <div class="fileInputContainer">  
+            <input class="fileInput" id="file2" type="file" name="file2" accept=".jpg,.png"/>
+
         </div>
-        
+            
+        </div>
+             
+     
         
         <div class="item">
 	        <div class="filter-box">
@@ -101,6 +108,7 @@
         <div class="info">
             <textarea name="info" id="video_info" onKeyDown="textdown(event)"  onKeyUp="textup()" placeholder="请输入视频简介"></textarea>
         </div>
+        
         <div class="submit">
             <button class="mybtn1 btn btn-large type3"type=" submit" onclick="check();">提交</button>
         </div>       

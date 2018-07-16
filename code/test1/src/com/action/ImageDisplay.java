@@ -43,10 +43,10 @@ public class ImageDisplay extends HttpServlet {
 		// TODO Auto-generated method stub
 		getInfo get = new getInfo();
 		HttpSession session = request.getSession();
-		String ownername = request.getParameter("id");
+		String ownername = (String)session.getAttribute("ownerid");
 		String name = (String)session.getAttribute("userid");
-		
-		if(ownername!=null) {
+		String flag=request.getParameter("id");
+		if(flag.equals("owner")) {
 		UserEdit u = get.getInfoById(ownername);
 		File f=new File(u.getUheadphoto());
 		InputStream is = new FileInputStream(f);  
@@ -63,7 +63,7 @@ public class ImageDisplay extends HttpServlet {
 	    os.close(); 
 		}
 		
-		if(name!=null) {
+		else {
 			UserEdit u = get.getInfoById(name);
 			File f=new File(u.getUheadphoto());
 			InputStream is = new FileInputStream(f);  
