@@ -35,7 +35,7 @@ request.getSession().setAttribute("ownerid",ownerid);
 
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
-<title><%=request.getSession().getAttribute("ownid") %>的个人主页</title>
+<title><%=request.getSession().getAttribute("username") %>的个人主页</title>
 	
 
 </head>
