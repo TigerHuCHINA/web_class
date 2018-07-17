@@ -3,6 +3,7 @@ package com.action;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -27,7 +28,7 @@ import com.pojo.UserEdit;
 import com.pojo.Video;
 
 public class Create{
-	public StringBuilder createVideo() throws SQLException, ParseException {
+	public StringBuilder createVideo() throws SQLException, ParseException, IOException{
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
 		videos=vd.getAll();
@@ -46,8 +47,9 @@ public class Create{
 				sh.append("&useid=");
 				sh.append(videos.get(j).getUserId());
 				sh.append("'>");
-				sh.append("<img src='ImageDisplay?id=video&number=");
-				sh.append(videos.get(j).getCover());
+				sh.append("<img src='");
+				File f=new File("");
+				sh.append(f.getCanonicalPath()+"\\"+videos.get(j).getCover());
 				sh.append("'>");
 				sh.append("</a>");
 				sh.append("<div class='first'>");
