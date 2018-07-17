@@ -311,58 +311,28 @@ String view=v.getView();
 	CollectDao cd=new CollectDao();
 	boolean result=cd.hasCollect((String)request.getSession().getAttribute("userid"),(String)request.getSession().getAttribute("vid"));
 	if(result){
-		System.out.print("true");
-    out.print("<a id='collect'  class='mybtn1 btn btn-medium type3' href='doCollect?flag=de' >已收藏</a>");
+    out.print("<a id='collect' onmouseover=\"mOver(this)\" onmouseout=\"mOut(this)\" class='mybtn1 btn btn-medium type3' href='doCollect?flag=de' >已收藏</a>");
     } 
 	else{ 
-		System.out.print("false");
 		out.print("<a id='collect'  class='mybtn1 btn btn-medium type3' href='doCollect?flag=add' >收藏</a>");
     } %>
 </div>
 <script>
-var demo = document.getElementById("delvideo");
-function funcText1(){
-	demo.innerHTML="取消收藏";
-	}
-function funcText2(){
-	demo.innerHTML="已收藏";
-	}
+function mOver(obj)
+{
+obj.innerHTML="取消收藏"
+}
+
+function mOut(obj)
+{
+obj.innerHTML="已收藏"
+}
 </script>
 
-   	<!-- ----------------------------------点赞------------------------ -->
-
-	
-<!--动态点赞结束-->
-<script>
-$(function(){
-	$("#praise").click(function(){
-		var praise_img = $("#praise-img");
-		var text_box = $("#add-num");
-		var praise_txt = $("#praise-txt");
-		var num=parseInt(praise_txt.text());
-		if(praise_img.attr("src") == ("picture/yizan.png")){
-			$(this).html("<img src='picture/zan.png' id='praise-img' class='animation' />");
-			praise_txt.removeClass("hover");
-			text_box.show().html("<em class='add-animation'>-1</em>");
-			$(".add-animation").removeClass("hover");
-			num -=1;
-			praise_txt.text(num)
-		}else{
-			$(this).html("<img src='picture/yizan.png' id='praise-img' class='animation' />");
-			praise_txt.addClass("hover");
-			text_box.show().html("<em class='add-animation'>+1</em>");
-			$(".add-animation").addClass("hover");
-			num +=1;
-			praise_txt.text(num)
-		}
-	});
-})
-</script>
-   <!-- -----------------------------------点赞结束------------------------------- --> 
 <!-- ---------------------------评论--------------------------- -->
 <%
 Create cv=new Create();
-StringBuilder s=cv.createComment(vid,ownerid);
+StringBuilder s=cv.createComment(vid,ownerid,(String)request.getSession().getAttribute("userid"));
 out.println(s);
 %>
 <!-- -------------------------------评论结束----------------------- -->

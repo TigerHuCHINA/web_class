@@ -34,7 +34,6 @@
 Create cv=new Create();
 String key = request.getParameter("content");
 //key = new String(key.getBytes("iso-8859-1"),"utf-8");
-System.out.println(key);
 StringBuilder s=cv.createSelectedVideo(key);
 out.println(s);
 %>

@@ -6,13 +6,11 @@ import com.pojo.Video;
 
 public class VideoCountDao extends BaseDao {
 	public int doCount(User u,Video v) {
-		System.out.println("³É¹¦");
 		//String sql="if exists(select from video where userId=? and videoId=?)"
 		//		+ "update video set view=view+1 where userId=? and videoId=?"
 		//		+ "else insert into video(userId,videoId,view) values(?,?,1)";
-		String sql="update video set view=view+1 where userId=? and Id=? and time_to_sec(now())-(select max(time_to_sec(daytime)) as d1 from videorecord where userId=? and videoId=?)>300";
-		Object[] obs= {u.getUid(),v.getId(),u.getUid(),v.getId(),u.getUid(),v.getId()};
-		
+		String sql="update video set view=view+1 where Id=? and (time_to_sec(now())-(select max(time_to_sec(daytime)) as d1 from videorecord where userId=? and videoId=?)>300 or (select max(time_to_sec(daytime)) from videorecord where userId=? and videoId=?) is null)";
+		Object[] obs= {v.getId(),u.getUid(),v.getId(),u.getUid(),v.getId()};
 		int row = executeUpdate(sql,obs);
 		free();
 		return row;

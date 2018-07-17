@@ -59,7 +59,7 @@ public class UploadAction extends HttpServlet {
 		
 		String cover =request.getParameter("file2");//∑‚√Ê…œ¥´
 		cover=new String(cover.getBytes("iso-8859-1"),"utf-8");
-		String tarPath2=bd.getPath(cover,uid+now,"cover");
+		String tarPath2=bd.getPath(cover,uid+now,"picture");
 
 		
 		Video v=new Video();

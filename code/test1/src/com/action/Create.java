@@ -85,7 +85,7 @@ public class Create{
 	
 	
 	
-	public StringBuilder createComment(String videoId,String userId) throws SQLException, ParseException {
+	public StringBuilder createComment(String videoId,String ownerId,String userId) throws SQLException, ParseException {
 		CommentDao dao=new CommentDao();
 		ArrayList<Comment> comments = new ArrayList<Comment>();
 		comments=dao.getByVideo(videoId);
@@ -105,19 +105,19 @@ public class Create{
 				sh.append("\">");
 				sh.append(comments.get(j).getUserId());
 				sh.append("</a>");
-				if(comments.get(j).getUserId().equals(userId)) sh.append("(上传者)");
+				if(comments.get(j).getUserId().equals(ownerId)) sh.append("(上传者)");
 				sh.append(" :</span><br>");
 				sh.append(comments.get(j).getContent());
 				sh.append("</div>");
 				sh.append("<div class=\"comment-date\">");
 				sh.append(comments.get(j).getTime());
 				sh.append("<a class=\"comment-zan\" href=\"doAgree?commentid=");
-				
 				sh.append(comments.get(j).getId());
 				sh.append("\">");
 				sh.append(comments.get(j).getAgree());
-				sh.append(" 赞");
-				sh.append("<a class=\"comment-dele\" href=\"#C1\">回复</a>");
+				AgreeDao ad=new AgreeDao();
+				if(ad.hasAgree(userId, comments.get(j).getId())) sh.append(" 取消赞");
+				else sh.append(" 赞");
 				sh.append("</div>");
 				sh.append("</div>");
 				sh.append("</div>");
@@ -378,7 +378,6 @@ public class Create{
 		}
 		try{
 			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
-			PrintStream printStream1 = new PrintStream(new FileOutputStream("video.jsp"));
 			SimpleDateFormat   formatter =new   SimpleDateFormat( "yyyy-MM-dd ");
 			sh.append("<div id='videos'>");
 			sh.append("<ul class='ul1'>");
@@ -421,9 +420,6 @@ public class Create{
 			}
 			sh.append("</ul>");
 			sh.append("</div>");
-
-			printStream1.println(sh.toString()); 
-			printStream1.close();
 			printStream.println(sh.toString()); 
 			printStream.close();
 			}catch(FileNotFoundException e){
@@ -709,7 +705,12 @@ public class Create{
 				for(int j=0;j<userEdits.size();j++) {	
 					sh.append("<div class=\"myinformation\">");
 					sh.append("<div class=\"image\">");
-					sh.append("<img src=\"ImageDisplay\" onclick=\"hisHome\"/>");
+					sh.append("<a href=\"hisHome.jsp?ownerid=");
+					sh.append(userEdits.get(j).getUid() + "\">");
+					sh.append("<img src=\"ImageDisplay?content=");
+					sh.append(userEdits.get(j).getUid());
+					sh.append("\" onclick=\"hisHome\"/>");
+					sh.append("</a>");
 					sh.append("</div>");
 					sh.append("<div class=\"informationbox\">");
 					sh.append("<div id=\"username\" class=\"info\">");

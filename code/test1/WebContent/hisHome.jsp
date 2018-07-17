@@ -31,7 +31,7 @@ request.getSession().setAttribute("ownerid",ownerid);
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
 <link href="css/video.css" rel='stylesheet' type='text/css'>
-<link href="css/style.css" rel='stylesheet' type='text/css'>
+<!-- <link href="css/style.css" rel='stylesheet' type='text/css'> -->
 
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
@@ -164,16 +164,26 @@ if(((String)request.getSession().getAttribute("userid")).equals((String)request.
 <%
 FollowDao fd=new FollowDao();
 boolean hasfollow=fd.hasFollow((String)request.getSession().getAttribute("ownerid"),(String)request.getSession().getAttribute("userid"));
-if(hasfollow){System.out.print("true");}
-else{System.out.print("false");}
 if(hasfollow){
-out.print("<a class='mybtn1 btn btn-medium type1' href='doFollow?flag=de' onclick='focus();'>取消关注</a>");
+out.print("<a class='mybtn1 btn btn-medium type1' onmouseover=\"mOver(this)\" onmouseout=\"mOut(this)\" href='doFollow?flag=de' onclick='focus();'>已关注</a>");
 }else{
 out.print("<a class='mybtn1 btn btn-medium type1' href='doFollow?flag=add' onclick='focus();'>关注</a>");
 }
 %>
 
 </div>
+
+<script>
+function mOver(obj)
+{
+obj.innerHTML="取消关注"
+}
+
+function mOut(obj)
+{
+obj.innerHTML="已关注"
+}
+</script>
 
 <!-- ---------------------------------------------私信----------------------------------------------- 
 <div class="sixin"><a href="#" onclick="return PopLayer(this)">私信</a></div>
