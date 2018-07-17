@@ -43,7 +43,6 @@ public class ImageDisplay extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		getInfo get = new getInfo();
 		HttpSession session = request.getSession();
 		String ownername = (String)session.getAttribute("ownerid");
