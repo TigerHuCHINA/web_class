@@ -46,8 +46,8 @@ public class Create{
 				sh.append("&useid=");
 				sh.append(videos.get(j).getUserId());
 				sh.append("'>");
-				sh.append("<img src='");
-				sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
+				sh.append("<img src='ImageDisplay?id=video&number=");
+				sh.append(videos.get(j).getCover());
 				sh.append("'>");
 				sh.append("</a>");
 				sh.append("<div class='first'>");
@@ -387,6 +387,8 @@ public class Create{
 			sh.append("<li>");
 			sh.append("<div class='box1'>");
 			sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");
+			sh.append(videos.get(j).getId());
+			sh.append("&useid=");
 			sh.append(videos.get(j).getUserId());
 			sh.append("'>");
 			sh.append("<img src='");

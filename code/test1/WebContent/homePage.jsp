@@ -172,7 +172,7 @@ out.println(s);
         <div class="title">我的收藏： 共
     <%
     getCollect getC = new getCollect();
-    out.print(getC.getById(name).size());
+    out.print(getC.getByCollectId(name).size());
     %>    
         个视频</div>
     

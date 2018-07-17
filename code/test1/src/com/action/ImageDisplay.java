@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.ParseException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.VideoDao;
 import com.pojo.UserEdit;
+import com.pojo.Video;
 
 /**
  * Servlet implementation class ImageDisplay
@@ -61,6 +64,32 @@ public class ImageDisplay extends HttpServlet {
 	    os.flush();  
 	    is.close();  
 	    os.close(); 
+		}
+		else if(flag.equals("video")) {
+			String cover=request.getParameter("number");
+			try {
+				File f=new File(cover);
+				InputStream is = new FileInputStream(f);  
+			    OutputStream os = null;
+			    response.setContentType("image/jpeg");
+			    os = response.getOutputStream();
+			    int num;  
+			    byte buf[] = new byte[1024]; 
+			    while(   (num=is.read(buf))!=-1   ){  
+			        os.write(buf, 0, num);  
+			    } 
+			    os.flush();  
+			    is.close();  
+			    os.close(); 
+				
+				
+				
+				
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		
 		else {
