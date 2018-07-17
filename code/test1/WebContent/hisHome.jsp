@@ -30,7 +30,7 @@ request.getSession().setAttribute("ownerid",ownerid);
 <link href="css/button.css" rel='stylesheet' type='text/css'>
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
-
+<link href="css/video.css" rel='stylesheet' type='text/css'>
 <link href="css/style.css" rel='stylesheet' type='text/css'>
 
 <script src="js/calender.js"></script>
@@ -228,11 +228,6 @@ out.println(s);
 	UserCountAction usercount = new UserCountAction();
 	usercount.doo(id,id0);
 %>
-
-
-
-
-
 
 
 

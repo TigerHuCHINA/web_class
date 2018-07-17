@@ -47,7 +47,7 @@ public class Create{
 				sh.append(videos.get(j).getUserId());
 				sh.append("'>");
 				sh.append("<img src='");
-				sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
+				sh.append(videos.get(j).getCover());
 				sh.append("'>");
 				sh.append("</a>");
 				sh.append("<div class='first'>");
