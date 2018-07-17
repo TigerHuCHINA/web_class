@@ -244,11 +244,9 @@ body {
 
 <div style="position:relative;top:46px;">
 <div class="search1 dd1">
-    <form class="search1">
-        <input type="text" placeholder="搜索你感兴趣的课程">
+    <form class="search1" onsubmit="return login2()" action="searchvideo.jsp">
+        <input type="text" name="content" placeholder="搜索你感兴趣的课程">
 		<button id="search" class="searchbutton" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
-    
-
     </form>
 </div>
 <%
@@ -271,13 +269,13 @@ request.getSession().setAttribute("ownerid",ownerid);
 	visitorcount.doo((String)request.getSession().getAttribute("userid"),vid);
 %>
 <%
-/* VideoDao vd=new VideoDao();
+ VideoDao vd=new VideoDao();
 if(vid==null){
 	vid=(String)request.getAttribute("id");
 	}
 Video v=vd.getInfoById(vid);
 String videoname=v.getTitle();
-String view=v.getView(); */
+String view=v.getView(); 
 %>
 
 
@@ -287,16 +285,10 @@ String view=v.getView(); */
     <div id="videoname" class="info">
         <tr>
             <td>视频名称 </td>
-            <td><%//=videoname%></td>
+            <td><%=videoname%></td>
         </tr>
     </div>
     
-    <div id="videotype" class="info">
-        <tr>
-            <td>视频类型 </td>
-            <td><%//这里放视频类型 %></td>
-        </tr>
-    </div>
     <div id="userlocation" class="info">
         <tr>
             <td>上传者 </td>
@@ -308,7 +300,7 @@ String view=v.getView(); */
     <div id="playcount" class="info">
         <tr>
             <td>观看数 </td>
-            <td><%//=view%></td>
+            <td><%=view%></td>
         </tr>
     </div>
     

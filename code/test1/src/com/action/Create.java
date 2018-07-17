@@ -378,6 +378,7 @@ public class Create{
 		}
 		try{
 			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
+			PrintStream printStream1 = new PrintStream(new FileOutputStream("video.jsp"));
 			SimpleDateFormat   formatter =new   SimpleDateFormat( "yyyy-MM-dd ");
 			sh.append("<div id='videos'>");
 			sh.append("<ul class='ul1'>");
@@ -420,6 +421,9 @@ public class Create{
 			}
 			sh.append("</ul>");
 			sh.append("</div>");
+
+			printStream1.println(sh.toString()); 
+			printStream1.close();
 			printStream.println(sh.toString()); 
 			printStream.close();
 			}catch(FileNotFoundException e){

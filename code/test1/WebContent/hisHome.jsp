@@ -30,12 +30,12 @@ request.getSession().setAttribute("ownerid",ownerid);
 <link href="css/button.css" rel='stylesheet' type='text/css'>
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
-
+<link href="css/video.css" rel='stylesheet' type='text/css'>
 <link href="css/style.css" rel='stylesheet' type='text/css'>
 
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
-<title><%=request.getSession().getAttribute("ownid") %>的个人主页</title>
+<title><%=request.getSession().getAttribute("username") %>的个人主页</title>
 	
 
 </head>
@@ -228,11 +228,6 @@ out.println(s);
 	UserCountAction usercount = new UserCountAction();
 	usercount.doo(id,id0);
 %>
-
-
-
-
-
 
 
 
