@@ -67,28 +67,19 @@ public class ImageDisplay extends HttpServlet {
 		}
 		else if(flag.equals("video")) {
 			String cover=request.getParameter("number");
-			try {
-				File f=new File(cover);
-				InputStream is = new FileInputStream(f);  
-			    OutputStream os = null;
-			    response.setContentType("image/jpeg");
-			    os = response.getOutputStream();
-			    int num;  
-			    byte buf[] = new byte[1024]; 
-			    while(   (num=is.read(buf))!=-1   ){  
-			        os.write(buf, 0, num);  
-			    } 
-			    os.flush();  
-			    is.close();  
-			    os.close(); 
-				
-				
-				
-				
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			File f=new File(cover);
+			InputStream is = new FileInputStream(f);  
+			OutputStream os = null;
+			response.setContentType("image/jpeg");
+			os = response.getOutputStream();
+			int num;  
+			byte buf[] = new byte[1024]; 
+			while(   (num=is.read(buf))!=-1   ){  
+			    os.write(buf, 0, num);  
+			} 
+			os.flush();  
+			is.close();  
+			os.close();
 			
 		}
 		
