@@ -244,7 +244,7 @@ body {
 
 <div style="position:relative;top:46px;">
 <div class="search1 dd1">
-    <form class="search1">
+    <form class="search1" onsubmit="return login2()" action="searchvideo.jsp">
         <input type="text" placeholder="搜索你感兴趣的课程">
 		<button id="search" class="searchbutton" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
     
