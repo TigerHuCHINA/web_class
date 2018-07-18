@@ -7,6 +7,7 @@ public class Question extends Exam {
 	private String qContent;
 	private String qScore;
 	private String qAnalysis;
+	private String empty;
 
 	public String getqId() {
 		return qId;
@@ -38,5 +39,10 @@ public class Question extends Exam {
 	public void setqAnalysis(String analysis) {
 		this.qAnalysis = analysis;
 	}
-	
+	public String getEmpty() {
+		return empty;
+	}
+	public void setEmpty(String empty) {
+		this.empty = empty;
+	}
 }

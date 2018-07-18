@@ -33,7 +33,6 @@ public class Create{
 		videos=vd.getAll();
 		StringBuilder sh = new StringBuilder();
 		try{
-
 			PrintStream printStream = new PrintStream(new FileOutputStream("home.jsp"));
 			SimpleDateFormat   formatter =new   SimpleDateFormat( "yyyy-MM-dd ");
 			sh.append("<div id='videos'>");
