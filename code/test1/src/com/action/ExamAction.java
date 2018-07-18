@@ -19,7 +19,7 @@ public class ExamAction extends HttpServlet {
 		HttpSession session = request.getSession();
 		String title = request.getParameter("examtitle");
 		title = new String(title.getBytes("iso-8859-1"),"utf-8");
-		String userId = (String) request.getAttribute("userId");
+		String userId = (String) session.getAttribute("userId");
 		
 		Exam exam = new Exam();
 		exam.setTitle(title);
