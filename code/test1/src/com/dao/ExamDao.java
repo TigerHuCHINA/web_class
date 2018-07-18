@@ -10,9 +10,9 @@ import com.pojo.Exam;
 import com.pojo.Question;
 
 public class ExamDao extends BaseDao {
-	public int addExam(String teacherId,Exam e) {
-		String sql="INSERT INTO exam (title, userId) VALUES (?, ?)";
-		Object [] obs= {e.getTitle(),teacherId};
+	public int addExam(Exam e) {
+		String sql="INSERT INTO exam (title) VALUES (?)";
+		Object [] obs= {e.getTitle()};
 		int row = executeUpdate(sql, obs);
 		free();
 		return row;
@@ -21,23 +21,26 @@ public class ExamDao extends BaseDao {
 		String sql="select max(id) from exam where userId=?";
 		Object [] obs= {teacherId};
 		int row = executeUpdate(sql, obs);
+		free();
 		return row;
 	}
 	public int addQuestion(Question q) {
 		String sql="insert into question (examId,content,score,analysis) values (?,?,?,?)";
-		Object [] obs= {q.geteId(),q.getqContent(),q.getScore(),q.getAnalysis()};
+		Object [] obs= {q.geteId(),q.getqContent(),q.getScore(),q.getqAnalysis()};
 		int row = executeUpdate(sql, obs);
+		free();
 		return row;
 	}
 	public int getQuestionId(String teacherId,ExamDao ed) {
 		String sql="select max(id) from question where examId=?";
 		Object [] obs= {ed.getExamId(teacherId)};
 		int row = executeUpdate(sql, obs);
+		free();
 		return row;
 	}
-	public int addAnswer(String aId,Answer a) {
-		String sql="insert into answer (questionId,content,score,analysis) values (?,?,?,?)";
-		Object [] obs= {aId,a.getaContent(),a.getaScore(),a.getAnalysis()};
+	public int addAnswer(Answer a) {
+		String sql="insert into answer (questionId,content,score) values (?,?,?)";
+		Object [] obs= {a.getqId(),a.getaContent(),a.getaScore()};
 		int row = executeUpdate(sql, obs);
 		return row;
 	}
@@ -49,9 +52,11 @@ public class ExamDao extends BaseDao {
 		try {
 			while(set.next()) {
 				Exam exam = new Exam();
+				exam.setExamId(set.getString(1));
 				exam.setTitle(set.getString(2));
 				exam.setScore(set.getString(3));
 				exam.setTime(set.getString(4));
+				exam.setUserId(set.getString(5));
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception
@@ -69,8 +74,10 @@ public class ExamDao extends BaseDao {
 			while(set.next()) {
 				Question question = new Question();
 				question.setqId(set.getString(1));
+				question.setExamId(set.getString(2));
 				question.setqContent(set.getString(3));
-				question.setEmpty(set.getString(4));
+				question.setqScore(set.getString(4));
+				question.setqAnalysis(set.getString(5));
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception
@@ -90,7 +97,6 @@ public class ExamDao extends BaseDao {
 				answer.setaId(set.getString(1));
 				answer.setaContent(set.getString(3));
 				answer.setaScore(set.getString(4));
-				answer.setAnalysis(set.getString(5));
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception
