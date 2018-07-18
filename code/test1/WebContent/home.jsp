@@ -200,7 +200,7 @@ display:none
                  <a onclick="logout()">退出登录</a>
              </div>
          </div>
-         <a id="istrue" class="btn btn-default btn1 pull-left" style="margin-left:-130px;color:white;"><%=request.getSession().getAttribute("username") %></a>		 
+         <a id="istrue" style="position:relative;left:-110px;top:-35px;cursor:default;color:white;text-decoration: none; "><%=request.getSession().getAttribute("username") %></a>		 
 	</div>
 </div>
 
