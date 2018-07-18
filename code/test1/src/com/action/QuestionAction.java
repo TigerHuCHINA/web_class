@@ -26,10 +26,10 @@ public class QuestionAction extends HttpServlet{
 			a = new String(a.getBytes("iso-8859-1"), "utf-8");
 			String d = request.getParameter("stOptionD");
 			a = new String(a.getBytes("iso-8859-1"), "utf-8");
-			String content = title + "\r" + a + "\r" + b + "\r"
-					+ c + "\r" + d;
+			String content = title + "\rA: " + a + "\rB: " + b + "\rC: "
+					+ c + "\rD: " + d;
 			String answerValue = request.getParameter("stAnswer");
-			
+			String parse = request.getParameter("stParse");
 		}
 		else
 		{

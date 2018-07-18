@@ -1,7 +1,8 @@
 package com.pojo;
 
-public class Answer extends Question {
+public class Answer{
 	private String aId;
+	private String qId;
 	private String aContent;
 	private String aScore;
 	public String getaId() {
@@ -22,4 +23,11 @@ public class Answer extends Question {
 	public void setaScore(String string) {
 		this.aScore = string;
 	}
+	public String getqId() {
+		return qId;
+	}
+	public void setqId(String qId) {
+		this.qId = qId;
+	}
+	
 }
