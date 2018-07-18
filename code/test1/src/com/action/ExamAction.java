@@ -17,7 +17,7 @@ public class ExamAction extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request,HttpServletResponse response)throws IOException, ServletException {
 		HttpSession session = request.getSession();
-		String title = request.getParameter("examtitle");
+		String title = request.getParameter("quTitle");
 		title = new String(title.getBytes("iso-8859-1"),"utf-8");
 		String userId = (String) session.getAttribute("userId");
 		

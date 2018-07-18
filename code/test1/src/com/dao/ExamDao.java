@@ -39,7 +39,7 @@ public class ExamDao extends BaseDao {
 		return row;
 	}
 	public int addAnswer(Answer a) {
-		String sql="insert into answer (questionId,content,score) values (?,?)";
+		String sql="insert into answer (questionId,content) values (?,?)";
 		Object [] obs= {a.getqId(),a.getaContent()};
 		int row = executeUpdate(sql, obs);
 		return row;

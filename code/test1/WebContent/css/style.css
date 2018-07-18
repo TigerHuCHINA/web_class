@@ -220,24 +220,10 @@ ul.lang li a{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
  /*视频*/
 #videos{
 	position: absolute;
-	left:0;
-	top:800px;
+	left:-30px;
+	top:700px;
 }
