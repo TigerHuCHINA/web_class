@@ -88,7 +88,7 @@ public class ExamDao extends BaseDao {
 		return questions;
 	}
 	public ArrayList<Answer> getByQId(String qId){
-		String sql="select * from question where questionId=?";
+		String sql="select * from answer where questionId=?";
 		Object obj[] = {qId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Answer> answers = new ArrayList<Answer>();
