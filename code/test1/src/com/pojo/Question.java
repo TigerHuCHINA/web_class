@@ -2,8 +2,10 @@ package com.pojo;
 
 public class Question extends Exam {
 	private String qId;
+	private String examId;
 	private String qContent;
-	private String empty;
+	private String qScore;
+	
 	public String getqId() {
 		return qId;
 	}

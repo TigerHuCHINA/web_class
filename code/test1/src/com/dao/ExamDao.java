@@ -49,6 +49,7 @@ public class ExamDao extends BaseDao {
 		try {
 			while(set.next()) {
 				Exam exam = new Exam();
+				exam.setExamId(set.getString(1));
 				exam.setTitle(set.getString(2));
 				exam.setScore(set.getString(3));
 				exam.setTime(set.getString(4));
