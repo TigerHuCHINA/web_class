@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.sql.* ,javax.servlet.* ,java.util.* ,java.awt.* ,com.action.*, com.comm.* ,com.dao.* ,com.pojo.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,12 +13,13 @@
 <form>
 <div name="ti"></div>
   <table width="300">
-		<tr>
-		  <td><a href="tQuery.jsp">标题1</a></td><td><input type="button" value="发布" onClick="msgbox()"></td><td><input type="button" value="删除"></td>
-		</tr>
-		<tr>
-		  <td><a href="tQuery.jsp">标题2</a></td><td><input type="button" value="发布" onclick="msgbox()"></td> <td><input type="button" value="删除"></td>
-		</tr>
+  <%
+  	//String id1=(String)request.getSession().getAttribute("userid");
+	String id="111";
+	Create cv=new Create();
+	StringBuilder s=cv.createExam(id);
+	out.println(s);
+  %>
   </table>	
 <div id='mydiv' style='display:none;'>
 <textarea id='pinlun' ></textarea>

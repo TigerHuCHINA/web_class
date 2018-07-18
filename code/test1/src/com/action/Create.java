@@ -10,10 +10,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.dao.AgreeDao;
 import com.dao.CollectDao;
 import com.dao.CommentDao;
+import com.dao.ExamDao;
 import com.dao.FollowDao;
 import com.dao.MessageDao;
 import com.dao.UserEditDao;
@@ -21,6 +24,7 @@ import com.dao.VideoDao;
 import com.pojo.Agree;
 import com.pojo.Collection;
 import com.pojo.Comment;
+import com.pojo.Exam;
 import com.pojo.Follow;
 import com.pojo.Message;
 import com.pojo.UserEdit;
@@ -733,6 +737,67 @@ public class Create{
 					sh.append(userEdits.get(j).getView());
 					sh.append("</td></tr></div>");
 					sh.append("</div></div>");
+				}
+				printStream.println(sh.toString()); 
+				printStream.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;
+	}
+	private HttpServletRequest request;
+	HttpSession session = request.getSession();
+	public StringBuilder browseExam(String teacherid) throws SQLException, ParseException {
+		ExamDao dao=new ExamDao();
+		ArrayList<Exam> exams = new ArrayList<Exam>();
+		exams=dao.getByUserId(teacherid);
+		StringBuilder sh = new StringBuilder();
+		try{
+				PrintStream printStream = new PrintStream(new FileOutputStream("?.jsp"));
+				for(int j=0;j<exams.size();j++) {
+				//+++++++++++++
+					sh.append(exams.get(j).getExamId());
+					sh.append(exams.get(j).getTitle());
+					sh.append(exams.get(j).getScore());
+					sh.append(exams.get(j).getTime());
+					sh.append(exams.get(j).getUserId());
+					sh.append(session.getAttribute("username"));
+				//+++++++++++++
+				}
+				printStream.println(sh.toString()); 
+				printStream.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;
+	}
+	public StringBuilder createExam(String teacherid) throws SQLException, ParseException {
+		ExamDao dao=new ExamDao();
+		ArrayList<Exam> exams = new ArrayList<Exam>();
+		exams=dao.getByUserId(teacherid);
+		StringBuilder sh = new StringBuilder();
+		try{
+				System.out.println("ok");
+				PrintStream printStream = new PrintStream(new FileOutputStream("editQ.jsp"));
+				for(int j=0;j<exams.size();j++) {
+					sh.append("<tr>");
+					sh.append("<td>");
+					sh.append("<a href=\"tQuery.jsp?id=");
+					sh.append(exams.get(j).getExamId());
+					sh.append("\">");
+					sh.append(exams.get(j).getTitle());
+					sh.append("</a>");
+					sh.append("</td>");
+					sh.append("<td>");
+					sh.append("<input type=\"button\" value=\"·¢²¼\" onClick=\"msgbox()\">");
+					sh.append("</td>");
+					sh.append("<td>");
+					sh.append("<input type=\"button\" value=\"É¾³ý\">");
+					sh.append("</td>");
+					sh.append("</tr>");
+					
+					sh.append(exams.get(j).getTime());
+					
 				}
 				printStream.println(sh.toString()); 
 				printStream.close();
