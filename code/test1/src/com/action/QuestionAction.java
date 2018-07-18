@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.ExamDao;
+import com.pojo.Answer;
 import com.pojo.Question;
 
 public class QuestionAction extends HttpServlet{
@@ -30,12 +32,26 @@ public class QuestionAction extends HttpServlet{
 			a = new String(a.getBytes("iso-8859-1"), "utf-8");
 			String content = title + "\rA: " + a + "\rB: " + b + "\rC: "
 					+ c + "\rD: " + d;
-			String answerValue = request.getParameter("stAnswer");
-			String parse = request.getParameter("stParse");
+			String analysis = request.getParameter("stParse");
+			String examId = (String) session.getAttribute("examid");
 			String score = request.getParameter("score");
+			String answerValue = request.getParameter("stAnswer");
 			
 			Question question = new Question();
+			question.seteId(examId);
+			question.setqContent(content);
+			question.setAnalysis(analysis);
+			ExamDao questionDao = new ExamDao();
+			questionDao.addQuestion(question);
 			
+			Answer answer = new Answer();
+			ExamDao getDao = new ExamDao();
+			String qid = getDao.getCurrentQid(examId);
+			answer.setqId(qid);
+			answer.setaContent(answerValue);
+			answer.setaScore(score);
+			ExamDao answerDao = new ExamDao();
+			answerDao.addAnswer();
 		}
 		else
 		{

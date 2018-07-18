@@ -99,4 +99,40 @@ public class ExamDao extends BaseDao {
 		free();
 		return answers;
 	}
+	public String getCurrentEid(String userid)
+	{
+		String sql = "select max(id) from exam where userId = ?";
+		Object obs[] = {userid};
+		ResultSet set = executeSelect(sql, obs);
+		String eid = "";
+		try {
+			if(set.next())
+			{
+				eid = set.getString(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		free();
+		return eid;
+	}
+	public String getCurrentQid(String eid)
+	{
+		String sql = "select max(id) from exam where examId = ?";
+		Object obs[] = {eid};
+		ResultSet set = executeSelect(sql, obs);
+		String qid = "";
+		try {
+			if(set.next())
+			{
+				qid = set.getString(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		free();
+		return qid;
+	}
 }

@@ -5,7 +5,6 @@ public class Answer{
 	private String qId;
 	private String aContent;
 	private String aScore;
-	private String analysis;
 	public String getaId() {
 		return aId;
 	}
@@ -29,12 +28,5 @@ public class Answer{
 	}
 	public void setqId(String qId) {
 		this.qId = qId;
-	}
-	
-	public String getAnalysis() {
-		return analysis;
-	}
-	public void setAnalysis(String analysis) {
-		this.analysis = analysis;
 	}
 }
