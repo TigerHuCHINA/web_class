@@ -807,9 +807,9 @@ public class Create{
 					
 	public StringBuilder createTeacherQuestion(String id) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();
-		Exam exam = examDao.getExamById("23");//id
+		Exam exam = examDao.getExamById(id);//id
 		ArrayList<Question> questions = new ArrayList<Question>();
-		questions = examDao.getByExamId("23");//id
+		questions = examDao.getByExamId(id);//id
 		StringBuilder sh = new StringBuilder();
 		try{
 				PrintStream printStream = new PrintStream(new FileOutputStream("tQuery.jsp"));
