@@ -8,11 +8,30 @@
 <html>
 <head>
 
+<%
+String ownerid=(String)request.getParameter("ownerid");
+UserEditDao ued=new UserEditDao();
+UserEdit ue=ued.getInfoById(ownerid);
+UserDao ud=new UserDao();
+User u=ud.dologin(ownerid);
+String ownername=u.getUname();
+String birthday=ue.getUbirthday();
+String sex=ue.getUsex();
+String school=ue.getUschool();
+String profession=ue.getUprofession();
+String introduce=ue.getUintroduce();
+String province = ue.getUprovince();
+String city = ue.getUcity();
+String follow = ue.getFollow();
+String view = ue.getView();
+request.getSession().setAttribute("ownerid",ownerid);
+%>
+
 <link href="css/button.css" rel='stylesheet' type='text/css'>
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
-
-<link href="css/style.css" rel='stylesheet' type='text/css'>
+<link href="css/video.css" rel='stylesheet' type='text/css'>
+<!-- <link href="css/style.css" rel='stylesheet' type='text/css'> -->
 
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
@@ -52,25 +71,6 @@ if(((String)request.getSession().getAttribute("userid")).equals((String)request.
 
 
 </div>
-
-<%
-String ownerid=(String)request.getParameter("ownerid");
-UserEditDao ued=new UserEditDao();
-UserEdit ue=ued.getInfoById(ownerid);
-UserDao ud=new UserDao();
-User u=ud.dologin(ownerid);
-String ownername=u.getUname();
-String birthday=ue.getUbirthday();
-String sex=ue.getUsex();
-String school=ue.getUschool();
-String profession=ue.getUprofession();
-String introduce=ue.getUintroduce();
-String province = ue.getUprovince();
-String city = ue.getUcity();
-String follow = ue.getFollow();
-String view = ue.getView();
-request.getSession().setAttribute("ownerid",ownerid);
-%>
 
 
 <!-- 个人头像与信息 -->
@@ -155,51 +155,40 @@ request.getSession().setAttribute("ownerid",ownerid);
     <div>
 	    <a class="mybtn1 btn btn-medium type2" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">私信</a>
     </div>
-</div>
 
 
-<div class="videos">
-    <div class="myvideo">
-        <div class="title">他的视频： 共
-    <%
-        VideoDao dao = new VideoDao();
-        out.print(dao.getInfoByUserId(ownerid).size());
-     %>    
-        个视频</div>
-    </div>
-    <%
-Create c=new Create();
-StringBuilder s=c.createUploadVideo(ownerid);
-out.println(s);
-%>
-</div>
 
 <!-- -----------------------------------关注、收藏----------------------------------- -->
-<div class="focusinfo">
+
+<div>
 <%
 FollowDao fd=new FollowDao();
 boolean hasfollow=fd.hasFollow((String)request.getSession().getAttribute("ownerid"),(String)request.getSession().getAttribute("userid"));
-if(hasfollow){System.out.print("true");}
-else{System.out.print("false");}
 if(hasfollow){
-out.print("<a class='focus' href='doFollow?flag=de' onclick='focus();'>取消关注</a>");
+out.print("<a class='mybtn1 btn btn-medium type1' onmouseover=\"mOver(this)\" onmouseout=\"mOut(this)\" href='doFollow?flag=de' onclick='focus();'>已关注</a>");
 }else{
-out.print("<a class='focus' href='doFollow?flag=add' onclick='focus();'>关注</a>");
+out.print("<a class='mybtn1 btn btn-medium type1' href='doFollow?flag=add' onclick='focus();'>关注</a>");
 }
 %>
 
-	
 </div>
 
-<div class="same">
-	<strong><%=follow %></strong>关注<br>
-	<strong class="look"><%=view %></strong>浏览
-</div>
+<script>
+function mOver(obj)
+{
+obj.innerHTML="取消关注"
+}
 
-<!-- ---------------------------------------------私信----------------------------------------------- -->
+function mOut(obj)
+{
+obj.innerHTML="已关注"
+}
+</script>
+
+<!-- ---------------------------------------------私信----------------------------------------------- 
 <div class="sixin"><a href="#" onclick="return PopLayer(this)">私信</a></div>
 <div id="lightbox2"></div>
-<div id="pop2" style="background-image:url(picture/back.jpg)">
+<div id="pop2" style="background-image:url(picture/back.jpg)">-->
 
 
 
@@ -216,7 +205,22 @@ out.print("<a class='focus' href='doFollow?flag=add' onclick='focus();'>关注</
         </div>
 	</form>
 </div> 
+</div>
 
+<div class="videos">
+    <div class="myvideo">
+        <div class="title">他的视频： 共
+    <%
+        VideoDao dao = new VideoDao();
+        out.print(dao.getInfoByUserId(ownerid).size());
+     %>    
+        个视频</div>
+    </div>
+    <%
+Create c=new Create();
+StringBuilder s=c.createUploadVideo(ownerid);
+out.println(s);
+%>
 
 <div id="fade" class="black_overlay"></div> 
 
@@ -234,11 +238,6 @@ out.print("<a class='focus' href='doFollow?flag=add' onclick='focus();'>关注</
 	UserCountAction usercount = new UserCountAction();
 	usercount.doo(id,id0);
 %>
-
-
-
-
-
 
 
 

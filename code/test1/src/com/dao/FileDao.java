@@ -24,11 +24,9 @@ public class FileDao extends BaseDao {
 	}
 	public String getPath(String filepath,String id,String folder) throws IOException {
 		String tarPath = null;
-		if(folder=="cover") {
-			tarPath="cover";
-		}else if(folder=="headphoto") {
+		if(folder=="picture") {
 			tarPath="picture";
-		}else if(folder=="video") {
+		}else{
 			tarPath="video";
 		}
 		File file=new File(filepath);
@@ -42,8 +40,7 @@ public class FileDao extends BaseDao {
 		if (!tempFile.exists()) {
             tempFile.mkdirs();
         }
-		tarPath=tarPath+"\\"+id+"." + format;
-		System.out.println("tarPath:"+tarPath);
+		tarPath=tarPath+"/"+id+"." + format;
 		out = new FileOutputStream(tarPath);
 		 while ((len = f.read(bs)) != -1) {
              out.write(bs, 0, len);

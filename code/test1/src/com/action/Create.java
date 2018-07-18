@@ -46,8 +46,8 @@ public class Create{
 				sh.append("&useid=");
 				sh.append(videos.get(j).getUserId());
 				sh.append("'>");
-				sh.append("<img src='");
-				sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
+				sh.append("<img src='ImageDisplay?id=video&number=");
+				sh.append(videos.get(j).getCover());
 				sh.append("'>");
 				sh.append("</a>");
 				sh.append("<div class='first'>");
@@ -85,7 +85,7 @@ public class Create{
 	
 	
 	
-	public StringBuilder createComment(String videoId,String userId) throws SQLException, ParseException {
+	public StringBuilder createComment(String videoId,String ownerId,String userId) throws SQLException, ParseException {
 		CommentDao dao=new CommentDao();
 		ArrayList<Comment> comments = new ArrayList<Comment>();
 		comments=dao.getByVideo(videoId);
@@ -105,19 +105,19 @@ public class Create{
 				sh.append("\">");
 				sh.append(comments.get(j).getUserId());
 				sh.append("</a>");
-				if(comments.get(j).getUserId().equals(userId)) sh.append("(上传者)");
+				if(comments.get(j).getUserId().equals(ownerId)) sh.append("(上传者)");
 				sh.append(" :</span><br>");
 				sh.append(comments.get(j).getContent());
 				sh.append("</div>");
 				sh.append("<div class=\"comment-date\">");
 				sh.append(comments.get(j).getTime());
 				sh.append("<a class=\"comment-zan\" href=\"doAgree?commentid=");
-				
 				sh.append(comments.get(j).getId());
 				sh.append("\">");
 				sh.append(comments.get(j).getAgree());
-				sh.append(" 赞");
-				sh.append("<a class=\"comment-dele\" href=\"#C1\">回复</a>");
+				AgreeDao ad=new AgreeDao();
+				if(ad.hasAgree(userId, comments.get(j).getId())) sh.append(" 取消赞");
+				else sh.append(" 赞");
 				sh.append("</div>");
 				sh.append("</div>");
 				sh.append("</div>");
@@ -387,6 +387,8 @@ public class Create{
 			sh.append("<li>");
 			sh.append("<div class='box1'>");
 			sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");
+			sh.append(videos.get(j).getId());
+			sh.append("&useid=");
 			sh.append(videos.get(j).getUserId());
 			sh.append("'>");
 			sh.append("<img src='");
@@ -427,13 +429,14 @@ public class Create{
 	}
 	public StringBuilder createCollectVideo(String id) throws SQLException, ParseException {
 		getCollect get = new getCollect();
-		ArrayList<Video> videos = get.getById(id);
+		ArrayList<Video> videos = get.getByCollectId(id);
 		StringBuilder sh = new StringBuilder();
 		if(videos.size()==0)
 		{
 			sh.append("还没有收藏任何视频");
 			return sh;
 		}
+		
 		try{
 
 			PrintStream printStream = new PrintStream(new FileOutputStream("homePage.jsp"));
@@ -592,7 +595,7 @@ public class Create{
 	public StringBuilder createFriend(String id) throws SQLException, ParseException {
 		FollowDao dao=new FollowDao();
 		ArrayList<Follow> follows = new ArrayList<Follow>();
-		follows=dao.getByUser(id);//videoId
+		follows=dao.getByUser2(id);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
 				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
@@ -606,9 +609,9 @@ public class Create{
 					sh.append("<div class=\"comment-text\">");
 					sh.append("<span class=\"user\">");
 					sh.append("<a href=\"hisHome.jsp?ownerid=");
-					sh.append(follows.get(j).getFolloweeid());
+					sh.append(follows.get(j).getFollowerid());
 					sh.append("\">");
-					sh.append(follows.get(j).getFolloweeid());
+					sh.append(follows.get(j).getFollowerid());
 					sh.append("</a>");
 					sh.append("</div>");
 					sh.append("<div class=\"comment-date\">");
@@ -702,7 +705,12 @@ public class Create{
 				for(int j=0;j<userEdits.size();j++) {	
 					sh.append("<div class=\"myinformation\">");
 					sh.append("<div class=\"image\">");
-					sh.append("<img src=\"ImageDisplay\" onclick=\"hisHome\"/>");
+					sh.append("<a href=\"hisHome.jsp?ownerid=");
+					sh.append(userEdits.get(j).getUid() + "\">");
+					sh.append("<img src=\"ImageDisplay?content=");
+					sh.append(userEdits.get(j).getUid());
+					sh.append("\" onclick=\"hisHome\"/>");
+					sh.append("</a>");
 					sh.append("</div>");
 					sh.append("<div class=\"informationbox\">");
 					sh.append("<div id=\"username\" class=\"info\">");

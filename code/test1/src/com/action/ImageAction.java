@@ -43,7 +43,7 @@ public class ImageAction extends HttpServlet {
 		FileDao fd=new FileDao();
 		SimpleDateFormat df = new SimpleDateFormat("ss");
         String now=df.format(new java.util.Date());
-		String tarPath=fd.getPath(file,uid+now,"headphoto");
+		String tarPath=fd.getPath(file,uid+now,"picture");
 		ImageDao id=new ImageDao();
 		if(id.ImageUpload(uid, tarPath)) {
 			request.setAttribute("result", "³É¹¦");

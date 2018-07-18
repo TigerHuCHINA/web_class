@@ -244,11 +244,9 @@ body {
 
 <div style="position:relative;top:46px;">
 <div class="search1 dd1">
-    <form class="search1">
-        <input type="text" placeholder="搜索你感兴趣的课程">
+    <form class="search1" onsubmit="return login2()" action="searchvideo.jsp">
+        <input type="text" name="content" placeholder="搜索你感兴趣的课程">
 		<button id="search" class="searchbutton" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
-    
-
     </form>
 </div>
 <%
@@ -271,13 +269,13 @@ request.getSession().setAttribute("ownerid",ownerid);
 	visitorcount.doo((String)request.getSession().getAttribute("userid"),vid);
 %>
 <%
-/* VideoDao vd=new VideoDao();
+ VideoDao vd=new VideoDao();
 if(vid==null){
 	vid=(String)request.getAttribute("id");
 	}
 Video v=vd.getInfoById(vid);
 String videoname=v.getTitle();
-String view=v.getView(); */
+String view=v.getView(); 
 %>
 
 
@@ -287,16 +285,10 @@ String view=v.getView(); */
     <div id="videoname" class="info">
         <tr>
             <td>视频名称 </td>
-            <td><%//=videoname%></td>
+            <td><%=videoname%></td>
         </tr>
     </div>
     
-    <div id="videotype" class="info">
-        <tr>
-            <td>视频类型 </td>
-            <td><%//这里放视频类型 %></td>
-        </tr>
-    </div>
     <div id="userlocation" class="info">
         <tr>
             <td>上传者 </td>
@@ -308,7 +300,7 @@ String view=v.getView(); */
     <div id="playcount" class="info">
         <tr>
             <td>观看数 </td>
-            <td><%//=view%></td>
+            <td><%=view%></td>
         </tr>
     </div>
     
@@ -319,58 +311,28 @@ String view=v.getView(); */
 	CollectDao cd=new CollectDao();
 	boolean result=cd.hasCollect((String)request.getSession().getAttribute("userid"),(String)request.getSession().getAttribute("vid"));
 	if(result){
-		System.out.print("true");
-    out.print("<a id='collect'  class='mybtn1 btn btn-medium type3' href='doCollect?flag=de' >已收藏</a>");
+    out.print("<a id='collect' onmouseover=\"mOver(this)\" onmouseout=\"mOut(this)\" class='mybtn1 btn btn-medium type3' href='doCollect?flag=de' >已收藏</a>");
     } 
 	else{ 
-		System.out.print("false");
 		out.print("<a id='collect'  class='mybtn1 btn btn-medium type3' href='doCollect?flag=add' >收藏</a>");
     } %>
 </div>
 <script>
-var demo = document.getElementById("delvideo");
-function funcText1(){
-	demo.innerHTML="取消收藏";
-	}
-function funcText2(){
-	demo.innerHTML="已收藏";
-	}
+function mOver(obj)
+{
+obj.innerHTML="取消收藏"
+}
+
+function mOut(obj)
+{
+obj.innerHTML="已收藏"
+}
 </script>
 
-   	<!-- ----------------------------------点赞------------------------ -->
-
-	
-<!--动态点赞结束-->
-<script>
-$(function(){
-	$("#praise").click(function(){
-		var praise_img = $("#praise-img");
-		var text_box = $("#add-num");
-		var praise_txt = $("#praise-txt");
-		var num=parseInt(praise_txt.text());
-		if(praise_img.attr("src") == ("picture/yizan.png")){
-			$(this).html("<img src='picture/zan.png' id='praise-img' class='animation' />");
-			praise_txt.removeClass("hover");
-			text_box.show().html("<em class='add-animation'>-1</em>");
-			$(".add-animation").removeClass("hover");
-			num -=1;
-			praise_txt.text(num)
-		}else{
-			$(this).html("<img src='picture/yizan.png' id='praise-img' class='animation' />");
-			praise_txt.addClass("hover");
-			text_box.show().html("<em class='add-animation'>+1</em>");
-			$(".add-animation").addClass("hover");
-			num +=1;
-			praise_txt.text(num)
-		}
-	});
-})
-</script>
-   <!-- -----------------------------------点赞结束------------------------------- --> 
 <!-- ---------------------------评论--------------------------- -->
 <%
 Create cv=new Create();
-StringBuilder s=cv.createComment(vid,ownerid);
+StringBuilder s=cv.createComment(vid,ownerid,(String)request.getSession().getAttribute("userid"));
 out.println(s);
 %>
 <!-- -------------------------------评论结束----------------------- -->
