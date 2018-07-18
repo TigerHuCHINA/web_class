@@ -73,5 +73,4 @@ public class ExamDao extends BaseDao {
 		free();
 		return exams;
 	}
-	public ArrayList<Question> getBy
 }
