@@ -19,7 +19,7 @@
  }
  </script>
 
-<form class="stdform" action="subjectAdd.action" method="post">
+<form class="stdform" action="doQuestion" method="post">
 <select name="questionType" id="select" onchange="test()">
  <option value="a" selected>单选题</option>
  <option value="b">填空题</option>
