@@ -31,7 +31,7 @@
 							<div class="widgetcontent">
 									<p>
 										<label>试题题目</label>
-										 <span class="field"><textarea name="stTitle" cols="80" rows="3" class="span5" required="required"></textarea></span> 
+										 <span class="field"><textarea name="stTitle1" cols="80" rows="3" class="span5" required="required"></textarea></span> 
 									</p>
 									<p>
 										<label>选项A:</label>
@@ -58,7 +58,7 @@
 									</p>
 									<p>
 										<label>试题解析</label>
-										 <span class="field"><textarea name="stParse" cols="80" rows="5" class="span5"></textarea></span> 
+										 <span class="field"><textarea name="stParse1" cols="80" rows="5" class="span5"></textarea></span> 
 									</p>
 									
 									<p>
@@ -69,7 +69,7 @@
 									<p class="stdformbutton">
 										<input type="submit" value="录入">
 										<input type="reset" value="重置">
-										<input type="button" value="完成" onclick="window.location='home.jsp'"/>
+										<input type="button" value="完成" onclick="sub()"/>
 									</p>
 							</div>
 							<!--widgetcontent-->
@@ -82,27 +82,27 @@
 							<div class="widgetcontent">
 									<p>
 										<label>试题题目</label>
-										 <span class="field"><textarea id="table2" name="stTitle" cols="80" rows="3" class="span5" required="required"></textarea></span> 
+										 <span class="field"><textarea id="table2" name="stTitle2" cols="80" rows="3" class="span5" required="required"></textarea></span> 
 									</p>
 									<p>
 										<label>答案</label>
-										<span id="table"><input name="stAnswer" placeholder="答案1" type="text"/></span>
+										<span id="table"></span><!-- name="questions[ + this.qno + ] -->
 									</p>
 									<p>
 										<label>试题解析</label>
-										 <span class="field"><textarea name="stParse" cols="80" rows="5" class="span5" required="required"></textarea></span> 
+										 <span class="field"><textarea name="stParse2" cols="80" rows="5" class="span5" required="required"></textarea></span> 
 									</p>
 								
 									<p>
 										<label>分值设定</label>
-										 <span class="field"><input type="text"></span> 
+										 <span class="field"><input name="score2" type="text"></span> 
 									</p>
 								
 									<p class="stdformbutton">
 										<input type="button" value="增加空" onclick="createQuestion();" />
-										<input type="submit" value="录入"/>
+										<input id="luru" type="submit" value="录入"/>
 										<input type="button" value="重置" onclick="replaceDoc()">
-										<input type="button" value="完成" onclick="window.location='home.jsp'"/>
+										<input type="button" value="完成" onclick="sub()"/>
 									</p>
 							</div>
 							<!--widgetcontent-->
@@ -119,7 +119,7 @@
 var qus = new Array();
 
 function Question() {
-	this.qno = qus.length+2;
+	this.qno = qus.length+1;
 	this.ono = 0;
 	this.create = function(table) {
 		var qstr = "";
@@ -143,6 +143,10 @@ function replaceDoc()
     window.location.replace("subject.jsp")
 }
 
+function sub(){
+	document.getElementById('luru').click();
+	window.location="home.jsp";
+}
 </script>
 
 </body>

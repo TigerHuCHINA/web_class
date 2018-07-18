@@ -39,8 +39,8 @@ public class ExamDao extends BaseDao {
 		return row;
 	}
 	public int addAnswer(Answer a) {
-		String sql="insert into answer (questionId,content,score) values (?,?,?)";
-		Object [] obs= {a.getqId(),a.getaContent(),a.getaScore()};
+		String sql="insert into answer (questionId,content) values (?,?)";
+		Object [] obs= {a.getqId(),a.getaContent()};
 		int row = executeUpdate(sql, obs);
 		return row;
 	}
@@ -87,7 +87,7 @@ public class ExamDao extends BaseDao {
 		return questions;
 	}
 	public ArrayList<Answer> getByQId(String qId){
-		String sql="select * from question where questionId=?";
+		String sql="select * from answer where questionId=?";
 		Object obj[] = {qId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Answer> answers = new ArrayList<Answer>();
@@ -95,8 +95,8 @@ public class ExamDao extends BaseDao {
 			while(set.next()) {
 				Answer answer = new Answer();
 				answer.setaId(set.getString(1));
+				answer.setqId(set.getString(2));
 				answer.setaContent(set.getString(3));
-				answer.setaScore(set.getString(4));
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception

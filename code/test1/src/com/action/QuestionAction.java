@@ -1,6 +1,8 @@
 package com.action;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -49,14 +51,43 @@ public class QuestionAction extends HttpServlet{
 			String qid = getDao.getCurrentQid(examId);
 			answer.setqId(qid);
 			answer.setaContent(answerValue);
-			answer.setaScore(score);
 			ExamDao answerDao = new ExamDao();
 			answerDao.addAnswer(answer);
 			answerDao.free();
 		}
 		else
 		{
+			String content = request.getParameter("stTitle2");
+			String analysis = request.getParameter("stParse2");
+			String examId = (String) session.getAttribute("examId");
+			String score = request.getParameter("score2");
+			ArrayList<String> answerValues = new ArrayList<String>();
+			int i = 1;
+			while(request.getParameter("questions[" + String.valueOf(i) + "]") != null)
+			{
+				String answerValue = request.getParameter("questions[" + String.valueOf(i) + "]");
+				answerValues.add(answerValue);
+				i++;
+			}
 			
+			Question question = new Question();
+			question.seteId(examId);
+			question.setqContent(content);
+			question.setqAnalysis(analysis);
+			ExamDao questionDao = new ExamDao();
+			questionDao.addQuestion(question);
+			
+			ExamDao getDao = new ExamDao();
+			String qid = getDao.getCurrentQid(examId);
+			ExamDao answerDao = new ExamDao();
+			for(int j = 0; j < answerValues.size(); j++)
+			{
+				Answer answer = new Answer();
+				answer.setqId(qid);
+				answer.setaContent(answerValues.get(j));
+				answerDao.addAnswer(answer);
+			}
+			answerDao.free();
 		}
 	}
 }

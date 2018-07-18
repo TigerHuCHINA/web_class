@@ -8,15 +8,23 @@
 </head>
 <body>
 <h2>考试结束！</h2>
-<hr/>
-<p id="show_result1">你的答案结果为：
+
 <p>
 <hr/>
-<p id="show_result2">总题目个数：</p>
-<p id="show_result3">答对单选题题目个数：；&nbsp;得分：</p>
-<p id="show_result4">答对填空题题目个数：；&nbsp;得分：</p>
-<p id="show_result5">答错题目个数：</p>
+<h4>错题</h4> 
+ <div name="1">1.当方法遇到异常又不知如何处理时，______ 做法是不正确的。<br> 
+ 	<font name="youran1">你的答案：捕获异常</font><br> 
+ 	<font name="an1">正确答案：捕获</font><br>
+ 	<font name="analy1">试题解析:</font><br><br>
+ </div>	
+ 
+<div name="2">2.当方法遇到异常又不知如何处理时，______ 做法是不正确的。<br> 
+ 	<font name="youran1">你的答案：捕获异常</font><br> 
+ 	<font name="an1">正确答案：捕获</font><br>
+ 	<font name="analy1">试题解析:</font><br><br>
+ </div>	
+ 
 <hr/>
-<p id="show_result6" name="show_result6"> 本次考试总成绩为：</p>
+<p id="show_result6" name="show_result6"> 本次考试总成绩为：/</p>
 </body>
 </html>
