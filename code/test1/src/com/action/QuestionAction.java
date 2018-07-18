@@ -32,8 +32,8 @@ public class QuestionAction extends HttpServlet{
 			c = new String(c.getBytes("iso-8859-1"), "utf-8");
 			String d = request.getParameter("stOptionD");
 			d = new String(d.getBytes("iso-8859-1"), "utf-8");
-			String content = title + "\rA: " + a + "\rB: " + b + "\rC: "
-					+ c + "\rD: " + d;
+			String content = title + "    A: " + a + "    B: " + b + "    C: "
+					+ c + "    D: " + d;
 			String analysis = request.getParameter("stParse1");
 			analysis = new String(analysis.getBytes("iso-8859-1"), "utf-8");
 			String examId = (String) session.getAttribute("examid");

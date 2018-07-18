@@ -11,9 +11,9 @@ import com.pojo.Question;
 
 public class ExamDao extends BaseDao {
 
-	public int addExam(Exam e,String userId) {
+	public int addExam(Exam e) {
 		String sql="INSERT INTO exam (title,userId) VALUES (?,?)";
-		Object [] obs= {e.getTitle(),userId};
+		Object [] obs= {e.getTitle(),e.getUserId()};
 
 		int row = executeUpdate(sql, obs);
 		free();
@@ -40,7 +40,7 @@ public class ExamDao extends BaseDao {
 		free();
 		return row;
 	}
-	public int addAnswer(Answer a) {
+	public int addAnswer(Answer a) {//δfree
 		String sql="insert into answer (questionId,content) values (?,?)";
 		Object [] obs= {a.getqId(),a.getaContent()};
 		int row = executeUpdate(sql, obs);
@@ -104,6 +104,7 @@ public class ExamDao extends BaseDao {
 				question.setqScore(set.getString(4));
 				question.setqAnalysis(set.getString(5));
 				question.setEmpty(set.getString(6));
+				questions.add(question);
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception
@@ -166,5 +167,26 @@ public class ExamDao extends BaseDao {
 		}
 		free();
 		return qid;
+	}
+	public Exam getExamById(String id)//δfree
+	{
+		String sql = "select * from exam where id = ?";
+		Object obs[] = {id};
+		ResultSet set = executeSelect(sql, obs);
+		Exam exam = new Exam();
+		try {
+			if(set.next())
+			{
+				exam.setExamId(set.getString(1));
+				exam.setTitle(set.getString(2));
+				exam.setScore(set.getString(3));
+				exam.setTime(set.getString(4));
+				exam.setUserId(set.getString(5));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return exam;
 	}
 }
