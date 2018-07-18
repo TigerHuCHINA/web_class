@@ -5,8 +5,8 @@ public class Question extends Exam {
 
 	private String eId;
 	private String qContent;
-	private String score;
-	private String analysis;
+	private String qScore;
+	private String qAnalysis;
 
 	public String getqId() {
 		return qId;
@@ -26,17 +26,17 @@ public class Question extends Exam {
 	public void seteId(String eId) {
 		this.eId = eId;
 	}
-	public String getScore() {
-		return score;
+	public String getqScore() {
+		return qScore;
 	}
-	public void setScore(String score) {
-		this.score = score;
+	public void setqScore(String score) {
+		this.qScore = score;
 	}
-	public String getAnalysis() {
-		return analysis;
+	public String getqAnalysis() {
+		return qAnalysis;
 	}
-	public void setAnalysis(String analysis) {
-		this.analysis = analysis;
+	public void setqAnalysis(String analysis) {
+		this.qAnalysis = analysis;
 	}
 	
 }
