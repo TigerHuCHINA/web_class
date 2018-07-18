@@ -78,6 +78,7 @@ public class ExamDao extends BaseDao {
 				question.setqContent(set.getString(3));
 				question.setqScore(set.getString(4));
 				question.setqAnalysis(set.getString(5));
+				question.setEmpty(set.getString(6));
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception
