@@ -8,10 +8,13 @@
 </head>
 <body>
 <form id="frm" action="">
-<div id="timer" style="position:fixed; top:60px; right: 0; width: 100px; height: 40px;color: #FF4040; background: #E0FFFF;"></div>
+<div id="timer" style="position:fixed; top:60px; right: 0; width: 150px; height: 40px;color: #FF4040; background: #E0FFFF;"></div>
 
-<h1 align="center">开始考试</h1>
-<div name="test2"></div>
+<h1 align="center">标题</h1>
+<div name="1">1.当方法遇到异常又不知如何处理时，______ 做法是不正确的。<br><br> 
+ </div>	
+ 
+<div name="2">2.当方法遇到异常又不知如何处理时，______ 做法是不正确的。<br><br>
 <input type="submit" value="提交">
 </form>
 
@@ -33,18 +36,19 @@
     timeObj = window.setInterval(timer,1000); */
     
     var maxtime;
-    
     if(window.name==''){
-  	  maxtime = 1*60;//2分钟
+  	  maxtime = 1*60;//1分钟
     }else{
    	  maxtime = window.name;
     }
     function CountDown(){
   	  if(maxtime>=0){ 
+  	    var time2="2018年7月18日18:30";
    		 minutes = Math.floor(maxtime/60);   
  	     seconds = Math.floor(maxtime%60);
-    	 msg = "距离考试结束还有"+minutes+"分"+seconds+"秒";
-   		 document.all["timer"].innerHTML = msg;
+    	 /* msg = "距离考试结束还有"+minutes+"分"+seconds+"秒"; */
+   		 msg = "截止时间： <br> "+time2;
+    	 document.all["timer"].innerHTML = msg;
         if(maxtime == 5*60) alert('注意，还有5分钟!');
   	    --maxtime;
        window.name = maxtime;    
@@ -52,7 +56,6 @@
       else{     
     	document.getElementById("frm").submit();
         clearInterval(timer);     
-	    alert("考试时间到，结束!");
 	    return;
       }    
     }    
