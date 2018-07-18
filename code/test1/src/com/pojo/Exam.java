@@ -7,7 +7,6 @@ public class Exam {
 	private String time;
 	private String userId;
 	
-	
 	public int getExamId() {
 		return examId;
 	}

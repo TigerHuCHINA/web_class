@@ -4,10 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.action.Create;
 import com.comm.BaseDao;
 import com.pojo.Answer;
-import com.pojo.Comment;
 import com.pojo.Exam;
 import com.pojo.Question;
 
@@ -25,16 +23,6 @@ public class ExamDao extends BaseDao {
 		int row = executeUpdate(sql, obs);
 		return row;
 	}
-	/*public int addQuestion(String teacherId,ExamDao ed) {
-		String sql="insert into question (examId) values (?)";
-		Object [] obs= {ed.getExamId(teacherId)};
-		int row = executeUpdate(sql, obs);
-		free();
-		return row;
-	}
-	public int fillQuestion() {
-		String sql="";
-	}*/
 	public int addQuestion(Question q) {
 		String sql="insert into question (examId,content,score,analysis) values (?,?,?,?)";
 		Object [] obs= {q.geteId(),q.getqContent(),q.getScore(),q.getAnalysis()};
@@ -48,21 +36,22 @@ public class ExamDao extends BaseDao {
 		return row;
 	}
 	public int addAnswer(String aId,Answer a) {
-		String sql="insert into answer (questionId,content,score) values (?,?,?)";
-		Object [] obs= {aId,a.getaContent(),a.getaScore()};
+		String sql="insert into answer (questionId,content,score,analysis) values (?,?,?,?)";
+		Object [] obs= {aId,a.getaContent(),a.getaScore(),a.getAnalysis()};
 		int row = executeUpdate(sql, obs);
 		return row;
 	}
-	public ArrayList<Exam> getByExamId(String examId){
-		String sql="select title,time from exam where id=?";
-		Object obj[] = {examId};
+	public ArrayList<Exam> getByUserId(String userId){
+		String sql="select * from exam where userId=?";
+		Object obj[] = {userId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Exam> exams = new ArrayList<Exam>();
 		try {
 			while(set.next()) {
 				Exam exam = new Exam();
-				exam.setTitle(set.getString(1));
-				exam.setTime(set.getString(2));
+				exam.setTitle(set.getString(2));
+				exam.setScore(set.getString(3));
+				exam.setTime(set.getString(4));
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception
@@ -71,9 +60,9 @@ public class ExamDao extends BaseDao {
 		free();
 		return exams;
 	}
-	public ArrayList<Question> getByQId(String qId){
-		String sql="select * from question where id=?";
-		Object obj[] = {qId};
+	public ArrayList<Question> getByExamId(String examId){
+		String sql="select * from question where examId=?";
+		Object obj[] = {examId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Question> questions = new ArrayList<Question>();
 		try {
@@ -90,9 +79,9 @@ public class ExamDao extends BaseDao {
 		free();
 		return questions;
 	}
-	public ArrayList<Answer> getByAId(String aId){
-		String sql="select * from question where id=?";
-		Object obj[] = {aId};
+	public ArrayList<Answer> getByQId(String qId){
+		String sql="select * from question where questionId=?";
+		Object obj[] = {qId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Answer> answers = new ArrayList<Answer>();
 		try {
@@ -101,6 +90,7 @@ public class ExamDao extends BaseDao {
 				answer.setaId(set.getString(1));
 				answer.setaContent(set.getString(3));
 				answer.setaScore(set.getString(4));
+				answer.setAnalysis(set.getString(5));
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception

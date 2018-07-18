@@ -3,7 +3,7 @@ body{
 	padding:0;
 	margin:0;
 	font-family: 'PT Sans', sans-serif;
-	background-color:#ffffff;
+	
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -23,22 +23,27 @@ label{
 }
 ------header 邓慧颖-----
 .header {
-	padding: 1em 0 0;
     background-color: #ffffff;
 }
 
 .top-menu {
 	float:right;
+	margin-right:-300px;
 }
 .top-menu ul li {
 	display:inline-block;
 }
 
+.btn1{
+	padding-top:16px;
+}
 .btn1:hover, .btn1:focus, .btn1:active {
     color: #fff;
     background-color:#00BFFF !important;
     border-color:#00BFFF;
     border-radius: 0;
+    height:50px;
+    padding-top:16px;
 }
 
 ------login 常庭瑞-----
@@ -210,56 +215,27 @@ ul.lang li a{
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(204, 204, 204, 0);
 }
-------搜索 邓慧颖-----
-div.search1 {padding: 30px 0}
-form.search1 {
-  position: relative;
-  width: 300px;
-  margin: 0 auto;
-}
-.dd1 {background: #A3D0C3;}
-.dd1 input {
-  width: 100%;
-  height: 42px;
-  padding-left: 10px;
-  border: 2px solid #7BA7AB;
-  border-radius: 5px;
-  outline: none;
-  background: #F9F0DA;
-  color: #9E9C9C;
-}
-.button{
-	position:absolute;	
-	top:2px;
-	right:1px;
-	width:38px;
-	height:38px;
-	
-	
-}
 
-------轮播 常庭瑞-----
-div,ul,li,a,img{margin: 0;padding: 0;}
-ul,li{list-style: none;}
-a{text-decoration: none;}
-#wrapper{position: relative;margin: 50px 100px 100px 200px !important;width: 1500px;height: 600px;}
-#banner{position:relative;width: 1500px;height: 600px;overflow: hidden;}
-.imgList{position:relative;width:7500px;height:600px;z-index: 10;overflow: hidden;}
-.imgList li{float:left;display: inline;}
-#prev,
-#next{position: absolute;top:80px;z-index: 20;cursor: pointer;opacity: 0.2;filter:alpha(opacity=20);}
-#prev{left: 10px;}
-#next{right: 10px;}
-#prev:hover,
-#next:hover{opacity: 0.5;filter:alpha(opacity=50);}
-.bg{position: absolute;left:0px;bottom: 0;width: 1500px;height: 100px;z-index:20;opacity: 0.4;filter:alpha(opacity=40);background: black;}
-.infoList{position: absolute;left: 10px;bottom: 10px;z-index: 30;}
-.infoList li{display: none;}
-.infoList .infoOn{display: inline;color: white;}
-.indexList{position: absolute;right: 100px;bottom: 5px;z-index: 30;}
-.indexList li{float:left;margin-right: 5px;padding: 2px 4px;border: 2px solid black;background: grey;cursor: pointer;}
-.indexList .indexOn{background: red;font-weight: bold;color: white;}
-/*视频*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ /*视频*/
 #videos{
 	position: absolute;
 	left:0;

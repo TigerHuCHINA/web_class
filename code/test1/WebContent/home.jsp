@@ -9,11 +9,14 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
+<link href="css/dropdown.css" rel='stylesheet' type='text/css'>
 <link href="css/video.css" rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
+<link href="css/searchbox.css" rel='stylesheet' type='text/css'>
 <link href="css/style.css" rel='stylesheet' type='text/css'>
+
+
+
+
 
 <!-- 实现登陆注册界面的下滑 邓慧颖、常庭瑞 -->
 <script>
@@ -42,17 +45,14 @@ display:none
 </style>
 </head>
 
-<body onload = "init()">
-<div class="header">
-	<div class="container">
+<body onload = "init()" style="background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
+<div class="header" style="background-color:black; height:50px;">
+	<div class="container" >
 	    <!-- 登录 注册 button 邓慧颖 -->
-		<div class="top-menu">
-			<ul>
-			    
-				<li><a id="login" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal">登录</a></li>
-				<li><a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1">注册</a></li>
-			    <li><a id="return" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">反馈</a></li>
-			</ul>
+		<div class="top-menu"> 
+				<a id="login" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal" style="color:white;">登录</a>
+				<a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1" style="color:white;">注册</a>
+			    <a id="return" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2" style="color:white;">反馈</a>	
 		</div>
 		
 		<!-- 登录界面 邓慧颖 -->	
@@ -188,8 +188,8 @@ display:none
 		 
 		 
 		<div class="dropdown">
-		<img id="istrue2" src="ImageDisplay?id=user" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;border:1px solid black;" >
-		<a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2">尊敬的<%=request.getSession().getAttribute("username") %>欢迎光临</a>
+		<img id="istrue2" src="ImageDisplay?id=user" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;margin-left:-200px;border:1px solid white;" >
+		
 
 			
              <div class="dropdown-content">
@@ -198,57 +198,7 @@ display:none
                  <a onclick="logout()">退出登录</a>
              </div>
          </div>
-<!-- 个人界面下拉菜单 邓慧颖 -->         
-<style>
-.dropdown{
-    position:relative;
-    z-index:100;
-    display:inline-block;
-}
-
-/* 下拉菜单内容，设置为隐藏 */
-.dropdown-content{
-    min-width:150px;
-    background-color:#F5F5F5;
-    position:absolute;
-    display:none;
-    box-shadow:0px 8px 15px 0px rgba(0,0,0,0.2);
-}
-
-/* 下拉按钮样式 */
-.dropbtn{
-    color:white;
-    font-size:16px;
-    padding:15px;
-    border:none;
-    background-color:#00CD66;
-    cursor:pointer;
-}
-
-/* 下拉菜单链接的样式 */
-.dropdown-content a{
-    color:black;
-    text-decoration:none;
-    padding:12px 15px;
-    display:block;
-}
-
-/* 鼠标移入后显示下拉菜单 */
-.dropdown:hover .dropdown-content{
-    display:block;
-}
-
-/* 鼠标移入后修改链接的背景色 */
-.dropdown-content a:hover{
-    background-color:#E8E8E8;
-}
-
-/* 下拉菜单显示后修改下拉按钮的背景色 */
-.dropdown:hover .dropbtn{
-    background-color:#008B00;
-}
-</style>
-		 
+         <a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2" style="margin-left:-130px;color:white;"><%=request.getSession().getAttribute("username") %></a>		 
 	</div>
 </div>
 
@@ -384,209 +334,311 @@ function checkMessage(){
 
 
 
-
-
-
-<!-- 搜索界面 常庭瑞 -->
-
-<div class="search1 dd1">
-    <form class="search1" action="searchvideo.jsp" onsubmit="return login2()">
-        <input type="text" name="content" placeholder="搜索你感兴趣的课程">
-		<button id="search" class="button" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
+<!-- 搜索框 常庭瑞 -->
+<div class="search1 bar1">
+    <form action="searchvideo.jsp" onsubmit="return login2()">
+        <input type="text" name="content" placeholder="请输如你感兴趣的课程或用户">
+        <button id="search" type="submit"></button>
     </form>
 </div>
 
- 
 
 
-<!-- 轮播 邓慧颖 -->
-<div id="wrapper"><!-- 最外层部分 -->
-    <div id="banner"><!-- 轮播部分 -->
-      <ul class="imgList"><!-- 图片部分 -->
-      <li><a href="#"><img src="picture/2.jpg" width="1500px" height="600px" alt="puss in boots1"></a></li>
-      <li><a href="#"><img src="picture/3.jpg" width="1500px" height="600px" alt="puss in boots2"></a></li>
-      <li><a href="#"><img src="picture/4.jpg" width="1500px" height="600px" alt="puss in boots3"></a></li>
-      <li><a href="#"><img src="picture/5.jpg" width="1500px" height="600px" alt="puss in boots4"></a></li>
-      <li><a href="#"><img src="picture/6.jpg" width="1500px" height="600px" alt="puss in boots5"></a></li>
-      </ul>
-      <img src="picture/7.jpg" width="100px" height="100px" id="prev">
-      <img src="picture/7.jpg" width="100px" height="100x" id="next">
-      <div class="bg"></div> <!-- 图片底部背景层部分-->
-      <ul class="infoList"><!-- 图片左下角文字信息部分 -->
-        <li class="infoOn">视频1</li>
-        <li>视频2</li>
-        <li>视频3</li>
-        <li>视频4</li>
-        <li>视频5</li>
-      </ul>
-      <ul class="indexList"><!-- 图片右下角序号部分 -->
-        <li class="indexOn">1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-      </ul>
-    </div>
-</div>
-<script>
-  var curIndex = 0, //当前index
-      imgArr = getElementsByClassName("imgList")[0].getElementsByTagName("li"), //获取图片组
-      imgLen = imgArr.length,
-      infoArr = getElementsByClassName("infoList")[0].getElementsByTagName("li"), //获取图片info组
-      indexArr = getElementsByClassName("indexList")[0].getElementsByTagName("li"); //获取控制index组
-     // 定时器自动变换2.5秒每次
-  var autoChange = setInterval(function(){ 
-    if(curIndex < imgLen -1){ 
-      curIndex ++; 
-    }else{ 
-      curIndex = 0;
-    }
-    //调用变换处理函数
-    changeTo(curIndex); 
-  },1000);
- 
-  //清除定时器时候的重置定时器--封装
-  function autoChangeAgain(){ 
-      autoChange = setInterval(function(){ 
-      if(curIndex < imgLen -1){ 
-        curIndex ++;
-      }else{ 
-        curIndex = 0;
-      }
-    //调用变换处理函数
-      changeTo(curIndex); 
-    },2500);
-    }
- 
-  //调用添加事件处理
-  addEvent();
- 
-  //给左右箭头和右下角的图片index添加事件处理
- function addEvent(){
-  for(var i=0;i<imgLen;i++){ 
-    //闭包防止作用域内活动对象item的影响
-    (function(_i){ 
-    //鼠标滑过则清除定时器，并作变换处理
-    indexArr[_i].onmouseover = function(){ 
-      clearTimeout(autoChange);
-      changeTo(_i);
-      curIndex = _i;
-    };
-    //鼠标滑出则重置定时器处理
-    indexArr[_i].onmouseout = function(){ 
-      autoChangeAgain();
-    };
-     })(i);
-  }
- 
-  //给左箭头prev添加上一个事件
-  var prev = document.getElementById("prev");
-  prev.onmouseover = function(){ 
-    //滑入清除定时器
-    clearInterval(autoChange);
-  };
-  prev.onclick = function(){ 
-    //根据curIndex进行上一个图片处理
-    curIndex = (curIndex > 0) ? (--curIndex) : (imgLen - 1);
-    changeTo(curIndex);
-  };
-  prev.onmouseout = function(){ 
-    //滑出则重置定时器
-    autoChangeAgain();
-  };
- 
-   //给右箭头next添加下一个事件
-  var next = document.getElementById("next");
-  next.onmouseover = function(){ 
-    clearInterval(autoChange);
-  };
-  next.onclick = function(){ 
-    curIndex = (curIndex < imgLen - 1) ? (++curIndex) : 0;
-    changeTo(curIndex);
-  };
-  next.onmouseout = function(){ 
-    autoChangeAgain();
-  };
+
+
+
+
+<!-- 轮播 -->
+<style type="text/css">
+.wbox{
+	margin-top: 80px;
+	width: 100%;
+	height: 340px;
+
+	position: relative;
 }
- 
-  //左右切换处理函数
-  function changeTo(num){ 
-    //设置image
-    var imgList = getElementsByClassName("imgList")[0];
-    goLeft(imgList,num*1500); //左移一定距离
-    //设置image 的 info
-    var curInfo = getElementsByClassName("infoOn")[0];
-    removeClass(curInfo,"infoOn");
-    addClass(infoArr[num],"infoOn");
-    //设置image的控制下标 index
-    var _curIndex = getElementsByClassName("indexOn")[0];
-    removeClass(_curIndex,"indexOn");
-    addClass(indexArr[num],"indexOn");
-  }
- 
- 
-  //图片组相对原始左移dist px距离
-  function goLeft(elem,dist){ 
-    if(dist == 0){ //第一次时设置left为0px 或者直接使用内嵌法 style="left:0;"
-      elem.style.left = "0px";
-    }
-    var toLeft; //判断图片移动方向是否为左
-    dist = dist + parseInt(elem.style.left); //图片组相对当前移动距离
-    if(dist<0){  
-      toLeft = false;
-      dist = Math.abs(dist);
-    }else{ 
-      toLeft = true;
-    }
-   for(var i=0;i<=dist/100;i++)
-   {//这里设定缓慢移动，10阶每阶40px
-      (function(_i)
-    		  { 
-        var pos = parseInt(elem.style.left); //获取当前left
-        setTimeout(function()
-        		{ 
-          pos += (toLeft)? -(_i * 100) : (_i * 100); //根据toLeft值指定图片组位置改变
-          //console.log(pos);
-          elem.style.left = pos + "px";
-        },_i * 20); //每阶间隔50毫秒
-      })(i);
-    }
-  }
-    
-  
- 
-  //通过class获取节点
-  function getElementsByClassName(className){ 
-    var classArr = [];
-    var tags = document.getElementsByTagName('*');
-    for(var item in tags){ 
-      if(tags[item].nodeType == 1){ 
-        if(tags[item].getAttribute('class') == className){ 
-          classArr.push(tags[item]);
-        }
-      }
-    }
-    return classArr; //返回
-  }
- 
-  // 判断obj是否有此class
-  function hasClass(obj,cls){  //class位于单词边界
-    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
-   }
-   //给 obj添加class
-  function addClass(obj,cls){ 
-    if(!this.hasClass(obj,cls)){ 
-       obj.className += cls;
-    }
-  }
-  //移除obj对应的class
-  function removeClass(obj,cls){ 
-    if(hasClass(obj,cls)){ 
-      var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
-         obj.className = obj.className.replace(reg,'');
-    }
-  }
+
+.list{
+	width: 1200px;
+	height: 300px;
+	overflow: hidden;
+	position: absolute;
+	left: 50%;
+	margin-left: -600px;
+}
+
+.tbtn{
+	position: absolute;
+	top: 50%;
+	margin-top: -70px;
+	width: 60px;
+	height: 100px;
+	line-height: 100px;
+	font-size: 30px;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	background: black;
+	cursor: pointer;
+	opacity:0.1;
+}
+.next{
+	right: 0;
+}
+
+li{
+	position: absolute;
+	top: 0;
+	left: 0;
+	list-style: none;
+	opacity: 0;
+	transition: all 0.3s ease-out;
+}
+img{
+	width: 751px;
+	height: 300px;
+	border:1px solid black;
+	border-radius:5px;
+	float: left;
+	
+}
+.p1{
+	transform:translate3d(-224px,0,0) scale(0.81);
+}
+.p2{
+	transform:translate3d(0px,0,0) scale(0.81);
+	transform-origin:0 50%;
+	opacity: 0.8;
+	z-index: 2;
+}
+.p3{
+	transform:translate3d(224px,0,0) scale(1);
+	z-index: 3;
+	opacity: 1;
+}
+.p4{
+	transform:translate3d(449px,0,0) scale(0.81);
+	transform-origin:100% 50%;
+	opacity: 0.8;
+	z-index: 2;
+}
+.p5{
+	transform:translate3d(672px,0,0) scale(0.81);
+}
+.p6{
+	transform:translate3d(896px,0,0) scale(0.81);
+}
+.p7{
+	transform:translate3d(1120px,0,0) scale(0.81);
+}
+
+.tbuttons{
+	position: absolute;
+	width: 1200px;
+	height: 30px;
+	bottom: 0;
+	left: 50%;
+	margin-left: -600px;
+	text-align: center;
+	padding-top: 10px;
+}
+.tbuttons a{
+	display: inline-block;
+	width: 35px;
+	height: 5px;
+	padding-top: 4px;
+	cursor: pointer;
+
+}
+span{
+	display: block;
+	width: 35px;
+	height: 5px;
+	background: black;
+	opacity:0.3;
+}
+.blue{
+	background: black;
+	opacity:1;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<div class="wbox">
+
+	<div class="list">
+		<ul>
+			<li class="p7"><a href="#"><img src="picture/1.png" alt="" /></a></li>
+			<li class="p6"><a href="#"><img src="picture/2.jpg" alt="" /></a></li>
+			<li class="p5"><a href="#"><img src="picture/3.jpg" alt="" /></a></li>
+			<li class="p4"><a href="#"><img src="picture/4.jpg" alt="" /></a></li>
+			<li class="p3"><a href="#"><img src="picture/5.jpg" alt="" /></a></li>
+			<li class="p2"><a href="#"><img src="picture/6.jpg" alt="" /></a></li>
+			<li class="p1"><a href="#"><img src="picture/7.jpg" alt="" /></a></li>
+		</ul>
+	</div>
+	
+	<a href="javascript:;" class="prev tbtn" onfocus="this.blur();"><</a>
+	<a href="javascript:;" class="next tbtn"onfocus="this.blur();">></a>
+
+	<div class="tbuttons">
+		<a href="javascript:;" onfocus="this.blur();"><span class="blue"></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
+	</div>
+</div>
+
+<script type="text/javascript">
+var $a=$(".tbuttons a");
+var $s=$(".tbuttons span");
+var cArr=["p7","p6","p5","p4","p3","p2","p1"];
+var index=0;
+$(".next").click(
+	function(){
+	nextimg();
+	}
+)
+$(".prev").click(
+	function(){
+	previmg();
+	}
+)
+//上一张
+function previmg(){
+	cArr.unshift(cArr[6]);
+	cArr.pop();
+	//i是元素的索引，从0开始
+	//e为当前处理的元素
+	//each循环，当前处理的元素移除所有的class，然后添加数组索引i的class
+	$("li").each(function(i,e){
+		$(e).removeClass().addClass(cArr[i]);
+	})
+	index--;
+	if (index<0) {
+		index=6;
+	}
+	show();
+}
+
+//下一张
+function nextimg(){
+	cArr.push(cArr[0]);
+	cArr.shift();
+	$("li").each(function(i,e){
+		$(e).removeClass().addClass(cArr[i]);
+	})
+	index++;
+	if (index>6) {
+		index=0;
+	}
+	show();
+}
+
+//通过底下按钮点击切换
+$a.each(function(){
+	$(this).click(function(){
+		var myindex=$(this).index();
+		var b=myindex-index;
+		if(b==0){
+			return;
+		}
+		else if(b>0) {
+			/*
+			 * splice(0,b)的意思是从索引0开始,取出数量为b的数组
+			 * 因为每次点击之后数组都被改变了,所以当前显示的这个照片的索引才是0
+			 * 所以取出从索引0到b的数组,就是从原本的这个照片到需要点击的照片的数组
+			 * 这时候原本的数组也将这部分数组进行移除了
+			 * 再把移除的数组添加的原本的数组的后面
+			 */
+			var newarr=cArr.splice(0,b);
+			cArr=$.merge(cArr,newarr);
+			$("li").each(function(i,e){
+			$(e).removeClass().addClass(cArr[i]);
+			})
+			index=myindex;
+			show();
+		}
+		else if(b<0){
+			/*
+			 * 因为b<0,所以取数组的时候是倒序来取的,也就是说我们可以先把数组的顺序颠倒一下
+			 * 而b现在是负值,所以取出索引0到-b即为需要取出的数组
+			 * 也就是从原本的照片到需要点击的照片的数组
+			 * 然后将原本的数组跟取出的数组进行拼接
+			 * 再次倒序,使原本的倒序变为正序
+			 */
+			cArr.reverse();
+			var oldarr=cArr.splice(0,-b)
+			cArr=$.merge(cArr,oldarr);
+			cArr.reverse();
+			$("li").each(function(i,e){
+			$(e).removeClass().addClass(cArr[i]);
+			})
+			index=myindex;
+			show();
+		}
+	})
+})
+
+//改变底下按钮的背景色
+function show(){
+		$($s).eq(index).addClass("blue").parent().siblings().children().removeClass("blue");
+}
+
+//点击class为p2的元素触发上一张照片的函数
+$(document).on("click",".p2",function(){
+	previmg();
+	return false;//返回一个false值，让a标签不跳转
+});
+
+//点击class为p4的元素触发下一张照片的函数
+$(document).on("click",".p4",function(){
+	nextimg();
+	return false;
+});
+
+//			鼠标移入box时清除定时器
+$(".wbox").mouseover(function(){
+	clearInterval(timer);
+})
+
+//			鼠标移出box时开始定时器
+$(".wbox").mouseleave(function(){
+	timer=setInterval(nextimg,4000);
+})
+
+//			进入页面自动开始定时器
+timer=setInterval(nextimg,4000);
 </script>
+
+<div style="text-align:center;clear:both">
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <%
 Create cv=new Create();
 StringBuilder s=cv.createVideo();
