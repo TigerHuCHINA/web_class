@@ -29,9 +29,9 @@ public class QuestionAction extends HttpServlet{
 			String b = request.getParameter("stOptionB");
 			b = new String(b.getBytes("iso-8859-1"), "utf-8");
 			String c = request.getParameter("stOptionC");
-			a = new String(a.getBytes("iso-8859-1"), "utf-8");
+			c = new String(c.getBytes("iso-8859-1"), "utf-8");
 			String d = request.getParameter("stOptionD");
-			a = new String(a.getBytes("iso-8859-1"), "utf-8");
+			d = new String(d.getBytes("iso-8859-1"), "utf-8");
 			String content = title + "\rA: " + a + "\rB: " + b + "\rC: "
 					+ c + "\rD: " + d;
 			String analysis = request.getParameter("stParse");

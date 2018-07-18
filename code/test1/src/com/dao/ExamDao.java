@@ -10,9 +10,9 @@ import com.pojo.Exam;
 import com.pojo.Question;
 
 public class ExamDao extends BaseDao {
-	public int addExam(Exam e) {
-		String sql="INSERT INTO exam (title) VALUES (?)";
-		Object [] obs= {e.getTitle()};
+	public int addExam(Exam e,String userId) {
+		String sql="INSERT INTO exam (title,userId) VALUES (?,?)";
+		Object [] obs= {e.getTitle(),userId};
 		int row = executeUpdate(sql, obs);
 		free();
 		return row;
@@ -31,9 +31,9 @@ public class ExamDao extends BaseDao {
 		free();
 		return row;
 	}
-	public int getQuestionId(String teacherId,ExamDao ed) {
+	public int getQuestionId(String examId) {
 		String sql="select max(id) from question where examId=?";
-		Object [] obs= {ed.getExamId(teacherId)};
+		Object [] obs= {examId};
 		int row = executeUpdate(sql, obs);
 		free();
 		return row;
