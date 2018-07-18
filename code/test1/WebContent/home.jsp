@@ -5,9 +5,13 @@
 <head>
 <title>网站主界面</title>
 
+
+<link href="css/wrapper.css" rel='stylesheet' type='text/css'>
 <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css'>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+
 
 <link href="css/dropdown.css" rel='stylesheet' type='text/css'>
 <link href="css/video.css" rel='stylesheet' type='text/css'>
@@ -82,10 +86,8 @@ display:none
                                 </div>
                             </div>
                                
-                            <ul class="new">
-                                <li class="new">
-                                    <p class="sign">没有账号 ?&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#applyModal_1">注册</a></p>
-                                </li>
+                            <ul class="section">
+                                <p class="sign">没有账号 ?&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#applyModal_1">注册</a></p>
 						    </ul>
                              
                         </form>
@@ -169,7 +171,7 @@ display:none
                         <form action="doFeedback" method="post" onsubmit="return checkMessage();">
                              
                             <div>
-                                <textarea id="message" name="content" type="text" placeholder="请输入反馈" style="width:550px;height:200px;"></textarea>                               
+                                <textarea id="message" name="content" type="text" placeholder="请输入反馈" style="width:550px;height:200px;margin-bottom:20px;"></textarea>                               
                             </div>
                             
                             <div class="section">
@@ -198,7 +200,7 @@ display:none
                  <a onclick="logout()">退出登录</a>
              </div>
          </div>
-         <a id="istrue" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2" style="margin-left:-130px;color:white;"><%=request.getSession().getAttribute("username") %></a>		 
+         <a id="istrue" class="btn btn-default btn1 pull-left" style="margin-left:-130px;color:white;"><%=request.getSession().getAttribute("username") %></a>		 
 	</div>
 </div>
 
@@ -348,151 +350,32 @@ function checkMessage(){
 
 
 
-<!-- 轮播 -->
-<style type="text/css">
-.wbox{
-	margin-top: 80px;
-	width: 100%;
-	height: 340px;
-
-	position: relative;
-}
-
-.list{
-	width: 1200px;
-	height: 300px;
-	overflow: hidden;
-	position: absolute;
-	left: 50%;
-	margin-left: -600px;
-}
-
-.tbtn{
-	position: absolute;
-	top: 50%;
-	margin-top: -70px;
-	width: 60px;
-	height: 100px;
-	line-height: 100px;
-	font-size: 30px;
-	color: white;
-	text-decoration: none;
-	text-align: center;
-	background: black;
-	cursor: pointer;
-	opacity:0.1;
-}
-.next{
-	right: 0;
-}
-
-li{
-	position: absolute;
-	top: 0;
-	left: 0;
-	list-style: none;
-	opacity: 0;
-	transition: all 0.3s ease-out;
-}
-img{
-	width: 751px;
-	height: 300px;
-	border:1px solid black;
-	border-radius:5px;
-	float: left;
-	
-}
-.p1{
-	transform:translate3d(-224px,0,0) scale(0.81);
-}
-.p2{
-	transform:translate3d(0px,0,0) scale(0.81);
-	transform-origin:0 50%;
-	opacity: 0.8;
-	z-index: 2;
-}
-.p3{
-	transform:translate3d(224px,0,0) scale(1);
-	z-index: 3;
-	opacity: 1;
-}
-.p4{
-	transform:translate3d(449px,0,0) scale(0.81);
-	transform-origin:100% 50%;
-	opacity: 0.8;
-	z-index: 2;
-}
-.p5{
-	transform:translate3d(672px,0,0) scale(0.81);
-}
-.p6{
-	transform:translate3d(896px,0,0) scale(0.81);
-}
-.p7{
-	transform:translate3d(1120px,0,0) scale(0.81);
-}
-
-.tbuttons{
-	position: absolute;
-	width: 1200px;
-	height: 30px;
-	bottom: 0;
-	left: 50%;
-	margin-left: -600px;
-	text-align: center;
-	padding-top: 10px;
-}
-.tbuttons a{
-	display: inline-block;
-	width: 35px;
-	height: 5px;
-	padding-top: 4px;
-	cursor: pointer;
-
-}
-span{
-	display: block;
-	width: 35px;
-	height: 5px;
-	background: black;
-	opacity:0.3;
-}
-.blue{
-	background: black;
-	opacity:1;
-}
-
-
-</style>
-
-</head>
-<body>
 
 <div class="wbox">
 
 	<div class="list">
-		<ul>
-			<li class="p7"><a href="#"><img src="picture/1.png" alt="" /></a></li>
-			<li class="p6"><a href="#"><img src="picture/2.jpg" alt="" /></a></li>
-			<li class="p5"><a href="#"><img src="picture/3.jpg" alt="" /></a></li>
-			<li class="p4"><a href="#"><img src="picture/4.jpg" alt="" /></a></li>
-			<li class="p3"><a href="#"><img src="picture/5.jpg" alt="" /></a></li>
-			<li class="p2"><a href="#"><img src="picture/6.jpg" alt="" /></a></li>
-			<li class="p1"><a href="#"><img src="picture/7.jpg" alt="" /></a></li>
-		</ul>
+		<nav>
+			<li class="p7"><a href="#"><img class="wimg" src="picture/1.png" alt="" /></a></li>
+			<li class="p6"><a href="#"><img class="wimg" src="picture/2.jpg" alt="" /></a></li>
+			<li class="p5"><a href="#"><img class="wimg" src="picture/3.jpg" alt="" /></a></li>
+			<li class="p4"><a href="#"><img class="wimg" src="picture/4.jpg" alt="" /></a></li>
+			<li class="p3"><a href="#"><img class="wimg" src="picture/5.jpg" alt="" /></a></li>
+			<li class="p2"><a href="#"><img class="wimg" src="picture/6.jpg" alt="" /></a></li>
+			<li class="p1"><a href="#"><img class="wimg" src="picture/7.jpg" alt="" /></a></li>
+		</nav>
 	</div>
 	
 	<a href="javascript:;" class="prev tbtn" onfocus="this.blur();"><</a>
 	<a href="javascript:;" class="next tbtn"onfocus="this.blur();">></a>
 
 	<div class="tbuttons">
-		<a href="javascript:;" onfocus="this.blur();"><span class="blue"></span></a>
-		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
-		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
-		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
-		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
-		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
-		<a href="javascript:;" onfocus="this.blur();"><span></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span class="blue qqq"></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span class="qqq"></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span class="qqq"></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span class="qqq"></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span class="qqq"></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span class="qqq"></span></a>
+		<a href="javascript:;" onfocus="this.blur();"><span class="qqq"></span></a>
 	</div>
 </div>
 
@@ -670,7 +553,7 @@ $(function(){
 .return_top{ 
   width: 50px;
   height: 50px; 
-  background: url('picture/top.jpg'); 
+  background-image:url('picture/top.png'); 
   background-size:cover;
   position:fixed; 
   right: 30px; 
@@ -678,6 +561,7 @@ $(function(){
   display: none; 
   cursor: pointer; 
   z-index: 99;
+  
 }
 </style>
 
@@ -691,7 +575,7 @@ function  showImg(){
 </script>
 <div id="logo">
 	<a href="javascript:void(0);" onMouseOut="hideImg()"  onmouseover="showImg()">
-		<img src="picture/mylogo.jpg" width="50px" height="50px" style="position:absolute;left:0;top:0;border:2px solid black;border-radius:5px;">
+		<img src="picture/mylogo.png"  style="position:absolute;left:20px;top:-163px;height:30px;">
 	</a>
 </div>
 
@@ -715,8 +599,8 @@ function  showImg(){
  display: none;
  position: absolute;
  z-index: 111;
- top:75px;
- left:50px;
+ top:60px;
+ left:10px;
 }
 </style>
 <!-- -----------------------检查是否登陆--------------------- -->
