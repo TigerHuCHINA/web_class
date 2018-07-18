@@ -36,8 +36,8 @@ public class ExamDao extends BaseDao {
 		return row;
 	}
 	public int addAnswer(Answer a) {
-		String sql="insert into answer (questionId,content,score,analysis) values (?,?,?,?)";
-		Object [] obs= {a.getqId(),a.getaContent(),a.getaScore(),a.getAnalysis()};
+		String sql="insert into answer (questionId,content,score) values (?,?,?)";
+		Object [] obs= {a.getqId(),a.getaContent(),a.getaScore()};
 		int row = executeUpdate(sql, obs);
 		return row;
 	}
