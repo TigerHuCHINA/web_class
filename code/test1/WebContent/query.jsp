@@ -12,7 +12,7 @@
 <form action="doExam" method="post">
 <h2>试卷题目：<input type="text" name="quTitle"></h2>
 
-<input type="submit" value="下一步" onclick="window.location='subject.jsp'">
+<input type="submit" value="下一步">
 </form>
 </body>
 </html>
