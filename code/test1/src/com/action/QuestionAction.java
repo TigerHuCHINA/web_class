@@ -40,7 +40,7 @@ public class QuestionAction extends HttpServlet{
 			Question question = new Question();
 			question.seteId(examId);
 			question.setqContent(content);
-			question.setAnalysis(analysis);
+			question.setqAnalysis(analysis);
 			ExamDao questionDao = new ExamDao();
 			questionDao.addQuestion(question);
 			
@@ -51,7 +51,8 @@ public class QuestionAction extends HttpServlet{
 			answer.setaContent(answerValue);
 			answer.setaScore(score);
 			ExamDao answerDao = new ExamDao();
-			answerDao.addAnswer();
+			answerDao.addAnswer(answer);
+			answerDao.free();
 		}
 		else
 		{
