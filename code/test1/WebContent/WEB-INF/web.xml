@@ -143,4 +143,24 @@
     <servlet-name>AgreeAction</servlet-name>
     <url-pattern>/doAgree</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ExamAction</servlet-name>
+    <servlet-class>com.action.ExamAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExamAction</servlet-name>
+    <url-pattern>/doExam</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QuestionAction</servlet-name>
+    <servlet-class>com.action.QuestionAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuestionAction</servlet-name>
+    <url-pattern>/doQuestion</url-pattern>
+  </servlet-mapping>
 </web-app>
