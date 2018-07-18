@@ -59,6 +59,7 @@ public class ExamDao extends BaseDao {
 				exam.setScore(set.getString(3));
 				exam.setTime(set.getString(4));
 				exam.setUserId(set.getString(5));
+				exams.add(exam);
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception

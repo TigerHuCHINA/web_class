@@ -775,10 +775,11 @@ public class Create{
 		ArrayList<Exam> exams = new ArrayList<Exam>();
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
-		try{
 				System.out.println("ok");
-				PrintStream printStream = new PrintStream(new FileOutputStream("editQ.jsp"));
-				for(int j=0;j<exams.size();j++) {
+				try {
+					PrintStream printStream = new PrintStream(new FileOutputStream("editQ.jsp"));
+					for(int j=0;j<exams.size();j++) {
+						System.out.println("1");
 					sh.append("<tr>");
 					sh.append("<td>");
 					sh.append("<a href=\"tQuery.jsp?id=");
@@ -794,8 +795,15 @@ public class Create{
 					sh.append("<input type=\"button\" value=\"删除\">");
 					sh.append("</td>");
 					sh.append("</tr>");
-					
 					sh.append(exams.get(j).getTime());
+				}
+				} catch (FileNotFoundException e) {
+					// TODO 自动生成的 catch 块
+					e.printStackTrace();
+				}
+				
+		return sh;
+	}
 					
 	public StringBuilder createTeacherQuestion(String id) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();
