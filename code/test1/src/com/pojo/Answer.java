@@ -4,6 +4,7 @@ public class Answer extends Question {
 	private String aId;
 	private String aContent;
 	private String aScore;
+	private String analysis;
 	public String getaId() {
 		return aId;
 	}
@@ -21,5 +22,11 @@ public class Answer extends Question {
 	}
 	public void setaScore(String string) {
 		this.aScore = string;
+	}
+	public String getAnalysis() {
+		return analysis;
+	}
+	public void setAnalysis(String analysis) {
+		this.analysis = analysis;
 	}
 }

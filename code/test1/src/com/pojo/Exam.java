@@ -3,8 +3,8 @@ package com.pojo;
 public class Exam {
 	private int examId;
 	private String title;
+	private String score;
 	private String time;
-	
 	
 	public int getExamId() {
 		return examId;
@@ -23,5 +23,11 @@ public class Exam {
 	}
 	public void setTime(String time) {
 		this.time = time;
+	}
+	public String getScore() {
+		return score;
+	}
+	public void setScore(String score) {
+		this.score = score;
 	}
 }
