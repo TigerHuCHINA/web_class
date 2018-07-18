@@ -19,13 +19,14 @@ public class ExamAction extends HttpServlet {
 		HttpSession session = request.getSession();
 		String title = request.getParameter("quTitle");
 		title = new String(title.getBytes("iso-8859-1"),"utf-8");
-		String userId = (String) session.getAttribute("userId");
-		
+		String userId = (String) session.getAttribute("userid");
 		Exam exam = new Exam();
 		exam.setTitle(title);
 		exam.setUserId(userId);
 		ExamDao examDao = new ExamDao();
 		examDao.addExam(exam);
-		session.setAttribute("examid", examDao.getCurrentEid(userId));
+		ExamDao getDao = new ExamDao();
+		session.setAttribute("examid", getDao.getCurrentEid(userId));
+		response.sendRedirect("subject.jsp");
 	}	
 }

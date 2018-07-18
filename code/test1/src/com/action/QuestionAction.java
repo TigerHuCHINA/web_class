@@ -22,27 +22,30 @@ public class QuestionAction extends HttpServlet{
 		String type = request.getParameter("questionType");
 		if(type.equals("a"))
 		{
-			String title = request.getParameter("stTitle");
+			String title = request.getParameter("stTitle1");
 			title = new String(title.getBytes("iso-8859-1"),"utf-8");
 			String a = request.getParameter("stOptionA");
 			a = new String(a.getBytes("iso-8859-1"), "utf-8");
 			String b = request.getParameter("stOptionB");
 			b = new String(b.getBytes("iso-8859-1"), "utf-8");
 			String c = request.getParameter("stOptionC");
-			a = new String(a.getBytes("iso-8859-1"), "utf-8");
+			c = new String(c.getBytes("iso-8859-1"), "utf-8");
 			String d = request.getParameter("stOptionD");
-			a = new String(a.getBytes("iso-8859-1"), "utf-8");
+			d = new String(d.getBytes("iso-8859-1"), "utf-8");
 			String content = title + "\rA: " + a + "\rB: " + b + "\rC: "
 					+ c + "\rD: " + d;
-			String analysis = request.getParameter("stParse");
+			String analysis = request.getParameter("stParse1");
+			analysis = new String(analysis.getBytes("iso-8859-1"), "utf-8");
 			String examId = (String) session.getAttribute("examid");
-			String score = request.getParameter("score");
+			String score = request.getParameter("score1");
 			String answerValue = request.getParameter("stAnswer");
+			answerValue = new String(answerValue.getBytes("iso-8859-1"), "utf-8");
 			
 			Question question = new Question();
 			question.seteId(examId);
 			question.setqContent(content);
 			question.setqAnalysis(analysis);
+			question.setqScore(score);
 			ExamDao questionDao = new ExamDao();
 			questionDao.addQuestion(question);
 			
@@ -58,14 +61,17 @@ public class QuestionAction extends HttpServlet{
 		else
 		{
 			String content = request.getParameter("stTitle2");
+			content = new String(content.getBytes("iso-8859-1"), "utf-8");
 			String analysis = request.getParameter("stParse2");
-			String examId = (String) session.getAttribute("examId");
+			analysis = new String(analysis.getBytes("iso-8859-1"), "utf-8");
+			String examId = (String) session.getAttribute("examid");
 			String score = request.getParameter("score2");
 			ArrayList<String> answerValues = new ArrayList<String>();
 			int i = 1;
 			while(request.getParameter("questions[" + String.valueOf(i) + "]") != null)
 			{
 				String answerValue = request.getParameter("questions[" + String.valueOf(i) + "]");
+				answerValue = new String(answerValue.getBytes("iso-8859-1"), "utf-8");
 				answerValues.add(answerValue);
 				i++;
 			}
@@ -74,6 +80,7 @@ public class QuestionAction extends HttpServlet{
 			question.seteId(examId);
 			question.setqContent(content);
 			question.setqAnalysis(analysis);
+			question.setqScore(score);
 			ExamDao questionDao = new ExamDao();
 			questionDao.addQuestion(question);
 			
@@ -89,5 +96,6 @@ public class QuestionAction extends HttpServlet{
 			}
 			answerDao.free();
 		}
+		response.sendRedirect("subject.jsp");
 	}
 }

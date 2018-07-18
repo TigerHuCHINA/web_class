@@ -31,23 +31,23 @@
 							<div class="widgetcontent">
 									<p>
 										<label>试题题目</label>
-										 <span class="field"><textarea name="stTitle1" cols="80" rows="3" class="span5" required="required"></textarea></span> 
+										 <span class="field"><textarea name="stTitle1" cols="80" rows="3" class="span5" ></textarea></span> 
 									</p>
 									<p>
 										<label>选项A:</label>
-										<span class="field"><input type="text" name="stOptionA"  class="input-large" placeholder="选项A"required="required"></span>
+										<span class="field"><input type="text" name="stOptionA"  class="input-large" placeholder="选项A"></span>
 									</p>
 									<p>
 										<label>选项B:</label>
-										<span class="field"><input type="text" name="stOptionB" class="input-large" placeholder="选项B"required="required"></span>
+										<span class="field"><input type="text" name="stOptionB" class="input-large" placeholder="选项B"></span>
 									</p>
 									<p>
 										<label>选项C:</label>
-										<span class="field"><input type="text" name="stOptionC" class="input-large" placeholder="选项C"required="required"></span>
+										<span class="field"><input type="text" name="stOptionC" class="input-large" placeholder="选项C"></span>
 									</p>
 									<p>
 										<label>选项D:</label>
-										<span class="field"><input type="text" name="stOptionD" class="input-large" placeholder="选项D"required="required"></span>
+										<span class="field"><input type="text" name="stOptionD" class="input-large" placeholder="选项D"></span>
 									</p>
 									<p>
 										<label>答案</label>
@@ -63,7 +63,7 @@
 									
 									<p>
 										<label>分值设定</label>
-										 <span class="field"><input name="score" type="text"></span> 
+										 <span class="field"><input name="score1" type="text"></span> 
 									</p>
 								
 									<p class="stdformbutton">
@@ -82,15 +82,15 @@
 							<div class="widgetcontent">
 									<p>
 										<label>试题题目</label>
-										 <span class="field"><textarea id="table2" name="stTitle2" cols="80" rows="3" class="span5" required="required"></textarea></span> 
+										 <span class="field"><textarea id="table2" name="stTitle2" cols="80" rows="3" class="span5"></textarea></span> 
 									</p>
 									<p>
 										<label>答案</label>
-										<span id="table"></span><!-- name="questions[ + this.qno + ] -->
+										<span id="table"></span><!-- name="questions[ + this.qno + ]" -->
 									</p>
 									<p>
 										<label>试题解析</label>
-										 <span class="field"><textarea name="stParse2" cols="80" rows="5" class="span5" required="required"></textarea></span> 
+										 <span class="field"><textarea name="stParse2" cols="80" rows="5" class="span5"></textarea></span> 
 									</p>
 								
 									<p>
@@ -145,7 +145,7 @@ function replaceDoc()
 
 function sub(){
 	document.getElementById('luru').click();
-	window.location="home.jsp";
+	window.location="homePage.jsp";
 }
 </script>
 
