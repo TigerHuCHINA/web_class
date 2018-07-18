@@ -11,9 +11,26 @@
 
 <form>
 <div name="ti"></div>
+  <table width="300">
+		<tr>
+		  <td><a href="tQuery.jsp">标题1</a></td><td><input type="button" value="发布" onClick="msgbox()"></td><td><input type="button" value="删除"></td>
+		</tr>
+		<tr>
+		  <td><a href="tQuery.jsp">标题2</a></td><td><input type="button" value="发布" onclick="msgbox()"></td> <td><input type="button" value="删除"></td>
+		</tr>
+  </table>	
+<div id='mydiv' style='display:none;'>
+<textarea id='pinlun' ></textarea>
+<input type="submit" id='sbmt' value='提交' >
+</div>
+<input type="button" value="添加" onclick="window.location='query.jsp'">
 
-<input type="button" value="添加" onclick="window.location='subject.jsp'">
-<input type="submit" value="完成" >
+<script>
+function msgbox(){
+	window.prompt("填写发布时间","");
+	/* var r=window.confirm("弹出确认取消框,并将本段字符串显示,返回一个Boolean值"); */
+}
+</script>
 </form>
 </body>
 </html>
