@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.dao.AgreeDao;
 import com.dao.CollectDao;
@@ -744,6 +746,57 @@ public class Create{
 		}
 		return sh;
 	}
+	public StringBuilder browseExam(String teacherid) throws SQLException, ParseException {
+		ExamDao dao=new ExamDao();
+		ArrayList<Exam> exams = new ArrayList<Exam>();
+		exams=dao.getByUserId(teacherid);
+		StringBuilder sh = new StringBuilder();
+		try{
+				PrintStream printStream = new PrintStream(new FileOutputStream("?.jsp"));
+				for(int j=0;j<exams.size();j++) {
+				//+++++++++++++
+					sh.append(exams.get(j).getExamId());
+					sh.append(exams.get(j).getTitle());
+					sh.append(exams.get(j).getScore());
+					sh.append(exams.get(j).getTime());
+					sh.append(exams.get(j).getUserId());
+					//sh.append(session.getAttribute("username"));
+				//+++++++++++++
+				}
+				printStream.println(sh.toString()); 
+				printStream.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;
+	}
+	public StringBuilder createExam(String teacherid) throws SQLException, ParseException {
+		ExamDao dao=new ExamDao();
+		ArrayList<Exam> exams = new ArrayList<Exam>();
+		exams=dao.getByUserId(teacherid);
+		StringBuilder sh = new StringBuilder();
+		try{
+				System.out.println("ok");
+				PrintStream printStream = new PrintStream(new FileOutputStream("editQ.jsp"));
+				for(int j=0;j<exams.size();j++) {
+					sh.append("<tr>");
+					sh.append("<td>");
+					sh.append("<a href=\"tQuery.jsp?id=");
+					sh.append(exams.get(j).getExamId());
+					sh.append("\">");
+					sh.append(exams.get(j).getTitle());
+					sh.append("</a>");
+					sh.append("</td>");
+					sh.append("<td>");
+					sh.append("<input type=\"button\" value=\"·¢²¼\" onClick=\"msgbox()\">");
+					sh.append("</td>");
+					sh.append("<td>");
+					sh.append("<input type=\"button\" value=\"É¾³ý\">");
+					sh.append("</td>");
+					sh.append("</tr>");
+					
+					sh.append(exams.get(j).getTime());
+					
 	public StringBuilder createTeacherQuestion(String id) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();
 		Exam exam = examDao.getExamById(id);//id
