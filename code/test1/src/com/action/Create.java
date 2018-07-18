@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import com.dao.AgreeDao;
 import com.dao.CollectDao;
 import com.dao.CommentDao;
+import com.dao.ExamDao;
 import com.dao.FollowDao;
 import com.dao.MessageDao;
 import com.dao.UserEditDao;
@@ -21,8 +22,10 @@ import com.dao.VideoDao;
 import com.pojo.Agree;
 import com.pojo.Collection;
 import com.pojo.Comment;
+import com.pojo.Exam;
 import com.pojo.Follow;
 import com.pojo.Message;
+import com.pojo.Question;
 import com.pojo.UserEdit;
 import com.pojo.Video;
 
@@ -733,6 +736,32 @@ public class Create{
 					sh.append(userEdits.get(j).getView());
 					sh.append("</td></tr></div>");
 					sh.append("</div></div>");
+				}
+				printStream.println(sh.toString()); 
+				printStream.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;
+	}
+	public StringBuilder createTeacherQuestion(String id) throws SQLException, ParseException {
+		ExamDao examDao = new ExamDao();
+		Exam exam = examDao.getExamById("23");//id
+		ArrayList<Question> questions = new ArrayList<Question>();
+		questions = examDao.getByExamId("23");//id
+		StringBuilder sh = new StringBuilder();
+		try{
+				PrintStream printStream = new PrintStream(new FileOutputStream("tQuery.jsp"));
+				sh.append("<h1 align=\"center\">");
+				sh.append(exam.getTitle());
+				sh.append("</h1>");
+				sh.append("<h3 align=\"center\">Ωÿ÷π ±º‰£∫");
+				sh.append(exam.getTime());
+				sh.append("</h3>");
+				for(int j=0;j<questions.size();j++) {	
+					sh.append("<div>");
+					sh.append(String.valueOf(j+1) + ". " + questions.get(j).getqContent());
+					sh.append("<br><br></div>");
 				}
 				printStream.println(sh.toString()); 
 				printStream.close();
