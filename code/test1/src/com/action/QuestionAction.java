@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.pojo.Question;
+
 public class QuestionAction extends HttpServlet{
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		doPost(request, response);
@@ -30,6 +32,10 @@ public class QuestionAction extends HttpServlet{
 					+ c + "\rD: " + d;
 			String answerValue = request.getParameter("stAnswer");
 			String parse = request.getParameter("stParse");
+			String score = request.getParameter("score");
+			
+			Question question = new Question();
+			
 		}
 		else
 		{

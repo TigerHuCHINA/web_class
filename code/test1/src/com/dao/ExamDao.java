@@ -35,9 +35,9 @@ public class ExamDao extends BaseDao {
 	public int fillQuestion() {
 		String sql="";
 	}*/
-	public int addQuestion(String qId/*=ed.getExamId(teacherId)*/,Question q) {
-		String sql="insert into question (examId,content,empty) values (?,?,?)";
-		Object [] obs= {qId,q.getqContent(),q.getEmpty()};
+	public int addQuestion(Question q) {
+		String sql="insert into question (examId,content,score,analysis) values (?,?,?,?)";
+		Object [] obs= {q.geteId(),q.getqContent(),q.getScore(),q.getAnalysis()};
 		int row = executeUpdate(sql, obs);
 		return row;
 	}

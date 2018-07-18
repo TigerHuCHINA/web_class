@@ -63,7 +63,7 @@
 									
 									<p>
 										<label>分值设定</label>
-										 <span class="field"><input type="text"></span> 
+										 <span class="field"><input name="score" type="text"></span> 
 									</p>
 								
 									<p class="stdformbutton">
