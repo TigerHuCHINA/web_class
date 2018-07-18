@@ -21,18 +21,21 @@ public class ExamDao extends BaseDao {
 		String sql="select max(id) from exam where userId=?";
 		Object [] obs= {teacherId};
 		int row = executeUpdate(sql, obs);
+		free();
 		return row;
 	}
 	public int addQuestion(Question q) {
 		String sql="insert into question (examId,content,score,analysis) values (?,?,?,?)";
 		Object [] obs= {q.geteId(),q.getqContent(),q.getScore(),q.getqAnalysis()};
 		int row = executeUpdate(sql, obs);
+		free();
 		return row;
 	}
 	public int getQuestionId(String teacherId,ExamDao ed) {
 		String sql="select max(id) from question where examId=?";
 		Object [] obs= {ed.getExamId(teacherId)};
 		int row = executeUpdate(sql, obs);
+		free();
 		return row;
 	}
 	public int addAnswer(Answer a) {
