@@ -23,9 +23,9 @@ public class ExamDao extends BaseDao {
 		int row = executeUpdate(sql, obs);
 		return row;
 	}
-	public int addQuestion(String qId/*=ed.getExamId(teacherId)*/,Question q) {
-		String sql="insert into question (examId,content,empty) values (?,?,?)";
-		Object [] obs= {qId,q.getqContent(),q.getEmpty()};
+	public int addQuestion(Question q) {
+		String sql="insert into question (examId,content,score,analysis) values (?,?,?,?)";
+		Object [] obs= {q.geteId(),q.getqContent(),q.getScore(),q.getAnalysis()};
 		int row = executeUpdate(sql, obs);
 		return row;
 	}
@@ -71,7 +71,6 @@ public class ExamDao extends BaseDao {
 				Question question = new Question();
 				question.setqId(set.getString(1));
 				question.setqContent(set.getString(3));
-				question.setEmpty(set.getString(4));
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception
