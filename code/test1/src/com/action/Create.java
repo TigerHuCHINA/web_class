@@ -90,10 +90,10 @@ public class Create{
 		}
 		return sh;	
 	}
-	
-	
-	
-	
+
+
+
+
 	public StringBuilder createComment(String videoId,String ownerId,String userId) throws SQLException, ParseException {
 		CommentDao dao=new CommentDao();
 		ArrayList<Comment> comments = new ArrayList<Comment>();
@@ -156,38 +156,38 @@ public class Create{
 		agrees=dao.getByUserId(userid);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
-				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
-				
-				for(int j=0;j<agrees.size();j++) {	
-					sh.append("<ul id=\"pn1\">");
-					sh.append("<li class=\"list1\">");
-					sh.append("<div class=\"content\">");
-					sh.append("<div class=\"comment-list\">");
-					sh.append("<div class=\"comment\">");
-					sh.append("<div class=\"comment-right\">");
-					sh.append("<div class=\"comment-text\">");
-					sh.append("<span class=\"user\">");
-					sh.append("<a href=\"hisHome.jsp?ownerid=");
-					sh.append(agrees.get(j).getUserid());
-					sh.append("\">");
-					sh.append(agrees.get(j).getUserid());
-					sh.append("</a>");
-					sh.append("\t点赞了你的评论：\t");
-					//sh.append("<a href=\"\">");//+++++++++++++++++++++++++++++++++++
-					sh.append(agrees.get(j).getContent());
-					//sh.append("</a>");
-					sh.append("</div>");
-					sh.append("<div class=\"comment-date\">");
-					sh.append(agrees.get(j).getTime());
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</li>");
-					sh.append("</ul>");
-				}
-				printStream.println(sh.toString()); 
-				printStream.close();
+			PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+
+			for(int j=0;j<agrees.size();j++) {	
+				sh.append("<ul id=\"pn1\">");
+				sh.append("<li class=\"list1\">");
+				sh.append("<div class=\"content\">");
+				sh.append("<div class=\"comment-list\">");
+				sh.append("<div class=\"comment\">");
+				sh.append("<div class=\"comment-right\">");
+				sh.append("<div class=\"comment-text\">");
+				sh.append("<span class=\"user\">");
+				sh.append("<a href=\"hisHome.jsp?ownerid=");
+				sh.append(agrees.get(j).getUserid());
+				sh.append("\">");
+				sh.append(agrees.get(j).getUserid());
+				sh.append("</a>");
+				sh.append("\t点赞了你的评论：\t");
+				//sh.append("<a href=\"\">");//+++++++++++++++++++++++++++++++++++
+				sh.append(agrees.get(j).getContent());
+				//sh.append("</a>");
+				sh.append("</div>");
+				sh.append("<div class=\"comment-date\">");
+				sh.append(agrees.get(j).getTime());
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</li>");
+				sh.append("</ul>");
+			}
+			printStream.println(sh.toString()); 
+			printStream.close();
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -199,127 +199,127 @@ public class Create{
 		follows=dao.getByUser(userid);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
-				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
-				for(int j=0;j<follows.size();j++) {	
-					sh.append("<ul id=\"pn1\">");
-					sh.append("<li class=\"list1\">");
-					sh.append("<div class=\"content\">");
-					sh.append("<div class=\"comment-list\">");
-					sh.append("<div class=\"comment\">");
-					sh.append("<div class=\"comment-right\">");
-					sh.append("<div class=\"comment-text\">");
-					sh.append("<span class=\"user\">");
-					sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++
-					sh.append(follows.get(j).getFolloweeid());
-					sh.append("\">");
-					sh.append(follows.get(j).getFolloweeid());
-					sh.append("</a>");
-					sh.append("\t关注了你");
-					sh.append("</div>");
-					//sh.append("<div class=\"comment-date\">");
-					//sh.append(follows.get(j).getTime());
-					//sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</li>");
-					sh.append("</ul>");
-				}
-				printStream.println(sh.toString()); 
-				printStream.close();
+			PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+			for(int j=0;j<follows.size();j++) {	
+				sh.append("<ul id=\"pn1\">");
+				sh.append("<li class=\"list1\">");
+				sh.append("<div class=\"content\">");
+				sh.append("<div class=\"comment-list\">");
+				sh.append("<div class=\"comment\">");
+				sh.append("<div class=\"comment-right\">");
+				sh.append("<div class=\"comment-text\">");
+				sh.append("<span class=\"user\">");
+				sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++
+				sh.append(follows.get(j).getFolloweeid());
+				sh.append("\">");
+				sh.append(follows.get(j).getFolloweeid());
+				sh.append("</a>");
+				sh.append("\t关注了你");
+				sh.append("</div>");
+				//sh.append("<div class=\"comment-date\">");
+				//sh.append(follows.get(j).getTime());
+				//sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</li>");
+				sh.append("</ul>");
+			}
+			printStream.println(sh.toString()); 
+			printStream.close();
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
 		return sh;
 	}
-	
+
 	public StringBuilder createCollection(String userid) throws SQLException, ParseException {
 		CollectDao dao=new CollectDao();
 		ArrayList<Collection> collections = new ArrayList<Collection>();
 		collections=dao.getByUserId(userid);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
-				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
-				for(int j=0;j<collections.size();j++) {	
-					/*sh.append("<li>");
+			PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+			for(int j=0;j<collections.size();j++) {	
+				/*sh.append("<li>");
 					sh.append(collections.get(j).getUserid());
 					sh.append("\t在\t");
 					sh.append(collections.get(j).getTime());
 					sh.append("\t收藏了你的视频：\t");
 					sh.append(collections.get(j).getVideoid());*/
-					sh.append("<ul id=\"pn1\">");
-					sh.append("<li class=\"list1\">");
-					sh.append("<div class=\"content\">");
-					sh.append("<div class=\"comment-list\">");
-					sh.append("<div class=\"comment\">");
-					sh.append("<div class=\"comment-right\">");
-					sh.append("<div class=\"comment-text\">");
-					sh.append("<span class=\"user\">");
-					sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++++++
-					sh.append(collections.get(j).getUserid());
-					sh.append("\">");
-					sh.append(collections.get(j).getUserid());
-					sh.append("</a>");
-					sh.append("\t收藏了你的视频：\t");
-					sh.append("<a href=\"video.jsp?id=");//++++++++++++++++++++++++++++++++++++++++
-					sh.append(collections.get(j).getVideoid());
-					sh.append("\">");
-					sh.append(collections.get(j).getContent());
-					sh.append("</a>");
-					sh.append("</div>");
-					sh.append("<div class=\"comment-date\">");
-					sh.append(collections.get(j).getTime());
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</li>");
-					sh.append("</ul>");
-				}
-				printStream.println(sh.toString()); 
-				printStream.close();
+				sh.append("<ul id=\"pn1\">");
+				sh.append("<li class=\"list1\">");
+				sh.append("<div class=\"content\">");
+				sh.append("<div class=\"comment-list\">");
+				sh.append("<div class=\"comment\">");
+				sh.append("<div class=\"comment-right\">");
+				sh.append("<div class=\"comment-text\">");
+				sh.append("<span class=\"user\">");
+				sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++++++
+				sh.append(collections.get(j).getUserid());
+				sh.append("\">");
+				sh.append(collections.get(j).getUserid());
+				sh.append("</a>");
+				sh.append("\t收藏了你的视频：\t");
+				sh.append("<a href=\"video.jsp?id=");//++++++++++++++++++++++++++++++++++++++++
+				sh.append(collections.get(j).getVideoid());
+				sh.append("\">");
+				sh.append(collections.get(j).getContent());
+				sh.append("</a>");
+				sh.append("</div>");
+				sh.append("<div class=\"comment-date\">");
+				sh.append(collections.get(j).getTime());
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</li>");
+				sh.append("</ul>");
+			}
+			printStream.println(sh.toString()); 
+			printStream.close();
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
 		return sh;
 	}
-	
+
 	public StringBuilder createMessage(String acceptid) throws SQLException, ParseException {
 		MessageDao dao=new MessageDao();
 		ArrayList<Message> messages = new ArrayList<Message>();
 		messages=dao.getByUserId(acceptid);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
-				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
-				for(int j=0;j<messages.size();j++) {	
-					sh.append("<ul id=\"pn1\">");
-					sh.append("<li class=\"list1\">");
-					sh.append("<div class=\"content\">");
-					sh.append("<div class=\"comment-list\">");
-					sh.append("<div class=\"comment\">");
-					sh.append("<div class=\"comment-right\">");
-					sh.append("<div class=\"comment-text\">");
-					sh.append("<span class=\"user\">");
-					sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++++++++
-					sh.append(messages.get(j).getPasssId());
-					sh.append("\">");
-					sh.append(messages.get(j).getPasssId());
-					sh.append("</a>");
-					sh.append("</span>");
-					sh.append("\t私信了你：\t\n");
-					sh.append(messages.get(j).getContent());
-					sh.append("</div>");
-					sh.append("<div class=\"comment-date\">");
-					sh.append(messages.get(j).getTime());
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</li>");
-					sh.append("</ul>");
-				}
-				printStream.println(sh.toString()); 
-				printStream.close();
+			PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+			for(int j=0;j<messages.size();j++) {	
+				sh.append("<ul id=\"pn1\">");
+				sh.append("<li class=\"list1\">");
+				sh.append("<div class=\"content\">");
+				sh.append("<div class=\"comment-list\">");
+				sh.append("<div class=\"comment\">");
+				sh.append("<div class=\"comment-right\">");
+				sh.append("<div class=\"comment-text\">");
+				sh.append("<span class=\"user\">");
+				sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++++++++
+				sh.append(messages.get(j).getPasssId());
+				sh.append("\">");
+				sh.append(messages.get(j).getPasssId());
+				sh.append("</a>");
+				sh.append("</span>");
+				sh.append("\t私信了你：\t\n");
+				sh.append(messages.get(j).getContent());
+				sh.append("</div>");
+				sh.append("<div class=\"comment-date\">");
+				sh.append(messages.get(j).getTime());
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</li>");
+				sh.append("</ul>");
+			}
+			printStream.println(sh.toString()); 
+			printStream.close();
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -331,44 +331,44 @@ public class Create{
 		comments=dao.getById(id);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
-				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
-				for(int j=0;j<comments.size();j++) {	
-					sh.append("<ul id=\"pn1\">");
-					sh.append("<li class=\"list1\">");
-					sh.append("<div class=\"content\">");
-					sh.append("<div class=\"comment-list\">");
-					sh.append("<div class=\"comment\">");
-					sh.append("<div class=\"comment-right\">");
-					sh.append("<div class=\"comment-text\">");
-					sh.append("<span class=\"user\">");
-					sh.append("<a href=\"hisHome.jsp?ownerid=");
-					sh.append(comments.get(j).getUserId());
-					sh.append("\">");
-					sh.append(comments.get(j).getUserId());
-					sh.append("</a>");
-					sh.append("\t评论了你的视频\t");
-					sh.append("<a href=\"video.jsp?id=");
-					sh.append(comments.get(j).getVideoId());
-					sh.append("&useid=");
-					sh.append(id);
-					sh.append("\">");
-					sh.append(comments.get(j).getVideotitle());
-					sh.append("</a>");
-					sh.append("</span>");
-					sh.append(":\t\n");
-					sh.append(comments.get(j).getContent());
-					sh.append("</div>");
-					sh.append("<div class=\"comment-date\">");
-					sh.append(comments.get(j).getTime());
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</li>");
-					sh.append("</ul>");
-				}
-				printStream.println(sh.toString()); 
-				printStream.close();
+			PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+			for(int j=0;j<comments.size();j++) {	
+				sh.append("<ul id=\"pn1\">");
+				sh.append("<li class=\"list1\">");
+				sh.append("<div class=\"content\">");
+				sh.append("<div class=\"comment-list\">");
+				sh.append("<div class=\"comment\">");
+				sh.append("<div class=\"comment-right\">");
+				sh.append("<div class=\"comment-text\">");
+				sh.append("<span class=\"user\">");
+				sh.append("<a href=\"hisHome.jsp?ownerid=");
+				sh.append(comments.get(j).getUserId());
+				sh.append("\">");
+				sh.append(comments.get(j).getUserId());
+				sh.append("</a>");
+				sh.append("\t评论了你的视频\t");
+				sh.append("<a href=\"video.jsp?id=");
+				sh.append(comments.get(j).getVideoId());
+				sh.append("&useid=");
+				sh.append(id);
+				sh.append("\">");
+				sh.append(comments.get(j).getVideotitle());
+				sh.append("</a>");
+				sh.append("</span>");
+				sh.append(":\t\n");
+				sh.append(comments.get(j).getContent());
+				sh.append("</div>");
+				sh.append("<div class=\"comment-date\">");
+				sh.append(comments.get(j).getTime());
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</li>");
+				sh.append("</ul>");
+			}
+			printStream.println(sh.toString()); 
+			printStream.close();
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -393,48 +393,48 @@ public class Create{
 			//if(videos.size()==0)sh.append("<strong>未找到您搜索的视频</strong>");
 			for(int j=0;j<videos.size();j++) {
 				System.out.println(videos.get(j).getCover());
-			sh.append("<li>");
-			sh.append("<div class='box1'>");
-			sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");
-			sh.append(videos.get(j).getId());
-			sh.append("&useid=");
-			sh.append(videos.get(j).getUserId());
-			sh.append("'>");
-			sh.append("<img src='");
-			sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
-			sh.append("'>");
-			sh.append("</a>");
-			sh.append("<div class='first'>");
-			sh.append("<p class='top2'>");
-			sh.append(videos.get(j).getTitle());
-			sh.append("</p>");
-			sh.append("<p class='bottom2'><span>课程时长:");
-			sh.append(videos.get(j).getDuration());
-			sh.append("</span></p>");
-			sh.append("</div>");
-			sh.append("<div class='last'>");
-			sh.append("<p class='top2'>");
-			sh.append(videos.get(j).getIntroduce());
-			sh.append("</p>");
-			sh.append("<p class='bottom2'>");
-			String date=formatter.format(videos.get(j).getTime());
-			sh.append(date);
-			sh.append("<span>");
-			sh.append(videos.get(j).getView());
-			sh.append("人学习</span></p>");
-			
-			sh.append("</div>");
-			sh.append("</div>");
-			sh.append("</li>");
+				sh.append("<li>");
+				sh.append("<div class='box1'>");
+				sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");
+				sh.append(videos.get(j).getId());
+				sh.append("&useid=");
+				sh.append(videos.get(j).getUserId());
+				sh.append("'>");
+				sh.append("<img src='");
+				sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
+				sh.append("'>");
+				sh.append("</a>");
+				sh.append("<div class='first'>");
+				sh.append("<p class='top2'>");
+				sh.append(videos.get(j).getTitle());
+				sh.append("</p>");
+				sh.append("<p class='bottom2'><span>课程时长:");
+				sh.append(videos.get(j).getDuration());
+				sh.append("</span></p>");
+				sh.append("</div>");
+				sh.append("<div class='last'>");
+				sh.append("<p class='top2'>");
+				sh.append(videos.get(j).getIntroduce());
+				sh.append("</p>");
+				sh.append("<p class='bottom2'>");
+				String date=formatter.format(videos.get(j).getTime());
+				sh.append(date);
+				sh.append("<span>");
+				sh.append(videos.get(j).getView());
+				sh.append("人学习</span></p>");
+
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</li>");
 			}
 			sh.append("</ul>");
 			sh.append("</div>");
 			printStream.println(sh.toString()); 
 			printStream.close();
-			}catch(FileNotFoundException e){
-			   e.printStackTrace();
-			}
-			return sh;	
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;	
 	}
 	public StringBuilder createCollectVideo(String id) throws SQLException, ParseException {
 		getCollect get = new getCollect();
@@ -445,7 +445,7 @@ public class Create{
 			sh.append("还没有收藏任何视频");
 			return sh;
 		}
-		
+
 		try{
 
 			PrintStream printStream = new PrintStream(new FileOutputStream("homePage.jsp"));
@@ -544,7 +544,7 @@ public class Create{
 				sh.append("</div>");
 				sh.append("</li>");
 			}
-			
+
 			sh.append("</ul>");
 			sh.append("</div>");
 			printStream.println(sh.toString()); 
@@ -607,33 +607,33 @@ public class Create{
 		follows=dao.getByUser2(id);//videoId
 		StringBuilder sh = new StringBuilder();
 		try{
-				PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
-				for(int j=0;j<follows.size();j++) {	
-					sh.append("<ul id=\"pn1\">");
-					sh.append("<li class=\"list1\">");
-					sh.append("<div class=\"content\">");
-					sh.append("<div class=\"comment-list\">");
-					sh.append("<div class=\"comment\">");
-					sh.append("<div class=\"comment-right\">");
-					sh.append("<div class=\"comment-text\">");
-					sh.append("<span class=\"user\">");
-					sh.append("<a href=\"hisHome.jsp?ownerid=");
-					sh.append(follows.get(j).getFollowerid());
-					sh.append("\">");
-					sh.append(follows.get(j).getFollowerid());
-					sh.append("</a>");
-					sh.append("</div>");
-					sh.append("<div class=\"comment-date\">");
-					sh.append(follows.get(j).getTime());
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</li>");
-					sh.append("</ul>");
-				}
-				printStream.println(sh.toString()); 
-				printStream.close();
+			PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+			for(int j=0;j<follows.size();j++) {	
+				sh.append("<ul id=\"pn1\">");
+				sh.append("<li class=\"list1\">");
+				sh.append("<div class=\"content\">");
+				sh.append("<div class=\"comment-list\">");
+				sh.append("<div class=\"comment\">");
+				sh.append("<div class=\"comment-right\">");
+				sh.append("<div class=\"comment-text\">");
+				sh.append("<span class=\"user\">");
+				sh.append("<a href=\"hisHome.jsp?ownerid=");
+				sh.append(follows.get(j).getFollowerid());
+				sh.append("\">");
+				sh.append(follows.get(j).getFollowerid());
+				sh.append("</a>");
+				sh.append("</div>");
+				sh.append("<div class=\"comment-date\">");
+				sh.append(follows.get(j).getTime());
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</li>");
+				sh.append("</ul>");
+			}
+			printStream.println(sh.toString()); 
+			printStream.close();
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -649,52 +649,52 @@ public class Create{
 			sh.append("<div>暂无浏览记录</div>");
 		}
 		try{
-				PrintStream printStream = new PrintStream(new FileOutputStream("history.jsp"));
-				sh.append("<div id=\"videos\">");
-				for(int j=0;j<videos.size();j++) {	
-					sh.append("<ul class=\"ul1\">");
-					sh.append("<table><tr><th><li>");
-					sh.append("<div class='box1'>");
-					sh.append("<a onclick='return login2()' class='avatar_pic' target='_self' href='video.jsp?id=");
-					sh.append(videos.get(j).getId());
-					sh.append("&useid=");
-					sh.append(videos.get(j).getUserId());
-					sh.append("'>");
-					sh.append("<img src='");
-					sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
-					sh.append("'>");
-					sh.append("</a>");
-					sh.append("<div class='first'>");
-					sh.append("<p class='top2'>");
-					sh.append(videos.get(j).getTitle());
-					sh.append("</p>");
-					sh.append("<p class='bottom2'><span>课程时长:");
-					sh.append(videos.get(j).getDuration());
-					sh.append("</span></p>");
-					sh.append("</div>");
-					sh.append("<div class='last'>");
-					sh.append("<p class='top2'>");
-					sh.append(videos.get(j).getIntroduce());
-					sh.append("</p>");
-					sh.append("<p class='bottom2'>");
-					sh.append(videos.get(j).getTime());
-					sh.append("<span>");
-					sh.append(videos.get(j).getView());
-					sh.append("人学习</span></p>");
-					sh.append("</div>");
-					sh.append("</div>");
-					sh.append("</li></th>");
-					sh.append("<th>");
-					sh.append("<div>上次观看时间：<p>");
-					sh.append(videos.get(j).getSeeTime());
-					sh.append("</p></div>");
-					sh.append("</th></tr></table>");
-					sh.append("<hr width=\"1800px\"/>");
-					sh.append("</ul>");
-				}
+			PrintStream printStream = new PrintStream(new FileOutputStream("history.jsp"));
+			sh.append("<div id=\"videos\">");
+			for(int j=0;j<videos.size();j++) {	
+				sh.append("<ul class=\"ul1\">");
+				sh.append("<table><tr><th><li>");
+				sh.append("<div class='box1'>");
+				sh.append("<a onclick='return login2()' class='avatar_pic' target='_self' href='video.jsp?id=");
+				sh.append(videos.get(j).getId());
+				sh.append("&useid=");
+				sh.append(videos.get(j).getUserId());
+				sh.append("'>");
+				sh.append("<img src='");
+				sh.append("C:\\Users\\Lenovo\\Desktop\\"+videos.get(j).getCover());
+				sh.append("'>");
+				sh.append("</a>");
+				sh.append("<div class='first'>");
+				sh.append("<p class='top2'>");
+				sh.append(videos.get(j).getTitle());
+				sh.append("</p>");
+				sh.append("<p class='bottom2'><span>课程时长:");
+				sh.append(videos.get(j).getDuration());
+				sh.append("</span></p>");
 				sh.append("</div>");
-				printStream.println(sh.toString()); 
-				printStream.close();
+				sh.append("<div class='last'>");
+				sh.append("<p class='top2'>");
+				sh.append(videos.get(j).getIntroduce());
+				sh.append("</p>");
+				sh.append("<p class='bottom2'>");
+				sh.append(videos.get(j).getTime());
+				sh.append("<span>");
+				sh.append(videos.get(j).getView());
+				sh.append("人学习</span></p>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</li></th>");
+				sh.append("<th>");
+				sh.append("<div>上次观看时间：<p>");
+				sh.append(videos.get(j).getSeeTime());
+				sh.append("</p></div>");
+				sh.append("</th></tr></table>");
+				sh.append("<hr width=\"1800px\"/>");
+				sh.append("</ul>");
+			}
+			sh.append("</div>");
+			printStream.println(sh.toString()); 
+			printStream.close();
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -710,42 +710,42 @@ public class Create{
 			sh.append("<div>未搜索到相关用户</div>");
 		}
 		try{
-				PrintStream printStream = new PrintStream(new FileOutputStream("searchvideo.jsp"));
-				for(int j=0;j<userEdits.size();j++) {	
-					sh.append("<div class=\"myinformation\">");
-					sh.append("<div class=\"image\">");
-					sh.append("<a href=\"hisHome.jsp?ownerid=");
-					sh.append(userEdits.get(j).getUid() + "\">");
-					sh.append("<img src=\"ImageDisplay?content=");
-					sh.append(userEdits.get(j).getUid());
-					sh.append("\" onclick=\"hisHome\"/>");
-					sh.append("</a>");
-					sh.append("</div>");
-					sh.append("<div class=\"informationbox\">");
-					sh.append("<div id=\"username\" class=\"info\">");
-					sh.append("<tr>");
-					sh.append("<td>用户名: </td><td>");
-					sh.append(userEdits.get(j).getUname());
-					sh.append("</td></tr></div>");
-					sh.append("<div id=\"userid\" class=\"info\">");
-					sh.append("<tr>");
-					sh.append("<td>用户账号: </td><td>");
-					sh.append(userEdits.get(j).getUid());
-					sh.append("</td></tr></div>");
-					sh.append("<div id=\"userfocus\" class=\"info\">");
-					sh.append("<tr>");
-					sh.append("<td>关注量: </td><td>");
-					sh.append(userEdits.get(j).getFollow());
-					sh.append("</td></tr></div>");
-					sh.append("<div id=\"userread\" class=\"info\">");
-					sh.append("<tr>");
-					sh.append("<td>浏览量: </td><td>");
-					sh.append(userEdits.get(j).getView());
-					sh.append("</td></tr></div>");
-					sh.append("</div></div>");
-				}
-				printStream.println(sh.toString()); 
-				printStream.close();
+			PrintStream printStream = new PrintStream(new FileOutputStream("searchvideo.jsp"));
+			for(int j=0;j<userEdits.size();j++) {	
+				sh.append("<div class=\"myinformation\">");
+				sh.append("<div class=\"image\">");
+				sh.append("<a href=\"hisHome.jsp?ownerid=");
+				sh.append(userEdits.get(j).getUid() + "\">");
+				sh.append("<img src=\"ImageDisplay?content=");
+				sh.append(userEdits.get(j).getUid());
+				sh.append("\" onclick=\"hisHome\"/>");
+				sh.append("</a>");
+				sh.append("</div>");
+				sh.append("<div class=\"informationbox\">");
+				sh.append("<div id=\"username\" class=\"info\">");
+				sh.append("<tr>");
+				sh.append("<td>用户名: </td><td>");
+				sh.append(userEdits.get(j).getUname());
+				sh.append("</td></tr></div>");
+				sh.append("<div id=\"userid\" class=\"info\">");
+				sh.append("<tr>");
+				sh.append("<td>用户账号: </td><td>");
+				sh.append(userEdits.get(j).getUid());
+				sh.append("</td></tr></div>");
+				sh.append("<div id=\"userfocus\" class=\"info\">");
+				sh.append("<tr>");
+				sh.append("<td>关注量: </td><td>");
+				sh.append(userEdits.get(j).getFollow());
+				sh.append("</td></tr></div>");
+				sh.append("<div id=\"userread\" class=\"info\">");
+				sh.append("<tr>");
+				sh.append("<td>浏览量: </td><td>");
+				sh.append(userEdits.get(j).getView());
+				sh.append("</td></tr></div>");
+				sh.append("</div></div>");
+			}
+			printStream.println(sh.toString()); 
+			printStream.close();
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -757,19 +757,19 @@ public class Create{
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
 		try{
-				PrintStream printStream = new PrintStream(new FileOutputStream("?.jsp"));
-				for(int j=0;j<exams.size();j++) {
+			PrintStream printStream = new PrintStream(new FileOutputStream("?.jsp"));
+			for(int j=0;j<exams.size();j++) {
 				//+++++++++++++
-					sh.append(exams.get(j).getExamId());
-					sh.append(exams.get(j).getTitle());
-					sh.append(exams.get(j).getScore());
-					sh.append(exams.get(j).getTime());
-					sh.append(exams.get(j).getUserId());
-					//sh.append(session.getAttribute("username"));
+				sh.append(exams.get(j).getExamId());
+				sh.append(exams.get(j).getTitle());
+				sh.append(exams.get(j).getScore());
+				sh.append(exams.get(j).getTime());
+				sh.append(exams.get(j).getUserId());
+				//sh.append(session.getAttribute("username"));
 				//+++++++++++++
-				}
-				printStream.println(sh.toString()); 
-				printStream.close();
+			}
+			printStream.println(sh.toString()); 
+			printStream.close();
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
@@ -780,36 +780,102 @@ public class Create{
 		ArrayList<Exam> exams = new ArrayList<Exam>();
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
-				System.out.println("ok");
-				try {
-					PrintStream printStream = new PrintStream(new FileOutputStream("editQ.jsp"));
-					for(int j=0;j<exams.size();j++) {
-						System.out.println("1");
-					sh.append("<tr>");
-					sh.append("<td>");
-					sh.append("<a href=\"tQuery.jsp?id=");
-					sh.append(exams.get(j).getExamId());
+		System.out.println("ok");
+		try {
+			PrintStream printStream = new PrintStream(new FileOutputStream("editQ.jsp"));
+			for(int j=0;j<exams.size();j++) {
+				System.out.println("1");
+				sh.append("<tr>");
+				sh.append("<td>");
+				sh.append("<a href=\"tQuery.jsp?id=");
+				sh.append(exams.get(j).getExamId());
+				sh.append("\">");
+				sh.append(exams.get(j).getTitle());
+				sh.append("</a>");
+				sh.append("</td>");
+				sh.append("<td>");
+				sh.append("<input type=\"button\" value=\"发布\" onClick=\"msgbox()\">");
+				sh.append("</td>");
+				sh.append("<td>");
+				sh.append("<input type=\"button\" value=\"删除\">");
+				sh.append("\t");
+				sh.append(exams.get(j).getTime());
+				sh.append("\t");
+				sh.append("</td>");
+				sh.append("</tr>");
+
+			}
+		} catch (FileNotFoundException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+
+		return sh;
+	}
+
+	public StringBuilder createExamPublish(String userid) throws SQLException, ParseException {
+		//FollowDao dao = new FollowDao();
+		//ArrayList<Follow> follows = new ArrayList<Follow>();
+		//follows = dao1.getByUser2(userid);
+		ExamDao dao = new ExamDao();
+		ArrayList<Exam> exams = new ArrayList<Exam>();
+		exams = dao.getByUserIdXTime3(userid);
+		//int l = 0;
+		//String teacher = follows.get(l).getFollowerid();
+		//exams = dao2.getByUserIdXTime2(teacher);
+		StringBuilder sh = new StringBuilder();
+
+		PrintStream printStream;
+		try {
+			printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+			//for(int k=0;k<follows.size();k++) {
+				//exams = dao2.getByUserIdXTime2(follows.get(k).getFollowerid());
+				//System.out.println("11");
+				for(int j=0;j<exams.size();j++) {
+					System.out.println("22");
+					sh.append("<ul id=\"pn1\">");
+					sh.append("<li class=\"list1\">");
+					sh.append("<div class=\"content\">");
+					sh.append("<div class=\"comment-list\">");
+					sh.append("<div class=\"comment\">");
+					sh.append("<div class=\"comment-right\">");
+					sh.append("<div class=\"comment-text\">");
+					sh.append("<span class=\"user\">");
+					sh.append("你关注的\t");
+					sh.append("<a href=\"hisHome.jsp?ownerid=");//
+					sh.append(exams.get(j).getUserId());
+					sh.append("\">");
+					sh.append(exams.get(j).getUserId());
+					sh.append("</a>");
+					sh.append("老师");
+					sh.append("\t发布了试卷：\t");
+					sh.append("<a href=\"browseQ.jsp?ownerid=");//
+					sh.append(exams.get(j).getUserId());
 					sh.append("\">");
 					sh.append(exams.get(j).getTitle());
 					sh.append("</a>");
-					sh.append("</td>");
-					sh.append("<td>");
-					sh.append("<input type=\"button\" value=\"发布\" onClick=\"msgbox()\">");
-					sh.append("</td>");
-					sh.append("<td>");
-					sh.append("<input type=\"button\" value=\"删除\">");
-					sh.append("</td>");
-					sh.append("</tr>");
+					sh.append("</div>");
+					sh.append("<div class=\"comment-date\">");
 					sh.append(exams.get(j).getTime());
-				}
-				} catch (FileNotFoundException e) {
-					// TODO 自动生成的 catch 块
-					e.printStackTrace();
-				}
-				
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</div>");
+					sh.append("</li>");
+					sh.append("</ul>");
+					System.out.println("2");
+				}	
+			//}
+			printStream.println(sh.toString()); 
+			printStream.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 		return sh;
 	}
-					
+
+
+
 	public StringBuilder createTeacherQuestion(String id) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();
 		Exam exam = examDao.getExamById(id);//id
@@ -817,20 +883,20 @@ public class Create{
 		questions = examDao.getByExamId(id);//id
 		StringBuilder sh = new StringBuilder();
 		try{
-				PrintStream printStream = new PrintStream(new FileOutputStream("tQuery.jsp"));
-				sh.append("<h1 align=\"center\">");
-				sh.append(exam.getTitle());
-				sh.append("</h1>");
-				sh.append("<h3 align=\"center\">截止时间：");
-				sh.append(exam.getTime());
-				sh.append("</h3>");
-				for(int j=0;j<questions.size();j++) {	
-					sh.append("<div>");
-					sh.append(String.valueOf(j+1) + ". " + questions.get(j).getqContent());
-					sh.append("<br><br></div>");
-				}
-				printStream.println(sh.toString()); 
-				printStream.close();
+			PrintStream printStream = new PrintStream(new FileOutputStream("tQuery.jsp"));
+			sh.append("<h1 align=\"center\">");
+			sh.append(exam.getTitle());
+			sh.append("</h1>");
+			sh.append("<h3 align=\"center\">截止时间：");
+			sh.append(exam.getTime());
+			sh.append("</h3>");
+			for(int j=0;j<questions.size();j++) {	
+				sh.append("<div>");
+				sh.append(String.valueOf(j+1) + ". " + questions.get(j).getqContent());
+				sh.append("<br><br></div>");
+			}
+			printStream.println(sh.toString()); 
+			printStream.close();
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}

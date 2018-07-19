@@ -101,6 +101,17 @@
             transform: translateY(0px);
             text-shadow: 0 0 0;
         }
+         .tab:checked:nth-of-type(7) ~ .tab__content:nth-of-type(7) {
+            opacity: 1;
+            -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+            transition: 0.5s opacity ease-in, 0.8s transform ease;
+            position: relative;
+            top: 0;
+            z-index: 100;
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            text-shadow: 0 0 0;
+        }
         .tab:first-of-type:not(:last-of-type) + label {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
@@ -321,16 +332,19 @@
             
             <input type="radio" id="tab6" name="tabGroup1" class="tab">
             <label for="tab6">好友列表</label>
+            
+            <input type="radio" id="tab7" name="tabGroup1" class="tab">
+            <label for="tab7">好友动态</label>
 
             <div class="tab__content">
                 <h3>点赞</h3>
             	<div class="dianzan">
             		<ul>
             		<%
-					String id1=(String)request.getSession().getAttribute("userid");
+					String id=(String)request.getSession().getAttribute("userid");
             		//String id1="11";
 					Create cv1=new Create();
-					StringBuilder s1=cv1.createAgree(id1);
+					StringBuilder s1=cv1.createAgree(id);
 					out.println(s1);
 					%>
             		</ul>
@@ -342,12 +356,12 @@
             	<div class="guanzhu">
             		<ul>
             		<%
-					String id2=(String)request.getSession().getAttribute("userid");
+					//String id2=(String)request.getSession().getAttribute("userid");
             		//String id2="11";
 					Create cv2=new Create();
 					//Follow follow = new Follow();
 					//String userId = follow.getFollowerid();
-					StringBuilder s2=cv2.createFollow(id2);
+					StringBuilder s2=cv2.createFollow(id);
 					out.println(s2);
 					%>
             		</ul>
@@ -359,12 +373,12 @@
             	<div class="shoucang">
             		<ul>
             		<%
-					String id3=(String)request.getSession().getAttribute("userid");
+					//String id3=(String)request.getSession().getAttribute("userid");
             		//String id3="11";
 					Create cv3=new Create();
 					//Follow follow = new Follow();
 					//String userId = follow.getFollowerid();
-					StringBuilder s3=cv3.createCollection(id3);
+					StringBuilder s3=cv3.createCollection(id);
 					out.println(s3);
 					%>
             		</ul>
@@ -376,9 +390,9 @@
                 <div class="sixin">
                 <%
                 //String id4="11";
-                String id4=(String)request.getSession().getAttribute("userid");
+                //String id4=(String)request.getSession().getAttribute("userid");
                 Create cv4=new Create();
-				StringBuilder s4=cv4.createMessage(id4);
+				StringBuilder s4=cv4.createMessage(id);
 				out.println(s4);
                 %>
                 </div>
@@ -389,10 +403,10 @@
                 <div class="pinglun">
            <%
            		//String id5="11";
-	           	String id5=(String)request.getSession().getAttribute("userid");
+	           	//String id5=(String)request.getSession().getAttribute("userid");
 	           	Create cv5=new Create();
 				
-				StringBuilder s5=cv5.createCommentR(id5);
+				StringBuilder s5=cv5.createCommentR(id);
 				out.println(s5);
            %>    
            </div> 
@@ -403,14 +417,28 @@
            		<div class="haoyou">
            		<ul>
            <%
-           		String id6=(String)request.getSession().getAttribute("userid");
+           		//String id6=(String)request.getSession().getAttribute("userid");
            		Create cv6=new Create();
-           		StringBuilder s6=cv6.createFriend(id6);
+           		StringBuilder s6=cv6.createFriend(id);
            		out.println(s6);
            %>
            </ul>
            </div>
+			</div>
+    		<div class="tab__content">
+           		<h3>好友动态</h3>
+           		<div class="dongtai">
+           		<ul>
+           <%
+           		//String id7=(String)request.getSession().getAttribute("userid");
+           		Create cv7=new Create();
+           		StringBuilder s7=cv7.createExamPublish(id);
+           		out.println(s7);
+           %>
+           </ul>
+           </div>
     </div>
+    
 </div>
 <!-- --------------------------------TAB切换结束---------------------------------------------- -->
 <script>

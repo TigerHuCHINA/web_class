@@ -12,7 +12,7 @@
 
 <form>
 <div name="ti"></div>
-  <table width="300">
+  <table width="450">
   <%
   	String id=(String)request.getSession().getAttribute("userid");
 	Create cv=new Create();
