@@ -41,7 +41,6 @@ label{
     color: #fff;
     background-color:#00BFFF !important;
     border-color:#00BFFF;
-    border-radius: 0;
     height:50px;
     padding-top:16px;
 }
@@ -227,3 +226,33 @@ ul.lang li a{
 	left:-30px;
 	top:700px;
 }
+
+/*广告*/
+.ad{
+	height:300px;
+	width:250px;
+	border:2px solid white;
+	border-radius:10px;
+	
+}
+
+#ad1{
+	position:relative;
+	left:930px;
+	top:-300px;
+	
+}
+
+#ad2{
+	position:relative;
+	left:1260px;
+	top:-600px;
+}
+
+
+.ul1{
+	margin:500px 100px 100px 180px;
+	width: 1800px;
+	height: 200px;
+}
+

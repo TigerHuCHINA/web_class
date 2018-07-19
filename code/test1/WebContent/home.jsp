@@ -7,6 +7,7 @@
 
 
 <link href="css/wrapper.css" rel='stylesheet' type='text/css'>
+<link href="css/wrapper2.css" rel='stylesheet' type='text/css'>
 <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css'>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -16,6 +17,8 @@
 <link href="css/dropdown.css" rel='stylesheet' type='text/css'>
 <link href="css/video.css" rel='stylesheet' type='text/css'>
 <link href="css/searchbox.css" rel='stylesheet' type='text/css'>
+
+
 <link href="css/style.css" rel='stylesheet' type='text/css'>
 
 
@@ -54,9 +57,9 @@ display:none
 	<div class="container" >
 	    <!-- 登录 注册 button 邓慧颖 -->
 		<div class="top-menu"> 
-				<a id="login" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal" style="color:white;">登录</a>
-				<a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1" style="color:white;">注册</a>
-			    <a id="return" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2" style="color:white;">反馈</a>	
+				<a id="login" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal" onfocus="this.blur();" style="color:white;">登录</a>
+				<a id="register" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_1" onfocus="this.blur();" style="color:white;">注册</a>
+			    <a id="return" href="#" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal_2" onfocus="this.blur();" style="color:white;">反馈</a>	
 		</div>
 		
 		<!-- 登录界面 邓慧颖 -->	
@@ -190,17 +193,14 @@ display:none
 		 
 		 
 		<div class="dropdown">
-		<img id="istrue2" src="ImageDisplay?id=user" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;margin-left:-200px;border:1px solid white;" >
-		
-
-			
-             <div class="dropdown-content">
-                 <a href="homePage.jsp">个人主页</a>
-                 <a href="upload.jsp">上传视频</a>
-                 <a onclick="logout()">退出登录</a>
-             </div>
-         </div>
-         <a id="istrue" style="position:relative;left:-110px;top:-35px;cursor:default;color:white;text-decoration: none; "><%=request.getSession().getAttribute("username") %></a>		 
+		<img id="istrue2" src="ImageDisplay?id=user" class="btn btn-default btn1 pull-left" style="width:50px;height:50px;margin-left:-200px;border:1px solid white;border-radius:3px;" >
+            <div class="dropdown-content">
+                <a href="homePage.jsp" onfocus="this.blur();">个人主页</a>
+                <a href="upload.jsp" onfocus="this.blur();">上传视频</a>
+                <a onclick="logout()" onfocus="this.blur();">退出登录</a>
+            </div>
+        </div>
+        <a id="istrue" style="position:relative;left:-110px;top:-35px;cursor:default;color:white;text-decoration: none; "><%=request.getSession().getAttribute("username") %></a>		 
 	</div>
 </div>
 
@@ -350,7 +350,7 @@ function checkMessage(){
 
 
 
-
+<!-- 轮播1 -->
 <div class="wbox">
 
 	<div class="list">
@@ -506,6 +506,95 @@ timer=setInterval(nextimg,4000);
 </div>
 
 
+
+<!-- 轮播2 -->
+<div class="wbox2" id="j_silder_outer">
+	<div class="img-item">
+		<div class="img2" style="background: url(picture/1.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/2.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/3.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/4.png) no-repeat;"></div>
+	</div>
+	<div class="img-item">
+		<div class="img2" style="background: url(picture/1.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/2.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/3.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/4.png) no-repeat;"></div>
+	</div>
+	<div class="img-item">
+		<div class="img2" style="background: url(picture/1.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/2.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/3.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/4.png) no-repeat;"></div>
+	</div>
+	<div class="img-item">
+		<div class="img2" style="background: url(picture/1.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/2.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/3.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/4.png) no-repeat;"></div>
+	</div>
+	<div class="img-item">
+		<div class="img2" style="background: url(picture/1.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/2.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/3.png) no-repeat;"></div>
+		<div class="img2" style="background: url(images/4.png) no-repeat;"></div>
+	</div>
+	
+</div>
+<div class="btns2" data-num="0">
+		<div class="prev2"><</div>
+		<div class="next2">></div>
+</div>
+
+<div style="text-align:center;clear:both">
+
+</div>
+<script type="text/javascript">
+	$(function (){
+		var num = 0;
+		$("#j_silder_outer .img-item").each(function(index, el) {
+			$(this).css({
+				"left":$(this).width() * index + "px",
+				/*让每个img-item延时一定时间执行动画*/
+				"transitionDelay": index * 0.3 + "s"
+			});
+			$(this).find(".img2").css({
+				"backgroundPosition": -$(this).width() * index + "px"
+			});;
+		});
+
+		$(".prev2").on("click",function (){
+			$("#j_silder_outer .img-item").css("transform", "rotateX(" + (++num * 90) + "deg)");
+		});
+
+		$(".next2").on("click",function (){
+			$("#j_silder_outer .img-item").css("transform", "rotateX(" + (--num * 90) + "deg)");
+		});
+		
+		var timejg=4000;//轮播间隔时间
+		var time = setInterval(move,timejg);
+		function move(){
+			$("#j_silder_outer .img-item").css("transform", "rotateX(" + (--num * 90) + "deg)");
+		}
+		$('.wbox2').hover(function(){
+			clearInterval(time);
+		},function(){
+			time = setInterval(move,timejg);
+		});
+
+
+	})
+</script>
+
+
+<!-- 两个广告块 -->
+<div class="ad" id="ad1" style="background-image:url(picture/1.png);background-size:cover;">
+<img src="picture/1.png" width="100%" height="100%" style="border-radius:10px;"/>
+</div>
+
+<div class="ad" id="ad2" style="background-image:url(picture/2.jpg);background-size:cover;">
+<img src="picture/3.jpg" width="100%" height="100%" style="border-radius:10px;"/>
+</div>
 
 
 
