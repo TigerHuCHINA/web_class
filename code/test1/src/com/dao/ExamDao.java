@@ -149,7 +149,7 @@ public class ExamDao extends BaseDao {
 			while(set.next()) {
 				Question question = new Question();
 				question.setqId(set.getString(1));
-				question.setExamId(set.getString(2));
+				question.seteId(set.getString(2));
 				question.setqContent(set.getString(3));
 				question.setqScore(set.getString(4));
 				question.setqAnalysis(set.getString(5));
@@ -163,7 +163,7 @@ public class ExamDao extends BaseDao {
 		free();
 		return questions;
 	}
-	public ArrayList<Answer> getByQId(String qId){
+	public ArrayList<Answer> getByQId(String qId){//δfree
 		String sql="select * from answer where questionId=?";
 		Object obj[] = {qId};
 		ResultSet set = executeSelect(sql, obj);
@@ -174,12 +174,12 @@ public class ExamDao extends BaseDao {
 				answer.setaId(set.getString(1));
 				answer.setqId(set.getString(2));
 				answer.setaContent(set.getString(3));
+				answers.add(answer);
 			}
 		}catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		free();
 		return answers;
 	}
 	public String getCurrentEid(String userid)
@@ -218,7 +218,7 @@ public class ExamDao extends BaseDao {
 		free();
 		return qid;
 	}
-	public Exam getExamById(String id)//δfree
+	public Exam getExamById(String id)
 	{
 		String sql = "select * from exam where id = ?";
 		Object obs[] = {id};
@@ -237,6 +237,26 @@ public class ExamDao extends BaseDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		free();
 		return exam;
+	}
+	public Question getQuestionById(String id)//δfree
+	{
+		String sql = "select id,content,analysis from question where id = ?";
+		Object obs[] = {id};
+		ResultSet set = executeSelect(sql, obs);
+		Question question = new Question();
+		try {
+			if(set.next())
+			{
+				question.setqId(set.getString(1));
+				question.setqContent(set.getString(2));
+				question.setqAnalysis(set.getString(3));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return question;
 	}
 }
