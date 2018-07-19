@@ -187,12 +187,11 @@ obj.innerHTML="已关注"
 }
 </script>
 
-<!-- ---------------------------------------------私信----------------------------------------------- 
-<div class="sixin"><a href="#" onclick="return PopLayer(this)">私信</a></div>
-<div id="lightbox2"></div>
-<div id="pop2" style="background-image:url(picture/back.jpg)">-->
+    <div>
+	    <a class="mybtn1 btn btn-medium type2" href = "begin.jsp">Ta的试卷</a>
+    </div>
 
-
+</div>
 
 
 <!-- 隐藏界面1 -->
@@ -207,7 +206,7 @@ obj.innerHTML="已关注"
         </div>
 	</form>
 </div> 
-</div>
+
 
 <div class="videos">
     <div class="myvideo">
