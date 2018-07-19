@@ -845,8 +845,7 @@ public class Create{
 					sh.append("\">");
 					sh.append(exams.get(j).getUserId());
 					sh.append("</a>");
-					sh.append("老师");
-					sh.append("\t发布了试卷：\t");
+					sh.append("老师\t发布了试卷：\t");
 					sh.append("<a href=\"browseQ.jsp?ownerid=");//
 					sh.append(exams.get(j).getUserId());
 					sh.append("\">");
