@@ -1,6 +1,6 @@
 package com.pojo;
 
-public class Follow {
+public class Follow extends User{
 	private String id;
 	private String followerid;
 	private String followeeid;
@@ -37,5 +37,4 @@ public class Follow {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	
 }

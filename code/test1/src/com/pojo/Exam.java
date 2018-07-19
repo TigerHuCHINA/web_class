@@ -1,12 +1,12 @@
 package com.pojo;
 
-public class Exam {
+public class Exam extends User{
 	private String examId;
 	private String title;
 	private String score;
 	private String time;
 	private String userId;
-	
+
 	public String getExamId() {
 		return examId;
 	}

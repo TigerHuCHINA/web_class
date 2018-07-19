@@ -50,6 +50,7 @@ public class CommentDao extends BaseDao{
 				comment.setVideoId(set.getString(3));
 				comment.setContent(set.getString(4));
 				comment.setVideotitle(set.getString(5));
+				comment.setUname(set.getString(6));
 				comments.add(comment);
 			}
 		} catch (SQLException e) {

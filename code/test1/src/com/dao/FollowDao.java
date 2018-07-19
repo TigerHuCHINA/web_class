@@ -11,7 +11,7 @@ import com.pojo.Follow;
 public class FollowDao extends BaseDao {
 	public ArrayList<Follow> getByUser(String userId)//获得关注自己的人
 	{
-		String sql = "select * from follow where followerId = ?";
+		String sql = "select follow.id,follow.followerId,follow.followeeId,follow.time,user.name from follow left join user where follow.followerId = ?";
 		Object obj[] = {userId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Follow> follows = new ArrayList<Follow>();
@@ -21,7 +21,8 @@ public class FollowDao extends BaseDao {
 				follow.setId(set.getString(1));
 				follow.setFollowerid(set.getString(2));
 				follow.setFolloweeid(set.getString(3));
-				follow.setTime(set.getString(5));
+				follow.setTime(set.getString(4));
+				follow.setUname(set.getString(5));
 				follows.add(follow);
 			}
 		} catch (SQLException e) {
@@ -33,7 +34,7 @@ public class FollowDao extends BaseDao {
 	}
 	public ArrayList<Follow> getByUser2(String userId)//获得自己关注的人
 	{
-		String sql = "select * from follow where followeeId = ?";
+		String sql = "select follow.id,follow.followerId,follow.followeeId,follow.time,user.username from follow left join user on user.idname=follow.followerId where followeeId = ?";
 		Object obj[] = {userId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Follow> follows = new ArrayList<Follow>();
@@ -43,7 +44,8 @@ public class FollowDao extends BaseDao {
 				follow.setId(set.getString(1));
 				follow.setFollowerid(set.getString(2));
 				follow.setFolloweeid(set.getString(3));
-				follow.setTime(set.getString(5));
+				follow.setTime(set.getString(4));
+				follow.setUname(set.getString(5));
 				follows.add(follow);
 			}
 		} catch (SQLException e) {
