@@ -24,7 +24,7 @@ public class ExamAction extends HttpServlet {
 		exam.setTitle(title);
 		exam.setUserId(userId);
 		ExamDao examDao = new ExamDao();
-		examDao.addExam(exam, userId);
+		examDao.addExam(exam);
 		ExamDao getDao = new ExamDao();
 		session.setAttribute("examid", getDao.getCurrentEid(userId));
 		response.sendRedirect("subject.jsp");
