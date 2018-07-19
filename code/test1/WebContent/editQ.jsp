@@ -12,10 +12,10 @@
 
 <form>
 <div name="ti"></div>
-  <table width="300">
+  <table width="450">
   <%
-  	//String id1=(String)request.getSession().getAttribute("userid");
-	String id="111";
+  	String id=(String)request.getSession().getAttribute("userid");
+	//String id="111";
 	Create cv=new Create();
 	StringBuilder s=cv.createExam(id);
 	out.println(s);
