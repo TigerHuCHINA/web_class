@@ -678,6 +678,7 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 		ArrayList<Exam> exams = new ArrayList<Exam>();
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
+<<<<<<< HEAD
 		for(int j=0;j<exams.size();j++) {
 			System.out.println("1");
 			sh.append("<tr>");
@@ -698,6 +699,33 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 			sh.append("\t");
 			sh.append("</td>");
 			sh.append("</tr>");
+=======
+		try {
+			PrintStream printStream = new PrintStream(new FileOutputStream("editQ.jsp"));
+			for(int j=0;j<exams.size();j++) {
+				sh.append("<tr>");
+				sh.append("<td>");
+				sh.append("<a href=\"tQuery.jsp?id=");
+				sh.append(exams.get(j).getExamId());
+				sh.append("\">");
+				sh.append(exams.get(j).getTitle());
+				sh.append("</a>");
+				sh.append("</td>");
+				sh.append("<td>");
+				sh.append("<input type=\"button\" value=\"发布\" class=\"btn btn-default btn1 pull-left\" data-toggle=\"modal\" data-target=\"#applyModal\">");
+				sh.append("</td>");
+				sh.append("<td>");
+				sh.append("<input type=\"button\" value=\"查看成绩\" onclick=\"window.location='totGrade.jsp?id=");
+				sh.append(exams.get(j).getExamId());
+				sh.append("'\"></td>");
+				sh.append("<td>");
+				sh.append("<input type=\"button\" value=\"删除\">");
+				sh.append("\t");
+				sh.append(exams.get(j).getTime());
+				sh.append("\t");
+				sh.append("</td>");
+				sh.append("</tr>");
+>>>>>>> a9d7b0f75e546a6e3b6777af6d9760b49f751e5c
 
 		}
 
