@@ -1,8 +1,7 @@
 package com.pojo;
 
-public class Question extends Exam {
+public class Question {
 	private String qId;
-
 	private String eId;
 	private String qContent;
 	private String qScore;

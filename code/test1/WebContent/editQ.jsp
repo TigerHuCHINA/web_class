@@ -14,8 +14,7 @@
 <div name="ti"></div>
   <table width="300">
   <%
-  	//String id1=(String)request.getSession().getAttribute("userid");
-	String id="111";
+  	String id=(String)request.getSession().getAttribute("userid");
 	Create cv=new Create();
 	StringBuilder s=cv.createExam(id);
 	out.println(s);

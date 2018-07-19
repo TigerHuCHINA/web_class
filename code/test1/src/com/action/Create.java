@@ -16,18 +16,23 @@ import javax.servlet.http.HttpSession;
 import com.dao.AgreeDao;
 import com.dao.CollectDao;
 import com.dao.CommentDao;
+import com.dao.ErrorQuestionDao;
 import com.dao.ExamDao;
 import com.dao.FollowDao;
 import com.dao.MessageDao;
+import com.dao.ResultDao;
 import com.dao.UserEditDao;
 import com.dao.VideoDao;
 import com.pojo.Agree;
+import com.pojo.Answer;
 import com.pojo.Collection;
 import com.pojo.Comment;
+import com.pojo.ErrorQuestion;
 import com.pojo.Exam;
 import com.pojo.Follow;
 import com.pojo.Message;
 import com.pojo.Question;
+import com.pojo.Result;
 import com.pojo.UserEdit;
 import com.pojo.Video;
 
@@ -824,6 +829,91 @@ public class Create{
 					sh.append(String.valueOf(j+1) + ". " + questions.get(j).getqContent());
 					sh.append("<br><br></div>");
 				}
+				printStream.println(sh.toString()); 
+				printStream.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;
+	}
+	
+	public StringBuilder createStudentQuestion(String id) throws SQLException, ParseException {
+		ExamDao examDao = new ExamDao();
+		Exam exam = examDao.getExamById(id);
+		ArrayList<Question> questions = new ArrayList<Question>();
+		questions = examDao.getByExamId(id);
+		StringBuilder sh = new StringBuilder();
+		try{
+				PrintStream printStream = new PrintStream(new FileOutputStream("begin.jsp"));
+				sh.append("<h1 align=\"center\">");
+				sh.append(exam.getTitle());
+				sh.append("</h1>");
+				for(int j=0;j<questions.size();j++) {	
+					sh.append("<div>");
+					sh.append(String.valueOf(j+1) + ". " + questions.get(j).getqContent());
+					sh.append("<br>");
+					for(int k = 0; k < Integer.parseInt(questions.get(j).getEmpty()); k++)
+					{
+						sh.append("<input type=\"text\" name=\"");
+						sh.append("text" + String.valueOf(j) + String.valueOf(k));
+						sh.append("\">");
+					}
+					sh.append("<br><br></div>");
+				}
+				printStream.println(sh.toString()); 
+				printStream.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;
+	}
+	
+	public StringBuilder createResult(String userId,String examId) throws SQLException, ParseException {
+		ExamDao examDao = new ExamDao();
+		Exam exam = examDao.getExamById(examId);
+		ErrorQuestionDao errorQuestionDao = new ErrorQuestionDao();
+		ArrayList<ErrorQuestion> errorQuestions = errorQuestionDao.getByUserIdAndExamId(userId, examId);
+		ArrayList<Question> questions = new ArrayList<Question>();
+		ExamDao questionDao = new ExamDao();
+		for(int i = 0; i < errorQuestions.size(); i++)
+		{
+			Question question = questionDao.getQuestionById(errorQuestions.get(i).getQuestionId());
+			questions.add(question);
+		}
+		StringBuilder sh = new StringBuilder();
+		try{
+				PrintStream printStream = new PrintStream(new FileOutputStream("tQuery.jsp"));
+				sh.append("<h1 align=\"center\">");
+				sh.append(exam.getTitle());
+				sh.append("</h1><br><p><hr/><h4>错题</h4>");
+				for(int j=0;j<questions.size();j++) {	
+					sh.append("<div>");
+					sh.append(questions.get(j).getqContent());
+					sh.append("<br>");
+					sh.append("<font name=\"youran1\">你的答案：");
+					sh.append(errorQuestions.get(j).getYourAnswer());
+					sh.append("</font><br>");
+					sh.append("<font name=\"an1\">正确答案：");
+					ArrayList<Answer> answers = questionDao.getByQId(questions.get(j).getqId());
+					for(int k = 0; k < answers.size(); k++)
+					{
+						if(k == answers.size()-1) sh.append(answers.get(k).getaContent());
+						else sh.append(answers.get(k).getaContent() + ", ");
+					}
+					sh.append("</font><br>");
+					sh.append("<font name=\"analy1\">试题解析: ");
+					sh.append(questions.get(j).getqAnalysis());
+					sh.append("</font><br><br></div>");
+				}
+				sh.append("<hr/>");
+				sh.append("<p>本次考试总成绩为：");
+				ResultDao resultDao = new ResultDao();
+				Result result = resultDao.getByUserIdAndExamId(userId, examId);
+				sh.append(result.getScore());
+				sh.append("/");
+				sh.append(exam.getScore());
+				sh.append("</p>");
+				questionDao.free();
 				printStream.println(sh.toString()); 
 				printStream.close();
 		}catch(FileNotFoundException e){

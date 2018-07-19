@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.action.Create"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,14 +8,16 @@
 <title>开始答题</title>
 </head>
 <body>
-<form id="frm" action="">
+<form id="frm" action="doScore?id=22" method="post">
 <div id="timer" style="position:fixed; top:60px; right: 0; width: 150px; height: 40px;color: #FF4040; background: #E0FFFF;"></div>
 
-<h1 align="center">标题</h1>
-<div name="1">1.当方法遇到异常又不知如何处理时，______ 做法是不正确的。<br><br> 
- </div>	
- 
-<div name="2">2.当方法遇到异常又不知如何处理时，______ 做法是不正确的。<br><br>
+<% 
+String eid = request.getParameter("id");
+Create create = new Create();
+StringBuilder s = create.createStudentQuestion("22");//id
+out.println(s);
+%>
+
 <input type="submit" value="提交">
 </form>
 
@@ -54,7 +57,6 @@
        window.name = maxtime;    
       }    
       else{     
-    	document.getElementById("frm").submit();
         clearInterval(timer);     
 	    return;
       }    

@@ -163,4 +163,14 @@
     <servlet-name>QuestionAction</servlet-name>
     <url-pattern>/doQuestion</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ScoreAction</servlet-name>
+    <servlet-class>com.action.ScoreAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ScoreAction</servlet-name>
+    <url-pattern>/doScore</url-pattern>
+  </servlet-mapping>
 </web-app>
