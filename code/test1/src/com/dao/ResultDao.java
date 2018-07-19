@@ -2,6 +2,7 @@ package com.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.comm.BaseDao;
 import com.pojo.Follow;
@@ -37,5 +38,28 @@ public class ResultDao extends BaseDao {
 		}
 		free();
 		return result;
+	}
+	public ArrayList<Result> getByExamId(String examId)
+	{
+		String sql = "select * from result where examId = ? order by time desc";
+		Object obs[] = {examId};
+		ResultSet set = executeSelect(sql, obs);
+		ArrayList<Result> results = new ArrayList<Result>();
+		try {
+			if(set.next()) {
+				Result result = new Result();
+				result.setId(set.getString(1));
+				result.setUserId(set.getString(2));
+				result.setExamId(set.getString(3));
+				result.setScore(set.getString(4));
+				result.setTime(set.getString(5));
+				results.add(result);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		free();
+		return results;
 	}
 }
