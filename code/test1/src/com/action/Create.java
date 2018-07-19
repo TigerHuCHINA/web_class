@@ -21,6 +21,7 @@ import com.dao.ExamDao;
 import com.dao.FollowDao;
 import com.dao.MessageDao;
 import com.dao.ResultDao;
+import com.dao.UserDao;
 import com.dao.UserEditDao;
 import com.dao.VideoDao;
 import com.pojo.Agree;
@@ -33,6 +34,7 @@ import com.pojo.Follow;
 import com.pojo.Message;
 import com.pojo.Question;
 import com.pojo.Result;
+import com.pojo.User;
 import com.pojo.UserEdit;
 import com.pojo.Video;
 
@@ -945,7 +947,7 @@ public class Create{
 		}
 		StringBuilder sh = new StringBuilder();
 		try{
-				PrintStream printStream = new PrintStream(new FileOutputStream("tQuery.jsp"));
+				PrintStream printStream = new PrintStream(new FileOutputStream("Result.jsp"));
 				sh.append("<h1 align=\"center\">");
 				sh.append(exam.getTitle());
 				sh.append("</h1><br><p><hr/><h4>错题</h4>");
@@ -977,6 +979,36 @@ public class Create{
 				sh.append(exam.getScore());
 				sh.append("</p>");
 				questionDao.free();
+				printStream.println(sh.toString()); 
+				printStream.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		return sh;
+	}
+	public StringBuilder createExamResults(String examId){
+		ResultDao resultDao = new ResultDao();
+		ArrayList<Result> results = resultDao.getByExamId(examId);
+		ExamDao examDao = new ExamDao();
+		Exam exam = examDao.getExamById(examId);
+		StringBuilder sh = new StringBuilder();
+		try{
+				PrintStream printStream = new PrintStream(new FileOutputStream("totGrade.jsp"));
+				sh.append("<tr><th colspan=\"2\">");
+				sh.append(exam.getTitle());
+				sh.append("</th></tr>");
+				sh.append("<tr><td>学生姓名</td><td>得分</td><td>提交时间</td></tr>");
+				for(int j=0;j<results.size();j++) {	
+					sh.append("<tr><td>");
+					UserDao userDao = new UserDao();
+					User user = userDao.dologin(results.get(j).getUserId());
+					sh.append(user.getUname() + "(" + user.getUid() + ")");
+					sh.append("</td><td>");
+					sh.append(results.get(j).getScore());
+					sh.append("</td><td>");
+					sh.append(results.get(j).getTime());
+					sh.append("</td></tr>");
+				}
 				printStream.println(sh.toString()); 
 				printStream.close();
 		}catch(FileNotFoundException e){
