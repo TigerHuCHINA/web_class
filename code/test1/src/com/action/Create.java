@@ -788,11 +788,9 @@ public class Create{
 		ArrayList<Exam> exams = new ArrayList<Exam>();
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
-		System.out.println("ok");
 		try {
 			PrintStream printStream = new PrintStream(new FileOutputStream("editQ.jsp"));
 			for(int j=0;j<exams.size();j++) {
-				System.out.println("1");
 				sh.append("<tr>");
 				sh.append("<td>");
 				sh.append("<a href=\"tQuery.jsp?id=");
@@ -802,8 +800,12 @@ public class Create{
 				sh.append("</a>");
 				sh.append("</td>");
 				sh.append("<td>");
-				sh.append("<input type=\"button\" value=\"发布\" onClick=\"msgbox()\">");
+				sh.append("<input type=\"button\" value=\"发布\" class=\"btn btn-default btn1 pull-left\" data-toggle=\"modal\" data-target=\"#applyModal\">");
 				sh.append("</td>");
+				sh.append("<td>");
+				sh.append("<input type=\"button\" value=\"查看成绩\" onclick=\"window.location='totGrade.jsp?id=");
+				sh.append(exams.get(j).getExamId());
+				sh.append("'\"></td>");
 				sh.append("<td>");
 				sh.append("<input type=\"button\" value=\"删除\">");
 				sh.append("\t");

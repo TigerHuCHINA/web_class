@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.action.Create"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,6 +15,12 @@
 <h1 align="center">编辑试卷</h1>
 
   <table width="300">
+   <%
+  	String id=(String)request.getSession().getAttribute("userid");
+	Create cv=new Create();
+	StringBuilder s=cv.createExam(id);
+	out.println(s);
+  %>
 		<tr>
 		  <td><a href="tQuery.jsp">标题1</a></td>
 		  	<td><input type="button" value="发布" class="btn btn-default btn1 pull-left" data-toggle="modal" data-target="#applyModal"></td>
