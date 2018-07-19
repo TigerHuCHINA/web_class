@@ -819,10 +819,8 @@ public class Create{
 		//String teacher = follows.get(l).getFollowerid();
 		//exams = dao2.getByUserIdXTime2(teacher);
 		StringBuilder sh = new StringBuilder();
-
-		PrintStream printStream;
 		try {
-			printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
+			PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
 			//for(int k=0;k<follows.size();k++) {
 				//exams = dao2.getByUserIdXTime2(follows.get(k).getFollowerid());
 				//System.out.println("11");
