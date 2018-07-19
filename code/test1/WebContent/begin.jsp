@@ -8,13 +8,13 @@
 <title>开始答题</title>
 </head>
 <body>
-<form id="frm" action="doScore?id=22" method="post">
+<form id="frm" action="doScore?id=<%=request.getParameter("id") %>" method="post">
 <div id="timer" style="position:fixed; top:60px; right: 0; width: 150px; height: 40px;color: #FF4040; background: #E0FFFF;"></div>
 
 <% 
 String eid = request.getParameter("id");
 Create create = new Create();
-StringBuilder s = create.createStudentQuestion("22");//id
+StringBuilder s = create.createStudentQuestion(eid);//id
 out.println(s);
 %>
 

@@ -18,16 +18,6 @@
 		  <td>学生2</td><td>134</td><td>2</td>
 		</tr>
 </table>	
-
-<table width="300" id="table2" name="table2">
-		<tr><th colspan="2">试卷标题</th></tr>
-		<tr><td>题目编号</td><td>错误率</td></tr>
-		<tr>
-		  <td>第1题</td><td>12%</td>
-		</tr>
-		<tr>
-		  <td>第2题</td><td>45%</td>
-		</tr>
-</table>	
+	
 </body>
 </html>
