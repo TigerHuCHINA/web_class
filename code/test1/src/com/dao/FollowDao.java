@@ -33,6 +33,7 @@ public class FollowDao extends BaseDao {
 	}
 	public ArrayList<Follow> getByUser2(String userId)//获得自己关注的人
 	{
+		System.out.println("33");
 		String sql = "select * from follow where followeeId = ?";
 		Object obj[] = {userId};
 		ResultSet set = executeSelect(sql, obj);

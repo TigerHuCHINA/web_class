@@ -115,6 +115,31 @@ public class ExamDao extends BaseDao {
 		return exams;
 	}
 	
+	public ArrayList<Exam> getByUserIdXTime3(String userId){
+		System.out.println("1");
+		String sql="select * from exam left join follow on exam.userId=follow.followerId "
+				+ "where follow.followeeId=? and time_to_sec(now())-time_to_sec(time)>0 order by time desc"; //order by desc";
+		Object obj[] = {userId};
+		ResultSet set = executeSelect(sql, obj);
+		ArrayList<Exam> exams = new ArrayList<Exam>();
+		try {
+			while(set.next()) {
+				Exam exam = new Exam();
+				exam.setExamId(set.getString(1));
+				exam.setTitle(set.getString(2));
+				exam.setScore(set.getString(3));
+				exam.setTime(set.getString(4));
+				exam.setUserId(set.getString(5));
+				exams.add(exam);
+			}
+		}catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		free();
+		return exams;
+	}
+	
 	public ArrayList<Question> getByExamId(String examId){
 		String sql="select * from question where examId=?";
 		Object obj[] = {examId};

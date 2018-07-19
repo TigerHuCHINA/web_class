@@ -809,22 +809,23 @@ public class Create{
 	}
 
 	public StringBuilder createExamPublish(String userid) throws SQLException, ParseException {
-		FollowDao dao1 = new FollowDao();
-		ArrayList<Follow> follows = new ArrayList<Follow>();
-		follows = dao1.getByUser2(userid);
-		ExamDao dao2 = new ExamDao();
+		//FollowDao dao = new FollowDao();
+		//ArrayList<Follow> follows = new ArrayList<Follow>();
+		//follows = dao1.getByUser2(userid);
+		ExamDao dao = new ExamDao();
 		ArrayList<Exam> exams = new ArrayList<Exam>();
-		int l = 0;
-		String teacher = follows.get(l).getFollowerid();
-		exams = dao2.getByUserIdXTime2(teacher);
+		exams = dao.getByUserIdXTime3(userid);
+		//int l = 0;
+		//String teacher = follows.get(l).getFollowerid();
+		//exams = dao2.getByUserIdXTime2(teacher);
 		StringBuilder sh = new StringBuilder();
 
 		PrintStream printStream;
 		try {
 			printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
-			for(int k=0;k<follows.size();k++) {
-				exams = dao2.getByUserIdXTime2(follows.get(k).getFollowerid());
-				System.out.println("11");
+			//for(int k=0;k<follows.size();k++) {
+				//exams = dao2.getByUserIdXTime2(follows.get(k).getFollowerid());
+				//System.out.println("11");
 				for(int j=0;j<exams.size();j++) {
 					System.out.println("22");
 					sh.append("<ul id=\"pn1\">");
@@ -837,14 +838,14 @@ public class Create{
 					sh.append("<span class=\"user\">");
 					sh.append("你关注的\t");
 					sh.append("<a href=\"hisHome.jsp?ownerid=");//
-					sh.append(follows.get(k).getFollowerid());
+					sh.append(exams.get(j).getUserId());
 					sh.append("\">");
-					sh.append(follows.get(k).getFollowerid());
+					sh.append(exams.get(j).getUserId());
 					sh.append("</a>");
 					sh.append("老师");
 					sh.append("\t发布了试卷：\t");
 					sh.append("<a href=\"browseQ.jsp?ownerid=");//
-					sh.append(follows.get(k).getFollowerid());
+					sh.append(exams.get(j).getUserId());
 					sh.append("\">");
 					sh.append(exams.get(j).getTitle());
 					sh.append("</a>");
@@ -859,11 +860,10 @@ public class Create{
 					sh.append("</ul>");
 					System.out.println("2");
 				}	
-			}
+			//}
 			printStream.println(sh.toString()); 
 			printStream.close();
 		} catch (FileNotFoundException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 		return sh;
