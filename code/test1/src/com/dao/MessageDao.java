@@ -36,6 +36,7 @@ public class MessageDao extends BaseDao {
 				message.setAcceptId(set.getString(3));
 				message.setContent(set.getString(4));
 				message.setTime(set.getString(5));
+				message.setUname(set.getString(6));
 				messages.add(message);
 			}
 		}catch (SQLException e) {

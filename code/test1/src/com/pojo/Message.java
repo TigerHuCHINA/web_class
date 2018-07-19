@@ -1,6 +1,6 @@
 package com.pojo;
 
-public class Message {
+public class Message extends User{
 	private String passsId;
 	private String acceptId;
 	private String content;
