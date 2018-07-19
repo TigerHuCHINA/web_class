@@ -1,7 +1,7 @@
 package com.pojo;
 
 //∆¿¬€-∂≈”Ó∫Ω
-public class Comment extends User{
+public class Comment {
 	private String id;
 	private String userId;
 	private String videoId;
@@ -52,4 +52,6 @@ public class Comment extends User{
 	public void setVideotitle(String videotitle) {
 		this.videotitle = videotitle;
 	}
+	
+
 }

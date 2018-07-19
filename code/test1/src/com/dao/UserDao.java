@@ -57,11 +57,4 @@ public class UserDao extends BaseDao {
 		}
 		return result;
 	}
-	
-	public int getUserDao(String id) {
-		String sql = "select name from user where idname=?";
-		Object[] obs= {id};
-		int row = executeUpdate(sql, obs);
-		return row;
-	}
 }

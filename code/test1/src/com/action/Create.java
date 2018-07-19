@@ -172,10 +172,9 @@ public class Create{
 				sh.append("<a href=\"hisHome.jsp?ownerid=");
 				sh.append(agrees.get(j).getUserid());
 				sh.append("\">");
-				sh.append(agrees.get(j).getUname());
-				sh.append("</a>（");
 				sh.append(agrees.get(j).getUserid());
-				sh.append("）\t点赞了你的评论：\t");
+				sh.append("</a>");
+				sh.append("\t点赞了你的评论：\t");
 				//sh.append("<a href=\"\">");//+++++++++++++++++++++++++++++++++++
 				sh.append(agrees.get(j).getContent());
 				//sh.append("</a>");
@@ -215,10 +214,9 @@ public class Create{
 				sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++
 				sh.append(follows.get(j).getFolloweeid());
 				sh.append("\">");
-				sh.append(follows.get(j).getUname());
-				sh.append("</a>（");
 				sh.append(follows.get(j).getFolloweeid());
-				sh.append("）\t关注了你");
+				sh.append("</a>");
+				sh.append("\t关注了你");
 				sh.append("</div>");
 				//sh.append("<div class=\"comment-date\">");
 				//sh.append(follows.get(j).getTime());
@@ -262,10 +260,9 @@ public class Create{
 				sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++++++
 				sh.append(collections.get(j).getUserid());
 				sh.append("\">");
-				sh.append(collections.get(j).getUname());
-				sh.append("</a>（");
 				sh.append(collections.get(j).getUserid());
-				sh.append("）\t收藏了你的视频：\t");
+				sh.append("</a>");
+				sh.append("\t收藏了你的视频：\t");
 				sh.append("<a href=\"video.jsp?id=");//++++++++++++++++++++++++++++++++++++++++
 				sh.append(collections.get(j).getVideoid());
 				sh.append("\">");
@@ -308,10 +305,9 @@ public class Create{
 				sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++++++++
 				sh.append(messages.get(j).getPasssId());
 				sh.append("\">");
-				sh.append(messages.get(j).getUname());
-				sh.append("</a>（");
 				sh.append(messages.get(j).getPasssId());
-				sh.append("）</span>");
+				sh.append("</a>");
+				sh.append("</span>");
 				sh.append("\t私信了你：\t\n");
 				sh.append(messages.get(j).getContent());
 				sh.append("</div>");
@@ -350,10 +346,9 @@ public class Create{
 				sh.append("<a href=\"hisHome.jsp?ownerid=");
 				sh.append(comments.get(j).getUserId());
 				sh.append("\">");
-				sh.append(comments.get(j).getUname());
-				sh.append("</a>（");
 				sh.append(comments.get(j).getUserId());
-				sh.append("）\t评论了你的视频\t");
+				sh.append("</a>");
+				sh.append("\t评论了你的视频\t");
 				sh.append("<a href=\"video.jsp?id=");
 				sh.append(comments.get(j).getVideoId());
 				sh.append("&useid=");
@@ -388,6 +383,7 @@ public class Create{
 		StringBuilder sh = new StringBuilder();
 		if(videos.size()==0)
 		{
+			System.out.println("123132");
 			sh.append("<div>未找到您搜索的视频</div>");
 			return sh;
 		}
@@ -626,10 +622,8 @@ public class Create{
 				sh.append("<a href=\"hisHome.jsp?ownerid=");
 				sh.append(follows.get(j).getFollowerid());
 				sh.append("\">");
-				sh.append(follows.get(j).getUname());
-				sh.append("</a>\t");
 				sh.append(follows.get(j).getFollowerid());
-				sh.append("");
+				sh.append("</a>");
 				sh.append("</div>");
 				sh.append("<div class=\"comment-date\">");
 				sh.append(follows.get(j).getTime());
@@ -853,17 +847,16 @@ public class Create{
 					sh.append("<a href=\"hisHome.jsp?ownerid=");//
 					sh.append(exams.get(j).getUserId());
 					sh.append("\">");
-					sh.append(exams.get(j).getUname());//+++++++++++++++++++++++++++++++++++++++
-					sh.append("（");
 					sh.append(exams.get(j).getUserId());
-					sh.append("）</a>");
+					sh.append("</a>");
 					sh.append("老师\t发布了试卷：\t");
-					sh.append("<a href=\"begin.jsp?examid=");//
-					sh.append(exams.get(j).getExamId());
+					sh.append("<a href=\"browseQ.jsp?ownerid=");//
+					sh.append(exams.get(j).getUserId());
 					sh.append("\">");
 					sh.append(exams.get(j).getTitle());
 					sh.append("</a>");
-					sh.append("\t截至\t");
+					sh.append("</div>");
+					sh.append("<div class=\"comment-date\">");
 					sh.append(exams.get(j).getTime());
 					sh.append("</div>");
 					sh.append("</div>");
@@ -881,6 +874,8 @@ public class Create{
 		}
 		return sh;
 	}
+
+
 
 	public StringBuilder createTeacherQuestion(String id) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();

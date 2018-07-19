@@ -1,6 +1,6 @@
 package com.pojo;
 
-public class Collection extends User{
+public class Collection {
 	private String id;
 	private String userid;
 	private String videoid;

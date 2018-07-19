@@ -1,6 +1,6 @@
 package com.pojo;
 
-public class Agree extends User{
+public class Agree {
 	private String id;
 	private String userid;
 	private String commentid;
