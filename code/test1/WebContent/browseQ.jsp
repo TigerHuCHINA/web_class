@@ -9,14 +9,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%
 String ownerid = (String)request.getSession().getAttribute("ownerid");
+System.out.print(ownerid);
 UserDao ud=new UserDao();
 User u=ud.dologin(ownerid);
-String owmername = u.getUname();
+String ownername = u.getUname();
 %>
-<title><%=owmername + "（" + ownerid + "）" %>老师的试卷</title>
+<title><%=ownername + "（" + ownerid + "）" %>老师的试卷</title>
 <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css'>
 
-<script src="js/jquery.min.js"></script>
+<scrinpt src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
