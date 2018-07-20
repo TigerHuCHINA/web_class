@@ -104,7 +104,10 @@ if(((String)request.getSession().getAttribute("userid")).equals((String)request.
         <div id="userdate" class="info">
             <tr>
                 <td>生日: </td>
-                <td><%=birthday %></td>
+                <td><%
+                if(birthday != null) out.print(birthday);
+                else out.print("未知");
+                %></td>
             </tr>
         </div>
     
@@ -131,7 +134,10 @@ if(((String)request.getSession().getAttribute("userid")).equals((String)request.
         <div id="userinformation" class="info">
             <tr>
                 <td>个人简介: </td>
-                <td><%=introduce%></td>
+                <td><%
+                if(introduce != null) out.print(introduce);
+                else out.print("还没有个人简介");
+                %></td>
             </tr>
         </div>
         <div id="userfocus" class="info">

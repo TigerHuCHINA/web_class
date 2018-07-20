@@ -35,10 +35,10 @@ public class MessageAction extends HttpServlet {
 		
 		if(dao.sendMessage(m)) {
 			req.setAttribute("result", "³É¹¦");
-			req.getRequestDispatcher("hisHome.jsp?ownerid="+acceptId).forward(req, resp);
+			resp.sendRedirect("hisHome.jsp?ownerid="+acceptId);
 		}else {
 			req.setAttribute("result", "Ê§°Ü");
-			req.getRequestDispatcher("xx.jsp").forward(req, resp);
+			resp.sendRedirect("hisHome.jsp?ownerid="+acceptId);
 		}
 	}
 }

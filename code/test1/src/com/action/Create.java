@@ -1,18 +1,10 @@
 package com.action;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import com.dao.AgreeDao;
 import com.dao.CollectDao;
@@ -40,8 +32,6 @@ import com.pojo.UserEdit;
 import com.pojo.Video;
 
 public class Create{
-
-	UserDao uDao = new UserDao();
 
 	public StringBuilder createVideo() throws SQLException, ParseException, IOException{
 		VideoDao vd=new VideoDao();
@@ -732,34 +722,47 @@ public class Create{
 		ArrayList<Exam> exams = new ArrayList<Exam>();
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
-		for(int j=0;j<exams.size();j++) {
-			String id = exams.get(j).getExamId();
-			sh.append("<tr>");
-			sh.append("<td>");
-			sh.append("<a href=\"tQuery.jsp?id=");
-			sh.append(id);
-			sh.append("\">");
-			sh.append(exams.get(j).getTitle());
-			sh.append("</a>");
-			sh.append("</td>");
-			sh.append("<td>");
-			sh.append("<input type=\"submit\" value=\"发布\" onclick=\"document.getElementById('exam').value=");
-			sh.append(id);
-			sh.append("\">");
-			sh.append("</td>");
-			sh.append("<td>");
-			sh.append("<input type=\"button\" value=\"查看成绩\" onclick=\"window.location='totGrade.jsp?id=");
-			sh.append(id);
-			sh.append("'\"></td>");
-			sh.append("<td>");
-			sh.append("<input type=\"button\" value=\"删除\" onclick=\"window.location='doDelete?id=");
-			sh.append(id);
-			sh.append("'\">");
-			sh.append("\t");
-			sh.append(exams.get(j).getTime());
-			sh.append("\t");
-			sh.append("</td>");
-			sh.append("</tr>");
+
+			for(int j=0;j<exams.size();j++) {
+				String id = exams.get(j).getExamId();
+				sh.append("<tr>");
+				sh.append("<td>");
+				sh.append("<a href=\"tQuery.jsp?id=");
+				sh.append(id);
+				sh.append("\">");
+				sh.append("</a>");
+				sh.append("</td>");
+				sh.append("<td class=\"mytext\">");
+				sh.append(exams.get(j).getTitle());
+				sh.append("</td>");
+				sh.append("<td>");
+				sh.append("<div class=\"mybtn2\">");
+				sh.append("<input type=\"submit\" value=\"发布\" class=\"btn btn-medium type1\" onclick=\"document.getElementById('exam').value=");
+				sh.append(id);
+				sh.append("\">");
+				sh.append("</div>");
+				sh.append("</td>");
+				sh.append("<td>");
+				sh.append("<div class=\"mybtn2\">");
+				sh.append("<input type=\"button\" value=\"查看成绩\" class=\"btn btn-medium type2\" onclick=\"window.location='totGrade.jsp?id=");
+				sh.append(id);
+				sh.append("'\">");
+				sh.append("</div>");
+				sh.append("</td>");
+				sh.append("<td>");
+				sh.append("<div class=\"mybtn2\">");
+				sh.append("<input type=\"button\" value=\"删除\" class=\"btn btn-medium type3\" onclick=\"window.location='doDelete?id=");
+				sh.append(id);
+				sh.append("'\">");
+				sh.append("</div>");
+				sh.append("\t");
+				
+				sh.append("\t");
+				sh.append("</td>");
+				sh.append("<td class=\"mytext\">");
+				sh.append(exams.get(j).getTime());
+				sh.append("</td>");
+				sh.append("</tr>");
 		}
 
 		return sh;

@@ -19,11 +19,10 @@ public class delCollectAction extends HttpServlet {
 		String vid = (String)session.getAttribute("videoid");
 		CollectDao dcd = new CollectDao();
 		if(dcd.decollect(uid,vid)) {
-			request.setAttribute("result", "³É¹¦");
-			request.getRequestDispatcher("video.jsp").forward(request, response);
+			response.sendRedirect("video.jsp");
 		}else {
 			request.setAttribute("result", "Ê§°Ü");
-			request.getRequestDispatcher("xx.jsp").forward(request, response);
+			request.getRequestDispatcher("video.jsp").forward(request, response);
 		}
 	}
 }
