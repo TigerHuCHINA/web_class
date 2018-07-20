@@ -1,18 +1,10 @@
 package com.action;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import com.dao.AgreeDao;
 import com.dao.CollectDao;
@@ -40,9 +32,6 @@ import com.pojo.UserEdit;
 import com.pojo.Video;
 
 public class Create{
-	
-	UserDao uDao = new UserDao();
-	
 	public StringBuilder createVideo() throws SQLException, ParseException, IOException{
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
