@@ -11,11 +11,11 @@
 
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/button.css" rel='stylesheet' type='text/css'>
-
+<link href="css/video.css" rel='stylesheet' type='text/css'>
 <link href="css/searchbox.css" rel='stylesheet' type='text/css'>
 <link href="css/homePageStyle.css" rel='stylesheet' type='text/css'>
 
-<link href="css/video.css" rel='stylesheet' type='text/css'>
+
 
 
 <script src="js/calender.js"></script>
@@ -205,6 +205,7 @@ out.println(s_);
 %>
 </div>
 </div>
+
 
 
 

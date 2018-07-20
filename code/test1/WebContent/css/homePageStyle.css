@@ -78,10 +78,10 @@ body{
 
 /*สำฦต*/
 .videos{
-	
 	position:absolute;
 	left:150px;
 	top:900px;
+	width:500px;
 }
 
 .title1{
@@ -91,6 +91,10 @@ body{
 
 .myvideo{
 	position:relative;
+	width:1550px;
+	border:1px solid #ffcc00;
+	background:#fffff7;
+	padding:10px;
 
 }   
 

@@ -203,6 +203,7 @@ display:none
         <a id="istrue" style="position:relative;left:-110px;top:-35px;cursor:default;color:white;text-decoration: none; "><%=request.getSession().getAttribute("username") %></a>		 
 	</div>
 </div>
+<div></div>
 
 
 <!-- 对登录 注册进行一些限制 常庭瑞 -->
@@ -255,10 +256,8 @@ function checkRegister(){
 }
 
 //判断是否登录及错误-杜宇航
-function init(){
-	 
-	 
-	 
+$(document).ready(function(){
+//function init(){
 	var userid = "<%=request.getSession().getAttribute("userid")%>";
 	var username = "<%=request.getSession().getAttribute("username")%>";
 	if(userid!="null")
@@ -277,7 +276,8 @@ function init(){
 	  	alert("\"" +error + "\"");
 	  	<%request.getSession().removeAttribute("error");%>
 	  }
-}
+//}
+});
 
 function logout() {
 	<%/*session.removeAttribute("userid");

@@ -1,6 +1,6 @@
 body{
 	font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
-	background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+	background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -16,10 +16,6 @@ body{
 #text{
 	width:500px;
 	height:49px;
-	border:2px solid #683B4D;
-	border-radius:5px;
-	background-color:transparent;
-	
 }
 
 .imageInputContainer{
@@ -32,56 +28,31 @@ body{
 #text2{
 	width:500px;
 	height:49px;
-	border:2px solid #683B4D;
-	border-radius:5px;
-	background-color:transparent;
 }
 .item{
 	position:absolute;
     left:30%;
     top:30%;
     width:640px;
-    height:49px;
-	border:2px solid #683B4D;
-	border-radius:5px;
-}
-.filter-text input{
-	width:640px;
-	height:49px;
-	border:2px solid #683B4D;
-	border-radius:5px;
 }
 .title{
 	position:absolute;
     left:30%;
     top:40%;
-    border:2px solid #683B4D;
-	border-radius:5px;
 }
 .title input{
-	width:635px;
+	width:640px;
 	height:49px;
-	border:none;
-	background-color:transparent;
-	padding-left:10px;
 }
 
 .info{
 	position:absolute;
     left:30%;
-    top:50%;
+    top:55%;
 }
 .info textarea{
 	width:640px;
-	height:200px;
-	border:2px solid #683B4D;
-	border-radius:5px;
-	background-color:transparent;
-	padding-left:10px;
-	padding-top:10px;
-	font-size: 14px;
-	font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
-	overflow-Y:hidden;
+	height:250px;
 }
 
 .submit{
@@ -89,11 +60,9 @@ body{
 	width:80%;
     height:20%;
     left:30%;
-    top:80%;
-    border:0px;
-    background-color:transparent;
-        
-}   
+    top:90%;
+    
+} 
 
 
 
