@@ -197,9 +197,6 @@ public class Create{
 			sh.append("</a>");
 			sh.append("\t关注了你");
 			sh.append("</div>");
-			//sh.append("<div class=\"comment-date\">");
-			//sh.append(follows.get(j).getTime());
-			//sh.append("</div>");
 			sh.append("</div>");
 			sh.append("</div>");
 			sh.append("</div>");
@@ -216,29 +213,6 @@ public class Create{
 		collections=dao.getByUserId(userid);//videoId
 		StringBuilder sh = new StringBuilder();
 		for(int j=0;j<collections.size();j++) {	
-			/*sh.append("<li>");
-				sh.append(collections.get(j).getUserid());
-<<<<<<< HEAD
-				sh.append("\">");
-				UserDao userDao = new UserDao();
-				User user = userDao.dologin(collections.get(j).getUserid());
-				sh.append(user.getUname());
-				sh.append("(" + collections.get(j).getUserid() + ")");
-				sh.append("</a>");
-				sh.append("\t收藏了你的视频：\t");
-				sh.append("<a href=\"video.jsp?id=");//++++++++++++++++++++++++++++++++++++++++
-				sh.append(collections.get(j).getVideoid());
-				sh.append("\">");
-				sh.append(collections.get(j).getContent());
-				sh.append("</a>");
-				sh.append("</div>");
-				sh.append("<div class=\"comment-date\">");
-=======
-				sh.append("\t在\t");
->>>>>>> 4e8767bc47bf136c7fd88a7d486c983cdf3c6ede
-				sh.append(collections.get(j).getTime());
-				sh.append("\t收藏了你的视频：\t");
-				sh.append(collections.get(j).getVideoid());*/
 			sh.append("<ul id=\"pn1\">");
 			sh.append("<li class=\"list1\">");
 			sh.append("<div class=\"content\">");
@@ -690,9 +664,6 @@ public class Create{
 			System.out.println("???");
 			sh.append("<tr>");
 			sh.append("<td>");
-			//sh.append("<a href=\"begin.jsp?id=");
-			//sh.append(exams.get(j).getExamId());
-			//sh.append("\">");
 			sh.append(exams.get(j).getTitle());
 			sh.append("</a>");
 			sh.append("\t截止时间：");
@@ -706,14 +677,6 @@ public class Create{
 			sh.append("</a>");
 			sh.append("</td>");
 			sh.append("</tr>");
-			//+++++++++++++
-			//sh.append(exams.get(j).getExamId());
-			//sh.append(exams.get(j).getTitle());
-			//sh.append(exams.get(j).getScore());
-			//sh.append(exams.get(j).getTime());
-			//sh.append(exams.get(j).getUserId());
-			//sh.append(session.getAttribute("username"));
-			//+++++++++++++
 		}
 		return sh;
 	}
@@ -769,19 +732,10 @@ public class Create{
 	}
 
 	public StringBuilder createExamPublish(String userid) throws SQLException, ParseException {
-		//FollowDao dao = new FollowDao();
-		//ArrayList<Follow> follows = new ArrayList<Follow>();
-		//follows = dao1.getByUser2(userid);
 		ExamDao dao = new ExamDao();
 		ArrayList<Exam> exams = new ArrayList<Exam>();
 		exams = dao.getByUserIdXTime3(userid);
-		//int l = 0;
-		//String teacher = follows.get(l).getFollowerid();
-		//exams = dao2.getByUserIdXTime2(teacher);
 		StringBuilder sh = new StringBuilder();
-		//for(int k=0;k<follows.size();k++) {
-		//exams = dao2.getByUserIdXTime2(follows.get(k).getFollowerid());
-		//System.out.println("11");
 		for(int j=0;j<exams.size();j++) {
 			System.out.println("22");
 			sh.append("<ul id=\"pn1\">");
@@ -817,7 +771,6 @@ public class Create{
 			sh.append("</li>");
 			sh.append("</ul>");
 		}	
-		//}
 		return sh;
 	}
 
