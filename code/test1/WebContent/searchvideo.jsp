@@ -2,8 +2,8 @@
 <%@page import="com.action.getInfo"%>
 <%@page import="com.action.Create"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%if(request.getSession().getAttribute("userid")==null)response.sendRedirect("home.jsp"); %>
-<%if(request.getSession().getAttribute("userid")==null)response.sendRedirect("home.jsp"); %>
+<%if(request.getSession().getAttribute("userid")==null){response.sendRedirect("home.jsp");} %>
+<%if(request.getSession().getAttribute("userid")==null){response.sendRedirect("home.jsp"); }%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -41,7 +41,8 @@ out.println(s);
 <div>相关用户</div>
 
 <%
-StringBuilder s_=cv.createSelectedUser(key);
+Create c=new Create();
+StringBuilder s_=c.createSelectedUser(key);
 out.println(s_);
 %>
 

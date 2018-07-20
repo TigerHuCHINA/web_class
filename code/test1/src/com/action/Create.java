@@ -39,7 +39,7 @@ import com.pojo.User;
 import com.pojo.UserEdit;
 import com.pojo.Video;
 
-public class Create{
+public class Create {
  public StringBuilder createVideo() throws SQLException, ParseException, IOException{
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
@@ -55,7 +55,7 @@ public class Create{
 			sh.append(videos.get(j).getId());
 			sh.append("&useid=");
 			sh.append(videos.get(j).getUserId());
-			sh.append("'>");
+			sh.append("'>");		
 			sh.append("<img src='ImageDisplay?id=video&number=");
 			sh.append(videos.get(j).getId());
 			sh.append("' width='100%' height='100%'>");
@@ -678,30 +678,6 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 		ArrayList<Exam> exams = new ArrayList<Exam>();
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
-<<<<<<< HEAD
-		for(int j=0;j<exams.size();j++) {
-			System.out.println("1");
-			sh.append("<tr>");
-			sh.append("<td>");
-			sh.append("<a href=\"tQuery.jsp?id=");
-			sh.append(exams.get(j).getExamId());
-			sh.append("\">");
-			sh.append(exams.get(j).getTitle());
-			sh.append("</a>");
-			sh.append("</td>");
-			sh.append("<td>");
-			sh.append("<input type=\"button\" value=\"·¢²¼\" onClick=\"msgbox()\">");
-			sh.append("</td>");
-			sh.append("<td>");
-			sh.append("<input type=\"button\" value=\"É¾³ý\">");
-			sh.append("\t");
-			sh.append(exams.get(j).getTime());
-			sh.append("\t");
-			sh.append("</td>");
-			sh.append("</tr>");
-=======
-		try {
-			PrintStream printStream = new PrintStream(new FileOutputStream("editQ.jsp"));
 			for(int j=0;j<exams.size();j++) {
 				sh.append("<tr>");
 				sh.append("<td>");
@@ -725,9 +701,9 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 				sh.append("\t");
 				sh.append("</td>");
 				sh.append("</tr>");
->>>>>>> a9d7b0f75e546a6e3b6777af6d9760b49f751e5c
 
-		}
+			}
+		
 
 		return sh;
 	}
