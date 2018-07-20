@@ -40,6 +40,9 @@ import com.pojo.UserEdit;
 import com.pojo.Video;
 
 public class Create{
+	
+	UserDao uDao = new UserDao();
+	
 	public StringBuilder createVideo() throws SQLException, ParseException, IOException{
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
@@ -154,12 +157,10 @@ public class Create{
 			sh.append("<a href=\"hisHome.jsp?ownerid=");
 			sh.append(agrees.get(j).getUserid());
 			sh.append("\">");
-			sh.append(agrees.get(j).getUserid());
+			sh.append(uDao.getName(agrees.get(j).getUserid()));//!!!!!!!!!!!!!!!!!!
 			sh.append("</a>");
 			sh.append("\t点赞了你的评论：\t");
-			//sh.append("<a href=\"\">");//+++++++++++++++++++++++++++++++++++
 			sh.append(agrees.get(j).getContent());
-			//sh.append("</a>");
 			sh.append("</div>");
 			sh.append("<div class=\"comment-date\">");
 			sh.append(agrees.get(j).getTime());
@@ -190,7 +191,7 @@ public class Create{
 			sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++
 			sh.append(follows.get(j).getFolloweeid());
 			sh.append("\">");
-			sh.append(follows.get(j).getFolloweeid());
+			sh.append(uDao.getName(follows.get(j).getFolloweeid()));
 			sh.append("</a>");
 			sh.append("\t关注了你");
 			sh.append("</div>");
