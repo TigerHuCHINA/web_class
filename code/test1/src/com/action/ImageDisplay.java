@@ -43,6 +43,7 @@ public class ImageDisplay extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String path=this.getServletContext().getRealPath("");
 		getInfo get = new getInfo();
 		HttpSession session = request.getSession();
 		String ownername = (String)session.getAttribute("ownerid");
@@ -53,7 +54,7 @@ public class ImageDisplay extends HttpServlet {
 		{
 			System.out.println("test");
 			UserEdit u = get.getInfoById(content);
-			File f=new File(u.getUheadphoto());
+			File f=new File(path+"/headphoto/"+u.getUheadphoto());
 			InputStream is = new FileInputStream(f);  
 			OutputStream os = null;
 			response.setContentType("image/jpeg");
@@ -67,56 +68,62 @@ public class ImageDisplay extends HttpServlet {
 			is.close();  
 			os.close(); 
 		}
-		else if(flag == null)
+		else if(flag.equals("user"))
 		{
 			UserEdit u = get.getInfoById(name);
-			File f=new File(u.getUheadphoto());
+			File f=new File(path+"/headphoto/"+u.getUheadphoto());
 			InputStream is = new FileInputStream(f);  
-			OutputStream os = null;
-			response.setContentType("image/jpeg");
-			os = response.getOutputStream();
-			int num;  
-			byte buf[] = new byte[1024]; 
-			while(   (num=is.read(buf))!=-1   ){  
-				os.write(buf, 0, num);  
-			} 
-			os.flush();  
-			is.close();  
-			os.close(); 
+		    OutputStream os = null;
+		    response.setContentType("image/jpeg");
+		    os = response.getOutputStream();
+		    int num;  
+		    byte buf[] = new byte[1024]; 
+		    while(   (num=is.read(buf))!=-1   ){  
+		        os.write(buf, 0, num);  
+		    } 
+		    os.flush();  
+		    is.close();  
+		    os.close(); 
 		}
 		else if(flag.equals("owner")) {
 			UserEdit u = get.getInfoById(ownername);
-			if(u.getUheadphoto()==null) u.setUheadphoto("picture\11108.jpg");
-			File f=new File(u.getUheadphoto());
+			File f=new File(path+"/headphoto/"+u.getUheadphoto());
 			InputStream is = new FileInputStream(f);  
-			OutputStream os = null;
-			response.setContentType("image/jpeg");
-			os = response.getOutputStream();
-			int num;  
-			byte buf[] = new byte[1024]; 
-			while(   (num=is.read(buf))!=-1   ){  
-				os.write(buf, 0, num);  
-			} 
-			os.flush();  
-			is.close();  
-			os.close(); 
-		}
+		    OutputStream os = null;
+		    response.setContentType("image/jpeg");
+		    os = response.getOutputStream();
+		    int num;  
+		    byte buf[] = new byte[1024]; 
+		    while(   (num=is.read(buf))!=-1   ){  
+		        os.write(buf, 0, num);  
+		    } 
+		    os.flush();  
+		    is.close();  
+		    os.close(); 
+			}
 		else if(flag.equals("video")) {
-			String cover=request.getParameter("number");
-			File f=new File(cover);
-			InputStream is = new FileInputStream(f);  
-			OutputStream os = null;
-			response.setContentType("image/jpeg");
-			os = response.getOutputStream();
-			int num;  
-			byte buf[] = new byte[1024]; 
-			while(   (num=is.read(buf))!=-1   ){  
-				os.write(buf, 0, num);  
-			} 
-			os.flush();  
-			is.close();  
-			os.close();
-
+			String number=request.getParameter("number");
+			VideoDao vd=new VideoDao();
+			try {
+				Video v=vd.getInfoById(number);
+				File f=new File(path+"/cover/"+v.getCover());
+				InputStream is = new FileInputStream(f);  
+			    OutputStream os = null;
+			    response.setContentType("image/jpeg");
+			    os = response.getOutputStream();
+			    int num;  
+			    byte buf[] = new byte[1024]; 
+			    while(   (num=is.read(buf))!=-1   ){  
+			        os.write(buf, 0, num);  
+			    } 
+			    os.flush();  
+			    is.close();  
+			    os.close();
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 	}
 }

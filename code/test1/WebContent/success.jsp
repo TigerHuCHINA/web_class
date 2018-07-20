@@ -17,5 +17,6 @@
      	<input type="submit" value="再次上传" onclick='location.href=("upload.jsp")'/>
      	<input type="submit" value="返回个人主页" onclick='location.href=("homePage.jsp")'/>
      </div>
+     ${result}
 </body>
 </html>

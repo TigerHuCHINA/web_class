@@ -57,7 +57,7 @@
 
 
 <div class="upload">
-    <form method="post" action="UploadAction" onsubmit="return check();">
+    <form method="post" action="UploadAction" enctype="multipart/form-data" onsubmit="return check();">
     
     
     

@@ -45,13 +45,14 @@ public class VideoDisplay extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String path=this.getServletContext().getRealPath("");
 		HttpSession session = request.getSession();
 		String vid = (String)session.getAttribute("vid");
 		VideoDao v = new VideoDao();
 		Video video = null;
 		try {
 			video = v.getInfoById(vid);
-			File f=new File(video.getFile());
+			File f=new File(path+"/video/"+video.getFile());
 			InputStream is =new FileInputStream(f);  
 		    OutputStream os = null;
 		    os = response.getOutputStream();

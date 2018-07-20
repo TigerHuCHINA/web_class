@@ -46,7 +46,7 @@
 
     <a class="head1" href="home.jsp">主界面</a>
 
-    <a class="head2" style="cursor:default;"><img src="ImageDisplay?id=user" width="75px" height="75px"></a>
+    <a class="head2" style="cursor:default;"><img src="ImageDisplay?id=user" width="100%" height="100%"></a>
         
     <a class="head3" style="cursor:default;"><%=request.getSession().getAttribute("username") %></a>
 
@@ -233,7 +233,7 @@ out.println(s_);
 <!-- 隐藏界面2 -->
 <div id="light2">
     <a href = "javascript:void(0)" id= "close2" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade').style.display='none'">×</a>
-    <form method="post" action="ImageAction">
+    <form method="post" action="ImageAction" enctype="multipart/form-data">
         <input class="fileInput" id="file" type="file" name="file"/>
         <input class="submitimage" type="submit" value="提交"/>
     </form>
