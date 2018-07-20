@@ -18,12 +18,13 @@ li {
 }
 
 .filter-text {
-	height: 49px;
+	height: 100%;
 	overflow: hidden;
 	position: relative;
 	cursor: pointer;
 	padding: 0 30px 0 10px;
-	
+	background: #fff;
+	border: 1px solid #e6e6e6;
 }
 
 .filter-text input {
@@ -32,8 +33,8 @@ li {
 
 .filter-text .filter-title {
 	width: 100%;
-	height: 49px;
-	line-height: 49px;
+	height: 36px;
+	line-height: 36px;
 	border: 0;
 	background-color: transparent;
 	white-space: nowrap;
@@ -50,11 +51,10 @@ li {
 	background-color: #fff;
 	font-size: 14px;
 	position: absolute;
-	top: 49px;
+	top: 42px;
 	left: 0;
 	z-index: 99;
-	border: 2px solid #683B4D;
-	border-radius:5px;
+	border: 1px solid #e6e6e6;
 	overflow: auto;
 }
 
