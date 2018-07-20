@@ -36,7 +36,7 @@ request.getSession().setAttribute("ownerid",ownerid);
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
 
-<title><%=request.getSession().getAttribute("username") %>的个人主页</title>
+<title><%=ownername + "（" + ownerid + "）" %>的个人主页</title>
 	
 
 </head>
@@ -174,6 +174,10 @@ out.print("<a class='mybtn1 btn btn-medium type1' href='doFollow?flag=add' oncli
 %>
 
 </div>
+
+<div>
+	    <a class="mybtn1 btn btn-medium type3" href = "browseQ.jsp">查看题库</a>
+    </div>
 
 <script>
 function mOver(obj)

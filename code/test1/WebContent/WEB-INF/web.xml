@@ -173,4 +173,24 @@
     <servlet-name>ScoreAction</servlet-name>
     <url-pattern>/doScore</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>PublishAction</servlet-name>
+    <servlet-class>com.action.PublishAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PublishAction</servlet-name>
+    <url-pattern>/doPublish</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteAction</servlet-name>
+    <servlet-class>com.action.DeleteAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteAction</servlet-name>
+    <url-pattern>/doDelete</url-pattern>
+  </servlet-mapping>
 </web-app>

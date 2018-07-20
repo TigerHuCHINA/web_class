@@ -106,7 +106,10 @@ public class Create{
 			sh.append("<a href=\"hisHome.jsp?ownerid=");
 			sh.append(comments.get(j).getUserId());
 			sh.append("\">");
-			sh.append(comments.get(j).getUserId());
+			UserDao userDao = new UserDao();
+			User user = userDao.dologin(comments.get(j).getUserId());
+			sh.append(user.getUname());
+			sh.append("(" + comments.get(j).getUserId() + ")");
 			sh.append("</a>");
 			if(comments.get(j).getUserId().equals(ownerId)) sh.append("(上传者)");
 			sh.append(" :</span><br>");
@@ -157,7 +160,12 @@ public class Create{
 			sh.append("<a href=\"hisHome.jsp?ownerid=");
 			sh.append(agrees.get(j).getUserid());
 			sh.append("\">");
-			sh.append(uDao.getName(agrees.get(j).getUserid()));//!!!!!!!!!!!!!!!!!!
+
+			UserDao userDao = new UserDao();
+			User user = userDao.dologin(agrees.get(j).getUserid());
+			sh.append(user.getUname());
+			sh.append("(" + agrees.get(j).getUserid() + ")");
+
 			sh.append("</a>");
 			sh.append("\t点赞了你的评论：\t");
 			sh.append(agrees.get(j).getContent());
@@ -179,31 +187,36 @@ public class Create{
 		ArrayList<Follow> follows = new ArrayList<Follow>();
 		follows=dao.getByUser(userid);//videoId
 		StringBuilder sh = new StringBuilder();
-		for(int j=0;j<follows.size();j++) {	
-			sh.append("<ul id=\"pn1\">");
-			sh.append("<li class=\"list1\">");
-			sh.append("<div class=\"content\">");
-			sh.append("<div class=\"comment-list\">");
-			sh.append("<div class=\"comment\">");
-			sh.append("<div class=\"comment-right\">");
-			sh.append("<div class=\"comment-text\">");
-			sh.append("<span class=\"user\">");
-			sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++
-			sh.append(follows.get(j).getFolloweeid());
-			sh.append("\">");
-			sh.append(uDao.getName(follows.get(j).getFolloweeid()));
-			sh.append("</a>");
-			sh.append("\t关注了你");
-			sh.append("</div>");
-			//sh.append("<div class=\"comment-date\">");
-			//sh.append(follows.get(j).getTime());
-			//sh.append("</div>");
-			sh.append("</div>");
-			sh.append("</div>");
-			sh.append("</div>");
-			sh.append("</li>");
-			sh.append("</ul>");
-		}
+
+			for(int j=0;j<follows.size();j++) {	
+				sh.append("<ul id=\"pn1\">");
+				sh.append("<li class=\"list1\">");
+				sh.append("<div class=\"content\">");
+				sh.append("<div class=\"comment-list\">");
+				sh.append("<div class=\"comment\">");
+				sh.append("<div class=\"comment-right\">");
+				sh.append("<div class=\"comment-text\">");
+				sh.append("<span class=\"user\">");
+				sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++
+				sh.append(follows.get(j).getFolloweeid());
+				sh.append("\">");
+				UserDao userDao = new UserDao();
+				User user = userDao.dologin(follows.get(j).getFolloweeid());
+				sh.append(user.getUname());
+				sh.append("(" + follows.get(j).getFolloweeid() + ")");
+				sh.append("</a>");
+				sh.append("\t关注了你");
+				sh.append("</div>");
+				//sh.append("<div class=\"comment-date\">");
+				//sh.append(follows.get(j).getTime());
+				//sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</div>");
+				sh.append("</li>");
+				sh.append("</ul>");
+			}
+
 		return sh;
 	}
 
@@ -215,7 +228,24 @@ public class Create{
 		for(int j=0;j<collections.size();j++) {	
 			/*sh.append("<li>");
 				sh.append(collections.get(j).getUserid());
+<<<<<<< HEAD
+				sh.append("\">");
+				UserDao userDao = new UserDao();
+				User user = userDao.dologin(collections.get(j).getUserid());
+				sh.append(user.getUname());
+				sh.append("(" + collections.get(j).getUserid() + ")");
+				sh.append("</a>");
+				sh.append("\t收藏了你的视频：\t");
+				sh.append("<a href=\"video.jsp?id=");//++++++++++++++++++++++++++++++++++++++++
+				sh.append(collections.get(j).getVideoid());
+				sh.append("\">");
+				sh.append(collections.get(j).getContent());
+				sh.append("</a>");
+				sh.append("</div>");
+				sh.append("<div class=\"comment-date\">");
+=======
 				sh.append("\t在\t");
+>>>>>>> 4e8767bc47bf136c7fd88a7d486c983cdf3c6ede
 				sh.append(collections.get(j).getTime());
 				sh.append("\t收藏了你的视频：\t");
 				sh.append(collections.get(j).getVideoid());*/
@@ -230,7 +260,10 @@ public class Create{
 			sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++++++
 			sh.append(collections.get(j).getUserid());
 			sh.append("\">");
-			sh.append(collections.get(j).getUserid());
+			UserDao userDao = new UserDao();
+			User user = userDao.dologin(collections.get(j).getUserid());
+			sh.append(user.getUname());
+			sh.append("(" + collections.get(j).getUserid() + ")");
 			sh.append("</a>");
 			sh.append("\t收藏了你的视频：\t");
 			sh.append("<a href=\"video.jsp?id=");//++++++++++++++++++++++++++++++++++++++++
@@ -268,7 +301,10 @@ public class Create{
 			sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++++++++
 			sh.append(messages.get(j).getPasssId());
 			sh.append("\">");
-			sh.append(messages.get(j).getPasssId());
+			UserDao userDao = new UserDao();
+			User user = userDao.dologin(messages.get(j).getPasssId());
+			sh.append(user.getUname());
+			sh.append("(" + messages.get(j).getPasssId() + ")");
 			sh.append("</a>");
 			sh.append("</span>");
 			sh.append("\t私信了你：\t\n");
@@ -302,7 +338,10 @@ public class Create{
 			sh.append("<a href=\"hisHome.jsp?ownerid=");
 			sh.append(comments.get(j).getUserId());
 			sh.append("\">");
-			sh.append(comments.get(j).getUserId());
+			UserDao userDao = new UserDao();
+			User user = userDao.dologin(comments.get(j).getUserId());
+			sh.append(user.getUname());
+			sh.append("(" + comments.get(j).getUserId() + ")");
 			sh.append("</a>");
 			sh.append("\t评论了你的视频\t");
 			sh.append("<a href=\"video.jsp?id=");
@@ -334,7 +373,6 @@ public class Create{
 		StringBuilder sh = new StringBuilder();
 		if(videos.size()==0)
 		{
-			System.out.println("123132");
 			sh.append("<div>未找到您搜索的视频</div>");
 			return sh;
 		}
@@ -538,7 +576,10 @@ public class Create{
 			sh.append("<a href=\"hisHome.jsp?ownerid=");
 			sh.append(follows.get(j).getFollowerid());
 			sh.append("\">");
-			sh.append(follows.get(j).getFollowerid());
+			UserDao userDao = new UserDao();
+			User user = userDao.dologin(follows.get(j).getFollowerid());
+			sh.append(user.getUname());
+			sh.append("(" + follows.get(j).getFollowerid() + ")");
 			sh.append("</a>");
 			sh.append("</div>");
 			sh.append("<div class=\"comment-date\">");
@@ -691,27 +732,34 @@ public class Create{
 		ArrayList<Exam> exams = new ArrayList<Exam>();
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
-
-		for(int j=0;j<exams.size();j++) {
-			sh.append("<tr>");
-			sh.append("<td>");
-			sh.append("<a href=\"tQuery.jsp?id=");
-			sh.append(exams.get(j).getExamId());
-			sh.append("\">");
-			sh.append(exams.get(j).getTitle());
-			sh.append("</a>");
-			sh.append("</td>");
-			sh.append("<td>");
-			sh.append("<input type=\"button\" value=\"发布\" onClick=\"msgbox()\">");
-			sh.append("</td>");
-			sh.append("<td>");
-			sh.append("<input type=\"button\" value=\"删除\">");
-			sh.append("\t");
-			sh.append(exams.get(j).getTime());
-			sh.append("\t");
-			sh.append("</td>");
-			sh.append("</tr>");
-
+			for(int j=0;j<exams.size();j++) {
+				String id = exams.get(j).getExamId();
+				sh.append("<tr>");
+				sh.append("<td>");
+				sh.append("<a href=\"tQuery.jsp?id=");
+				sh.append(id);
+				sh.append("\">");
+				sh.append(exams.get(j).getTitle());
+				sh.append("</a>");
+				sh.append("</td>");
+				sh.append("<td>");
+				sh.append("<input type=\"submit\" value=\"发布\" onclick=\"document.getElementById('exam').value=");
+				sh.append(id);
+				sh.append("\">");
+				sh.append("</td>");
+				sh.append("<td>");
+				sh.append("<input type=\"button\" value=\"查看成绩\" onclick=\"window.location='totGrade.jsp?id=");
+				sh.append(id);
+				sh.append("'\"></td>");
+				sh.append("<td>");
+				sh.append("<input type=\"button\" value=\"删除\" onclick=\"window.location='doDelete?id=");
+				sh.append(id);
+				sh.append("'\">");
+				sh.append("\t");
+				sh.append(exams.get(j).getTime());
+				sh.append("\t");
+				sh.append("</td>");
+				sh.append("</tr>");
 		}
 
 		return sh;
@@ -745,7 +793,10 @@ public class Create{
 			sh.append("<a href=\"hisHome.jsp?ownerid=");//
 			sh.append(exams.get(j).getUserId());
 			sh.append("\">");
-			sh.append(exams.get(j).getUserId());
+			UserDao userDao = new UserDao();
+			User user = userDao.dologin(exams.get(j).getUserId());
+			sh.append(user.getUname());
+			sh.append("(" + exams.get(j).getUserId() + ")");
 			sh.append("</a>");
 			sh.append("老师\t发布了试卷：\t");
 			sh.append("<a href=\"browseQ.jsp?ownerid=");//
@@ -846,7 +897,8 @@ public class Create{
 			}
 			sh.append("</font><br>");
 			sh.append("<font name=\"analy1\">试题解析: ");
-			sh.append(questions.get(j).getqAnalysis());
+			if(questions.get(j).getqAnalysis()!=null)sh.append(questions.get(j).getqAnalysis());
+			else sh.append("暂无解析");
 			sh.append("</font><br><br></div>");
 		}
 		sh.append("<hr/>");
