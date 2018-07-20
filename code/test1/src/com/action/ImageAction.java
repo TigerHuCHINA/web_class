@@ -87,7 +87,7 @@ public class ImageAction extends HttpServlet {
 			}
 		
 		    request.setAttribute("result",message);	
-			request.getRequestDispatcher("homePage.jsp").forward(request, response);
+			response.sendRedirect("homePage.jsp");
 		
 		}
 		

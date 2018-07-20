@@ -28,8 +28,7 @@ public class FeedbackAction extends HttpServlet{
 		feedback.setContent(string);
 		FeedbackDao dao = new FeedbackDao();
 		if(dao.feedbackCommit(feedback)) {
-			req.setAttribute("result", "³É¹¦");
-			req.getRequestDispatcher("xx.jsp").forward(req, resp);
+			resp.sendRedirect("home.jsp");
 		}else {
 			req.setAttribute("result", "Ê§°Ü");
 			req.getRequestDispatcher("xx.jsp").forward(req, resp);

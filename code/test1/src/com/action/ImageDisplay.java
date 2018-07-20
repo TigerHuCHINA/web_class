@@ -52,7 +52,6 @@ public class ImageDisplay extends HttpServlet {
 		String content = request.getParameter("content");
 		if(content!=null)
 		{
-			System.out.println("test");
 			UserEdit u = get.getInfoById(content);
 			File f=new File(path+"/headphoto/"+u.getUheadphoto());
 			InputStream is = new FileInputStream(f);  

@@ -20,11 +20,10 @@ public class deFollowAction {
 		Follow ff = new Follow();
 		FollowDao f = new FollowDao();
 		if(f.deFollow(ff)) {
-			request.setAttribute("result", "³É¹¦");
-			request.getRequestDispatcher("homePage.jsp").forward(request, response);
+			response.sendRedirect("homePage.jsp");
 		}else {
 			request.setAttribute("result", "Ê§°Ü");
-			request.getRequestDispatcher("xx.jsp").forward(request, response);
+			request.getRequestDispatcher("homePage.jsp").forward(request, response);
 		}
 	}
 }
