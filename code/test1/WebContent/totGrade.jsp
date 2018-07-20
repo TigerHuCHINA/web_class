@@ -12,12 +12,12 @@
 <table width="300" id="table1" name="table1">
 <% 
 String eid = request.getParameter("id");
-eid = "22";//待删除
 Create create = new Create();
 StringBuilder s = create.createExamResults(eid);
 out.println(s);
 %>
-</table>	
+</table>
+<input type="button" value="确认" onclick="window.location='editQ.jsp'">	
 	
 </body>
 </html>

@@ -36,7 +36,7 @@ request.getSession().setAttribute("ownerid",ownerid);
 <script src="js/calender.js"></script>
 <script src="js/location.js"></script>
 
-<title><%=request.getSession().getAttribute("username") %>的个人主页</title>
+<title><%=ownername + "（" + ownerid + "）" %>的个人主页</title>
 	
 
 </head>
@@ -104,7 +104,10 @@ if(((String)request.getSession().getAttribute("userid")).equals((String)request.
         <div id="userdate" class="info">
             <tr>
                 <td>生日: </td>
-                <td><%=birthday %></td>
+                <td><%
+                if(birthday != null) out.print(birthday);
+                else out.print("未知");
+                %></td>
             </tr>
         </div>
     
@@ -131,7 +134,10 @@ if(((String)request.getSession().getAttribute("userid")).equals((String)request.
         <div id="userinformation" class="info">
             <tr>
                 <td>个人简介: </td>
-                <td><%=introduce%></td>
+                <td><%
+                if(introduce != null) out.print(introduce);
+                else out.print("还没有个人简介");
+                %></td>
             </tr>
         </div>
         <div id="userfocus" class="info">
@@ -175,6 +181,10 @@ out.print("<a class='mybtn1 btn btn-medium type1' href='doFollow?flag=add' oncli
 
 </div>
 
+<div>
+	    <a class="mybtn1 btn btn-medium type3" href = "browseQ.jsp">查看题库</a>
+    </div>
+
 <script>
 function mOver(obj)
 {
@@ -187,11 +197,12 @@ obj.innerHTML="已关注"
 }
 </script>
 
-    <div>
-	    <a class="mybtn1 btn btn-medium type2" href = "begin.jsp">Ta的试卷</a>
-    </div>
+<!-- ---------------------------------------------私信----------------------------------------------- 
+<div class="sixin"><a href="#" onclick="return PopLayer(this)">私信</a></div>
+<div id="lightbox2"></div>
+<div id="pop2" style="background-image:url(picture/back.jpg)">-->
 
-</div>
+
 
 
 <!-- 隐藏界面1 -->
@@ -206,7 +217,7 @@ obj.innerHTML="已关注"
         </div>
 	</form>
 </div> 
-
+</div>
 
 <div class="videos">
     <div class="myvideo">

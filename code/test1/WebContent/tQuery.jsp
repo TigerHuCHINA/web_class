@@ -14,6 +14,6 @@ Create create = new Create();
 StringBuilder s = create.createTeacherQuestion(eid);
 out.println(s);
 %>
-<input type="button" value="确认" onclick="editQ.jsp">
+<input type="button" value="确认" onclick="window.location='editQ.jsp'">
 </body>
 </html>

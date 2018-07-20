@@ -20,11 +20,10 @@ public class delAgreeAction extends HttpServlet {
 		Agree aa = new Agree();
 		AgreeDao a = new AgreeDao();
 		if(a.delAgree(aa)) {
-			request.setAttribute("result", "³É¹¦");
-			request.getRequestDispatcher("video.jsp").forward(request, response);
+			response.sendRedirect("video.jsp");
 		}else {
 			request.setAttribute("result", "Ê§°Ü");
-			request.getRequestDispatcher("xx.jsp").forward(request, response);
+			request.getRequestDispatcher("video.jsp").forward(request, response);
 		}
 	}
 }
