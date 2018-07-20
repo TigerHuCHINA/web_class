@@ -36,10 +36,10 @@ public class FollowAction extends HttpServlet {
 		else{
 			if(f.deFollow(ff)) {
 				request.setAttribute("result", "³É¹¦");
-				request.getRequestDispatcher("hisHome.jsp?ownerid="+follower).forward(request, response);
+				response.sendRedirect("hisHome.jsp?ownerid="+follower);
 			}else {
 				request.setAttribute("result", "Ê§°Ü");
-				request.getRequestDispatcher("xx.jsp").forward(request, response);
+				response.sendRedirect("hisHome.jsp?ownerid="+follower);
 			}
 			}
 		

@@ -118,7 +118,7 @@ public class UploadAction extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("result",message);	
-		request.getRequestDispatcher("success.jsp").forward(request, response);
+		response.sendRedirect("success.jsp");
 		/*FileDao bd=new FileDao();
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
