@@ -259,4 +259,33 @@ public class ExamDao extends BaseDao {
 		}
 		return question;
 	}
+	public int publish(String id, String min)
+	{
+		int minute = Integer.valueOf(min);
+		int hour_ = minute/60;
+		int min_ = minute%60;
+		String time = String.valueOf(hour_) + ":" + String.valueOf(min_) + ":00";
+		String sql = "update exam set time = date_add(now(),interval ? hour_second) where id = ?";
+		Object obs[] = {time,id};
+		int row = executeUpdate(sql, obs);
+		free();
+		return row;
+	}
+	public void delExam(String id) {
+		String sql = "delete from exam where id = ?";
+		String sql2 = "delete from result where examId = ?";
+		String sql3 = "delete from question where examId = ?";
+		String sql4 = "delete from errorQuestion where examId = ?";
+		Object obs[] = {id};
+		executeUpdate(sql4, obs);
+		executeUpdate(sql3, obs);
+		executeUpdate(sql2, obs);
+		executeUpdate(sql, obs);
+		free();
+	}
+	public void delAnswer(String id) {//δfree
+		String sql = "delete from answer where questionId = ?";
+		Object obs[] = {id};
+		executeUpdate(sql, obs);
+	}
 }
