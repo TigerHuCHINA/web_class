@@ -175,6 +175,10 @@ out.print("<a class='mybtn1 btn btn-medium type1' href='doFollow?flag=add' oncli
 
 </div>
 
+<div>
+	    <a class="mybtn1 btn btn-medium type3" href = "browseQ.jsp">查看题库</a>
+    </div>
+
 <script>
 function mOver(obj)
 {

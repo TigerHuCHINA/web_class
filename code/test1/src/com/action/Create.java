@@ -892,7 +892,8 @@ public class Create{
 			}
 			sh.append("</font><br>");
 			sh.append("<font name=\"analy1\">试题解析: ");
-			sh.append(questions.get(j).getqAnalysis());
+			if(questions.get(j).getqAnalysis()!=null)sh.append(questions.get(j).getqAnalysis());
+			else sh.append("暂无解析");
 			sh.append("</font><br><br></div>");
 		}
 		sh.append("<hr/>");
