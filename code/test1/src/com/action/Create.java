@@ -40,7 +40,7 @@ import com.pojo.UserEdit;
 import com.pojo.Video;
 
 public class Create{
- public StringBuilder createVideo() throws SQLException, ParseException, IOException{
+	public StringBuilder createVideo() throws SQLException, ParseException, IOException{
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
 		videos=vd.getAll();
@@ -87,7 +87,7 @@ public class Create{
 		return sh;	
 	}
 
-public StringBuilder createComment(String videoId,String ownerId,String userId) throws SQLException, ParseException {
+	public StringBuilder createComment(String videoId,String ownerId,String userId) throws SQLException, ParseException {
 		CommentDao dao=new CommentDao();
 		ArrayList<Comment> comments = new ArrayList<Comment>();
 		comments=dao.getByVideo(videoId);
@@ -135,8 +135,8 @@ public StringBuilder createComment(String videoId,String ownerId,String userId) 
 		return sh;	
 
 	}
-	
-public StringBuilder createAgree(String userid) throws SQLException, ParseException {
+
+	public StringBuilder createAgree(String userid) throws SQLException, ParseException {
 		AgreeDao dao=new AgreeDao();
 		ArrayList<Agree> agrees = new ArrayList<Agree>();
 
@@ -172,48 +172,41 @@ public StringBuilder createAgree(String userid) throws SQLException, ParseExcept
 		}
 		return sh;
 	}
-	
-public StringBuilder createFollow(String userid) throws SQLException, ParseException {
+
+	public StringBuilder createFollow(String userid) throws SQLException, ParseException {
 		FollowDao dao=new FollowDao();
 		ArrayList<Follow> follows = new ArrayList<Follow>();
 		follows=dao.getByUser(userid);//videoId
 		StringBuilder sh = new StringBuilder();
-		try{
-			PrintStream printStream = new PrintStream(new FileOutputStream("dynamic.jsp"));
-			for(int j=0;j<follows.size();j++) {	
-				sh.append("<ul id=\"pn1\">");
-				sh.append("<li class=\"list1\">");
-				sh.append("<div class=\"content\">");
-				sh.append("<div class=\"comment-list\">");
-				sh.append("<div class=\"comment\">");
-				sh.append("<div class=\"comment-right\">");
-				sh.append("<div class=\"comment-text\">");
-				sh.append("<span class=\"user\">");
-				sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++
-				sh.append(follows.get(j).getFolloweeid());
-				sh.append("\">");
-				sh.append(follows.get(j).getFolloweeid());
-				sh.append("</a>");
-				sh.append("\t关注了你");
-				sh.append("</div>");
-				//sh.append("<div class=\"comment-date\">");
-				//sh.append(follows.get(j).getTime());
-				//sh.append("</div>");
-				sh.append("</div>");
-				sh.append("</div>");
-				sh.append("</div>");
-				sh.append("</li>");
-				sh.append("</ul>");
-			}
-			printStream.println(sh.toString()); 
-			printStream.close();
-		}catch(FileNotFoundException e){
-			e.printStackTrace();
+		for(int j=0;j<follows.size();j++) {	
+			sh.append("<ul id=\"pn1\">");
+			sh.append("<li class=\"list1\">");
+			sh.append("<div class=\"content\">");
+			sh.append("<div class=\"comment-list\">");
+			sh.append("<div class=\"comment\">");
+			sh.append("<div class=\"comment-right\">");
+			sh.append("<div class=\"comment-text\">");
+			sh.append("<span class=\"user\">");
+			sh.append("<a href=\"hisHome.jsp?ownerid=");//+++++++++++++++++++++
+			sh.append(follows.get(j).getFolloweeid());
+			sh.append("\">");
+			sh.append(follows.get(j).getFolloweeid());
+			sh.append("</a>");
+			sh.append("\t关注了你");
+			sh.append("</div>");
+			//sh.append("<div class=\"comment-date\">");
+			//sh.append(follows.get(j).getTime());
+			//sh.append("</div>");
+			sh.append("</div>");
+			sh.append("</div>");
+			sh.append("</div>");
+			sh.append("</li>");
+			sh.append("</ul>");
 		}
 		return sh;
 	}
 
-public StringBuilder createCollection(String userid) throws SQLException, ParseException {
+	public StringBuilder createCollection(String userid) throws SQLException, ParseException {
 		CollectDao dao=new CollectDao();
 		ArrayList<Collection> collections = new ArrayList<Collection>();
 		collections=dao.getByUserId(userid);//videoId
@@ -662,12 +655,31 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
 		for(int j=0;j<exams.size();j++) {
-			//+++++++++++++
-			sh.append(exams.get(j).getExamId());
+			System.out.println("???");
+			sh.append("<tr>");
+			sh.append("<td>");
+			//sh.append("<a href=\"begin.jsp?id=");
+			//sh.append(exams.get(j).getExamId());
+			//sh.append("\">");
 			sh.append(exams.get(j).getTitle());
-			sh.append(exams.get(j).getScore());
+			sh.append("</a>");
+			sh.append("\t截止时间：");
 			sh.append(exams.get(j).getTime());
-			sh.append(exams.get(j).getUserId());
+			sh.append("</td>");
+			sh.append("<td>");
+			sh.append("<a href=\"begin.jsp?id=");
+			sh.append(exams.get(j).getExamId());
+			sh.append("\">");
+			sh.append("<input type=\"button\" value=\"开始答题\" >");
+			sh.append("</a>");
+			sh.append("</td>");
+			sh.append("</tr>");
+			//+++++++++++++
+			//sh.append(exams.get(j).getExamId());
+			//sh.append(exams.get(j).getTitle());
+			//sh.append(exams.get(j).getScore());
+			//sh.append(exams.get(j).getTime());
+			//sh.append(exams.get(j).getUserId());
 			//sh.append(session.getAttribute("username"));
 			//+++++++++++++
 		}
@@ -678,9 +690,8 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 		ArrayList<Exam> exams = new ArrayList<Exam>();
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
-<<<<<<< HEAD
+
 		for(int j=0;j<exams.size();j++) {
-			System.out.println("1");
 			sh.append("<tr>");
 			sh.append("<td>");
 			sh.append("<a href=\"tQuery.jsp?id=");
@@ -699,33 +710,6 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 			sh.append("\t");
 			sh.append("</td>");
 			sh.append("</tr>");
-=======
-		try {
-			PrintStream printStream = new PrintStream(new FileOutputStream("editQ.jsp"));
-			for(int j=0;j<exams.size();j++) {
-				sh.append("<tr>");
-				sh.append("<td>");
-				sh.append("<a href=\"tQuery.jsp?id=");
-				sh.append(exams.get(j).getExamId());
-				sh.append("\">");
-				sh.append(exams.get(j).getTitle());
-				sh.append("</a>");
-				sh.append("</td>");
-				sh.append("<td>");
-				sh.append("<input type=\"button\" value=\"发布\" class=\"btn btn-default btn1 pull-left\" data-toggle=\"modal\" data-target=\"#applyModal\">");
-				sh.append("</td>");
-				sh.append("<td>");
-				sh.append("<input type=\"button\" value=\"查看成绩\" onclick=\"window.location='totGrade.jsp?id=");
-				sh.append(exams.get(j).getExamId());
-				sh.append("'\"></td>");
-				sh.append("<td>");
-				sh.append("<input type=\"button\" value=\"删除\">");
-				sh.append("\t");
-				sh.append(exams.get(j).getTime());
-				sh.append("\t");
-				sh.append("</td>");
-				sh.append("</tr>");
->>>>>>> a9d7b0f75e546a6e3b6777af6d9760b49f751e5c
 
 		}
 
@@ -779,7 +763,7 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 			sh.append("</ul>");
 			System.out.println("2");
 		}	
-//}
+		//}
 		return sh;
 	}
 
@@ -804,7 +788,7 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 		}
 		return sh;
 	}
-	
+
 	public StringBuilder createStudentQuestion(String id) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();
 		Exam exam = examDao.getExamById(id);
@@ -828,7 +812,7 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 		}
 		return sh;
 	}
-	
+
 	public StringBuilder createResult(String userId,String examId) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();
 		Exam exam = examDao.getExamById(examId);
