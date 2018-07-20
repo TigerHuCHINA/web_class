@@ -40,7 +40,7 @@ import com.pojo.UserEdit;
 import com.pojo.Video;
 
 public class Create{
- public StringBuilder createVideo() throws SQLException, ParseException, IOException{
+	public StringBuilder createVideo() throws SQLException, ParseException, IOException{
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
 		videos=vd.getAll();
@@ -87,7 +87,7 @@ public class Create{
 		return sh;	
 	}
 
-public StringBuilder createComment(String videoId,String ownerId,String userId) throws SQLException, ParseException {
+	public StringBuilder createComment(String videoId,String ownerId,String userId) throws SQLException, ParseException {
 		CommentDao dao=new CommentDao();
 		ArrayList<Comment> comments = new ArrayList<Comment>();
 		comments=dao.getByVideo(videoId);
@@ -138,8 +138,8 @@ public StringBuilder createComment(String videoId,String ownerId,String userId) 
 		return sh;	
 
 	}
-	
-public StringBuilder createAgree(String userid) throws SQLException, ParseException {
+
+	public StringBuilder createAgree(String userid) throws SQLException, ParseException {
 		AgreeDao dao=new AgreeDao();
 		ArrayList<Agree> agrees = new ArrayList<Agree>();
 
@@ -178,8 +178,8 @@ public StringBuilder createAgree(String userid) throws SQLException, ParseExcept
 		}
 		return sh;
 	}
-	
-public StringBuilder createFollow(String userid) throws SQLException, ParseException {
+
+	public StringBuilder createFollow(String userid) throws SQLException, ParseException {
 		FollowDao dao=new FollowDao();
 		ArrayList<Follow> follows = new ArrayList<Follow>();
 		follows=dao.getByUser(userid);//videoId
@@ -215,7 +215,7 @@ public StringBuilder createFollow(String userid) throws SQLException, ParseExcep
 		return sh;
 	}
 
-public StringBuilder createCollection(String userid) throws SQLException, ParseException {
+	public StringBuilder createCollection(String userid) throws SQLException, ParseException {
 		CollectDao dao=new CollectDao();
 		ArrayList<Collection> collections = new ArrayList<Collection>();
 		collections=dao.getByUserId(userid);//videoId
@@ -692,12 +692,31 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
 		for(int j=0;j<exams.size();j++) {
-			//+++++++++++++
-			sh.append(exams.get(j).getExamId());
+			System.out.println("???");
+			sh.append("<tr>");
+			sh.append("<td>");
+			//sh.append("<a href=\"begin.jsp?id=");
+			//sh.append(exams.get(j).getExamId());
+			//sh.append("\">");
 			sh.append(exams.get(j).getTitle());
-			sh.append(exams.get(j).getScore());
+			sh.append("</a>");
+			sh.append("\t截止时间：");
 			sh.append(exams.get(j).getTime());
-			sh.append(exams.get(j).getUserId());
+			sh.append("</td>");
+			sh.append("<td>");
+			sh.append("<a href=\"begin.jsp?id=");
+			sh.append(exams.get(j).getExamId());
+			sh.append("\">");
+			sh.append("<input type=\"button\" value=\"开始答题\" >");
+			sh.append("</a>");
+			sh.append("</td>");
+			sh.append("</tr>");
+			//+++++++++++++
+			//sh.append(exams.get(j).getExamId());
+			//sh.append(exams.get(j).getTitle());
+			//sh.append(exams.get(j).getScore());
+			//sh.append(exams.get(j).getTime());
+			//sh.append(exams.get(j).getUserId());
 			//sh.append(session.getAttribute("username"));
 			//+++++++++++++
 		}
@@ -791,7 +810,7 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 			sh.append("</ul>");
 			System.out.println("2");
 		}	
-//}
+		//}
 		return sh;
 	}
 
@@ -816,7 +835,7 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 		}
 		return sh;
 	}
-	
+
 	public StringBuilder createStudentQuestion(String id) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();
 		Exam exam = examDao.getExamById(id);
@@ -840,7 +859,7 @@ public StringBuilder createCollection(String userid) throws SQLException, ParseE
 		}
 		return sh;
 	}
-	
+
 	public StringBuilder createResult(String userId,String examId) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();
 		Exam exam = examDao.getExamById(examId);
