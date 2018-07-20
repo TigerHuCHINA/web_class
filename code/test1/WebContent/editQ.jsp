@@ -6,12 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>编辑试卷</title>
+
+<link href="css/button.css" rel='stylesheet' type='text/css'>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css'>
+<!-- <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css'> -->
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/editQ.css" rel='stylesheet' type='text/css'>
-<link href="css/button.css" rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 <!-- 顶部菜单 -->
@@ -40,11 +42,12 @@ StringBuilder s = create.createExam((String)request.getSession().getAttribute("u
 out.println(s);
 %>
   </table>	
-</form>  
-<input type="button" value="添加" onclick="window.location='query.jsp'">
-
-
-		<!-- -------------弹出框-------------------------	 -->
+</form>
+<div class="mybtn1">  
+<a class="btn btn-medium type2" value="添加" onclick="window.location='query.jsp'">添加试卷</a>
+</div>
+<!-- 
+		-------------弹出框-------------------------	
 		<div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog_1">
 				<div class="modal-content">
@@ -90,6 +93,6 @@ out.println(s);
 		}
 			
 		</script>
-</div>
+</div> -->
 </body>
 </html>

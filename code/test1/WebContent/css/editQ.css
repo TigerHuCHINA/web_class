@@ -9,3 +9,30 @@ body{
 	position:relative;
 	top:100px;
 }
+#txt1{
+	font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
+	width:500px;
+	height:50px;
+	border:2px solid #683B4D;
+	border-radius:5px;
+	background-color:transparent;
+	position:relative;
+	top:50px;
+	left:100px;
+}
+.mybtn1{
+	position:relative;
+	left:100px;
+}
+
+.mytext{
+	font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
+	color:#683B4D;
+}
+
+#myTable{
+	position:relative;
+	left:100px;
+	top:200px;
+	width:1000px;
+}
