@@ -31,5 +31,6 @@ public class UserCountAction extends HttpServlet {
 		u0.setUid(id0);
 		dao.doCount(u,u0);
 		dao.doRecord(u,u0);
+		System.out.println("2");
 	}
 }
