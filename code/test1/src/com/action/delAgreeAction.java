@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.dao.AgreeDao;
 import com.pojo.Agree;
-
+//调用取消赞的数据库指令-季宇恒
 public class delAgreeAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		doPost(request, response);
