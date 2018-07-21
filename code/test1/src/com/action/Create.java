@@ -341,7 +341,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 			return sh;
 		}
 		SimpleDateFormat   formatter =new   SimpleDateFormat( "yyyy-MM-dd ");
-		sh.append("<div id='videos'>");
+		sh.append("<div>");
 		sh.append("<ul class='ul1'>");
 		//if(videos.size()==0)sh.append("<strong>Î´ÕÒµ½ÄúËÑË÷µÄÊÓÆµ</strong>");
 		for(int j=0;j<videos.size();j++) {
@@ -393,10 +393,10 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		}
 
 		SimpleDateFormat   formatter =new   SimpleDateFormat( "yyyy-MM-dd ");
-		sh.append("<div id='videos'>");
-		sh.append("<ul class='ul1'>");
+		sh.append("<div id='videos2'>");
+		sh.append("<ul class='ul2'>");
 		for(int j=0;j<videos.size();j++) {
-			sh.append("<li>");
+			sh.append("<li class='li1'>");
 			sh.append("<div class='box1'>");
 			sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");
 			sh.append(videos.get(j).getId());
@@ -446,7 +446,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		sh.append("<div id='videos'>");
 		sh.append("<ul class='ul1'>");
 		for(int j=0;j<videos.size();j++) {
-			sh.append("<li>");
+			sh.append("<li class='li2'>");
 			sh.append("<div class='box1'>");
 			sh.append("<a class='avatar_pic' target='_self' href='video.jsp?id=");
 			sh.append(videos.get(j).getId());

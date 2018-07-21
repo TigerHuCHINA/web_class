@@ -5,6 +5,9 @@
 	margin-right: 100px;
 	margin-top:80px;
 }
+.mycollect{
+	clear:both;
+}
 .ul2 li{
 	float: left; 
 	margin-right: 100px;
@@ -14,7 +17,8 @@ div li{
 	list-style-type:none;
 }
 div .box1{
-	width: 225px;height: 175px;
+	width: 225px;
+	height: 175px;
 	box-shadow: 0 4px 20px #ccc;
 	position: relative;
 	overflow: hidden;

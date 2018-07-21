@@ -224,8 +224,10 @@ out.println(s_);
     <a href = "javascript:void(0)" id= "close1" onclick = "document.getElementById('light1').style.display='none';document.getElementById('fade').style.display='none'">×</a>
     
     <form action="doFeedback" method="post" onsubmit="return checkMessage();">
-         <textarea class="mymessage" id="message" name="content" type="text" placeholder="请输入反馈" style="width:300px;height:150px;"></textarea>                               
-         <input type="submit" name="submit" onclick="myFunction()" value="提交">                        
+         <textarea class="mymessage" id="message" name="content" type="text" placeholder="请输入反馈" ></textarea> 
+         <div class="btn1">                             
+         <input type="submit" name="submit" onclick="myFunction()" value="提交" class="btn btn-medium type2">  
+         </div>                            
     </form>
 </div> 
 
@@ -235,7 +237,9 @@ out.println(s_);
     <a href = "javascript:void(0)" id= "close2" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade').style.display='none'">×</a>
     <form method="post" action="ImageAction" enctype="multipart/form-data">
         <input class="fileInput" id="file" type="file" name="file"/>
-        <input class="submitimage" type="submit" value="提交"/>
+        <div class="btn2">
+        <input class="submitimage btn btn-medium type2" type="submit" value="提交"/>
+        </div>
     </form>
 </div>
 
