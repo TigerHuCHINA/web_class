@@ -237,8 +237,8 @@ out.println(s);
 <div id="fade" class="black_overlay"></div> 
 
 <%
-	/*String id1 = String.valueOf(11);
-	String id2= String.valueOf(11);
+/*	String id1 = request.getParameter("id");
+	String id2 = request.getParameter("ownerid");
 	UserCountAction visitorcount = new UserCountAction();
 	visitorcount.doo(id1,id2);*/
 %>   
@@ -249,6 +249,7 @@ out.println(s);
 	String id0= String.valueOf((String)request.getSession().getAttribute("ownerid"));
 	UserCountAction usercount = new UserCountAction();
 	usercount.doo(id,id0);
+	System.out.print("1");
 %>
 
 

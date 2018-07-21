@@ -23,7 +23,7 @@ String ownername = u.getUname();
 <body>
 <h1 align="center">查看试卷</h1>
 
-  <table width="300">
+  <table width="450">
    <%
   	String id=(String)request.getSession().getAttribute("ownerid");
     //String id="111";
