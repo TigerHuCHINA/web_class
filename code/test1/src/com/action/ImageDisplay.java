@@ -42,6 +42,7 @@ public class ImageDisplay extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	//œ‘ æÕº∆¨-∞¢“¿∂‡Àπ
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String path=this.getServletContext().getRealPath("");
 		getInfo get = new getInfo();

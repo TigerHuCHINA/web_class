@@ -33,6 +33,7 @@ import com.pojo.Video;
 
 
 public class Create {
+	//动态生成视频-阿依多斯
 public StringBuilder createVideo() throws SQLException, ParseException, IOException{
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
@@ -738,7 +739,6 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		exams = dao.getByUserIdXTime3(userid);
 		StringBuilder sh = new StringBuilder();
 		for(int j=0;j<exams.size();j++) {
-			System.out.println("22");
 			sh.append("<ul id=\"pn1\">");
 			sh.append("<li class=\"list1\">");
 			sh.append("<div class=\"content\">");
