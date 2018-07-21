@@ -31,9 +31,9 @@ import com.pojo.User;
 import com.pojo.UserEdit;
 import com.pojo.Video;
 
-public class Create{
 
-	public StringBuilder createVideo() throws SQLException, ParseException, IOException{
+public class Create {
+public StringBuilder createVideo() throws SQLException, ParseException, IOException{
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
 		videos=vd.getAll();
@@ -48,7 +48,7 @@ public class Create{
 			sh.append(videos.get(j).getId());
 			sh.append("&useid=");
 			sh.append(videos.get(j).getUserId());
-			sh.append("'>");
+			sh.append("'>");		
 			sh.append("<img src='ImageDisplay?id=video&number=");
 			sh.append(videos.get(j).getId());
 			sh.append("' width='100%' height='100%'>");
@@ -685,7 +685,6 @@ public class Create{
 		ArrayList<Exam> exams = new ArrayList<Exam>();
 		exams=dao.getByUserId(teacherid);
 		StringBuilder sh = new StringBuilder();
-
 			for(int j=0;j<exams.size();j++) {
 				String id = exams.get(j).getExamId();
 				sh.append("<tr>");
@@ -726,8 +725,7 @@ public class Create{
 				sh.append(exams.get(j).getTime());
 				sh.append("</td>");
 				sh.append("</tr>");
-		}
-
+			}
 		return sh;
 	}
 
