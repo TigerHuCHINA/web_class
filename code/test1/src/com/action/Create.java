@@ -737,7 +737,6 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		exams = dao.getByUserIdXTime3(userid);
 		StringBuilder sh = new StringBuilder();
 		for(int j=0;j<exams.size();j++) {
-			System.out.println("22");
 			sh.append("<ul id=\"pn1\">");
 			sh.append("<li class=\"list1\">");
 			sh.append("<div class=\"content\">");
