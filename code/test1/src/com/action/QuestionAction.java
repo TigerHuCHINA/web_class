@@ -13,6 +13,7 @@ import com.dao.ExamDao;
 import com.pojo.Answer;
 import com.pojo.Question;
 
+//±‡º≠ ‘æÌ-∂≈”Ó∫Ω
 public class QuestionAction extends HttpServlet{
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		doPost(request, response);

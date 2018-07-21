@@ -1,3 +1,4 @@
+//所有实体类由杜宇航、季宇恒共同建立
 package com.pojo;
 
 public class Agree {

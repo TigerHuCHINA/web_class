@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.dao.FeedbackDao;
 import com.pojo.Feedback;
-
+//∑¥¿°-∂≈”Ó∫Ω
 public class FeedbackAction extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)

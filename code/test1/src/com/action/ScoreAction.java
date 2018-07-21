@@ -19,6 +19,7 @@ import com.pojo.Question;
 import com.pojo.Result;
 import com.pojo.User;
 
+//生成分数-杜宇航
 public class ScoreAction extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)

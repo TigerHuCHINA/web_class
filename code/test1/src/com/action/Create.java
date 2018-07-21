@@ -80,7 +80,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		sh.append("</div>");
 		return sh;	
 	}
-
+//动态生成评论
 	public StringBuilder createComment(String videoId,String ownerId,String userId) throws SQLException, ParseException {
 		CommentDao dao=new CommentDao();
 		ArrayList<Comment> comments = new ArrayList<Comment>();
@@ -332,6 +332,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		}
 		return sh;
 	}
+	//动态生成搜索的视频
 	public StringBuilder createSelectedVideo(String key) throws SQLException, ParseException {
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
@@ -384,6 +385,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		sh.append("</div>");
 		return sh;	
 	}
+	//动态生成收藏的视频-杜宇航
 	public StringBuilder createCollectVideo(String id) throws SQLException, ParseException {
 		getCollect get = new getCollect();
 		ArrayList<Video> videos = get.getByCollectId(id);
@@ -435,6 +437,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		sh.append("</div>");
 		return sh;	
 	}
+	//动态生成上传的视频-杜宇航
 	public StringBuilder createUploadVideo(String id) throws SQLException, ParseException {
 		VideoDao dao = new VideoDao();
 		ArrayList<Video> videos = dao.getInfoByUserId(id);
@@ -486,6 +489,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		sh.append("</div>");
 		return sh;	
 	}
+	//动态生成他人上传视频-杜宇航
 	public StringBuilder createHisUploadVideo(String id) throws SQLException, ParseException {
 		VideoDao dao = new VideoDao();
 		ArrayList<Video> videos = dao.getInfoByUserId(id);
@@ -559,6 +563,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		}
 		return sh;
 	}
+	//动态生成历史记录-杜宇航
 	public StringBuilder createHistory(String id) throws SQLException, ParseException {
 		VideoDao dao=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
@@ -613,6 +618,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		sh.append("</div>");
 		return sh;
 	}
+	//动态生成搜索的用户-杜宇航
 	public StringBuilder createSelectedUser(String key) throws SQLException, ParseException {
 		UserEditDao dao=new UserEditDao();
 		ArrayList<UserEdit> userEdits = new ArrayList<UserEdit>();
@@ -776,7 +782,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 	}
 
 
-
+	//老师试卷-杜宇航
 	public StringBuilder createTeacherQuestion(String id) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();
 		Exam exam = examDao.getExamById(id);//id
@@ -796,7 +802,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		}
 		return sh;
 	}
-
+//学生试卷-杜宇航
 	public StringBuilder createStudentQuestion(String id) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();
 		Exam exam = examDao.getExamById(id);
@@ -823,7 +829,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		}
 		return sh;
 	}
-
+//生成考试结果-杜宇航
 	public StringBuilder createResult(String userId,String examId) throws SQLException, ParseException {
 		ExamDao examDao = new ExamDao();
 		Exam exam = examDao.getExamById(examId);

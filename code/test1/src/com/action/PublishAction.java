@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.dao.ExamDao;
 
-
+//∑¢≤º ‘æÌ-∂≈”Ó∫Ω
 public class PublishAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		doPost(request, response);

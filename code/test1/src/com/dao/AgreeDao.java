@@ -1,3 +1,4 @@
+//所有数据库操作由杜宇航和季宇恒共同编写
 package com.dao;
 
 import java.sql.ResultSet;
