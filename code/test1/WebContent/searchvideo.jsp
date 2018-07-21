@@ -28,7 +28,7 @@
 
 
 </div>
-<div style="position:relative;top:100px;">
+<div style="position:relative;top:100px;left:50px;">
 <div >相关视频</div>
 <%
 Create cv=new Create();
@@ -38,7 +38,7 @@ StringBuilder s=cv.createSelectedVideo(key);
 out.println(s);
 %>
 
-<div>相关用户</div>
+<div style="clear:both;">相关用户</div>
 
 <%
 Create c=new Create();

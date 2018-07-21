@@ -92,8 +92,8 @@ public class ExamDao extends BaseDao {
 	}
 	
 	public ArrayList<Exam> getByUserIdXTime2(String userId){
-		System.out.println("1");
-		String sql="select * from exam where userId=? and time_to_sec(now())-time_to_sec(time)>0"; //order by desc";
+		String sql="select * from exam where userId=? and now()-time<0"; 
+		//String sql="select * from exam where userId=? and time_to_sec(now())-time_to_sec(time)>0"; 
 		Object obj[] = {userId};
 		ResultSet set = executeSelect(sql, obj);
 		ArrayList<Exam> exams = new ArrayList<Exam>();
