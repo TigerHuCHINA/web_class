@@ -86,9 +86,9 @@
 									</p>
 								
 									<p class="stdformbutton">
-										<input type="submit" value="录入" class="btn btn-medium type2">
+										<input type="submit" value="录入" class="btn btn-medium type1">
 										<input type="reset" value="重置" class="btn btn-medium type2">
-										<input type="button" value="完成" onclick="sub()" class="btn btn-medium type2"/>
+										<input type="button" value="完成" onclick="sub()" class="btn btn-medium type3"/>
 									</p>
 							</div>
 							<!--widgetcontent-->
@@ -103,15 +103,15 @@
 									</p>
 									<p>
 										
-										<span id="table" class="answer2" placeholder="请输如答案"></span><!-- name="questions[ + this.qno + ]" -->
+										<span id="table" class="answer2" placeholder="请输入答案"></span><!-- name="questions[ + this.qno + ]" -->
 									</p>
 									<p>
-										 <span class="field"><textarea name="stParse2" cols="80" rows="5" class="span5" placeholder="请输如解析"></textarea></span> 
+										 <span class="field"><textarea name="stParse2" cols="80" rows="5" class="span5" placeholder="请输入解析"></textarea></span> 
 									</p>
 								
 									<p>
 										
-										 <span class="field"><input class="score" name="score2" type="text" placeholder="请输如分值"></span> 
+										 <span class="field"><input class="score" name="score2" type="text" placeholder="请输入分值"></span> 
 									</p>
 								
 									<p class="stdformbutton2">

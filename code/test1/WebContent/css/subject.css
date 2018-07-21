@@ -88,6 +88,9 @@ body{
 	left:680px;
 	top:300px;
 }
+.stdformbutton input{
+	border:none;
+}
 .answer2{
 	position:relative;
 	left:700px;

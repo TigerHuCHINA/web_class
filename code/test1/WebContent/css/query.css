@@ -9,6 +9,7 @@ body{
 .content{
 	position:relative;
 	top:100px;
+	left:50px;
 }
 
 .examname{
@@ -27,10 +28,12 @@ body{
 
 .mybtn1{
 	position:relative;
-	left:870px;
+	left:50px;
 	top:200px
 }
-
+.mybtn1 input{
+	border:none;
+}
 
 
 

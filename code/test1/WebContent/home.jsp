@@ -339,7 +339,7 @@ function checkMessage(){
 <!-- 搜索框 常庭瑞 -->
 <div class="search1 bar1">
     <form action="searchvideo.jsp" onsubmit="return login2()">
-        <input type="text" name="content" placeholder="请输如你感兴趣的课程或用户">
+        <input type="text" name="content" placeholder="请输入你感兴趣的课程或用户">
         <button id="search" type="submit"></button>
     </form>
 </div>
