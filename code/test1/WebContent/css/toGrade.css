@@ -1,0 +1,31 @@
+body{
+	font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
+	background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.content{
+	position:relative;
+	top:100px;
+}
+
+#table1{
+	position:relative;
+	left:100px;
+	width:1000px;
+}
+#table1 th{
+	font-size:20px;
+	height:30px;
+	position:relative;
+	left:20px;
+}
+#table1 td{
+	width:200px;
+}
+.mybtn{
+	position:relative;
+	left:400px;
+	top:50px;
+}

@@ -5,6 +5,11 @@
 	margin-right: 100px;
 	margin-top:80px;
 }
+.ul2 li{
+	float: left; 
+	margin-right: 100px;
+	margin-top:80px;
+}
 div li{
 	list-style-type:none;
 }

@@ -18,11 +18,29 @@ String owmername = u.getUname();
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<link href="css/header.css" rel='stylesheet' type='text/css'>
+<link href="css/browseQ.css" rel='stylesheet' type='text/css'>
+<link href="css/button.css" rel='stylesheet' type='text/css'>
 </head>
 <body>
-<h1 align="center">查看试卷</h1>
+<!-- 顶部菜单 -->
+<div class="header">
 
-  <table width="300">
+    <a class="head1" href="home.jsp">主界面</a>
+
+    <a class="head2" style="cursor:default;"><img src="ImageDisplay?id=user" width="75px" height="75px"></a>
+        
+    <a class="head3" style="cursor:default;"><%=request.getSession().getAttribute("username") %></a>
+
+    <a class="head4" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">反馈</a>
+
+
+</div>
+<div class="content">
+
+
+  <table class="mytable" >
    <%
   	String id=(String)request.getSession().getAttribute("ownerid");
     //String id="111";
@@ -92,5 +110,6 @@ String owmername = u.getUname();
 			
 		</script>
 		-->
+</div>
 </body>
 </html>

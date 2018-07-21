@@ -514,7 +514,7 @@ public class Create{
 		ArrayList<Video> videos = dao.getInfoByUserId(id);
 		StringBuilder sh = new StringBuilder();
 		sh.append("<div id='videos'>");
-		sh.append("<ul class='ul1'>");
+		sh.append("<ul class='ul2'>");
 		for(int j=0;j<videos.size();j++) {
 			sh.append("<li>");
 			sh.append("<div class='box1'>");
@@ -693,15 +693,19 @@ public class Create{
 			//sh.append(exams.get(j).getExamId());
 			//sh.append("\">");
 			sh.append(exams.get(j).getTitle());
-			sh.append("</a>");
+			sh.append("</td>");
+			sh.append("<td>");
+			//sh.append("</a>");
 			sh.append("\t截止时间：");
+			sh.append("</td>");
+			sh.append("<td>");
 			sh.append(exams.get(j).getTime());
 			sh.append("</td>");
 			sh.append("<td>");
 			sh.append("<a href=\"begin.jsp?id=");
 			sh.append(exams.get(j).getExamId());
 			sh.append("\">");
-			sh.append("<input type=\"button\" value=\"开始答题\" >");
+			sh.append("<input type=\"button\" class=\"btn btn-medium type1\" value=\"开始答题\" >");
 			sh.append("</a>");
 			sh.append("</td>");
 			sh.append("</tr>");
@@ -724,14 +728,12 @@ public class Create{
 			for(int j=0;j<exams.size();j++) {
 				String id = exams.get(j).getExamId();
 				sh.append("<tr>");
-				sh.append("<td>");
+				sh.append("<td class=\"mytext\">");
 				sh.append("<a href=\"tQuery.jsp?id=");
 				sh.append(id);
 				sh.append("\">");
-				sh.append("</a>");
-				sh.append("</td>");
-				sh.append("<td class=\"mytext\">");
 				sh.append(exams.get(j).getTitle());
+				sh.append("</a>");
 				sh.append("</td>");
 				sh.append("<td>");
 				sh.append("<div class=\"mybtn2\">");
@@ -851,13 +853,16 @@ public class Create{
 		sh.append("<h1 align=\"center\">");
 		sh.append(exam.getTitle());
 		sh.append("</h1>");
+		sh.append("<h3 align=\"center\">截止时间");
+		sh.append(exam.getTime());
+		sh.append("</h3>");
 		for(int j=0;j<questions.size();j++) {	
-			sh.append("<div>");
+			sh.append("<div class=\"question\">");
 			sh.append(String.valueOf(j+1) + ". " + questions.get(j).getqContent());
 			sh.append("<br>");
 			for(int k = 0; k < Integer.parseInt(questions.get(j).getEmpty()); k++)
 			{
-				sh.append("<input type=\"text\" name=\"");
+				sh.append("<input class=\"myblank\" type=\"text\" name=\"");
 				sh.append("text" + String.valueOf(j) + String.valueOf(k));
 				sh.append("\">");
 			}
@@ -881,7 +886,7 @@ public class Create{
 		StringBuilder sh = new StringBuilder();
 		sh.append("<h1 align=\"center\">");
 		sh.append(exam.getTitle());
-		sh.append("</h1><br><p><hr/><h4>错题</h4>");
+		sh.append("</h1><br><p><h4>错题</h4>");
 		for(int j=0;j<questions.size();j++) {	
 			sh.append("<div>");
 			sh.append(questions.get(j).getqContent());
