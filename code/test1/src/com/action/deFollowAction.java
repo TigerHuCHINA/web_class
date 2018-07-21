@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.dao.FollowDao;
 import com.pojo.Follow;
-
+//调用取消关注的数据库指令-季宇恒
 public class deFollowAction {
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		doPost(request, response);

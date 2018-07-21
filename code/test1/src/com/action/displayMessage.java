@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import com.dao.MessageDao;
 import com.pojo.Message;
-
+//调用显示消息的数据库指令-季宇恒
 public class displayMessage {
 	public StringBuilder createVideo() throws SQLException, ParseException, FileNotFoundException {
 		MessageDao md=new MessageDao();

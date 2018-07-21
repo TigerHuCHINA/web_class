@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.dao.ExamDao;
 import com.pojo.Exam;
 
-//提交试卷-杜宇航
+//exam相关调用-季宇恒
 public class ExamAction extends HttpServlet {
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException {
 		doPost(request, response);

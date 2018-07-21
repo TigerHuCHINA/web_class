@@ -529,6 +529,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		sh.append("</div>");
 		return sh;	
 	}
+	//自动生成读取好友列表的HTML代码-季宇恒
 	public StringBuilder createFriend(String id) throws SQLException, ParseException {
 		FollowDao dao=new FollowDao();
 		ArrayList<Follow> follows = new ArrayList<Follow>();
@@ -663,6 +664,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		}
 		return sh;
 	}
+	//学生查看老师题库时，自动生成可见的题目列表的HTML代码-季宇恒
 	public StringBuilder browseExam(String teacherid) throws SQLException, ParseException {
 		ExamDao dao=new ExamDao();
 		ArrayList<Exam> exams = new ArrayList<Exam>();
@@ -692,6 +694,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		}
 		return sh;
 	}
+	//自动生成老师题库的HTML代码-季宇恒
 	public StringBuilder createExam(String teacherid) throws SQLException, ParseException {
 		ExamDao dao=new ExamDao();
 		ArrayList<Exam> exams = new ArrayList<Exam>();
@@ -738,7 +741,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 			}
 		return sh;
 	}
-
+	//动态消息页面自动生成老师发布试题的HTML代码-季宇恒
 	public StringBuilder createExamPublish(String userid) throws SQLException, ParseException {
 		ExamDao dao = new ExamDao();
 		ArrayList<Exam> exams = new ArrayList<Exam>();
