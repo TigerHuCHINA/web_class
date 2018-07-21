@@ -21,5 +21,44 @@ public class FileDao extends BaseDao {
 			free();
 			return false;
 		}
-	}	
+	}
+	public String getPath(String filepath,String id,String folder) throws IOException {
+		String tarPath = null;
+		if(folder=="picture") {
+			tarPath="picture";
+		}else{
+			tarPath="video";
+		}
+		File file=new File(filepath);
+		String fileName=file.getName();
+		String format=fileName.substring(fileName.lastIndexOf(".") + 1);
+		FileInputStream f=new FileInputStream(file);
+		FileOutputStream out=null;
+		byte[] bs = new byte[1024];
+		int len;
+		File tempFile = new File(tarPath);
+		if (!tempFile.exists()) {
+            tempFile.mkdirs();
+        }
+		tarPath=tarPath+"/"+id+"." + format;
+		out = new FileOutputStream(tarPath);
+		 while ((len = f.read(bs)) != -1) {
+             out.write(bs, 0, len);
+         }
+		 try {
+             out.close();
+             f.close();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+		
+		return tarPath;
+	}
+	
+	
+	
+	
+	
+	
+	
 }

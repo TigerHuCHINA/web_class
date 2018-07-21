@@ -21,7 +21,6 @@ import com.pojo.Video;
 /**
  * Servlet implementation class VideoDisplay
  */
-//显示视频-阿依多斯
 public class VideoDisplay extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,7 +43,6 @@ public class VideoDisplay extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	//显示视频-阿依多斯
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String path=this.getServletContext().getRealPath("");

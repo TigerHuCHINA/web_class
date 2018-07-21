@@ -1,4 +1,3 @@
-<!--  邓慧颖  -->
 <%@page import="com.action.Create"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

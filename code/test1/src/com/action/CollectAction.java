@@ -26,7 +26,7 @@ public class CollectAction extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//收藏视频-阿依多斯
+
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userid");
 		String vid = (String) session.getAttribute("vid");
