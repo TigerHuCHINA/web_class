@@ -131,7 +131,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		return sh;	
 
 	}
-
+	//动态生成显示点赞信息的html代码-季宇恒
 	public StringBuilder createAgree(String userid) throws SQLException, ParseException {
 		AgreeDao dao=new AgreeDao();
 		ArrayList<Agree> agrees = new ArrayList<Agree>();
@@ -171,7 +171,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		}
 		return sh;
 	}
-
+	//动态生成显示关注信息的html代码-季宇恒
 	public StringBuilder createFollow(String userid) throws SQLException, ParseException {
 		FollowDao dao=new FollowDao();
 		ArrayList<Follow> follows = new ArrayList<Follow>();
@@ -206,7 +206,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 
 		return sh;
 	}
-
+	//动态生成显示收藏信息的html代码-季宇恒
 	public StringBuilder createCollection(String userid) throws SQLException, ParseException {
 		CollectDao dao=new CollectDao();
 		ArrayList<Collection> collections = new ArrayList<Collection>();
@@ -247,7 +247,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		}
 		return sh;
 	}
-
+	//动态生成显示私信信息的html代码-季宇恒
 	public StringBuilder createMessage(String acceptid) throws SQLException, ParseException {
 		MessageDao dao=new MessageDao();
 		ArrayList<Message> messages = new ArrayList<Message>();
@@ -285,6 +285,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 		}
 		return sh;
 	}
+	//动态生成显示评论信息的html代码-季宇恒
 	public StringBuilder createCommentR(String id) throws SQLException, ParseException {
 		CommentDao dao=new CommentDao();
 		ArrayList<Comment> comments = new ArrayList<Comment>();
