@@ -26,6 +26,9 @@ body{
 	left:143px;
 }
 
+.mybtn2 input{
+	border:none;
+}
 .mytext{
 	font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
 	color:#683B4D;
