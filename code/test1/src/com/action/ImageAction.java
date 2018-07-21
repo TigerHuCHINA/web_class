@@ -23,6 +23,7 @@ import com.pojo.Date;
  * Servlet implementation class ImageAction
  */
 @WebServlet("/ImageAction")
+//上传图片-阿依多斯
 public class ImageAction extends HttpServlet {
 	
 	/**
@@ -44,7 +45,6 @@ public class ImageAction extends HttpServlet {
 		String uid = (String) session.getAttribute("userid");
 		SimpleDateFormat df = new SimpleDateFormat("ss");
 		if (!file.exists() && !file.isDirectory()) {
-			System.out.println(savePath+"目录不存在，需要创建");
 			file.mkdir();
 		}
 		String message = "";
@@ -90,38 +90,6 @@ public class ImageAction extends HttpServlet {
 			response.sendRedirect("homePage.jsp");
 		
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*HttpSession session = request.getSession();
-		String uid = (String) session.getAttribute("userid");
-		
-		String file = request.getParameter("file");
-		file = new String(file.getBytes("iso-8859-1"),"utf-8");
-		
-		FileDao fd=new FileDao();
-		SimpleDateFormat df = new SimpleDateFormat("ss");
-        String now=df.format(new java.util.Date());
-		String tarPath=fd.getPath(file,uid+now,"picture");
-		ImageDao id=new ImageDao();
-		if(id.ImageUpload(uid, tarPath)) {
-			request.setAttribute("result", "成功");
-			request.getRequestDispatcher("homePage.jsp").forward(request, response);
-		}else {
-			request.setAttribute("result", "失败");
-			request.getRequestDispatcher("xx.jsp").forward(request, response);
-		}*/
 	}
 
 

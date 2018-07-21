@@ -33,6 +33,7 @@ import com.pojo.Video;
 
 
 public class Create {
+	//动态生成视频-阿依多斯
 public StringBuilder createVideo() throws SQLException, ParseException, IOException{
 		VideoDao vd=new VideoDao();
 		ArrayList<Video> videos = new ArrayList<Video>();
