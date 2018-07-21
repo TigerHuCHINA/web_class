@@ -124,14 +124,30 @@ body{
     height: 30%; 
     padding: 20px; 
     border: 1px solid #00CCFF; 
-    background-color: white; 
+    background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
     z-index:1002; 
-    overflow: auto; 
+    overflow: none; 
 	border-radius: 15px;
 }
+.mymessage{
+	position:relative;
+	top:30px;
+	left:20px;
+	opacity:0.7;
+	width:400px;
+	height:150px;
+	
+}
 
-
-
+.btn1{
+	
+	position:relative;
+	left:140px;
+	top:50px;
+}
+.btn1 input{
+	border:none;
+}
 
 /*Òþ²Ø¿é2*/
 #close2{
@@ -151,12 +167,26 @@ body{
     height: 30%; 
     padding: 20px; 
     border: 1px solid #00CCFF; 
-    background-color: white; 
+    background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
     z-index:1002; 
-    overflow: auto;
+    overflow: none; 
 	border-radius: 15px;
 }
-
+.fileinput{
+	position:relative;
+	left:100px;
+	top:80px;
+	border:1px solid blue;
+}
+.btn2{
+	
+	position:relative;
+	left:140px;
+	top:130px;
+}
+.btn2 input{
+	border:none;
+}
 /*Òþ²Ø¿é3*/
 #close3{
 	position:absolute;
@@ -309,9 +339,5 @@ body{
 
 
 /*ÊÓÆµ*/
-.ul1{
-	margin:100px 100px 100px 0px;
-	width: 1800px;
-	height: 200px;
-}
+
   

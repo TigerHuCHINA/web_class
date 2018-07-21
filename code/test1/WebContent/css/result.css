@@ -5,8 +5,8 @@ body{
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-#videos{
-	position: absolute;
-	left:0;
+.content{
+	position:relative;
 	top:100px;
+	left:50px;
 }

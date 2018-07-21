@@ -29,13 +29,13 @@
 </div>
 
 <h1 style="position:absolute;top:100px;width:100%;text-align:center;">我的观看记录</h1>
-
+<div style="position:relative;left:100px;top:50px;">
 <%
 Create cv=new Create();
 StringBuilder s=cv.createHistory((String)request.getSession().getAttribute("userid"));
 out.println(s);
 %>
-
+</div>
 </body>
 </html>
 

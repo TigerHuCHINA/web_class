@@ -5,11 +5,13 @@ body{
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
 .content{
 	position:relative;
 	top:100px;
 }
-#txt1{
+
+.examname{
 	font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
 	width:500px;
 	height:50px;
@@ -18,22 +20,26 @@ body{
 	background-color:transparent;
 	position:relative;
 	top:100px;
+	left:700px;
+	padding-left:10px;
 	
 }
+
 .mybtn1{
 	position:relative;
-	
-	left:143px;
+	left:870px;
+	top:200px
 }
 
-.mytext{
-	font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;
-	color:#683B4D;
-}
 
-#myTable{
-	position:relative;
 
-	top:200px;
-	width:1000px;
-}
+
+
+
+
+
+
+
+
+
+

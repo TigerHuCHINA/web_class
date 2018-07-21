@@ -11,6 +11,7 @@
 <script src="js/videopage.js"></script>
 <link href="css/header.css" rel='stylesheet' type='text/css'>
 <link href="css/button.css" rel='stylesheet' type='text/css'>
+<link href="css/searchbox.css" rel='stylesheet' type='text/css'>
 <link href="css/videostyle.css" rel='stylesheet' type='text/css'>
 <title>视频名称</title>
 <link type="text/css" rel="stylesheet" href="css/yizan.css">
@@ -242,11 +243,11 @@ body {
 </div>
 <!-- ----------------------播放视频，邓慧颖---------------------------------- -->
 
-<div style="position:relative;top:46px;">
-<div class="search1 dd1">
-    <form class="search1" onsubmit="return login2()" action="searchvideo.jsp">
-        <input type="text" name="content" placeholder="搜索你感兴趣的课程">
-		<button id="search" class="searchbutton" type="submit" style="background-image:url(picture/8.jpg); background-size:100% 100%;"></button>
+<!-- 搜索框 常庭瑞 -->
+<div class="search2 bar1">
+    <form action="searchvideo.jsp" onsubmit="return login2()">
+        <input type="text" name="content" placeholder="请输入你感兴趣的课程或用户">
+        <button id="search" type="submit"></button>
     </form>
 </div>
 <%
@@ -255,7 +256,7 @@ request.getSession().setAttribute("vid",vid);
 String ownerid=request.getParameter("useid");
 request.getSession().setAttribute("ownerid",ownerid);
 %>
-
+<div class="content">
 <div class="background1"></div>
 
 <div class="myvideo">
@@ -336,6 +337,8 @@ StringBuilder s=cv.createComment(vid,ownerid,(String)request.getSession().getAtt
 out.println(s);
 %>
 <!-- -------------------------------评论结束----------------------- -->
+</div>
+
 </div>
 </body>
 </html>

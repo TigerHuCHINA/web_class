@@ -30,7 +30,9 @@
 
 </div>
 <div class="content">
-
+<div class="mybtn1">  
+<a class="btn btn-medium type2" value="添加" onclick="window.location='query.jsp'">添加试卷</a>
+</div>
 
 <form action="doPublish" method="post">
 <input type= "hidden" id="exam" name="exam">
@@ -43,9 +45,7 @@ out.println(s);
 %>
   </table>	
 </form>
-<div class="mybtn1">  
-<a class="btn btn-medium type2" value="添加" onclick="window.location='query.jsp'">添加试卷</a>
-</div>
+
 <!-- 
 		-------------弹出框-------------------------	
 		<div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel" aria-hidden="true">
