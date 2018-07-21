@@ -658,7 +658,7 @@ public StringBuilder createVideo() throws SQLException, ParseException, IOExcept
 	public StringBuilder browseExam(String teacherid) throws SQLException, ParseException {
 		ExamDao dao=new ExamDao();
 		ArrayList<Exam> exams = new ArrayList<Exam>();
-		exams=dao.getByUserIdXTime3(teacherid);
+		exams=dao.getByUserIdXTime2(teacherid);
 		StringBuilder sh = new StringBuilder();
 		for(int j=0;j<exams.size();j++) {
 			System.out.println("???");
